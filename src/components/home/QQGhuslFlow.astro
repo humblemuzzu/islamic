@@ -1,0 +1,115 @@
+---
+import T from '../T.astro';
+---
+
+        <!-- GHUSL FLOW -->
+        <div class="qa-screen" data-screen="ghusl-start">
+          <span class="qa-badge">Ghusl</span>
+          <h3 class="qa-question">
+            <span data-lang-text="en">What do you need to know about ghusl?</span>
+            <span data-lang-text="ru">Aap ghusl ke baare mein kya janna chahti hain?</span>
+            <span data-lang-text="ur">آپ غسل کے بارے میں کیا جاننا چاہتی ہیں؟</span>
+          </h3>
+          <div class="qa-options">
+            <button class="qa-option" data-goto="ghusl-when">
+              <T en="When is ghusl required?" ru="Ghusl kab farz hota hai?" ur="غسل کب فرض ہوتا ہے؟" />
+            </button>
+            <button class="qa-option" data-goto="ghusl-how">
+              <T en="How to perform ghusl" ru="Ghusl ka tareeqa" ur="غسل کا طریقہ" />
+            </button>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="ghusl-when">
+          <span class="qa-badge"><T en="When is Ghusl Required" ru="Ghusl Kab Farz Hai" ur="غسل کب فرض ہے" /></span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">
+              <span data-lang-text="en">Ghusl Becomes Obligatory After:</span>
+              <span data-lang-text="ru">Ghusl In Halaat mein Farz Hota Hai:</span>
+              <span data-lang-text="ur">غسل ان حالات میں فرض ہوتا ہے:</span>
+            </h3>
+            <ul class="qa-answer-list">
+              <li>
+                <span data-lang-text="en">Haiz (menstruation) ends</span>
+                <span data-lang-text="ru">Haiz (mahawari) khatam ho</span>
+                <span data-lang-text="ur">حیض (ماہواری) ختم ہو</span>
+              </li>
+              <li>
+                <span data-lang-text="en">Nifas (post-natal bleeding) ends</span>
+                <span data-lang-text="ru">Nifas (wiladat ke baad khoon) khatam ho</span>
+                <span data-lang-text="ur">نفاس (ولادت کے بعد خون) ختم ہو</span>
+              </li>
+              <li>
+                <span data-lang-text="en">Janabah (sexual impurity)</span>
+                <span data-lang-text="ru">Janabat (humbistari ki napaaki)</span>
+                <span data-lang-text="ur">جنابت (ہمبستری کی ناپاکی)</span>
+              </li>
+            </ul>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label"><T en="Note" ru="Ahem" ur="اہم" /></span>
+              <p>
+                <span data-lang-text="en">Until ghusl is performed, salah, reciting the Quran, touching the mushaf, and entering the masjid are not permitted. Note: Fasting is prohibited during haiz and nifas, but a person in the state of janabah may fast — ghusl should be done before Fajr if possible, but the fast is still valid even if delayed.</span>
+                <span data-lang-text="ru">Jab tak ghusl na ho, namaz, Quran ki tilawat, mushaf chhoona, aur masjid mein daakhil hona jaiz nahi. Ahem: Haiz aur nifas mein roza haram hai, lekin janabat ki halat mein roza rakh sakti hain — Fajr se pehle ghusl kar lena behtar hai, lekin deri se ghusl karne par bhi roza sahih rahega.</span>
+                <span data-lang-text="ur">جب تک غسل نہ ہو، نماز، قرآن کی تلاوت، مصحف چھونا، اور مسجد میں داخل ہونا جائز نہیں۔ اہم: حیض اور نفاس میں روزہ حرام ہے، لیکن جنابت کی حالت میں روزہ رکھ سکتی ہیں — فجر سے پہلے غسل کر لینا بہتر ہے، لیکن دیری سے غسل کرنے پر بھی روزہ صحیح رہے گا۔</span>
+              </p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="ghusl-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            <button class="qa-restart" data-goto="start"><T en="Start Over" ru="Dobara Shuru" ur="دوبارہ شروع" /></button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="ghusl-how">
+          <span class="qa-badge"><T en="How to Perform Ghusl" ru="Ghusl ka Tareeqa" ur="غسل کا طریقہ" /></span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon success">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">
+              <span data-lang-text="en">The 3 Fard of Ghusl</span>
+              <span data-lang-text="ru">Ghusl ke 3 Farz</span>
+              <span data-lang-text="ur">غسل کے ۳ فرض</span>
+            </h3>
+            <ol class="qa-answer-list numbered">
+              <li>
+                <span data-lang-text="en"><strong>Rinsing the mouth</strong> — water must reach every part inside</span>
+                <span data-lang-text="ru"><strong>Kuli karna</strong> — paani muh ke har hisse tak pahunchna chahiye</span>
+                <span data-lang-text="ur"><strong>کلی کرنا</strong> — پانی منہ کے ہر حصے تک پہنچنا چاہیے</span>
+              </li>
+              <li>
+                <span data-lang-text="en"><strong>Rinsing the nose</strong> — water drawn up into the nostrils</span>
+                <span data-lang-text="ru"><strong>Naak mein paani dalna</strong> — paani naak ke andar tak jayega</span>
+                <span data-lang-text="ur"><strong>ناک میں پانی ڈالنا</strong> — پانی ناک کے اندر تک جائے گا</span>
+              </li>
+              <li>
+                <span data-lang-text="en"><strong>Washing the entire body</strong> — no dry spot the size of a hair's breadth should remain</span>
+                <span data-lang-text="ru"><strong>Poore jism ko dhona</strong> — baal barabar bhi khushk jagah na rahe</span>
+                <span data-lang-text="ur"><strong>پورے جسم کو دھونا</strong> — بال برابر بھی خشک جگہ نہ رہے</span>
+              </li>
+            </ol>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label"><T en="Sunnah Method" ru="Sunnat Tareeqa" ur="سنت طریقہ" /></span>
+              <p>
+                <span data-lang-text="en">Wash hands, then private parts, perform wudu, pour water over the head 3 times, then the right side, then the left side, ensuring water reaches everywhere including the roots of the hair.</span>
+                <span data-lang-text="ru">Haath dhoein, phir sharmgah, wuzu karein, sar par 3 martaba paani daalein, phir daayein taraf, phir baayein taraf, har jagah paani pahunche yaqeeni banayein baalon ki jarh samait.</span>
+                <span data-lang-text="ur">ہاتھ دھوئیں، پھر شرمگاہ، وضو کریں، سر پر ۳ مرتبہ پانی ڈالیں، پھر دائیں طرف، پھر بائیں طرف، ہر جگہ پانی پہنچے یقینی بنائیں بالوں کی جڑ سمیت۔</span>
+              </p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="ghusl-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            <button class="qa-restart" data-goto="start"><T en="Start Over" ru="Dobara Shuru" ur="دوبارہ شروع" /></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

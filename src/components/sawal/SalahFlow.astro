@@ -1,0 +1,186 @@
+---
+import T from '../T.astro';
+---
+
+          <!-- ============ SALAH FLOW ============ -->
+          <div class="qa-screen" data-screen="salah-start">
+            <span class="qa-badge">Salah</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What is your question about salah?</span>
+              <span data-lang-text="ru">Namaz ke baare mein aapka sawal kya hai?</span>
+              <span data-lang-text="ur">نماز کے بارے میں آپکا سوال کیا ہے؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="salah-during-cycle">
+                <T en="Can I pray during my period?" ru="Mahawari mein namaz parh sakti hoon?" ur="ماہواری میں نماز پڑھ سکتی ہوں؟" />
+              </button>
+              <button class="qa-option" data-goto="salah-after-cycle">
+                <T en="My period just ended — now what?" ru="Mera mahawari abhi khatam hua — ab kya?" ur="میری ماہواری ابھی ختم ہوئی — اب کیا؟" />
+              </button>
+              <button class="qa-option" data-goto="salah-istihaza">
+                <T en="I have irregular bleeding — can I pray?" ru="Mujhe ghair mamool khoon aa raha hai — namaz parh sakti hoon?" ur="مجھے غیر معمول خون آ رہا ہے — نماز پڑھ سکتی ہوں؟" />
+              </button>
+              <button class="qa-option" data-goto="salah-haiz-started-during">
+                <T en="Haiz started while I was praying" ru="Namaz parhte hue haiz shuru ho gaya" ur="نماز پڑھتے ہوئے حیض شروع ہو گیا" />
+              </button>
+              <button class="qa-option" data-goto="salah-prayed-unknowingly">
+                <T en="I prayed without knowing I was in haiz" ru="Maine bina jaane haiz mein namaz parhi" ur="میں نے بنا جانے حیض میں نماز پڑھی" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Salah: Haiz started during prayer -->
+          <div class="qa-screen" data-screen="salah-haiz-started-during">
+            <span class="qa-badge">Haiz During Salah</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">That Salah is Excused (Maaf)</span>
+                <span data-lang-text="ru">Woh Namaz Maaf Hai</span>
+                <span data-lang-text="ur">وہ نماز معاف ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">If haiz begins while you are in the middle of praying, <strong>stop the prayer immediately</strong>. That salah is excused — you do not need to make it up.</span>
+                <span data-lang-text="ru">Agar namaz ke dauraan haiz shuru ho jaye to <strong>foran namaz band karein</strong>. Woh namaz maaf hai — qaza nahi karni.</span>
+                <span data-lang-text="ur">اگر نماز کے دوران حیض شروع ہو جائے تو <strong>فوراً نماز بند کریں</strong>۔ وہ نماز معاف ہے — قضا نہیں کرنی۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Also Important" ru="Aur Ahem" ur="اور اہم" /></span>
+                <p>
+                  <span data-lang-text="en">• If haiz starts just at the beginning of a salah time (e.g., Zuhr), that salah is also maaf<br/>• Even if only a short time of the salah was left when haiz started, it is still maaf<br/>• Do not feel guilty — this is Allah's mercy<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ke Ahkaam, Masla 16-17</span>
+                  <span data-lang-text="ru">• Agar namaz ke waqt ki shuruat mein haiz aaye (maslan Zuhr), woh namaz bhi maaf<br/>• Chahe namaz ka thoda sa waqt bacha tha jab haiz shuru hua, phir bhi maaf<br/>• Malaal na karein — yeh Allah ki rahmah hai<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ke Ahkaam, Masla 16-17</span>
+                  <span data-lang-text="ur">• اگر نماز کے وقت کی شروعات میں حیض آئے (مثلاً ظہر)، وہ نماز بھی معاف<br/>• چاہے نماز کا تھوڑا سا وقت بچا تھا جب حیض شروع ہوا، پھر بھی معاف<br/>• ملال نہ کریں — یہ اللہ کی رحمت ہے<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کے احکام، مسئلہ ۱۶-۱۷</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="salah-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Salah: Prayed unknowingly during haiz -->
+          <div class="qa-screen" data-screen="salah-prayed-unknowingly">
+            <span class="qa-badge">No Sin</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">No Sin — But Prayer is Not Valid</span>
+                <span data-lang-text="ru">Gunah Nahi — Lekin Namaz Sahih Nahi</span>
+                <span data-lang-text="ur">گناہ نہیں — لیکن نماز صحیح نہیں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">If you prayed without knowing you were in haiz (e.g., you discovered blood after praying), <strong>there is no sin</strong>. However, the prayer is not valid. Since salah during haiz is excused, <strong>no qaza is needed</strong> — you don't need to repeat it.</span>
+                <span data-lang-text="ru">Agar aapne bina jaane haiz mein namaz parhi (maslan namaz ke baad khoon dekha), <strong>koi gunah nahi</strong>. Lekin namaz sahih nahi. Chunkeh haiz mein namaz maaf hai, <strong>qaza bhi nahi</strong> — dobara parhne ki zaroorat nahi.</span>
+                <span data-lang-text="ur">اگر آپ نے بنا جانے حیض میں نماز پڑھی (مثلاً نماز کے بعد خون دیکھا)، <strong>کوئی گناہ نہیں</strong>۔ لیکن نماز صحیح نہیں۔ چونکہ حیض میں نماز معاف ہے، <strong>قضا بھی نہیں</strong> — دوبارہ پڑھنے کی ضرورت نہیں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Important Note" ru="Ahem Baat" ur="اہم بات" /></span>
+                <p>
+                  <span data-lang-text="en">Haiz blood is counted from when you <strong>first see it</strong>, not from when it might have started internally. If you were sleeping and saw blood upon waking, haiz starts from when you noticed it.<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 10, 27</span>
+                  <span data-lang-text="ru">Haiz ka khoon tab se shumaar hota hai jab aapne <strong>pehli baar dekha</strong>, andar se kab shuru hua usse nahi. Agar so rahi thin aur uthne par khoon dekha to haiz usi waqt se shuru jab dekha.<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 10, 27</span>
+                  <span data-lang-text="ur">حیض کا خون تب سے شمار ہوتا ہے جب آپ نے <strong>پہلی بار دیکھا</strong>، اندر سے کب شروع ہوا اس سے نہیں۔ اگر سو رہی تھیں اور اٹھنے پر خون دیکھا تو حیض اسی وقت سے شروع جب دیکھا۔<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان، مسئلہ ۱۰، ۲۷</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="salah-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="salah-during-cycle">
+            <span class="qa-badge">Salah During Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Salah is NOT Required During Haiz</span>
+                <span data-lang-text="ru">Haiz Mein Namaz Farz Nahi</span>
+                <span data-lang-text="ur">حیض میں نماز فرض نہیں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">During a valid haiz (3-10 days), you do NOT pray. This is a mercy from Allah.</span>
+                <span data-lang-text="ru">Sahih haiz ke dauraan (3-10 din), aap namaz NAHI padhti. Yeh Allah ki rahmah hai.</span>
+                <span data-lang-text="ur">صحیح حیض کے دوران (۳-۱۰ دن)، آپ نماز نہیں پڑھتی۔ یہ اللہ کی رحمت ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Important" ru="Ahem" ur="اہم" /></span>
+                <p>
+                  <span data-lang-text="en">• Missed salah during haiz does NOT need to be made up (qaza)<br/>• You CAN make du'a, dhikr, listen to Quran<br/>• You CANNOT touch the mushaf</span>
+                  <span data-lang-text="ru">• Haiz ki chhooti hui namaz ki qaza NAHI karni<br/>• Du'a, dhikr, Quran sunna jaiz hai<br/>• Mushaf chhoona jaiz nahi</span>
+                  <span data-lang-text="ur">• حیض کی چھوٹی ہوئی نماز کی قضا نہیں کرنی<br/>• دعا، ذکر، قرآن سننا جائز ہے<br/>• مصحف چھونا جائز نہیں</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="salah-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="salah-after-cycle">
+            <span class="qa-badge">After Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Perform Ghusl & Resume Salah</span>
+                <span data-lang-text="ru">Ghusl Karein aur Namaz Shuru Karein</span>
+                <span data-lang-text="ur">غسل کریں اور نماز شروع کریں</span>
+              </h3>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Steps" ru="Qadam" ur="ق" /></span>
+                <p>
+                  <span data-lang-text="en">1. Perform ghusl immediately<br/>2. Resume all salah<br/>3. If haiz ended late in salah time, pray if enough time for takbeer</span>
+                  <span data-lang-text="ru">1. Ghusl foran karein<br/>2. Sare namazein shuru karein<br/>3. Agar haiz namaz ke waqt ke akhir mein khatam hua, takbeer ke liye waqt ho to parhein</span>
+                  <span data-lang-text="ur">1. غسل فوراً کریں<br/>2. تمام نمازیں شروع کریں<br/>3. اگر حیض نماز کے وقت کے آخر میں ختم ہوا، تکبیر کے لیے وقت ہو تو پڑھیں</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="salah-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="salah-istihaza">
+            <span class="qa-badge">Salah During Istihaza</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">You MUST Pray During Istihaza</span>
+                <span data-lang-text="ru">Istihaza Mein Namaz FARZ Hai</span>
+                <span data-lang-text="ur">استحاضہ میں نماز FARZ ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Istihaza does NOT prevent salah. You are obligated to pray.</span>
+                <span data-lang-text="ru">Istihaza namaz se NAHI rokta. Aap par namaz farz hai.</span>
+                <span data-lang-text="ur">استحاضہ نماز سے نہیں روکتا۔ آپ پر نماز فرض ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Method" ru="Tareeqa" ur="طریقہ" /></span>
+                <p>
+                  <span data-lang-text="en">Make fresh wudu for each fard salah time. If bleeding is continuous, you are a ma'zoor.</span>
+                  <span data-lang-text="ru">Har farz namaz ke liye naya wuzu karein. Agar khoon musalsal rahe to aap ma'zoor hain.</span>
+                  <span data-lang-text="ur">ہر فرض نماز کے لیے نیا وضو کریں۔ اگر خون مسلسل رہے تو آپ معذور ہیں۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="salah-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+

@@ -1,0 +1,430 @@
+  /* ========================================
+     RAMADAN HERO
+     ======================================== */
+  .ramadan-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(175deg, var(--ivory) 0%, var(--ivory-deep) 50%, var(--cream) 100%);
+    overflow: hidden;
+    text-align: center;
+    padding: 6rem 0 4rem;
+  }
+
+  .crescent-decoration {
+    position: absolute;
+    top: 12%;
+    right: 10%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: -20px 10px 0 0 var(--teal);
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .ramadan-hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-bismillah {
+    font-family: var(--font-arabic);
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    direction: rtl;
+    margin-bottom: var(--space-3xl);
+    opacity: 0.7;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-title-block {
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-title-ar {
+    font-family: var(--font-arabic);
+    font-size: clamp(3.5rem, 12vw, 7rem);
+    font-weight: 700;
+    color: var(--teal-deep);
+    direction: rtl;
+    line-height: 1.1;
+    margin-bottom: var(--space-xs);
+  }
+
+  .hero-title-en {
+    display: block;
+    font-family: var(--font-body);
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    font-weight: 300;
+    color: var(--text-light);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+  }
+
+  .hero-desc {
+    max-width: 560px;
+    margin: 0 auto var(--space-2xl);
+  }
+
+  .hero-desc p {
+    font-size: clamp(0.92rem, 1.5vw, 1.05rem);
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .hero-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.5rem;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--sand);
+    background: rgba(250, 247, 242, 0.6);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--teal);
+    transition: all 0.4s var(--ease-out);
+    backdrop-filter: blur(8px);
+  }
+
+  .hero-pill:hover {
+    background: var(--teal);
+    color: var(--ivory);
+    border-color: var(--teal);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .hero-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  .ornament-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .ornament-line {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .ornament-star {
+    color: var(--gold);
+    font-size: 1rem;
+    opacity: 0.6;
+  }
+
+  .hero-bottom-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+
+  .hero-bottom-border svg {
+    width: 100%;
+    height: 2px;
+  }
+
+  /* ========================================
+     DAILY DHIKR SECTION
+     ======================================== */
+  .dhikr-section {
+    padding: var(--space-4xl) 0;
+    background: var(--ivory);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .section-header .section-label {
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .dhikr-group {
+    margin-bottom: var(--space-xl);
+    background: var(--white);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(212, 201, 181, 0.4);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: box-shadow 0.4s var(--ease-out);
+  }
+
+  .dhikr-group:hover {
+    box-shadow: var(--shadow-card);
+  }
+
+  .dhikr-group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--space-lg) var(--space-xl);
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .dhikr-group-header:hover {
+    background: rgba(26, 92, 82, 0.03);
+  }
+
+  .dhikr-group-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .dhikr-group-title h3 {
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    font-weight: 600;
+    color: var(--teal-deep);
+  }
+
+  .dhikr-count-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 28px;
+    padding: 0 var(--space-sm);
+    border-radius: var(--radius-xl);
+    background: var(--teal);
+    color: var(--ivory);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .dhikr-chevron {
+    width: 20px;
+    height: 20px;
+    color: var(--text-light);
+    transition: transform 0.4s var(--ease-out);
+    flex-shrink: 0;
+  }
+
+  .dhikr-group-header[aria-expanded="false"] .dhikr-chevron {
+    transform: rotate(-90deg);
+  }
+
+  .dhikr-group-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s var(--ease-out);
+  }
+
+  .dhikr-group-body.open {
+    max-height: 2000px;
+  }
+
+  .dhikr-list {
+    padding: 0 var(--space-xl) var(--space-lg);
+  }
+
+  .dhikr-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: background 0.3s ease;
+  }
+
+  .dhikr-item:hover {
+    background: rgba(26, 92, 82, 0.03);
+  }
+
+  .dhikr-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--ivory-deep);
+    color: var(--teal);
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .dhikr-text {
+    font-size: 0.92rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .dhikr-arabic-text {
+    font-family: var(--font-arabic);
+    font-size: 1.15rem;
+    line-height: 2.2;
+    direction: rtl;
+  }
+
+  /* ========================================
+     DAILY ROUTINE PLANNER
+     ======================================== */
+  .routine-section {
+    padding: var(--space-4xl) 0;
+    background: linear-gradient(180deg, var(--ivory-deep) 0%, var(--ivory) 100%);
+  }
+
+  .routine-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .routine-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
+    border: 1px solid transparent;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.4s var(--ease-out);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .routine-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-out);
+  }
+
+  .routine-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .routine-card:hover::before {
+    opacity: 1;
+  }
+
+  .routine-card-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--space-md);
+  }
+
+  .routine-card-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .routine-card-title {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--teal-deep);
+    margin-bottom: var(--space-md);
+  }
+
+  .routine-items {
+    list-style: none;
+    padding: 0;
+  }
+
+  .routine-items li {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    padding: var(--space-xs) 0;
+    padding-left: var(--space-md);
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .routine-items li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* Daily Quran Surahs */
+  .quran-surahs-block {
+    text-align: center;
+  }
+
+  .quran-surahs-title {
+    font-family: var(--font-body);
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-weight: 600;
+    color: var(--teal-deep);
+    margin-bottom: var(--space-lg);
+  }
+
+  .quran-surahs-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+  }
+
+  .surah-chip {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-xl);
+    background: var(--white);
+    border: 1px solid rgba(212, 201, 181, 0.5);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--teal);
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .surah-chip:hover {
+    background: var(--teal);
+    color: var(--ivory);
+    border-color: var(--teal);
+  }
+
+  .surah-chip-ar {
+    font-family: var(--font-arabic);
+    font-size: 0.95rem;
+    direction: rtl;
+  }
+

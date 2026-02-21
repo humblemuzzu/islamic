@@ -1,0 +1,121 @@
+---
+import T from '../T.astro';
+---
+
+        <!-- SALAH FLOW -->
+        <div class="qa-screen" data-screen="salah-start">
+          <span class="qa-badge">Salah</span>
+          <h3 class="qa-question">
+            <span data-lang-text="en">Are you currently in your haiz (period)?</span>
+            <span data-lang-text="ru">Kya aap is waqt haiz (mahawari) mein hain?</span>
+            <span data-lang-text="ur">کیا آپ اس وقت حیض (ماہواری) میں ہیں؟</span>
+          </h3>
+          <div class="qa-options">
+            <button class="qa-option" data-goto="salah-in-haiz">
+              <T en="Yes, I am in haiz" ru="Haan, mujhe haiz hai" ur="ہاں، مجھے حیض ہے" />
+            </button>
+            <button class="qa-option" data-goto="salah-istihaza">
+              <T en="No, but I have irregular bleeding" ru="Nahi, lekin ghair mamool khoon aa raha hai" ur="نہیں، لیکن غیر معمول خون آ رہا ہے" />
+            </button>
+            <button class="qa-option" data-goto="salah-ended">
+              <T en="My haiz just ended" ru="Mera haiz abhi khatam hua" ur="میرا حیض ابھی ختم ہوا" />
+            </button>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="salah-in-haiz">
+          <span class="qa-badge"><T en="Salah During Haiz" ru="Haiz mein Namaz" ur="حیض میں نماز" /></span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">
+              <span data-lang-text="en">Salah is Not Obligatory During Haiz</span>
+              <span data-lang-text="ru">Haiz mein Namaz Farz Nahi</span>
+              <span data-lang-text="ur">حیض میں نماز فرض نہیں</span>
+            </h3>
+            <p class="qa-answer-text">
+              <span data-lang-text="en">During a valid haiz, a woman <strong>does not pray and does not need to make up</strong> the missed prayers. This is a mercy from Allah.</span>
+              <span data-lang-text="ru">Sahih haiz ke dauraan aurat <strong>namaz nahi padhti aur na hi qaza karni hoti hai</strong>. Yeh Allah ki rahmah hai.</span>
+              <span data-lang-text="ur">صحیح حیض کے دوران عورت <strong>نماز نہیں پڑھتی اور نہ ہی قضا کرنی ہوتی ہے</strong>۔ یہ اللہ کی رحمت ہے۔</span>
+            </p>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label"><T en="Note" ru="Ahem" ur="اہم" /></span>
+              <p>
+                <span data-lang-text="en">You may still make du'a, do dhikr, and listen to Quran. Touching the mushaf (physical Quran) is not permitted during haiz without a barrier.</span>
+                <span data-lang-text="ru">Du'a, dhikr, aur Quran sunna jaiz hai. Haiz mein mushaf (Quran) ko bagair cover ke chhoona mana hai.</span>
+                <span data-lang-text="ur">دعا، ذکر، اور قرآن سننا جائز ہے۔ حیض میں مصحف (قرآن) کو بغیر کور کے چھونا منع ہے۔</span>
+              </p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="salah-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            <button class="qa-restart" data-goto="start"><T en="Start Over" ru="Dobara Shuru" ur="دوبارہ شروع" /></button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="salah-istihaza">
+          <span class="qa-badge"><T en="Salah During Istihaza" ru="Istihaza mein Namaz" ur="استحاضہ میں نماز" /></span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon warning">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">
+              <span data-lang-text="en">You Must Pray During Istihaza</span>
+              <span data-lang-text="ru">Istihaza mein Namaz Padhna Zaroori Hai</span>
+              <span data-lang-text="ur">استحاضہ میں نماز پڑھنا ضروری ہے</span>
+            </h3>
+            <p class="qa-answer-text">
+              <span data-lang-text="en">Istihaza does <strong>not</strong> prevent salah. You are obligated to pray. Make fresh wudu for each fard salah time.</span>
+              <span data-lang-text="ru">Istihaza namaz se <strong>nahi</strong> rokta. Aap par namaz farz hai. Har farz namaz ke liye naya wuzu karein.</span>
+              <span data-lang-text="ur">استحاضہ نماز سے <strong>نہیں</strong> روکتا۔ آپ پر نماز فرض ہے۔ ہر فرض نماز کے لیے نیا وضو کریں۔</span>
+            </p>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+              <p>
+                <span data-lang-text="en">If the bleeding is continuous, you become a ma'zoor (excused person). Your wudu is valid for the entire salah time — it breaks when the new salah time enters. Pray as normal.</span>
+                <span data-lang-text="ru">Agar khoon musalsal rahe to aap ma'zoor hain. Aapka wuzu poore namaz ke waqt tak sahih rahega — naye waqt ke shuru hone par toot jayega. Aam tareeqe se namaz padhein.</span>
+                <span data-lang-text="ur">اگر خون مسلسل رہے تو آپ معذور ہیں۔ آپ کا وضو پورے نماز کے وقت تک صحیح رہے گا — نئے وقت کے شروع ہونے پر ٹوٹ جائے گا۔ عام طریقے سے نماز پڑھیں۔</span>
+              </p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="salah-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            <button class="qa-restart" data-goto="start"><T en="Start Over" ru="Dobara Shuru" ur="دوبارہ شروع" /></button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="salah-ended">
+          <span class="qa-badge"><T en="After Haiz" ru="Haiz ke Baad" ur="حیض کے بعد" /></span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon success">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">
+              <span data-lang-text="en">Perform Ghusl & Resume Salah</span>
+              <span data-lang-text="ru">Ghusl Karein aur Namaz Shuru Karein</span>
+              <span data-lang-text="ur">غسل کریں اور نماز شروع کریں</span>
+            </h3>
+            <p class="qa-answer-text">
+              <span data-lang-text="en">Once haiz ends, perform <strong>ghusl</strong> (full ritual bath) immediately and start praying. If haiz ended with enough time remaining to <strong>perform ghusl and say the takbeer tahreemah</strong> (opening Allahu Akbar) before the salah time exits, that salah becomes obligatory on you.</span>
+              <span data-lang-text="ru">Haiz khatam hone par foran <strong>ghusl</strong> karein aur namaz shuru karein. Agar haiz khatam hone par namaz ka itna waqt bacha ho ke <strong>ghusl kar ke takbeer tahreemah</strong> (pehla Allahu Akbar) keh sakein to woh namaz aap par farz ho jati hai.</span>
+              <span data-lang-text="ur">حیض ختم ہونے پر فوراً <strong>غسل</strong> کریں اور نماز شروع کریں۔ اگر حیض ختم ہونے پر نماز کا اتنا وقت بچا ہو کہ <strong>غسل کر کے تکبیر تحریمہ</strong> (پہلا اللہ اکبر) کہہ سکیں تو وہ نماز آپ پر فرض ہو جاتی ہے۔</span>
+            </p>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label"><T en="Important" ru="Zaroori" ur="ضروری" /></span>
+              <p>
+                <span data-lang-text="en">Do not delay ghusl unnecessarily. If haiz ends close to the end of a salah time, pray that salah first, then make up any you might owe.</span>
+                <span data-lang-text="ru">Ghusl mein bila wajah deri na karein. Agar haiz namaz ke waqt ke khatam hone ke qareeb khatam ho to pehle woh namaz padhein, phir baqi qaza karein.</span>
+                <span data-lang-text="ur">غسل میں بلا وجہ دیری نہ کریں۔ اگر حیض نماز کے وقت کے ختم ہونے کے قریب ختم ہو تو پہلے وہ نماز پڑھیں، پھر باقی قضا کریں۔</span>
+              </p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="salah-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            <button class="qa-restart" data-goto="start"><T en="Start Over" ru="Dobara Shuru" ur="دوبارہ شروع" /></button>
+          </div>
+        </div>
+

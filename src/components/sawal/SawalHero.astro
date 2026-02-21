@@ -1,0 +1,57 @@
+---
+import T from '../T.astro';
+---
+
+<section class="topic-hero">
+  <div class="pattern-overlay"></div>
+  <div class="pattern-star"></div>
+
+  <div class="topic-hero-content container">
+    <a href="/" class="back-link reveal">
+      <svg viewBox="0 0 16 16" fill="none" class="back-icon">
+        <path d="M10 4l-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <T en="Back to Home" ru="Wapas Home" ur="واپس ہوم" />
+    </a>
+
+    <div class="topic-title-block reveal reveal-delay-1">
+      <span class="section-label"><T en="Interactive Guide" ru="Rahnuma Sawalaat" ur="رہنما سوالات" /></span>
+      <h1 class="topic-title-ar">سؤال و جواب</h1>
+      <h2 class="topic-title-en">FORI SAWAL</h2>
+    </div>
+
+    <div class="topic-desc reveal reveal-delay-2">
+      <p data-lang-block="en">Select a topic and answer a few simple questions to get your personalized answer based on Hanafi fiqh.</p>
+      <p data-lang-block="ru">Ek topic choose karein aur kuch sawal ka jawab dein taake aapko Hanafi fiqh ke mutabiq jawab mile.</p>
+      <p data-lang-block="ur">ایک topic choose کریں اور کچھ سوال کا جواب دیں تاکہ آپ کو حنفی فقہ کے مطابق جواب ملے۔</p>
+    </div>
+
+    <div class="topic-ornament reveal reveal-delay-3">
+      <span class="ornament-dot"></span>
+      <span class="ornament-line"></span>
+      <span class="ornament-star">&#10022;</span>
+      <span class="ornament-line"></span>
+      <span class="ornament-dot"></span>
+    </div>
+
+    <div class="topic-meta reveal reveal-delay-4">
+      <span class="meta-count">9 <T en="Topics" ru="Topics" ur="عنوانات" /></span>
+      <span class="meta-dot">&middot;</span>
+      <span class="meta-school"><T en="Hanafi School" ru="Hanafi Maslak" ur="حنفی مسلک" /></span>
+    </div>
+  </div>
+
+  <div class="topic-hero-border">
+    <svg viewBox="0 0 1200 2" preserveAspectRatio="none">
+      <line x1="0" y1="1" x2="1200" y2="1" stroke="url(#goldLineSawal)" stroke-width="1" stroke-dasharray="8 12 3 12" />
+      <defs>
+        <linearGradient id="goldLineSawal">
+          <stop offset="0%" stop-color="transparent" />
+          <stop offset="30%" stop-color="#C4A265" />
+          <stop offset="70%" stop-color="#C4A265" />
+          <stop offset="100%" stop-color="transparent" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+</section>

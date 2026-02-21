@@ -1,0 +1,113 @@
+---
+import T from '../T.astro';
+---
+
+          <!-- ============ QURAN FLOW ============ -->
+          <div class="qa-screen" data-screen="quran-start">
+            <span class="qa-badge">Quran</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What do you need to know about Quran during haiz?</span>
+              <span data-lang-text="ru">Haiz mein Quran ke baare mein kya jaanna chahte hain?</span>
+              <span data-lang-text="ur">حیض میں قرآن کے بارے میں کیا جاننا چاہتے ہیں؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="quran-recite">
+                <T en="Can I recite/recite Quran?" ru="Quran parh sakti hoon?" ur="قرآن پڑھ سکتی ہوں؟" />
+              </button>
+              <button class="qa-option" data-goto="quran-touch">
+                <T en="Can I touch the mushaf?" ru="Mushaf chhoo sakti hoon?" ur="مصحف چھو سکتی ہوں؟" />
+              </button>
+              <button class="qa-option" data-goto="quran-listen">
+                <T en="Can I listen to Quran?" ru="Quran sun sakti hoon?" ur="قرآن سن سکتی ہوں؟" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="quran-recite">
+            <span class="qa-badge">Reciting Quran</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Reciting Quran is NOT Permitted</span>
+                <span data-lang-text="ru">Quran Parhna JAIZ NAHI Hai</span>
+                <span data-lang-text="ur">قرآن پڑھنا جائز نہیں ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">During haiz, you cannot recite Quran — not from memory, not from the mushaf.</span>
+                <span data-lang-text="ru">Haiz mein aap Quran NAHI parh sakti — na yaad se, na mushaf se.</span>
+                <span data-lang-text="ur">حیض میں آپ قرآن نہیں پڑھ سکتی — نہ یاد سے، نہ مصحف سے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="But allowed" ru="Lekin jaiz hai" ur="لیکن جائز ہے" /></span>
+                <p>
+                  <span data-lang-text="en">• Du'a containing Quranic words (if intention is du'a)<br/>• Bismillah, Alhambra as dhikr<br/>• Listening to Quran</span>
+                  <span data-lang-text="ru">• Du'a mein Qurani alfaaz (niyyat du'a ki ho)<br/>• Bismillah, Alhambra dhikr ke taur par<br/>• Quran sunna</span>
+                  <span data-lang-text="ur">• دعا میں قرآنی الفاظ (نیت دعا کی ہو)<br/>• بسم اللہ، الحمدللہ ذکر کے طور پر<br/>• قرآن سننا</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="quran-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="quran-touch">
+            <span class="qa-badge">Touching Mushaf</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Touching Mushaf is HARAM</span>
+                <span data-lang-text="ru">Mushaf Chhoona HARAM Hai</span>
+                <span data-lang-text="ur">مصحف چھونا HARAM ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">It is haram to touch the physical Quran (mushaf) without a barrier during haiz.</span>
+                <span data-lang-text="ru">Haiz mein bina haail ke mushaf chhoona haram hai.</span>
+                <span data-lang-text="ur">حیض میں بغیر حائل کے مصحف چھونا حرام ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Allowed" ru="Jaiz hai" ur="جائز ہے" /></span>
+                <p>
+                  <span data-lang-text="en">• Holding Quran through a cloth/cover<br/>• Carrying Quran in a bag/juzdan</span>
+                  <span data-lang-text="ru">• Quran ko kapre/cover se pakadna<br/>• Quran bag/juzdan mein rakhna</span>
+                  <span data-lang-text="ur">• قرآن کو کپڑے/cover سے پکڑنا<br/>• قرآن بیگ/جزدان میں رکھنا</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="quran-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="quran-listen">
+            <span class="qa-badge">Listening to Quran</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Listening to Quran is Permitted</span>
+                <span data-lang-text="ru">Quran Sunna JAIZ Hai</span>
+                <span data-lang-text="ur">قرآن سننا جائز ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">You can listen to Quran recitation during haiz. This is completely permissible.</span>
+                <span data-lang-text="ru">Aap haiz mein Quran ki tilawat sun sakti hain. Yeh bilkul jaiz hai.</span>
+                <span data-lang-text="ur">آپ حیض میں قرآن کی تلاوت سن سکتی ہیں۔ یہ بالکل جائز ہے۔</span>
+              </p>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="quran-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+

@@ -1,0 +1,479 @@
+---
+import T from '../T.astro';
+---
+
+          <!-- ============ HAIZ FLOW ============ -->
+          <div class="qa-screen" data-screen="haiz-start">
+            <span class="qa-badge">Haiz</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">Are you currently experiencing bleeding?</span>
+              <span data-lang-text="ru">Kya aapko abhi khoon aa raha hai?</span>
+              <span data-lang-text="ur">کیا آپکو ابھی خون آ رہا ہے؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="haiz-current-duration">
+                <T en="Yes, I am bleeding now" ru="Haan, abhi khoon aa raha hai" ur="ہاں، ابھی خون آ رہا ہے" />
+              </button>
+              <button class="qa-option" data-goto="haiz-ended-question">
+                <T en="My bleeding has stopped" ru="Mera khoon band ho gaya" ur="میرا خون بند ہو گیا" />
+              </button>
+              <button class="qa-option" data-goto="haiz-spotting">
+                <T en="I have spotting/dots (nuqtay)" ru="Mujhe nuqtay/dhabbay aa rahe hain" ur="مجھے نقطے/دھبے آ رہے ہیں" />
+              </button>
+              <button class="qa-option" data-goto="haiz-advice">
+                <T en="I want general info about haiz" ru="Haiz ke baare mein general info chahiye" ur="حیض کے بارے میں general info چاہیے" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Spotting/dots question -->
+          <div class="qa-screen" data-screen="haiz-spotting">
+            <span class="qa-badge">Spotting</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What type of spotting are you seeing?</span>
+              <span data-lang-text="ru">Aapko kaisa spotting dikhai de raha hai?</span>
+              <span data-lang-text="ur">آپکو کیسا spotting دکھائی دے رہا ہے؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="haiz-spotting-within10">
+                <T en="Spotting/dots within my period window (10 days)" ru="Period ke andar (10 din) nuqtay/dhabbay" ur="حیض کے اندر (۱۰ دن) نقطے/دھبے" />
+              </button>
+              <button class="qa-option" data-goto="haiz-spotting-afterstop">
+                <T en="Bleeding stopped, then dots returned" ru="Khoon band hua, phir nuqtay dobara aaye" ur="خون بند ہوا، پھر نقطے دوبارہ آئے" />
+              </button>
+              <button class="qa-option" data-goto="haiz-spotting-colors">
+                <T en="I see only slight colored discharge" ru="Sirf halka rang ka discharge aa raha hai" ur="صرف ہلکا رنگ کا discharge آ رہا ہے" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Spotting within 10-day window -->
+          <div class="qa-screen" data-screen="haiz-spotting-within10">
+            <span class="qa-badge">Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">It is ALL Counted as Haiz</span>
+                <span data-lang-text="ru">Yeh SAB Haiz Mein Shumaar Hoga</span>
+                <span data-lang-text="ur">یہ سب حیض میں شمار ہوگا</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">In the Hanafi school, bleeding does <strong>NOT need to be continuous</strong>. Even if blood comes and goes — stops for a few hours, then returns — as long as it is all <strong>within the 10-day window</strong>, the entire period (including clean gaps) is counted as haiz.</span>
+                <span data-lang-text="ru">Hanafi maslak mein khoon ka <strong>musalsal rehna zaroori NAHI</strong>. Chahe khoon aaye aur jaye — kuch ghante band ho, phir aaye — jab tak yeh sab <strong>10 din ke andar</strong> ho, poori muddat (saaf waqfon samait) haiz mein shumaar hogi.</span>
+                <span data-lang-text="ur">حنفی مسلک میں خون کا <strong>مسلسل رہنا ضروری نہیں</strong>۔ چاہے خون آئے اور جائے — کچھ گھنٹے بند ہو، پھر آئے — جب تک یہ سب <strong>۱۰ دن کے اندر</strong> ہو، پوری مدت (صاف وقفوں سمیت) حیض میں شمار ہوگی۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en">• The clean gaps between spotting within 10 days are also part of haiz<br/>• Do NOT pray or fast during these clean gaps<br/>• Wait for a full clean period of 15 days before considering your haiz over<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 5</span>
+                  <span data-lang-text="ru">• 10 din ke andar spotting ke darmiyan saaf waqfe bhi haiz ka hissa hain<br/>• In saaf waqfon mein namaz ya roza NA rakhein<br/>• Haiz khatam samajhne ke liye poore 15 saaf din ka intezaar karein<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 5</span>
+                  <span data-lang-text="ur">• ۱۰ دن کے اندر spotting کے درمیان صاف وقفے بھی حیض کا حصہ ہیں<br/>• ان صاف وقفوں میں نماز یا روزہ نہ رکھیں<br/>• حیض ختم سمجھنے کے لیے پورے ۱۵ صاف دن کا انتظار کریں<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان، مسئلہ ۵</span>
+                </p>
+              </div>
+              <div class="qa-example">
+                <span class="qa-example-label"><T en="Example" ru="Misaal" ur="مثال" /></span>
+                <div class="qa-timeline">
+                  <div class="timeline-block haiz">
+                    <span class="timeline-label"><T en="Blood" ru="Khoon" ur="خون" /></span>
+                    <span class="timeline-days"><T en="3 days" ru="3 din" ur="۳ دن" /></span>
+                  </div>
+                  <div class="timeline-block tuhr short">
+                    <span class="timeline-label"><T en="Clean" ru="Saaf" ur="صاف" /></span>
+                    <span class="timeline-days"><T en="2 days" ru="2 din" ur="۲ دن" /></span>
+                  </div>
+                  <div class="timeline-block haiz">
+                    <span class="timeline-label"><T en="Dots" ru="Nuqtay" ur="نقطے" /></span>
+                    <span class="timeline-days"><T en="1 day" ru="1 din" ur="۱ دن" /></span>
+                  </div>
+                </div>
+                <p class="qa-example-note">
+                  <span data-lang-text="en">All 6 days = Haiz (including the 2 clean days in between). Do not pray during the clean gap.</span>
+                  <span data-lang-text="ru">Poore 6 din = Haiz (beech ke 2 saaf din bhi). Saaf waqfe mein namaz na parhein.</span>
+                  <span data-lang-text="ur">پورے ۶ دن = حیض (بیچ کے ۲ صاف دن بھی)۔ صاف وقفے میں نماز نہ پڑھیں۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-spotting">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Bleeding stopped, then dots returned -->
+          <div class="qa-screen" data-screen="haiz-spotting-afterstop">
+            <span class="qa-badge">Spotting Return</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">How many total days has it been since bleeding first started (including clean gap)?</span>
+              <span data-lang-text="ru">Pehle khoon se le kar ab tak kul kitne din hue hain (saaf waqfa samait)?</span>
+              <span data-lang-text="ur">پہلے خون سے لے کر اب تک کل کتنے دن ہوئے ہیں (صاف وقفہ سمیت)؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="haiz-spotting-within10">
+                <T en="10 days or less in total" ru="Kul 10 din ya kam" ur="کل ۱۰ دن یا کم" />
+              </button>
+              <button class="qa-option" data-goto="haiz-spotting-over10">
+                <T en="More than 10 days in total" ru="Kul 10 din se zyada" ur="کل ۱۰ دن سے زیادہ" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-spotting">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Spotting over 10 days total -->
+          <div class="qa-screen" data-screen="haiz-spotting-over10">
+            <span class="qa-badge">Exceeds 10 Days</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Your Habit Determines Your Haiz Days</span>
+                <span data-lang-text="ru">Aapki Aadat Se Haiz Ke Din Tay Honge</span>
+                <span data-lang-text="ur">آپکی عادت سے حیض کے دن طے ہوں گے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Since the total period (bleeding + clean gaps + spotting) exceeds 10 days, your <strong>previous habit ('aadah)</strong> applies. Your regular number of days = haiz. The remaining days = istihaza.</span>
+                <span data-lang-text="ru">Chunkeh kul muddat (khoon + saaf waqfa + nuqtay) 10 din se zyada hai, aapki <strong>pichli aadat</strong> laagu hogi. Aapke mamool ke din = haiz. Baqi din = istihaza.</span>
+                <span data-lang-text="ur">چونکہ کل مدت (خون + صاف وقفہ + نقطے) ۱۰ دن سے زیادہ ہے، آپکی <strong>پچھلی عادت</strong> لاگو ہوگی۔ آپکے معمول کے دن = حیض۔ باقی دن = استحاضہ۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en">• Count your habit days from the start of bleeding as haiz<br/>• All remaining days (including spotting) = istihaza<br/>• Prayers missed on istihaza days must be made up (qaza)<br/>• If no established habit: first 10 days = haiz, rest = istihaza<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 4</span>
+                  <span data-lang-text="ru">• Khoon shuru hone se aadat ke din haiz shumaar karein<br/>• Baqi tamaam din (nuqtay samait) = istihaza<br/>• Istihaza ke dinon ki chhooti hui namazein qaza karein<br/>• Agar koi aadat nahi: pehle 10 din = haiz, baqi = istihaza<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 4</span>
+                  <span data-lang-text="ur">• خون شروع ہونے سے عادت کے دن حیض شمار کریں<br/>• باقی تمام دن (نقطے سمیت) = استحاضہ<br/>• استحاضہ کے دنوں کی چھوٹی ہوئی نمازیں قضا کریں<br/>• اگر کوئی عادت نہیں: پہلے ۱۰ دن = حیض، باقی = استحاضہ<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان، مسئلہ ۴</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-spotting-afterstop">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Spotting - slight colored discharge -->
+          <div class="qa-screen" data-screen="haiz-spotting-colors">
+            <span class="qa-badge">Discharge Colors</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Any of These 6 Colors = Haiz Blood</span>
+                <span data-lang-text="ru">In 6 Rangon Mein Se Koi Bhi = Haiz Ka Khoon</span>
+                <span data-lang-text="ur">ان ۶ رنگوں میں سے کوئی بھی = حیض کا خون</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Even slight discharge counts as haiz blood if it is any of these colors: <strong>Black, Red, Green, Yellow, Turbid/Muddy, Dust-colored</strong>. Only <strong>pure white discharge is NOT haiz</strong> — it means you are clean (paak).</span>
+                <span data-lang-text="ru">Halka discharge bhi haiz ka khoon hai agar in rangon mein se ho: <strong>Kaala, Laal, Sabz, Zard, Gadla, Matila</strong>. Sirf <strong>bilkul safed discharge haiz NAHI</strong> — iska matlab aap paak hain.</span>
+                <span data-lang-text="ur">ہلکا discharge بھی حیض کا خون ہے اگر ان رنگوں میں سے ہو: <strong>کالا، لال، سبز، زرد، گدلا، مٹیلا</strong>۔ صرف <strong>بالکل سفید discharge حیض نہیں</strong> — اسکا مطلب آپ پاک ہیں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Important" ru="Ahem" ur="اہم" /></span>
+                <p>
+                  <span data-lang-text="en">Even if the discharge is very light yellow or brownish — if it's not pure white, it counts as haiz blood. Spotting of any of these 6 colors within the haiz window (3-10 days) is haiz.<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 11</span>
+                  <span data-lang-text="ru">Chahe discharge bahut halka zard ya bhura ho — agar bilkul safed nahi hai to haiz ka khoon hai. Haiz ki muddat (3-10 din) ke andar in 6 rangon ka spotting haiz hai.<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 11</span>
+                  <span data-lang-text="ur">چاہے discharge بہت ہلکا زرد یا بھورا ہو — اگر بالکل سفید نہیں ہے تو حیض کا خون ہے۔ حیض کی مدت (۳-۱۰ دن) کے اندر ان ۶ رنگوں کا spotting حیض ہے۔<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان، مسئلہ ۱۱</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-spotting">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Currently bleeding - Duration -->
+          <div class="qa-screen" data-screen="haiz-current-duration">
+            <span class="qa-badge">Haiz</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">How many days has the bleeding lasted so far?</span>
+              <span data-lang-text="ru">Khoon abhi tak kitne din se aa raha hai?</span>
+              <span data-lang-text="ur">خون ابھی تک کتنے دن سے آ رہا ہے؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="haiz-less-3">
+                <T en="Less than 3 days" ru="3 din se kam" ur="۳ دن سے کم" />
+              </button>
+              <button class="qa-option" data-goto="haiz-3-10">
+                <T en="3 to 10 days" ru="3 se 10 din" ur="۳ سے ۱۰ دن" />
+              </button>
+              <button class="qa-option" data-goto="haiz-more-10">
+                <T en="More than 10 days" ru="10 din se zyada" ur="۱۰ دن سے زیادہ" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Less than 3 days -->
+          <div class="qa-screen" data-screen="haiz-less-3">
+            <span class="qa-badge">Not Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">This is NOT Haiz</span>
+                <span data-lang-text="ru">Yeh Haiz NAHI hai</span>
+                <span data-lang-text="ur">یہ حیض نہیں ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">The <strong>minimum duration of haiz is 3 days and 3 nights (72 hours)</strong>. Any bleeding lasting less than this is <strong>istihaza</strong> (irregular bleeding), not menstruation.</span>
+                <span data-lang-text="ru"><strong>Haiz ki kam se kam muddat 3 din aur 3 raatein (72 ghante) hai</strong>. Is se kam rahe woh <strong>istihaza</strong> hai, haiz nahi.</span>
+                <span data-lang-text="ur"><strong>حیض کی کم سے کم مدت ۳ دن اور ۳ راتیں (۷۲ گھنٹے) ہے</strong>۔ اس سے کم رہے وہ <strong>استحاضہ</strong> ہے، حیض نہیں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en">You must make up any salah you missed. Perform wudu for each salah. Fasting is NOT required to be made up.</span>
+                  <span data-lang-text="ru">Jo namazein chhooti hain unki qaza karein. Har namaz ke liye wuzu karein. Roza qaza zaroori nahi.</span>
+                  <span data-lang-text="ur">جو نمازیں چھوٹی ہیں انکی قضا کریں۔ ہر نماز کے لیے وضو کریں۔ روزہ کی قضا ضروری نہیں۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-current-duration">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: 3-10 days -->
+          <div class="qa-screen" data-screen="haiz-3-10">
+            <span class="qa-badge">Valid Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">This is Valid Haiz</span>
+                <span data-lang-text="ru">Yeh Sahih Haiz hai</span>
+                <span data-lang-text="ur">یہ صحیح حیض ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Bleeding between <strong>3-10 days</strong> is valid haiz in the Hanafi school.</span>
+                <span data-lang-text="ru"><strong>3 se 10 din</strong> tak ka khoon Hanafi maslak mein sahih haiz hai.</span>
+                <span data-lang-text="ur"><strong>۳ سے ۱۰ دن</strong> تک کا خون حنفی مسلک میں صحیح حیض ہے۔</span>
+              </p>
+            </div>
+            <div class="qa-followup">
+              <p class="qa-followup-q">
+                <span data-lang-text="en">Has the bleeding stopped now?</span>
+                <span data-lang-text="ru">Kya khoon abhi band ho gaya?</span>
+                <span data-lang-text="ur">کیا خون ابھی بند ہو گیا؟</span>
+              </p>
+              <div class="qa-options compact">
+                <button class="qa-option" data-goto="haiz-just-ended">
+                  <T en="Yes, just stopped" ru="Haan, abhi band hua" ur="ہاں، ابھی بند ہوا" />
+                </button>
+                <button class="qa-option" data-goto="haiz-still-flowing">
+                  <T en="No, still flowing" ru="Nahi, abhi bhi bah raha hai" ur="نہیں، ابھی بھی بہ رہا ہے" />
+                </button>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-current-duration">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Still flowing -->
+          <div class="qa-screen" data-screen="haiz-still-flowing">
+            <span class="qa-badge">Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">You are in Haiz — Continue Waiting</span>
+                <span data-lang-text="ru">Aap haiz mein hain — Rukhna rahega</span>
+                <span data-lang-text="ur">آپ حیض میں ہیں — رکھنا ہوگا</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">As long as bleeding continues within the 3-10 day window, you remain in haiz. Wait for bleeding to stop completely.</span>
+                <span data-lang-text="ru">Jab tak khoon 3-10 din ke andar bahta rahe, aap haiz mein hain. Khoon bilkul band hone ka intezaar karein.</span>
+                <span data-lang-text="ur">جب تک خون ۳ سے ۱۰ دن کے اندر بہتا رہے، آپ حیض میں ہیں۔ خون بالکل بند ہونے کا انتظار کریں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Rulings During Haiz" ru="Haiz Ke Ahkaam" ur="حیض کے احکام" /></span>
+                <p>
+                  <span data-lang-text="en">• Salah and fasting are not required<br/>• Missed salah does NOT need qaza<br/>• Missed fasts MUST be made up (qaza)<br/>• Cannot recite Quran or touch mushaf<br/>• Cannot enter Masjid</span>
+                  <span data-lang-text="ru">• Namaz aur roza zaroori nahi<br/>• Chhooti hui namaz ki qaza nahi<br/>• Chhoote hue rozon ki qaza FARZ hai<br/>• Quran parhna ya mushaf chhoona nahi<br/>• Masjid mein jaana nahi</span>
+                  <span data-lang-text="ur">• نماز اور روزہ ضروری نہیں<br/>• چھوٹی ہوئی نماز کی قضا نہیں<br/>• چھوٹے ہوئے روزوں کی قضا FARZ ہے<br/>• قرآن پڑھنا یا مصحف چھونا نہیں<br/>• مسجد میں جانا نہیں</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-3-10">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Just ended -->
+          <div class="qa-screen" data-screen="haiz-just-ended">
+            <span class="qa-badge">Haiz Complete</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Alhamdulillah, Your Haiz is Complete!</span>
+                <span data-lang-text="ru">Alhamdulillah, Aapka Haiz Mukammal Ho Gaya!</span>
+                <span data-lang-text="ur">الحمدللہ، آپ کا حیض مکمل ہو گیا!</span>
+              </h3>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="What to do now" ru="Ab kya karna hai" ur="اب کیا کرنا ہے" /></span>
+                <p>
+                  <span data-lang-text="en">1. Perform <strong>ghusl</strong> immediately<br/>2. Resume salah and fasting<br/>3. Make up any missed Ramadan fasts<br/>4. Missed salah during haiz does NOT need qaza</span>
+                  <span data-lang-text="ru">1. <strong>Ghusl</strong> foran karein<br/>2. Namaz aur roza shuru karein<br/>3. Ramadan ke chhoote hue rozon ki qaza karein<br/>4. Haiz ki namazon ki qaza nahi</span>
+                  <span data-lang-text="ur">1. <strong>غسل</strong> فوراً کریں<br/>2. نماز اور روزہ شروع کریں<br/>3. رمضان کے چھوٹے ہوئے روزوں کی قضا کریں<br/>4. حیض کی نمازوں کی قضا نہیں</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-followup">
+              <p class="qa-followup-q">
+                <span data-lang-text="en">Did bleeding return after stopping?</span>
+                <span data-lang-text="ru">Kya khoon band hone ke baad dobara aaya?</span>
+                <span data-lang-text="ur">کیا خون بند ہونے کے بعد دوبارہ آیا؟</span>
+              </p>
+              <div class="qa-options compact">
+                <button class="qa-option" data-goto="haiz-gap-check">
+                  <T en="Yes, it returned" ru="Haan, dobara aaya" ur="ہاں، دوبارہ آیا" />
+                </button>
+                <button class="qa-option" data-goto="haiz-clean-done">
+                  <T en="No, I am clean now" ru="Nahi, main paak ho gayi" ur="نہیں، میں پاک ہو گئی" />
+                </button>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-3-10">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Gap check (tuhr) -->
+          <div class="qa-screen" data-screen="haiz-gap-check">
+            <span class="qa-badge">Tuhr Check</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">How many clean (no bleeding) days were there before bleeding returned?</span>
+              <span data-lang-text="ru">Khoon dobara aane se pehle kitne saaf (bina khoon) din guzre?</span>
+              <span data-lang-text="ur">خون دوبارہ آنے سے پہلے کتنے صاف (بنا خون) دن گزرے؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="haiz-gap-less15">
+                <T en="Less than 15 days" ru="15 din se kam" ur="۱۵ دن سے کم" />
+              </button>
+              <button class="qa-option" data-goto="haiz-gap-15plus">
+                <T en="15 days or more" ru="15 din ya zyada" ur="۱۵ دن یا زیادہ" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-just-ended">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Gap less than 15 days = istihaza -->
+          <div class="qa-screen" data-screen="haiz-gap-less15">
+            <span class="qa-badge">Istihaza</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">The Second Bleeding is Istihaza</span>
+                <span data-lang-text="ru">Doosra Khoon Istihaza Hai</span>
+                <span data-lang-text="ur">دوسرا خون استحاضہ ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">The <strong>minimum gap of purity (tuhr) between two valid haiz periods is 15 days</strong>. Since less than 15 clean days passed, this second bleeding is <strong>istihaza</strong>, not a new haiz.</span>
+                <span data-lang-text="ru"><strong>Do sahih haiz ke darmiyan kam se kam 15 din paaki (tuhr) zaroori hai</strong>. Chunkeh 15 saaf din nahi guzre, yeh doosra khoon <strong>istihaza</strong> hai, naya haiz nahi.</span>
+                <span data-lang-text="ur"><strong>دو صحیح حیض کے درمیان کم سے کم ۱۵ دن پاکی (طہر) ضروری ہے</strong>۔ چونکہ ۱۵ صاف دن نہیں گزرے، یہ دوسرا خون <strong>استحاضہ</strong> ہے، نیا حیض نہیں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en">You MUST pray during istihaza. Perform fresh wudu for each fard salah time. If bleeding is continuous, you are a ma'zoor (excused person).</span>
+                  <span data-lang-text="ru">Istihaza mein namaz FARZ hai. Har farz namaz ke liye naya wuzu karein. Agar khoon musalsal rahe to aap ma'zoor hain.</span>
+                  <span data-lang-text="ur">استحاضہ میں نماز FARZ ہے۔ ہر فرض نماز کے لیے نیا وضو کریں۔ اگر خون مسلسل رہے تو آپ معذور ہیں۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-gap-check">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Gap 15+ days = new haiz -->
+          <div class="qa-screen" data-screen="haiz-gap-15plus">
+            <span class="qa-badge">New Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">This is a New Valid Haiz</span>
+                <span data-lang-text="ru">Yeh Naya Sahih Haiz Hai</span>
+                <span data-lang-text="ur">یہ نیا صحیح حیض ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Since <strong>15 or more clean days</strong> passed between the two bleedings, this second bleeding is a <strong>new haiz period</strong> (if it meets the 3-10 day criteria).</span>
+                <span data-lang-text="ru">Chunkeh dono khoon ke darmiyan <strong>15 ya zyada saaf din</strong> guzre, yeh doosra khoon <strong>naya haiz</strong> hai (agar 3-10 din ki shart poori ho).</span>
+                <span data-lang-text="ur">چونکہ دونوں خون کے درمیان <strong>۱۵ یا زیادہ صاف دن</strong> گزرے، یہ دوسرا خون <strong>نیا حیض</strong> ہے (اگر ۳-۱۰ دن کی شرط پوری ہو)۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en">The same haiz rulings apply — leave salah and fasting. After it ends, perform ghusl and resume worship.</span>
+                  <span data-lang-text="ru">Haiz ke wahi ahkaam laagu honge — namaz aur roza chhor dein. Khatam hone par ghusl karein aur ibadat shuru karein.</span>
+                  <span data-lang-text="ur">حیض کے وہی احکام لاگو ہوں گے — نماز اور روزہ چھوڑ دیں۔ ختم ہونے پر غسل کریں اور عبادت شروع کریں۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-gap-check">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Clean and done -->
+          <div class="qa-screen" data-screen="haiz-clean-done">
+            <span class="qa-badge">Complete</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Alhamdulillah — You are Clean</span>
+                <span data-lang-text="ru">Alhamdulillah — Aap Paak Hain</span>
+                <span data-lang-text="ur">الحمدللہ — آپ پاک ہیں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Your haiz ended within the valid range. Make sure you have performed ghusl and resumed all worship.</span>
+                <span data-lang-text="ru">Aapka haiz sahih muddat mein khatam hua. Ghusl kar lein aur tamaam ibadaat shuru karein.</span>
+                <span data-lang-text="ur">آپ کا حیض صحیح مدت میں ختم ہوا۔ غسل کر لیں اور تمام عبادات شروع کریں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Remember" ru="Yaad Rakhein" ur="یاد رکھیں" /></span>
+                <p>
+                  <span data-lang-text="en">Make up missed Ramadan fasts. Missed salah during haiz does NOT need qaza.</span>
+                  <span data-lang-text="ru">Ramadan ke chhoote hue roze qaza karein. Haiz ki namazein qaza nahi karni.</span>
+                  <span data-lang-text="ur">رمضان کے چھوٹے ہوئے روزے قضا کریں۔ حیض کی نمازیں قضا نہیں کرنی۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-just-ended">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: More than 10 days -->

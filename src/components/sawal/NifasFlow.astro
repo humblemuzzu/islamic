@@ -1,0 +1,195 @@
+---
+import T from '../T.astro';
+---
+
+          <!-- ============ NIFAS FLOW ============ -->
+          <div class="qa-screen" data-screen="nifas-start">
+            <span class="qa-badge">Nifas</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What do you need to know about nifas (postnatal bleeding)?</span>
+              <span data-lang-text="ru">Nifas (wiladat ke baad khoon) ke baare mein kya jaanna chahte hain?</span>
+              <span data-lang-text="ur">نفاس (ولادت کے بعد خون) کے بارے میں کیا جاننا چاہتے ہیں؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="nifas-duration">
+                <T en="How long does nifas last?" ru="Nifas kitne din rehta hai?" ur="نفاس کتنے دن رہتا ہے؟" />
+              </button>
+              <button class="qa-option" data-goto="nifas-rulings">
+                <T en="What are the rulings during nifas?" ru="Nifas ke dauran kaunse ahkaam hain?" ur="نفاس کے دوران کون سے احکام ہیں؟" />
+              </button>
+              <button class="qa-option" data-goto="nifas-early-stop">
+                <T en="Bleeding stopped before 40 days" ru="Khoon 40 din se pehle band ho gaya" ur="خون ۴۰ دن سے پہلے بند ہو گیا" />
+              </button>
+              <button class="qa-option" data-goto="nifas-over40">
+                <T en="Bleeding continued beyond 40 days" ru="Khoon 40 din se zyada chala" ur="خون ۴۰ دن سے زیادہ چلا" />
+              </button>
+              <button class="qa-option" data-goto="nifas-miscarriage">
+                <T en="Bleeding after miscarriage" ru="Hamal girne ke baad khoon" ur="حمل گرنے کے بعد خون" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="nifas-duration">
+            <span class="qa-badge">Nifas Duration</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Nifas Duration</span>
+                <span data-lang-text="ru">Nifas Ki Muddat</span>
+                <span data-lang-text="ur">نفاس کی مدت</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">The <strong>maximum nifas is 40 days</strong>. There is no minimum — bleeding can stop immediately after childbirth.</span>
+                <span data-lang-text="ru"><strong>Nifas ki zyada se zyada muddat 40 din hai</strong>. Koi minimum nahi — khoon bilkul shuru mein hi band ho sakta hai.</span>
+                <span data-lang-text="ur"><strong>نفاس کی زیادہ سے زیادہ مدت ۴۰ دن ہے</strong>۔ کوئی کم سے کم نہیں — خون بالکل شروع میں ہی بند ہو سکتا ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Key Points" ru="Ahem Baton" ur="اہم باتیں" /></span>
+                <p>
+                  <span data-lang-text="en">• Up to 40 days = nifas (same rulings as haiz)<br/>• More than 40 days = istihaza (must pray)<br/>• No minimum — even 1 drop counts as nifas</span>
+                  <span data-lang-text="ru">• 40 din tak = nifas (haiz ke ahkaam)<br/>• 40 din se zyada = istihaza (namaz zaroori)<br/>• Koi minimum nahi — 1 boond bhi nifas hai</span>
+                  <span data-lang-text="ur">• ۴۰ دن تک = نفاس (حیض کے احکام)<br/>• ۴۰ دن سے زیادہ = استحاضہ (نماز ضروری)<br/>• کوئی کم سے کم نہیں — ۱ بھی بوند بھی نفاس ہے</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="nifas-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="nifas-rulings">
+            <span class="qa-badge">Nifas Rulings</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Rulings During Nifas</span>
+                <span data-lang-text="ru">Nifas Ke Ahkaam</span>
+                <span data-lang-text="ur">نفاس کے احکام</span>
+              </h3>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Same as Haiz" ru="Haiz Jaisa" ur="حیض جیسا" /></span>
+                <p>
+                  <span data-lang-text="en">• Salah and fasting are not required<br/>• Missed salah does NOT need qaza<br/>• Missed fasts MUST be made up<br/>• Cannot recite Quran or touch mushaf<br/>• Cannot enter Masjid</span>
+                  <span data-lang-text="ru">• Namaz aur roza zaroori nahi<br/>• Chhooti hui namaz ki qaza nahi<br/>• Chhoote hue rozon ki qaza FARZ<br/>• Quran parhna ya mushaf chhoona nahi<br/>• Masjid mein jaana nahi</span>
+                  <span data-lang-text="ur">• نماز اور روزہ ضروری نہیں<br/>• چھوٹی ہوئی نماز کی قضا نہیں<br/>• چھوٹے ہوئے روزوں کی قضا FARZ<br/>• قرآن پڑھنا یا مصحف چھونا نہیں<br/>• مسجد میں جانا نہیں</span>
+                </p>
+              </div>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="After Nifas" ru="Nifas Ke Baad" ur="نفاس کے بعد" /></span>
+                <p>
+                  <span data-lang-text="en">1. After 40 days (or if bleeding stops): perform ghusl<br/>2. Resume salah and fasting<br/>3. Minimum gap between nifas and next haiz = 15 days</span>
+                  <span data-lang-text="ru">1. 40 din ke baad (ya khoon band ho): ghusl karein<br/>2. Namaz aur roza shuru karein<br/>3. Nifas aur agle haiz ke darmiyan kam se kam 15 din</span>
+                  <span data-lang-text="ur">1. ۴۰ دن کے بعد (یا خون بند ہو): غسل کریں<br/>2. نماز اور روزہ شروع کریں<br/>3. نفاس اور اگلے حیض کے درمیان کم سے کم ۱۵ دن</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="nifas-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Nifas: Early stop -->
+          <div class="qa-screen" data-screen="nifas-early-stop">
+            <span class="qa-badge">Nifas Early</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Alhamdulillah — Perform Ghusl & Resume Worship</span>
+                <span data-lang-text="ru">Alhamdulillah — Ghusl Karein Aur Ibadat Shuru Karein</span>
+                <span data-lang-text="ur">الحمدللہ — غسل کریں اور عبادت شروع کریں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">There is <strong>no minimum for nifas</strong>. If bleeding stops before 40 days — even after just a few hours — your nifas is complete.</span>
+                <span data-lang-text="ru">Nifas ki <strong>koi kam se kam muddat nahi</strong>. Agar khoon 40 din se pehle band ho jaye — chahe kuch ghanton ke baad — aapka nifas mukammal ho gaya.</span>
+                <span data-lang-text="ur">نفاس کی <strong>کوئی کم سے کم مدت نہیں</strong>۔ اگر خون ۴۰ دن سے پہلے بند ہو جائے — چاہے کچھ گھنٹوں کے بعد — آپکا نفاس مکمل ہو گیا۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="What to do" ru="Kya karein" ur="کیا کریں" /></span>
+                <p>
+                  <span data-lang-text="en">1. Perform ghusl immediately<br/>2. Resume salah and fasting<br/>3. Make up missed fasts (qaza farz)<br/>4. If bleeding returns after ghusl but within 40 days total = still nifas<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Nifas ka Bayan</span>
+                  <span data-lang-text="ru">1. Foran ghusl karein<br/>2. Namaz aur roza shuru karein<br/>3. Chhoote hue rozon ki qaza karein (farz)<br/>4. Agar ghusl ke baad khoon wapas aaye lekin kul 40 din ke andar ho = phir bhi nifas<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Nifas ka Bayan</span>
+                  <span data-lang-text="ur">1. فوراً غسل کریں<br/>2. نماز اور روزہ شروع کریں<br/>3. چھوٹے ہوئے روزوں کی قضا کریں (فرض)<br/>4. اگر غسل کے بعد خون واپس آئے لیکن کل ۴۰ دن کے اندر ہو = پھر بھی نفاس<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، نفاس کا بیان</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="nifas-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Nifas: Over 40 days -->
+          <div class="qa-screen" data-screen="nifas-over40">
+            <span class="qa-badge">Over 40 Days</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Beyond 40 Days = Istihaza</span>
+                <span data-lang-text="ru">40 Din Se Zyada = Istihaza</span>
+                <span data-lang-text="ur">۴۰ دن سے زیادہ = استحاضہ</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">The <strong>maximum nifas is 40 days</strong>. Any bleeding beyond 40 days is istihaza. If you had a habit from a previous pregnancy, your habit days = nifas and the rest = istihaza.</span>
+                <span data-lang-text="ru"><strong>Nifas ki zyada se zyada muddat 40 din hai</strong>. 40 din se zyada ka khoon istihaza hai. Agar pichli wiladat ki aadat hai to aadat ke din = nifas aur baqi = istihaza.</span>
+                <span data-lang-text="ur"><strong>نفاس کی زیادہ سے زیادہ مدت ۴۰ دن ہے</strong>۔ ۴۰ دن سے زیادہ کا خون استحاضہ ہے۔ اگر پچھلی ولادت کی عادت ہے تو عادت کے دن = نفاس اور باقی = استحاضہ۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en">• After 40 days: perform ghusl and start praying<br/>• Make up missed fasts (qaza farz)<br/>• If bleeding continues, make fresh wudu for each salah (ma'zoor rules)<br/>• Next haiz can only start after 15 clean days from end of nifas<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Nifas ka Bayan</span>
+                  <span data-lang-text="ru">• 40 din ke baad: ghusl karein aur namaz shuru karein<br/>• Chhoote hue rozon ki qaza karein (farz)<br/>• Agar khoon jaari rahe to har namaz ke liye naya wuzu (ma'zoor ke ahkaam)<br/>• Agla haiz nifas khatam hone ke 15 saaf dinon ke baad hi ho sakta hai<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Nifas ka Bayan</span>
+                  <span data-lang-text="ur">• ۴۰ دن کے بعد: غسل کریں اور نماز شروع کریں<br/>• چھوٹے ہوئے روزوں کی قضا کریں (فرض)<br/>• اگر خون جاری رہے تو ہر نماز کے لیے نیا وضو (معذور کے احکام)<br/>• اگلا حیض نفاس ختم ہونے کے ۱۵ صاف دنوں کے بعد ہی ہو سکتا ہے<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، نفاس کا بیان</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="nifas-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Nifas: Miscarriage -->
+          <div class="qa-screen" data-screen="nifas-miscarriage">
+            <span class="qa-badge">Miscarriage</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Miscarriage — It Depends on the Stage</span>
+                <span data-lang-text="ru">Hamal Girna — Yeh Halat Par Munhasir Hai</span>
+                <span data-lang-text="ur">حمل گرنا — یہ حالت پر منحصر ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Whether bleeding after a miscarriage is nifas depends on how developed the baby was.</span>
+                <span data-lang-text="ru">Hamal girne ke baad khoon nifas hai ya nahi yeh is par munhasir hai ke bachcha kitna bana hua tha.</span>
+                <span data-lang-text="ur">حمل گرنے کے بعد خون نفاس ہے یا نہیں یہ اس پر منحصر ہے کہ بچہ کتنا بنا ہوا تھا۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en"><strong>If limbs/features were formed</strong> (typically after ~120 days/4 months of pregnancy): the bleeding IS nifas. Same rulings as normal nifas apply (max 40 days).<br/><br/><strong>If no limbs/features were formed</strong> (early miscarriage, just a clot): the bleeding is NOT nifas. It is istihaza. You must pray and fast.<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Nifas ka Bayan</span>
+                  <span data-lang-text="ru"><strong>Agar aaza bane hue the</strong> (aam taur par ~120 din/4 mahine ke baad): khoon nifas HAI. Aam nifas ke ahkaam laagu (zyada se zyada 40 din).<br/><br/><strong>Agar aaza nahi bane the</strong> (jaldi hamal girna, sirf lothra): khoon nifas NAHI. Istihaza hai. Namaz aur roza zaroori hai.<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Nifas ka Bayan</span>
+                  <span data-lang-text="ur"><strong>اگر اعضا بنے ہوئے تھے</strong> (عام طور پر ~۱۲۰ دن/۴ مہینے کے بعد): خون نفاس ہے۔ عام نفاس کے احکام لاگو (زیادہ سے زیادہ ۴۰ دن)۔<br/><br/><strong>اگر اعضا نہیں بنے تھے</strong> (جلدی حمل گرنا، صرف لوتھڑا): خون نفاس نہیں۔ استحاضہ ہے۔ نماز اور روزہ ضروری ہے۔<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، نفاس کا بیان</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="nifas-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+

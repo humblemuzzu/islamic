@@ -1,0 +1,105 @@
+---
+import T from '../T.astro';
+---
+
+          <!-- ============ GHUSL FLOW ============ -->
+          <div class="qa-screen" data-screen="ghusl-start">
+            <span class="qa-badge">Ghusl</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What do you need to know about ghusl?</span>
+              <span data-lang-text="ru">Ghusl ke baare mein kya jaanna chahte hain?</span>
+              <span data-lang-text="ur">غسل کے بارے میں کیا جاننا چاہتے ہیں؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="ghusl-when">
+                <T en="When is ghusl required?" ru="Ghusl kab farz hota hai?" ur="غسل کب فرض ہوتا ہے؟" />
+              </button>
+              <button class="qa-option" data-goto="ghusl-how">
+                <T en="How to perform ghusl" ru="Ghusl ka tareeqa" ur="غسل کا طریقہ" />
+              </button>
+              <button class="qa-option" data-goto="ghusl-10days">
+                <T en="Haiz lasted 10 days — do ghusl?" ru="Haiz 10 din raha — ghusl karein?" ur="حیض ۱۰ دن رہا — غسل کریں؟" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="ghusl-when">
+            <span class="qa-badge">Ghusl Required</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">When is Ghusl Obligatory?</span>
+                <span data-lang-text="ru">Ghusl Kab Farz Hota Hai?</span>
+                <span data-lang-text="ur">غسل کب فرض ہوتا ہے؟</span>
+              </h3>
+              <ul class="qa-answer-list">
+                <li><span data-lang-text="en">Haiz ends</span><span data-lang-text="ru">Haiz khatam ho</span><span data-lang-text="ur">حیض ختم ہو</span></li>
+                <li><span data-lang-text="en">Nifas ends (before 40 days)</span><span data-lang-text="ru">Nifas khatam ho (40 din se pehle)</span><span data-lang-text="ur">نفاس ختم ہو (۴۰ دن سے پہلے)</span></li>
+                <li><span data-lang-text="en">Janabah (after intimacy)</span><span data-lang-text="ru">Janabat (humbistari ke baad)</span><span data-lang-text="ur">جنابت (ہمبستری کے بعد)</span></li>
+              </ul>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="ghusl-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="ghusl-how">
+            <span class="qa-badge">Ghusl Method</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">The 3 Fard of Ghusl</span>
+                <span data-lang-text="ru">Ghusl Ke 3 Farz</span>
+                <span data-lang-text="ur">غسل کے ۳ فرض</span>
+              </h3>
+              <ol class="qa-answer-list numbered">
+                <li><span data-lang-text="en"><strong>Rinse mouth</strong> — water must reach everywhere</span><span data-lang-text="ru"><strong>Kuli karna</strong> — paani har hisse tak pahunchna chahiye</span><span data-lang-text="ur"><strong>کلی کرنا</strong> — پانی ہر حصے تک پہنچنا چاہیے</span></li>
+                <li><span data-lang-text="en"><strong>Rinse nose</strong> — draw water into nostrils</span><span data-lang-text="ru"><strong>Naak mein paani dalna</strong> — naak ke andar tak paani jayega</span><span data-lang-text="ur"><strong>ناک میں پانی ڈالنا</strong> — ناک کے اندر تک پانی جائے گا</span></li>
+                <li><span data-lang-text="en"><strong>Wash entire body</strong> — no dry spot</span><span data-lang-text="ru"><strong>Poora jism dhona</strong> — koi khushk jagah na rahe</span><span data-lang-text="ur"><strong>پورا جسم دھونا</strong> — کوئی خشک جگہ نہ رہے</span></li>
+              </ol>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="ghusl-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="ghusl-10days">
+            <span class="qa-badge">Full 10 Days</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Ghusl is Still Mustahab — But Not Farz</span>
+                <span data-lang-text="ru">Ghusl Phir Bhi Mustahab Hai — Lekin Farz Nahi</span>
+                <span data-lang-text="ur">غسل پھر بھی مستحب ہے — لیکن فرض نہیں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">If haiz lasted the full 10 days, you become pure immediately after 10 days — ghusl is mustahab (recommended), not farz.</span>
+                <span data-lang-text="ru">Agar haiz poore 10 din chala to aap 10 din ke fauran baad paak ho jaate hain — ghusl mustahab hai, farz nahi.</span>
+                <span data-lang-text="ur">اگر حیض پورے ۱۰ دن چلا تو آپ ۱۰ دن کے فوراً بعد پاک ہو جاتے ہیں — غسل مستحب ہے، فرض نہیں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="What this means" ru="Iska matlab" ur="اسکا مطلب" /></span>
+                <p>
+                  <span data-lang-text="en">You can pray and have intimacy even BEFORE ghusl. But ghusl first is better (mustahab).</span>
+                  <span data-lang-text="ru">Aap ghusl se pehle bhi namaz parh sakte hain aur humbistari kar sakte hain. Lekin pehle ghusl behtar hai.</span>
+                  <span data-lang-text="ur">آپ غسل سے پہلے بھی نماز پڑھ سکتے ہیں اور ہمبستری کر سکتے ہیں۔ لیکن پہلے غسل بہتر ہے۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="ghusl-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+

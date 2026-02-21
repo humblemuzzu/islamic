@@ -22,35 +22,91 @@ A static, interactive Q&A website for women's Hanafi fiqh masail (Islamic jurisp
 - `npm run build` — Build static site for production
 - `npm run preview` — Preview production build locally
 
-## Project Structure
+## Project Structure (Target — Modular)
 
 ```
 src/
 ├── i18n/
-│   └── types.ts         # Shared types: Lang, I18nText, I18nMasala
+│   └── types.ts                # Shared types: Lang, I18nText, I18nMasala, QAScreen, QAOption, QAAnswer
+├── content/                    # ALL content data lives here — no HTML, just typed exports
+│   ├── masail/                 # Q&A data per topic
+│   │   ├── haiz.ts             # export const haizMasail: I18nMasala[]
+│   │   ├── istihaza.ts
+│   │   ├── nifas.ts
+│   │   ├── salah.ts
+│   │   ├── sawm.ts
+│   │   ├── taharah.ts
+│   │   └── featured.ts        # Curated subset for homepage FeaturedMasail
+│   ├── sawal/                  # Decision tree data
+│   │   ├── categories.ts      # Category chips metadata
+│   │   └── flows/             # One file per topic flow (QAScreen[])
+│   │       ├── haiz.ts
+│   │       ├── istihaza.ts
+│   │       ├── nifas.ts
+│   │       ├── salah.ts
+│   │       ├── sawm.ts
+│   │       ├── ghusl.ts
+│   │       ├── quran.ts
+│   │       ├── masjid.ts
+│   │       └── zawaj.ts
+│   ├── ramadan/
+│   │   ├── wazaif.ts           # 30-day wazaif schedule data
+│   │   └── dhikr.ts            # Daily dhikr lists
+│   ├── counter/
+│   │   └── themes.ts           # Dhikr counter themes
+│   └── downloads/
+│       └── pdfs.ts             # PDF metadata
 ├── components/
-│   ├── T.astro          # Translation helper — renders 3 <span data-lang-text> elements
-│   ├── LangToggle.astro # Language toggle pill (RU | EN | اردو) for navbar
-│   ├── Navbar.astro     # Fixed nav, blurs on scroll, mobile hamburger overlay
-│   ├── Hero.astro       # Full-viewport hero with Bismillah, Arabic title, CTAs
-│   ├── Categories.astro # 6 topic cards (haiz, istihaza, nifas, salah, sawm, taharah)
-│   ├── QuickQuestion.astro  # Interactive decision-tree Q&A (the main feature)
-│   ├── FeaturedMasail.astro # Expandable Q&A cards with filters + search
-│   ├── TopicHeader.astro    # Shared header for topic pages
-│   ├── MasailList.astro     # Shared expandable masail list for topic pages
-│   └── Footer.astro     # Dark green footer with Quranic ayah + disclaimer
+│   ├── common/                 # Shared building blocks
+│   │   ├── T.astro             # Translation helper
+│   │   ├── PageHero.astro      # Reusable hero section
+│   │   └── Ornament.astro      # Gold ornament divider
+│   ├── layout/                 # Site-wide structural
+│   │   ├── Navbar.astro
+│   │   ├── Footer.astro
+│   │   └── LangToggle.astro
+│   ├── home/                   # Homepage components
+│   │   ├── Hero.astro
+│   │   ├── Categories.astro
+│   │   ├── QuickQuestion.astro
+│   │   └── FeaturedMasail.astro
+│   ├── topic/                  # Topic page components
+│   │   ├── TopicHeader.astro
+│   │   └── MasailList.astro
+│   ├── sawal/                  # Decision tree components
+│   │   ├── CategorySelector.astro
+│   │   ├── QAScreen.astro
+│   │   └── QAAnswer.astro
+│   ├── ramadan/                # Ramadan page sections
+│   │   ├── DhikrSection.astro
+│   │   └── WazaifCard.astro
+│   └── counter/                # Counter page sections
+│       ├── TapArea.astro
+│       └── ThemeSelector.astro
+├── styles/
+│   ├── global.css              # Design tokens + reset + utilities ONLY
+│   ├── qa.css                  # Shared QA/decision-tree styles
+│   ├── ramadan.css             # Ramadan page styles
+│   ├── counter.css             # Counter page styles
+│   └── downloads.css           # Downloads page styles
+├── scripts/
+│   ├── qa-engine.ts            # Decision tree navigation logic
+│   ├── counter.ts              # Dhikr counter logic
+│   └── scroll-reveal.ts        # Intersection observer
 ├── layouts/
-│   └── Layout.astro     # Base HTML layout with meta, scroll-reveal, FOUC-prevention lang script
-├── pages/
-│   ├── index.astro      # Homepage — imports and composes all components
-│   ├── haiz.astro       # Haiz topic page (12 masail)
-│   ├── istihaza.astro   # Istihaza topic page (8 masail)
-│   ├── nifas.astro      # Nifas topic page (8 masail)
-│   ├── salah.astro      # Salah topic page (10 masail)
-│   ├── sawm.astro       # Sawm topic page (9 masail)
-│   └── taharah.astro    # Taharah topic page (9 masail)
-└── styles/
-    └── global.css       # CSS variables, reset, utilities, patterns, language toggle rules
+│   └── Layout.astro            # Base HTML layout
+└── pages/                      # THIN pages — compose components, import content
+    ├── index.astro             # ~20 lines
+    ├── haiz.astro              # ~30 lines (imports data from content/masail/haiz.ts)
+    ├── istihaza.astro
+    ├── nifas.astro
+    ├── salah.astro
+    ├── sawm.astro
+    ├── taharah.astro
+    ├── sawal.astro             # ~40 lines (imports flows from content/sawal/flows/)
+    ├── ramadan.astro           # ~40 lines (imports data from content/ramadan/)
+    ├── counter.astro           # ~30 lines
+    └── downloads.astro         # ~30 lines
 ```
 
 ## Design System & Aesthetic
@@ -207,3 +263,90 @@ This is the actual Islamic jurisprudence logic hardcoded into the site. **Do not
 - Disclaimer in footer: "For personal situations, always consult a qualified scholar"
 - Footer Quranic ayah: Surah Hud 11:88
 - All content must be Hanafi school specifically — do not mix with other madhabs
+
+---
+
+## ⚠️ MODULAR CODEBASE RULES (MANDATORY)
+
+These rules prevent file bloat and keep the codebase clean, maintainable, and AI-friendly as the project grows.
+
+### Hard Limits
+
+| Rule | Limit |
+|------|-------|
+| **Max file size** | **500 lines**. No exceptions. If a file exceeds this, split it before doing anything else. |
+| **Max inline `<style>`** | **100 lines**. Beyond that, extract to `src/styles/filename.css` and import. |
+| **Max inline `<script>`** | **80 lines**. Beyond that, extract to `src/scripts/filename.ts`. |
+| **Max frontmatter data** | **0 lines of content arrays**. All content data lives in `src/content/`. |
+
+### Single Responsibility Principle
+
+Each file does **ONE thing**:
+- A **page file** (`.astro` in `pages/`) composes components. It should be 20–60 lines max.
+- A **component** renders UI for one piece of functionality.
+- A **content file** exports data arrays/objects. No HTML, no logic.
+- A **style file** contains CSS for one feature/component group.
+- A **script file** contains JS/TS logic for one feature.
+
+**Test:** *"If a new dev (or Claude) reads just this file, will they understand exactly what it does without needing context from 5 other files?"* If yes → right size. If no → split it.
+
+### Content Separation (Data ≠ Template)
+
+**ALL content data** (masail Q&A arrays, decision tree flows, wazaif schedules, PDF lists, dhikr themes) **MUST live in `src/content/`** as TypeScript files that export typed data.
+
+Pages and components **import** this data — they never define it inline.
+
+```
+src/content/
+├── masail/          # Q&A data per topic (haiz.ts, salah.ts, etc.)
+├── sawal/flows/     # Decision tree screen data per topic
+├── ramadan/         # Wazaif + dhikr data
+├── counter/         # Counter theme data
+└── downloads/       # PDF metadata
+```
+
+### Component Organization
+
+Components are **grouped by feature**, not dumped flat in `components/`:
+
+```
+src/components/
+├── common/     # Shared across multiple features (T.astro, PageHero.astro, Ornament.astro)
+├── layout/     # Site structure (Navbar, Footer, LangToggle)
+├── home/       # Homepage only (Hero, Categories, QuickQuestion, FeaturedMasail)
+├── topic/      # Topic pages (TopicHeader, MasailList)
+├── sawal/      # Decision tree (CategorySelector, QAScreen, QAAnswer)
+├── ramadan/    # Ramadan page sections
+└── counter/    # Counter page sections
+```
+
+### CSS Organization
+
+- `src/styles/global.css` — Design tokens + reset + base utilities ONLY
+- `src/styles/qa.css` — Shared QA styles (used by both QuickQuestion + sawal page)
+- `src/styles/ramadan.css`, `counter.css`, `downloads.css` — Page-specific styles
+- Component-scoped `<style>` is fine if under 100 lines
+
+### Decision Trees Are Data-Driven
+
+Decision tree screens are **defined as data** in `src/content/sawal/flows/`, NOT as hand-written HTML divs. A reusable `QAScreen.astro` component renders each screen from the data.
+
+**Never** write 50+ manual `<div class="qa-screen" data-screen="...">` blocks. Define the screens as a typed array and render them with a component loop.
+
+### When Adding New Features
+
+1. **Create content file** in `src/content/` with typed data
+2. **Create component(s)** in `src/components/featurename/` (one per responsibility)
+3. **Create style file** in `src/styles/` if styles exceed 100 lines
+4. **Create script file** in `src/scripts/` if JS exceeds 80 lines
+5. **Wire it up** in the page file (which should remain thin — under 60 lines)
+
+### Refactoring Checklist
+
+Before submitting any change, verify:
+- [ ] No file exceeds 500 lines
+- [ ] No content data arrays sit in page frontmatter (they're in `src/content/`)
+- [ ] No `<style>` block exceeds 100 lines
+- [ ] No `<script>` block exceeds 80 lines
+- [ ] Components are in the correct feature folder
+- [ ] Page files are thin (compose components, don't define content)

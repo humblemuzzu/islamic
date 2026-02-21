@@ -1,0 +1,49 @@
+---
+import T from '../T.astro';
+---
+
+<div class="category-selection reveal" id="categorySelection">
+  <h3 class="category-prompt">
+    <span data-lang-text="en">What would you like to ask about?</span>
+    <span data-lang-text="ru">Aap kya sawal karna chahte hain?</span>
+    <span data-lang-text="ur">آپ کیا سوال کرنا چاہتے ہیں؟</span>
+  </h3>
+  <div class="category-chips">
+    <button class="category-chip" data-goto="haiz-start">
+      <span class="chip-ar">حَيض</span>
+      <span class="chip-label"><T en="Haiz" ru="Haiz" ur="حیض" /></span>
+    </button>
+    <button class="category-chip" data-goto="istihaza-start">
+      <span class="chip-ar">اسْتِحَاضَة</span>
+      <span class="chip-label"><T en="Istihaza" ru="Istihaza" ur="استحاضہ" /></span>
+    </button>
+    <button class="category-chip" data-goto="nifas-start">
+      <span class="chip-ar">نِفَاس</span>
+      <span class="chip-label"><T en="Nifas" ru="Nifas" ur="نفاس" /></span>
+    </button>
+    <button class="category-chip" data-goto="salah-start">
+      <span class="chip-ar">صَلَاة</span>
+      <span class="chip-label"><T en="Salah" ru="Namaz" ur="نماز" /></span>
+    </button>
+    <button class="category-chip" data-goto="sawm-start">
+      <span class="chip-ar">صَوۡم</span>
+      <span class="chip-label"><T en="Sawm" ru="Roza" ur="روزہ" /></span>
+    </button>
+    <button class="category-chip" data-goto="ghusl-start">
+      <span class="chip-ar">غُسل</span>
+      <span class="chip-label"><T en="Ghusl" ru="Ghusl" ur="غسل" /></span>
+    </button>
+    <button class="category-chip" data-goto="quran-start">
+      <span class="chip-ar">قُرۡآن</span>
+      <span class="chip-label"><T en="Quran" ru="Quran" ur="قرآن" /></span>
+    </button>
+    <button class="category-chip" data-goto="masjid-start">
+      <span class="chip-ar">مَسۡجِد</span>
+      <span class="chip-label"><T en="Masjid" ru="Masjid" ur="مسجد" /></span>
+    </button>
+    <button class="category-chip" data-goto="zawaj-start">
+      <span class="chip-ar">نِكَاح</span>
+      <span class="chip-label"><T en="Zawaj" ru="Zawaj" ur="نکاح" /></span>
+    </button>
+  </div>
+</div>

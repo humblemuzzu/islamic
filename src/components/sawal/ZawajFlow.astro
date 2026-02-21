@@ -1,0 +1,91 @@
+---
+import T from '../T.astro';
+---
+
+          <!-- ============ ZAWAJ FLOW ============ -->
+          <div class="qa-screen" data-screen="zawaj-start">
+            <span class="qa-badge">Zawaj</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What is your question about intimacy?</span>
+              <span data-lang-text="ru">Humbistari ke baare mein aapka sawal kya hai?</span>
+              <span data-lang-text="ur">ہمبستری کے بارے میں آپکا سوال کیا ہے؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="zawaj-during-haiz">
+                <T en="Intimacy during haiz?" ru="Haiz ke dauran humbistari?" ur="حیض کے دوران ہمبستری؟" />
+              </button>
+              <button class="qa-option" data-goto="zawaj-intimate-parts">
+                <T en="What intimacy is not allowed?" ru="Konsi humbistari jaiz nahi?" ur="کون سی ہمبستری جائز نہیں؟" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="zawaj-during-haiz">
+            <span class="qa-badge">Intimacy During Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Intimacy During Haiz is HARAM</span>
+                <span data-lang-text="ru">Haiz Mein Humbistari HARAM Hai</span>
+                <span data-lang-text="ur">حیض میں ہمبستری HARAM ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Sexual intercourse during haiz is strictly prohibited (haram). It is a major sin.</span>
+                <span data-lang-text="ru">Haiz ke dauran humbistari sakht mana (haram) hai. Yeh bada gunaah hai.</span>
+                <span data-lang-text="ur">حیض کے دوران ہمبستری سخت منع (حرام) ہے۔ یہ بڑا گناہ ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Exception" ru="Exception" ur="Exception" /></span>
+                <p>
+                  <span data-lang-text="en">If haiz lasted full 10 days (or nifas 40 days), intimacy is allowed even before ghusl — but ghusl first is better.</span>
+                  <span data-lang-text="ru">Agar haiz poore 10 din (ya nifas 40 din) chala to ghusl se pehle bhi jaiz hai — lekin pehle ghusl behtar hai.</span>
+                  <span data-lang-text="ur">اگر حیض پورے ۱۰ دن (یا نفاس ۴۰ دن) چلا تو غسل سے پہلے بھی جائز ہے — لیکن پہلے غسل بہتر ہے۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="zawaj-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="zawaj-intimate-parts">
+            <span class="qa-badge">Intimate Parts</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Prohibited Area</span>
+                <span data-lang-text="ru">Mana Hissa</span>
+                <span data-lang-text="ur">منع حصہ</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Physical intimacy between the navel and knees with bare skin is not allowed during haiz.</span>
+                <span data-lang-text="ru">Naaf aur ghutnon ke darmiyan nange jism se qurbat haiz mein mana hai.</span>
+                <span data-lang-text="ur">ناف اور گھٹنوں کے درمیان ننگے جسم سے قربت حیض میں منع ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Allowed" ru="Jaiz" ur="جائز" /></span>
+                <p>
+                  <span data-lang-text="en">Intimacy above the navel and below the knees is permitted.</span>
+                  <span data-lang-text="ru">Naaf ke oopar aur ghutnon ke neeche jaiz hai.</span>
+                  <span data-lang-text="ur">ناف کے اوپر اور گھٹنوں کے نیچے جائز ہے۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="zawaj-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      </div>

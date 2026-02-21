@@ -1,0 +1,152 @@
+import type { I18nMasala } from '../../i18n/types';
+
+export const sawmMasail = [
+  {
+    question: {
+      en: 'Can I fast during haiz?',
+      ru: 'Kya haiz mein roza rakh sakti hoon?',
+      ur: 'کیا حیض میں روزہ رکھ سکتی ہوں؟',
+    },
+    answer: {
+      en: 'No. A woman must not fast during haiz. If haiz begins during a fast (even just before Maghrib), that day\'s fast is broken and must be made up later. This is not optional — it is haram to fast during haiz.',
+      ru: 'Nahi. Aurat ko haiz mein roza rakhna mana hai. Agar roza ki halat mein haiz shuru ho jaye (chahe Maghrib se thodi der pehle bhi), to us din ka roza toot jayega aur baad mein qaza karni hogi. Yeh ikhtiyari nahi hai — haiz mein roza rakhna haram hai.',
+      ur: 'نہیں۔ عورت کو حیض میں روزہ رکھنا منع ہے۔ اگر روزے کی حالت میں حیض شروع ہو جائے (چاہے مغرب سے تھوڑی دیر پہلے بھی)، تو اس دن کا روزہ ٹوٹ جائے گا اور بعد میں قضا کرنی ہوگی۔ یہ اختیاری نہیں ہے — حیض میں روزہ رکھنا حرام ہے۔',
+    },
+    reference: 'Nurul Idah',
+    important: true,
+  },
+  {
+    question: {
+      en: 'Do I need to make up missed Ramadan fasts?',
+      ru: 'Kya Ramzan ke chhoote hue roze qaza karne hain?',
+      ur: 'کیا رمضان کے چھوٹے ہوئے روزے قضا کرنے ہیں؟',
+    },
+    answer: {
+      en: 'Yes. Unlike salah, fasts missed during haiz MUST be made up (qada). There is scholarly consensus on this. You can spread the makeup fasts throughout the year, but it is recommended to complete them as soon as reasonably possible.',
+      ru: 'Haan. Namaz ke barkhilaf, haiz mein chhoote hue roze LAZMI qaza karne hain. Is par ulama ka ijma hai. Aap puri saal mein qaza roze rakh sakti hain, lekin jitni jaldi ho sake pura karna mustahabb hai.',
+      ur: 'ہاں۔ نماز کے برخلاف، حیض میں چھوٹے ہوئے روزے لازمی قضا کرنے ہیں۔ اس پر علماء کا اجماع ہے۔ آپ پوری سال میں قضا روزے رکھ سکتی ہیں، لیکن جتنی جلدی ہو سکے پورا کرنا مستحب ہے۔',
+    },
+    reference: 'Nurul Idah, Al-Hidayah',
+    important: true,
+  },
+  {
+    question: {
+      en: 'Can I fast during istihaza?',
+      ru: 'Kya istihaza mein roza rakh sakti hoon?',
+      ur: 'کیا استحاضہ میں روزہ رکھ سکتی ہوں؟',
+    },
+    answer: {
+      en: 'Yes. Istihaza does NOT prevent fasting. A woman with istihaza must fast in Ramadan and her fasts are completely valid. There is no need to make up fasts due to istihaza.',
+      ru: 'Haan. Istihaza se roza NAHI toot-ta. Istihaza wali aurat ko Ramzan mein roza rakhna zaroori hai aur uske roze bilkul durust hain. Istihaza ki wajah se roze ki qaza nahi karni.',
+      ur: 'ہاں۔ استحاضہ سے روزہ نہیں ٹوٹتا۔ استحاضہ والی عورت کو رمضان میں روزہ رکھنا ضروری ہے اور اس کے روزے بالکل درست ہیں۔ استحاضہ کی وجہ سے روزے کی قضا نہیں کرنی۔',
+    },
+    reference: 'Nurul Idah',
+    important: true,
+  },
+  {
+    question: {
+      en: 'What if haiz starts in the middle of a fasting day?',
+      ru: 'Agar roze ke dauraan haiz shuru ho jaye to?',
+      ur: 'اگر روزے کے دوران حیض شروع ہو جائے تو؟',
+    },
+    answer: {
+      en: 'If haiz begins at any point during a fasting day — even five minutes before Maghrib — the fast is invalidated. She must stop fasting, and that day must be made up later. She should not eat openly out of respect for the month of Ramadan, but she is permitted to eat and drink privately.',
+      ru: 'Agar roze ke dauraan kisi bhi waqt haiz shuru ho jaye — chahe Maghrib se paanch minute pehle bhi — to roza toot jayega. Usse roza chhorna hoga aur us din ki qaza karni hogi. Ramzan ki izzat mein khulle aam khana nahi chahiye, lekin chhup kar kha pi sakti hai.',
+      ur: 'اگر روزے کے دوران کسی بھی وقت حیض شروع ہو جائے — چاہے مغرب سے پانچ منٹ پہلے بھی — تو روزہ ٹوٹ جائے گا۔ اسے روزہ چھوڑنا ہوگا اور اس دن کی قضا کرنی ہوگی۔ رمضان کی عزت میں کھلے عام کھانا نہیں چاہیے، لیکن چھپ کر کھا پی سکتی ہیں۔',
+    },
+    reference: 'Maraqi al-Falah',
+  },
+  {
+    question: {
+      en: 'What if haiz ends during the night — can I start fasting the next day without ghusl?',
+      ru: 'Agar raat ko haiz khatam ho jaye — kya bina ghusl ke agla roza rakh sakti hoon?',
+      ur: 'اگر رات کو حیض ختم ہو جائے — کیا بغیر غسل کے اگلا روزہ رکھ سکتی ہوں؟',
+    },
+    answer: {
+      en: 'If haiz ends during the night (before Fajr), the woman should intend to fast the next day even if she has not yet performed ghusl. She can perform ghusl after Fajr enters and her fast is still valid. The fast does not require ghusl before Fajr — what matters is that haiz has ended before Fajr time.',
+      ru: 'Agar raat ko (Fajr se pehle) haiz khatam ho jaye, to aurat ko agle din roze ki niyyat kar leni chahiye chahe abhi ghusl na kiya ho. Fajr ke baad ghusl kar sakti hai aur roza phir bhi durust rahega. Roze ke liye Fajr se pehle ghusl zaroori nahi — zaroori yeh hai ke Fajr ka waqt shuru hone se pehle haiz khatam ho chuka ho.',
+      ur: 'اگر رات کو (فجر سے پہلے) حیض ختم ہو جائے، تو عورت کو اگلے دن روزے کی نیت کر لینی چاہیے چاہے ابھی غسل نہ کیا ہو۔ فجر کے بعد غسل کر سکتی ہیں اور روزہ پھر بھی درست رہے گا۔ روزے کے لیے فجر سے پہلے غسل ضروری نہیں — ضروری یہ ہے کہ فجر کا وقت شروع ہونے سے پہلے حیض ختم ہو چکا ہو۔',
+    },
+    reference: 'Nurul Idah, Maraqi al-Falah',
+    important: true,
+  },
+  {
+    question: {
+      en: 'Can I keep voluntary (nafl) fasts to make up for missed Ramadan fasts?',
+      ru: 'Kya nafl roze rakh kar Ramzan ke chhoote hue roze pura ho jayenge?',
+      ur: 'کیا نفل روزے رکھ کر رمضان کے چھوٹے ہوئے روزے پورے ہو جائیں گے؟',
+    },
+    answer: {
+      en: 'No. Missed Ramadan fasts must be made up as qada fasts with the specific intention of making up the missed obligatory fast. Nafl fasts are separate and do not count toward the obligation. <strong>The intention for qada fasts must be made before Fajr (subh sadiq)</strong> — unlike ada Ramadan fasts and nafl fasts where the intention can be valid up to before zawal, for qada fasts the niyyah must be made during the night before true dawn.',
+      ru: 'Nahi. Ramzan ke chhoote hue roze sirf qaza ki niyyat se rakhne honge — yani yeh niyyat karni hogi ke yeh farz roze ki qaza hai. Nafl roze alag hain aur un se farz ada nahi hota. <strong>Qaza roze ki niyyat Fajr (subh sadiq) se pehle karni zaroori hai</strong> — ada Ramzan ke rozon aur nafl rozon ke barkhilaf jahan niyyat zawal se pehle tak durust hai, qaza rozon ke liye niyyat raat mein subh sadiq se pehle honi chahiye.',
+      ur: 'نہیں۔ رمضان کے چھوٹے ہوئے روزے صرف قضا کی نیت سے رکھنے ہوں گے — یعنی یہ نیت کرنی ہوگی کہ یہ فرض روزے کی قضا ہے۔ نفل روزے الگ ہیں اور ان سے فرض ادا نہیں ہوتا۔ <strong>قضا روزے کی نیت فجر (صبح صادق) سے پہلے کرنا ضروری ہے</strong> — ادا رمضان کے روزوں اور نفل روزوں کے برخلاف جہاں نیت زوال سے پہلے تک درست ہے، قضا روزوں کے لیے نیت رات میں صبح صادق سے پہلے ہونی چاہیے۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+  },
+  {
+    question: {
+      en: 'Is there a deadline to make up missed fasts?',
+      ru: 'Kya chhoote hue rozon ki qaza ki koi akhri taareekh hai?',
+      ur: 'کیا چھوٹے ہوئے روزوں کی قضا کی کوئی آخری تاریخ ہے؟',
+    },
+    answer: {
+      en: 'It is recommended to make them up as soon as possible and not delay until the next Ramadan. However, if a woman does delay, she is sinful for the unnecessary delay but the qada obligation remains — she still must make them up. There is no additional kaffarah (expiation) for delaying, just the obligation to complete the missed fasts.',
+      ru: 'Mustahabb yeh hai ke jitni jaldi ho sake qaza kar lein aur aglay Ramzan tak deri na karein. Lekin agar deri ho jaye to bina wajah deri karna gunaah hai, magar qaza ka farz baqi rehta hai — roze phir bhi rakhne honge. Deri karne ki wajah se alag kaffarah nahi lagta, sirf qaza puri karni lazmi hai.',
+      ur: 'مستحب یہ ہے کہ جتنی جلدی ہو سکے قضا کر لیں اور اگلے رمضان تک دیری نہ کریں۔ لیکن اگر دیری ہو جائے تو بغیر وجہ دیری کرنا گناہ ہے، مگر قضا کا فرض باقی رہتا ہے — روزے پھر بھی رکھنے ہوں گے۔ دیری کرنے کی وجہ سے الگ کفارہ نہیں لگتا، صرف قضا پوری کرنا لازمی ہے۔',
+    },
+    reference: 'Radd al-Muhtar',
+  },
+  {
+    question: {
+      en: 'Can I fast on behalf of a deceased relative who missed fasts?',
+      ru: 'Kya mein apne kisi marhoom rishtedaar ki taraf se roza rakh sakti hoon jiske roze reh gaye the?',
+      ur: 'کیا میں اپنے کسی مرحوم رشتہ دار کی طرف سے روزہ رکھ سکتی ہوں جس کے روزے رہ گئے تھے؟',
+    },
+    answer: {
+      en: 'In the Hanafi school, fasting on behalf of a deceased person is not valid. Instead, fidyah (monetary compensation) should be given for each missed fast — the amount is the same as sadaqat al-fitr (one sa\' of wheat or its monetary equivalent per fast). <strong>However, fidyah is only given when the deceased made a wasiyyah (will/bequest) to do so</strong>, and it is paid from one-third of the estate. If no wasiyyah was made, the heirs are not obligated to pay fidyah, though they may do so voluntarily as sadaqah.',
+      ru: 'Hanafi maslak mein kisi marhoom ki taraf se roza rakhna durust nahi hai. Is ki jagah har chhoote hue roze ka fidyah (mali muawaza) dena chahiye — yeh raqam sadaqat al-fitr ke barabar hai (har roze ke liye aik saa\' gandum ya us ki mali qeemat). <strong>Lekin fidyah sirf tab diya jayega jab marhoom ne is ki wasiyyat (will) ki ho</strong>, aur yeh tirke (estate) ke ek tihaai se ada hoga. Agar wasiyyat nahi ki thi to warison par fidyah dena farz nahi, lekin woh apni marzi se bataur sadaqah de sakte hain.',
+      ur: 'حنفی مسلک میں کسی مرحوم کی طرف سے روزہ رکھنا درست نہیں ہے۔ اس کی جگہ ہر چھوٹے ہوئے روزے کا فدیہ (مالی معاوضہ) دینا چاہیے — یہ رقم صدقۃ الفطر کے برابر ہے (ہر روزے کے لیے ایک صاع گندم یا اس کی مالی قیمت)۔ <strong>لیکن فدیہ صرف تب دیا جائے گا جب مرحوم نے اس کی وصیت کی ہو</strong>، اور یہ ترکے کے ایک تہائی سے ادا ہوگا۔ اگر وصیت نہیں کی تھی تو وارثین پر فدیہ دینا فرض نہیں، لیکن وہ اپنی مرضی سے بطور صدقہ دے سکتے ہیں۔',
+    },
+    reference: 'Bahar-e-Shariat, Al-Hidayah, Radd al-Muhtar',
+  },
+  {
+    question: {
+      en: 'Does nifas have the same fasting rules as haiz?',
+      ru: 'Kya nifas mein roze ke ahkaam haiz jaisi hain?',
+      ur: 'کیا نفاس میں روزے کے احکام حیض جیسے ہیں؟',
+    },
+    answer: {
+      en: 'Yes, exactly the same. A woman in nifas cannot fast, and any Ramadan fasts missed during nifas must be made up. Since nifas can last up to 40 days, a woman who gives birth during Ramadan may need to make up a significant number of fasts.',
+      ru: 'Haan, bilkul wahi ahkaam hain. Nifas wali aurat roza nahi rakh sakti, aur Ramzan ke jo bhi roze nifas mein chhoote un ki qaza karni hogi. Choonke nifas 40 din tak ho sakta hai, is liye agar Ramzan mein bachcha paida ho to kaafi rozon ki qaza karni pad sakti hai.',
+      ur: 'ہاں، بالکل وہی احکام ہیں۔ نفاس والی عورت روزہ نہیں رکھ سکتی، اور رمضان کے جو بھی روزے نفاس میں چھوٹیں ان کی قضا کرنی ہوگی۔ چونکہ نفاس 40 دن تک ہو سکتا ہے، اس لیے اگر رمضان میں بچہ پیدا ہو تو کافی روزوں کی قضا کرنی پڑ سکتی ہے۔',
+    },
+    reference: 'Nurul Idah',
+  },
+  {
+    question: {
+      en: 'Can a pregnant or breastfeeding woman skip fasting?',
+      ru: 'Kya hamilah ya doodh pilane wali aurat roza chhod sakti hai?',
+      ur: 'کیا حاملہ یا دودھ پلانے والی عورت روزہ چھوڑ سکتی ہے؟',
+    },
+    answer: {
+      en: 'In the Hanafi school, a pregnant or breastfeeding woman <strong>may break her fast if she genuinely fears harm</strong> to herself or her child. She must make up the missed fasts later (qada only). <strong>In the Hanafi school, there is no fidyah</strong> — only qada is required. This is different from some other schools of thought that require fidyah in addition to qada.',
+      ru: 'Hanafi maslak mein hamilah ya doodh pilane wali aurat <strong>apna roza tod sakti hai agar use apne ya bachche ko nuqsaan ka sachi khatra ho</strong>. Baad mein chhoote hue roze qaza karne honge (sirf qaza). <strong>Hanafi maslak mein fidyah nahi hai</strong> — sirf qaza zaroori hai. Yeh baaz doosre mazahib se mukhtalif hai jin mein qaza ke saath fidyah bhi zaroori hai.',
+      ur: 'حنفی مسلک میں حاملہ یا دودھ پلانے والی عورت <strong>اپنا روزہ توڑ سکتی ہے اگر اسے اپنے یا بچے کو نقصان کا سچا خطرہ ہو</strong>۔ بعد میں چھوٹے ہوئے روزے قضا کرنے ہوں گے (صرف قضا)۔ <strong>حنفی مسلک میں فدیہ نہیں ہے</strong> — صرف قضا ضروری ہے۔ یہ بعض دوسرے مذاہب سے مختلف ہے جن میں قضا کے ساتھ فدیہ بھی ضروری ہے۔',
+    },
+    reference: 'Bahar-e-Shariat, Radd al-Muhtar',
+    important: true,
+  },
+  {
+    question: {
+      en: 'What if haiz ends during the night — is it sinful to delay ghusl past Fajr?',
+      ru: 'Agar raat ko haiz khatam ho jaye — kya Fajr ke baad ghusl mein deri karna gunaah hai?',
+      ur: 'اگر رات کو حیض ختم ہو جائے — کیا فجر کے بعد غسل میں دیری کرنا گناہ ہے؟',
+    },
+    answer: {
+      en: 'If haiz ends during the night (before Fajr), the woman should intend to fast and her fast is valid even if ghusl is performed after Fajr enters. However, <strong>she is sinful for delaying the Fajr salah</strong> if she delays ghusl so long that the Fajr salah time passes without praying. She should perform ghusl as quickly as possible so she can pray Fajr within its time. The fast itself remains valid regardless.',
+      ru: 'Agar raat ko (Fajr se pehle) haiz khatam ho jaye to aurat roze ki niyyat kare aur uska roza durust hai chahe ghusl Fajr ke baad ho. Lekin <strong>agar ghusl mein itni deri kare ke Fajr ki namaz ka waqt nikal jaye to woh gunahgaar hogi</strong>. Usse jaldi se jaldi ghusl karna chahiye taake Fajr ki namaz waqt par padh sake. Roza barhaal durust rahega.',
+      ur: 'اگر رات کو (فجر سے پہلے) حیض ختم ہو جائے تو عورت روزے کی نیت کرے اور اس کا روزہ درست ہے چاہے غسل فجر کے بعد ہو۔ لیکن <strong>اگر غسل میں اتنی دیری کرے کہ فجر کی نماز کا وقت نکل جائے تو وہ گنہگار ہوگی</strong>۔ اسے جلدی سے جلدی غسل کرنا چاہیے تاکہ فجر کی نماز وقت پر پڑھ سکے۔ روزہ بہرحال درست رہے گا۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+  },
+];

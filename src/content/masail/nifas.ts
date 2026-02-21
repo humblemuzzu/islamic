@@ -1,0 +1,220 @@
+import type { I18nMasala } from '../../i18n/types';
+
+export const nifasMasail = [
+  {
+    question: {
+      en: 'What is nifas?',
+      ru: 'Nifas kya hai?',
+      ur: 'نفاس کیا ہے؟',
+    },
+    answer: {
+      en: 'Nifas is the bleeding that occurs after childbirth. It begins when blood is seen after <strong>more than half of the baby has emerged</strong>. The same rulings as haiz apply during nifas — no salah, no fasting, no touching the mushaf, no entering the masjid, and no sexual intercourse.',
+      ru: 'Nifas woh khoon hai jo wiladat ke baad aata hai. Yeh tab shuru hota hai jab <strong>bachche ka aadha se zyada hissa bahar aa jaye</strong> aur khoon nazar aaye. Nifas ke dauraan wohi ahkaam hain jo haiz ke hain — namaz nahi, roza nahi, mushaf ko haath nahi lagana, masjid mein nahi jaana, aur humbistari nahi.',
+      ur: 'نفاس وہ خون ہے جو ولادت کے بعد آتا ہے۔ یہ اس وقت شروع ہوتا ہے جب <strong>بچے کا آدھے سے زیادہ حصہ باہر آ جائے</strong> اور خون نظر آئے۔ نفاس کے دوران وہی احکام ہیں جو حیض کے ہیں — نماز نہیں، روزہ نہیں، مصحف کو ہاتھ نہیں لگانا، مسجد میں نہیں جانا، اور ہمبستری نہیں۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+    important: true,
+  },
+  {
+    question: {
+      en: 'What is the maximum duration of nifas?',
+      ru: 'Nifas ki zyada se zyada muddat kitni hai?',
+      ur: 'نفاس کی زیادہ سے زیادہ مدت کتنی ہے؟',
+    },
+    answer: {
+      en: 'The maximum duration of nifas is <strong>40 days and 40 nights</strong>. If bleeding continues beyond 40 days, the excess is istihaza. The woman should perform ghusl after 40 days and resume salah and fasting.',
+      ru: 'Nifas ki zyada se zyada muddat <strong>40 din aur 40 raatein</strong> hai. Agar khoon 40 din ke baad bhi jaari rahe toh baqi istihaza hai. Aurat ko 40 din baad ghusl karna chahiye aur namaz aur roza shuru karna chahiye.',
+      ur: 'نفاس کی زیادہ سے زیادہ مدت <strong>۴۰ دن اور ۴۰ راتیں</strong> ہے۔ اگر خون ۴۰ دن کے بعد بھی جاری رہے تو باقی استحاضہ ہے۔ عورت کو ۴۰ دن بعد غسل کرنا چاہیے اور نماز اور روزہ شروع کرنا چاہیے۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah, Al-Hidayah',
+    important: true,
+  },
+  {
+    question: {
+      en: 'Is there a minimum duration of nifas?',
+      ru: 'Kya nifas ki koi kam se kam muddat hai?',
+      ur: 'کیا نفاس کی کوئی کم سے کم مدت ہے؟',
+    },
+    answer: {
+      en: 'No, there is no minimum duration for nifas. If bleeding stops after just a few hours or even minutes after delivery, nifas has still occurred. The woman should perform ghusl and resume worship once the bleeding stops.',
+      ru: 'Nahi, nifas ki koi kam se kam muddat nahi hai. Agar khoon delivery ke baad sirf chand ghanton ya chund minuton mein ruk jaye, toh bhi nifas hua hai. Aurat ko khoon rukne ke baad ghusl karke ibadat shuru karni chahiye.',
+      ur: 'نہیں، نفاس کی کوئی کم سے کم مدت نہیں ہے۔ اگر خون ڈلیوری کے بعد صرف چند گھنٹوں یا چند منٹوں میں رک جائے، تو بھی نفاس ہوا ہے۔ عورت کو خون رکنے کے بعد غسل کر کے عبادت شروع کرنی چاہیے۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+  },
+  {
+    question: {
+      en: 'What if I have no bleeding at all after childbirth?',
+      ru: 'Agar wiladat ke baad bilkul bhi khoon na aaye toh?',
+      ur: 'اگر ولادت کے بعد بالکل بھی خون نہ آئے تو؟',
+    },
+    answer: {
+      en: 'If no blood is seen at all after delivery, there is no nifas. In this case, <strong>ghusl is not obligatory</strong> due to nifas (though it may be required for other reasons such as janabah). The woman should continue praying and fasting as normal. This is rare but possible.',
+      ru: 'Agar delivery ke baad bilkul bhi khoon nazar na aaye toh nifas nahi hai. Is soorat mein nifas ki wajah se <strong>ghusl farz nahi hai</strong> (lekin doosri wajuhaat jaise janabat ki wajah se zaroori ho sakta hai). Aurat ko namaz aur roza normal jaari rakhna chahiye. Yeh bahut kam hota hai lekin mumkin hai.',
+      ur: 'اگر ڈلیوری کے بعد بالکل بھی خون نظر نہ آئے تو نفاس نہیں ہے۔ اس صورت میں نفاس کی وجہ سے <strong>غسل فرض نہیں ہے</strong> (لیکن دوسری وجوہات جیسے جنابت کی وجہ سے ضروری ہو سکتا ہے)۔ عورت کو نماز اور روزہ معمول کے مطابق جاری رکھنا چاہیے۔ یہ بہت کم ہوتا ہے لیکن ممکن ہے۔',
+    },
+    reference: 'Bahar-e-Shariat, Radd al-Muhtar',
+  },
+  {
+    question: {
+      en: 'What if bleeding stops before 40 days and then returns?',
+      ru: 'Agar khoon 40 din se pehle ruk jaye aur phir wapas aaye toh?',
+      ur: 'اگر خون 40 دن سے پہلے رک جائے اور پھر واپس آئے تو؟',
+    },
+    answer: {
+      en: 'If bleeding stops and resumes within the 40-day window, the entire period (including the clean days in between) is counted as nifas, as long as the total does not exceed 40 days. The intermittent clean days are treated as part of nifas. <strong>However, during those clean gaps, she is obligated to perform ghusl and pray</strong>, because there is a possibility that her nifas has ended. If the bleeding returns within 40 days, those prayers she offered during clean gaps are excused retroactively (she does not need to make them up again).',
+      ru: 'Agar khoon ruk kar 40 din ke andar dobara shuru ho jaye toh poori muddat (beech ke saaf dinon samet) nifas shumaar hogi, jab tak kul 40 din se zyada na ho. Beech ke saaf din bhi nifas ka hissa maane jayenge. <strong>Lekin un saaf dinon mein ghusl karke namaz padhna farz hai</strong>, kyunke mumkin hai ke nifas khatam ho gaya ho. Agar khoon 40 din ke andar wapas aa jaye to woh namazein jo saaf dinon mein padhi theen maaf ho jayengi (unki dobara qaza nahi karni).',
+      ur: 'اگر خون رک کر 40 دن کے اندر دوبارہ شروع ہو جائے تو پوری مدت (بیچ کے صاف دنوں سمیت) نفاس شمار ہوگی، جب تک کل 40 دن سے زیادہ نہ ہو۔ بیچ کے صاف دن بھی نفاس کا حصہ مانے جائیں گے۔ <strong>لیکن ان صاف دنوں میں غسل کر کے نماز پڑھنا فرض ہے</strong>، کیونکہ ممکن ہے کہ نفاس ختم ہو گیا ہو۔ اگر خون ۴۰ دن کے اندر واپس آ جائے تو وہ نمازیں جو صاف دنوں میں پڑھی تھیں معاف ہو جائیں گی (ان کی دوبارہ قضا نہیں کرنی)۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+  },
+  {
+    question: {
+      en: 'Do I make up missed salah during nifas?',
+      ru: 'Kya nifas mein chhooti hui namazein qaza karni hain?',
+      ur: 'کیا نفاس میں چھوٹی ہوئی نمازیں قضا کرنی ہیں؟',
+    },
+    answer: {
+      en: 'No. Like haiz, salah missed during nifas does NOT need to be made up (qaza). This is a mercy from Allah. However, <strong>fasts missed during nifas (such as Ramadan fasts) must be made up</strong>. This is farz.',
+      ru: 'Nahi. Haiz ki tarah, nifas mein chhooti hui namaz ki qaza nahi karni. Yeh Allah ki taraf se rahamat hai. Lekin <strong>nifas mein chhoote hue roze (jaise Ramadan ke roze) zaroor qaza karne honge</strong>. Yeh farz hai.',
+      ur: 'نہیں۔ حیض کی طرح، نفاس میں چھوٹی ہوئی نماز کی قضا نہیں کرنی۔ یہ اللہ کی طرف سے رحمت ہے۔ لیکن <strong>نفاس میں چھوٹے ہوئے روزے (جیسے رمضان کے روزے) ضرور قضا کرنے ہوں گے</strong>۔ یہ فرض ہے۔',
+    },
+    reference: 'Bahar-e-Shariat, Maraqi al-Falah',
+    important: true,
+  },
+  {
+    question: {
+      en: 'When does the first haiz after nifas begin?',
+      ru: 'Nifas ke baad pehla haiz kab shuru hota hai?',
+      ur: 'نفاس کے بعد پہلا حیض کب شروع ہوتا ہے؟',
+    },
+    answer: {
+      en: 'After nifas ends and the woman has at least 15 clean days of tuhr (purity), any new bleeding that meets haiz criteria (3-10 days) is considered the first haiz after childbirth. The 15-day minimum tuhr rule applies between nifas and the first haiz, just as it does between two haiz periods.',
+      ru: 'Nifas khatam hone ke baad jab aurat ke kam se kam 15 saaf din (tuhr) guzar jayein, toh us ke baad jo bhi naya khoon aaye jo haiz ki shart poori kare (3 se 10 din), woh wiladat ke baad ka pehla haiz hai. Nifas aur pehle haiz ke darmiyan bhi 15 din ka tuhr ka wohi usool lagta hai jo do haiz ke darmiyan lagta hai.',
+      ur: 'نفاس ختم ہونے کے بعد جب عورت کے کم سے کم 15 صاف دن (طہر) گزر جائیں، تو اس کے بعد جو بھی نیا خون آئے جو حیض کی شرط پوری کرے (3 سے 10 دن)، وہ ولادت کے بعد کا پہلا حیض ہے۔ نفاس اور پہلے حیض کے درمیان بھی 15 دن کے طہر کا وہی اصول لاگو ہوتا ہے جو دو حیض کے درمیان لاگو ہوتا ہے۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah, Al-Hidayah',
+  },
+  {
+    question: {
+      en: 'Does a miscarriage count as nifas?',
+      ru: 'Kya hamal girne par nifas hota hai?',
+      ur: 'کیا حمل گرنے پر نفاس ہوتا ہے؟',
+    },
+    answer: {
+      en: 'It depends on whether the fetus had visible human features. If the miscarried fetus has <strong>any formed limb</strong> — such as a hand, foot, or fingers — then the bleeding is nifas. If limb formation status is unknown, then after <strong>approximately 120 days (4 months)</strong> of pregnancy, limb formation is presumed and the bleeding is treated as nifas. If the fetus does not have any visible human features (very early miscarriage), the bleeding is istihaza, not nifas, and the woman must continue praying and fasting.',
+      ru: 'Yeh is par depend karta hai ke bachche ke aaza (haath pair wagairah) ban chuke thay ya nahi. Agar girne wale bachche mein <strong>koi bhi uzw ban chuka ho</strong> — jaise haath, paon, ya ungliyan — toh yeh khoon nifas hai. Agar yeh maloom na ho ke uzw bane ya nahi, toh <strong>taqreeban 120 din (4 maah)</strong> ke hamal ke baad uzw ka banna maana jayega aur khoon nifas hoga. Agar bachche mein koi insaani shakal nazar na aaye (bilkul ibtidai hamal girna), toh yeh khoon istihaza hai, nifas nahi, aur aurat ko namaz aur roza jaari rakhna chahiye.',
+      ur: 'یہ اس پر منحصر ہے کہ بچے کے اعضا (ہاتھ پیر وغیرہ) بن چکے تھے یا نہیں۔ اگر گرنے والے بچے میں <strong>کوئی بھی عضو بن چکا ہو</strong> — جیسے ہاتھ، پاؤں، یا انگلیاں — تو یہ خون نفاس ہے۔ اگر یہ معلوم نہ ہو کہ عضو بنے یا نہیں، تو <strong>تقریباً ۱۲۰ دن (۴ ماہ)</strong> کے حمل کے بعد عضو کا بننا مانا جائے گا اور خون نفاس ہوگا۔ اگر بچے میں کوئی انسانی شکل نظر نہ آئے (بالکل ابتدائی حمل گرنا)، تو یہ خون استحاضہ ہے، نفاس نہیں، اور عورت کو نماز اور روزہ جاری رکھنا چاہیے۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah, Radd al-Muhtar',
+    important: true,
+  },
+  {
+    question: {
+      en: 'Is bleeding that occurs BEFORE the baby emerges considered nifas?',
+      ru: 'Kya bachche ke bahar aane se PEHLE ka khoon nifas hai?',
+      ur: 'کیا بچے کے باہر آنے سے پہلے کا خون نفاس ہے؟',
+    },
+    answer: {
+      en: 'No. Bleeding that occurs before more than half of the baby has emerged is <strong>not nifas — it is istihaza</strong>. The woman must pray during this bleeding (with wudu for each salah). Nifas only begins once more than half the baby is out and blood is seen.',
+      ru: 'Nahi. Bachche ka aadha se zyada hissa bahar aane se pehle ka khoon <strong>nifas nahi — yeh istihaza hai</strong>. Aurat ko is khoon mein namaz padhni chahiye (har namaz ke liye wudu ke saath). Nifas sirf tab shuru hota hai jab bachche ka aadha se zyada hissa bahar aa jaye aur khoon nazar aaye.',
+      ur: 'نہیں۔ بچے کا آدھے سے زیادہ حصہ باہر آنے سے پہلے کا خون <strong>نفاس نہیں — یہ استحاضہ ہے</strong>۔ عورت کو اس خون میں نماز پڑھنی چاہیے (ہر نماز کے لیے وضو کے ساتھ)۔ نفاس صرف تب شروع ہوتا ہے جب بچے کا آدھے سے زیادہ حصہ باہر آ جائے اور خون نظر آئے۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+    important: true,
+  },
+  {
+    question: {
+      en: 'Is sexual intercourse permitted during nifas?',
+      ru: 'Kya nifas ke dauran humbistari jaiz hai?',
+      ur: 'کیا نفاس کے دوران ہمبستری جائز ہے؟',
+    },
+    answer: {
+      en: 'No. Sexual intercourse during nifas is <strong>haram</strong>, just as it is during haiz. Knowingly doing so is a major sin. The prohibition remains until the bleeding stops and the woman performs ghusl. The husband may not touch the area between the navel and the knees. Other forms of physical intimacy (above the navel and below the knees) are permitted.',
+      ru: 'Nahi. Nifas ke dauran humbistari <strong>haram</strong> hai, bilkul jaise haiz mein hai. Jaante bujhte aisa karna bada gunaah hai. Yeh mmanaat tab tak hai jab tak khoon band na ho aur aurat ghusl na kar le. Shohar naaf se ghutne tak ke hisse ko haath nahi laga sakta. Jismani qarubat ki doosri shaklein (naaf ke oopar aur ghutnon ke neeche) jaiz hain.',
+      ur: 'نہیں۔ نفاس کے دوران ہمبستری <strong>حرام</strong> ہے، بالکل جیسے حیض میں ہے۔ جانتے بوجھتے ایسا کرنا بڑا گناہ ہے۔ یہ ممانعت تب تک ہے جب تک خون بند نہ ہو اور عورت غسل نہ کر لے۔ شوہر ناف سے گھٹنے تک کے حصے کو ہاتھ نہیں لگا سکتا۔ جسمانی قربت کی دوسری شکلیں (ناف کے اوپر اور گھٹنوں کے نیچے) جائز ہیں۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+    important: true,
+  },
+  {
+    question: {
+      en: 'What is the ruling if the baby is delivered via C-section (caesarean)?',
+      ru: 'Agar bachcha C-section (operation) se paida ho to kya hukm hai?',
+      ur: 'اگر بچہ سی سیکشن (آپریشن) سے پیدا ہو تو کیا حکم ہے؟',
+    },
+    answer: {
+      en: 'According to Bahar-e-Shariat, if the baby is extracted by cutting the belly open, the blood that follows after more than half the baby has emerged <strong>is nifas</strong>, and the regular nifas rules apply. The key criterion is that more than half the baby has come out — the method of delivery (normal or C-section) does not change this ruling. If blood also exits from the normal birth passage after the C-section, that blood is also nifas.',
+      ru: 'Bahar-e-Shariat ke mutabiq, agar pait kaat kar bachcha nikala jaye, toh bachche ka aadha se zyada hissa nikalne ke baad jo khoon aaye woh <strong>nifas hai</strong>, aur nifas ke mamool ahkaam laagu honge. Asal meyaar yeh hai ke bachche ka aadha se zyada hissa bahar aa chuka ho — delivery ka tareeqa (normal ya C-section) is hukm ko nahi badalta. Agar C-section ke baad aam raaste se bhi khoon aaye toh woh bhi nifas hai.',
+      ur: 'بہارِ شریعت کے مطابق، اگر پیٹ کاٹ کر بچہ نکالا جائے، تو بچے کا آدھے سے زیادہ حصہ نکلنے کے بعد جو خون آئے وہ <strong>نفاس ہے</strong>، اور نفاس کے معمول احکام لاگو ہوں گے۔ اصل معیار یہ ہے کہ بچے کا آدھے سے زیادہ حصہ باہر آ چکا ہو — ڈلیوری کا طریقہ (نارمل یا سی سیکشن) اس حکم کو نہیں بدلتا۔ اگر سی سیکشن کے بعد عام راستے سے بھی خون آئے تو وہ بھی نفاس ہے۔',
+    },
+    reference: 'Bahar-e-Shariat, Radd al-Muhtar',
+    important: true,
+  },
+  {
+    question: {
+      en: 'What is the ruling when twins or multiple babies are born?',
+      ru: 'Judwa ya zyada bachche paida hone par kya hukm hai?',
+      ur: 'جڑواں یا زیادہ بچے پیدا ہونے پر کیا حکم ہے؟',
+    },
+    answer: {
+      en: 'When twins or multiple babies are born, the nifas period is counted from <strong>the birth of the last baby</strong>. The 40-day maximum starts from when the last baby is delivered (i.e., when more than half of the last baby emerges). Any bleeding between the births of the babies is also part of nifas. If the gap between the first and second baby is less than 6 months, it is considered twins. If the gap is 6 months or more, each birth is treated separately with its own nifas.',
+      ru: 'Judwa ya zyada bachche paida hone ki soorat mein nifas ki muddat <strong>aakhri bachche ki paaidaish</strong> se shumar hoti hai. 40 din ki zyada se zyada muddat aakhri bachche ki delivery se shuru hogi (yaani jab aakhri bachche ka aadha se zyada hissa bahar aaye). Dono bachon ki paaidaish ke darmiyan ka khoon bhi nifas ka hissa hai. Agar pehle aur doosre bachche mein 6 maah se kam ka faasla ho toh judwa shumaar hoga. Agar 6 maah ya zyada ka faasla ho toh har wiladat alag nifas hogi.',
+      ur: 'جڑواں یا زیادہ بچے پیدا ہونے کی صورت میں نفاس کی مدت <strong>آخری بچے کی پیدائش</strong> سے شمار ہوتی ہے۔ ۴۰ دن کی زیادہ سے زیادہ مدت آخری بچے کی ڈلیوری سے شروع ہوگی (یعنی جب آخری بچے کا آدھے سے زیادہ حصہ باہر آئے)۔ دونوں بچوں کی پیدائش کے درمیان کا خون بھی نفاس کا حصہ ہے۔ اگر پہلے اور دوسرے بچے میں ۶ ماہ سے کم کا فاصلہ ہو تو جڑواں شمار ہوگا۔ اگر ۶ ماہ یا زیادہ کا فاصلہ ہو تو ہر ولادت الگ نفاس ہوگی۔',
+    },
+    reference: 'Bahar-e-Shariat, Radd al-Muhtar',
+  },
+  {
+    question: {
+      en: 'What happens if nifas bleeding exceeds 40 days and I have a previous habit?',
+      ru: 'Agar nifas ka khoon 40 din se zyada ho aur meri pehle ki aadat ho to kya hoga?',
+      ur: 'اگر نفاس کا خون ۴۰ دن سے زیادہ ہو اور میری پہلے کی عادت ہو تو کیا ہوگا؟',
+    },
+    answer: {
+      en: 'If nifas bleeding exceeds 40 days, refer to your <strong>previous nifas habit (aadat)</strong>. If your previous nifas lasted, say, 30 days, then 30 days will be considered nifas and the rest is istihaza. You must make up salah for the istihaza days. If you have no established nifas habit, the full 40 days count as nifas and anything beyond is istihaza.',
+      ru: 'Agar nifas ka khoon 40 din se zyada ho to apni <strong>pehle ki nifas ki aadat</strong> dekhein. Agar aapka pehla nifas maslan 30 din tha, to 30 din nifas honge aur baqi istihaza. Istihaza ke dinon ki namazein qaza karni hongi. Agar koi pehle ki nifas ki aadat nahi hai to poore 40 din nifas aur us ke baad istihaza hai.',
+      ur: 'اگر نفاس کا خون ۴۰ دن سے زیادہ ہو تو اپنی <strong>پہلے کی نفاس کی عادت</strong> دیکھیں۔ اگر آپ کا پہلا نفاس مثلاً ۳۰ دن تھا، تو ۳۰ دن نفاس ہوں گے اور باقی استحاضہ۔ استحاضہ کے دنوں کی نمازیں قضا کرنی ہوں گی۔ اگر کوئی پہلے کی نفاس کی عادت نہیں ہے تو پورے ۴۰ دن نفاس اور اس کے بعد استحاضہ ہے۔',
+    },
+    reference: 'Bahar-e-Shariat, Al-Hidayah',
+    important: true,
+  },
+  {
+    question: {
+      en: 'Can I recite Quran during nifas?',
+      ru: 'Kya nifas mein Quran padh sakti hoon?',
+      ur: 'کیا نفاس میں قرآن پڑھ سکتی ہوں؟',
+    },
+    answer: {
+      en: 'No. The rulings of nifas regarding Quran are the <strong>same as haiz</strong>. Reciting Quran from memory (tilawah) is not permitted during nifas. Touching the mushaf without a barrier is also haram. Even reading Quran written on a board or paper (for learning) is not permitted. However, du\'a, dhikr, salawat, istighfar, and listening to Quran are all permitted and encouraged. Reading du\'a-e-qunoot is also permissible.',
+      ru: 'Nahi. Nifas mein Quran ke baare mein ahkaam <strong>haiz jaisi hain</strong>. Nifas mein zabani Quran ki tilawat jaiz nahi. Mushaf ko bina haail ke chhoona bhi haram hai. Takhti ya kaghaz par likha hua Quran padhna (taleem ke liye) bhi jaiz nahi. Lekin du\'a, dhikr, salawat, istighfar, aur Quran sunna sab jaiz aur mustahab hain. Du\'a-e-qunoot padhna bhi jaiz hai.',
+      ur: 'نہیں۔ نفاس میں قرآن کے بارے میں احکام <strong>حیض جیسے ہیں</strong>۔ نفاس میں زبانی قرآن کی تلاوت جائز نہیں۔ مصحف کو بغیر حائل کے چھونا بھی حرام ہے۔ تختی یا کاغذ پر لکھا ہوا قرآن پڑھنا (تعلیم کے لیے) بھی جائز نہیں۔ لیکن دعا، ذکر، صلوٰۃ، استغفار، اور قرآن سننا سب جائز اور مستحب ہیں۔ دعائے قنوت پڑھنا بھی جائز ہے۔',
+    },
+    reference: 'Bahar-e-Shariat, Radd al-Muhtar',
+  },
+  {
+    question: {
+      en: 'Do the same blood colour rules apply to nifas as haiz?',
+      ru: 'Kya nifas mein bhi khoon ke rang ke wahi ahkaam hain jo haiz mein hain?',
+      ur: 'کیا نفاس میں بھی خون کے رنگ کے وہی احکام ہیں جو حیض میں ہیں؟',
+    },
+    answer: {
+      en: 'Yes. The same six colours that are valid for haiz are also valid for nifas: <strong>black, red, green, yellow, turbid/muddy, and earthy/dust-coloured</strong>. As long as the bleeding occurs after childbirth and within the 40-day maximum, it is nifas regardless of colour. White discharge is a sign of purity (tuhr).',
+      ru: 'Haan. Jo chhe rang haiz mein durust hain wahi nifas mein bhi durust hain: <strong>kaala, surkh, sabz, zard, gadla, aur matila</strong>. Jab tak khoon wiladat ke baad ho aur 40 din ki zyada se zyada muddat ke andar ho, yeh nifas hai chahe rang koi bhi ho. Safed discharge paaki (tuhr) ki nishani hai.',
+      ur: 'ہاں۔ جو چھ رنگ حیض میں درست ہیں وہی نفاس میں بھی درست ہیں: <strong>کالا، سرخ، سبز، زرد، گدلا، اور مٹیلا</strong>۔ جب تک خون ولادت کے بعد ہو اور ۴۰ دن کی زیادہ سے زیادہ مدت کے اندر ہو، یہ نفاس ہے چاہے رنگ کوئی بھی ہو۔ سفید ڈسچارج پاکی (طہر) کی نشانی ہے۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+  },
+  {
+    question: {
+      en: 'From exactly when does nifas counting begin?',
+      ru: 'Nifas ki ginti bilkul kab se shuru hoti hai?',
+      ur: 'نفاس کی گنتی بالکل کب سے شروع ہوتی ہے؟',
+    },
+    answer: {
+      en: 'Nifas counting begins from the moment <strong>more than half of the baby has emerged</strong> and blood is seen. This is the precise starting point. If blood appears before more than half emerges, it is istihaza, not nifas. The 40-day maximum is counted from this starting point.',
+      ru: 'Nifas ki ginti us waqt se shuru hoti hai jab <strong>bachche ka aadha se zyada hissa bahar aa jaye</strong> aur khoon nazar aaye. Yeh bilkul sahih shuru\'aati nuqta hai. Agar aadha se zyada hissa bahar aane se pehle khoon aaye to woh istihaza hai, nifas nahi. 40 din ki zyada se zyada muddat isi nuqte se shumaar hoti hai.',
+      ur: 'نفاس کی گنتی اس وقت سے شروع ہوتی ہے جب <strong>بچے کا آدھے سے زیادہ حصہ باہر آ جائے</strong> اور خون نظر آئے۔ یہ بالکل صحیح شروعاتی نقطہ ہے۔ اگر آدھے سے زیادہ حصہ باہر آنے سے پہلے خون آئے تو وہ استحاضہ ہے، نفاس نہیں۔ ۴۰ دن کی زیادہ سے زیادہ مدت اسی نقطے سے شمار ہوتی ہے۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+  },
+];

@@ -1,0 +1,219 @@
+import type { I18nMasala } from '../../i18n/types';
+
+export const taharahMasail = [
+  {
+    question: {
+      en: 'What are the 3 fard (obligatory) acts of ghusl?',
+      ru: 'Ghusl ke 3 farz kya hain?',
+      ur: 'غسل کے ۳ فرض کیا ہیں؟',
+    },
+    answer: {
+      en: 'The three fard of ghusl are: (1) Rinsing the mouth (madmadah) — water must reach every part of the inside of the mouth. (2) Rinsing the nose (istinshaq) — water must be drawn up into both nostrils. (3) Washing the entire body — not a single spot the size of a hair\'s breadth should remain dry, including under nails, inside the navel, and the roots of the hair.',
+      ru: 'Ghusl ke teen farz yeh hain: (1) Kuli karna (madmadah) — paani munh ke andar har jagah pahunchna chahiye. (2) Naak mein paani daalna (istinshaq) — paani dono naak ke surakhon mein kheenchna chahiye. (3) Poore jism ko dhona — baal barabar bhi koi jagah khushk nahi rehni chahiye, nakhunon ke neeche, naaf ke andar, aur baalon ki jarein sab shamil hain.',
+      ur: 'غسل کے تین فرض یہ ہیں: (۱) کلی کرنا (مضمضہ) — پانی منہ کے اندر ہر جگہ پہنچنا چاہیے۔ (۲) ناک میں پانی ڈالنا (استنشاق) — پانی دونوں ناک کے سوراخوں میں کھینچنا چاہیے۔ (۳) پورے جسم کو دھونا — بال برابر بھی کوئی جگہ خشک نہیں رہنی چاہیے، ناخنوں کے نیچے، ناف کے اندر، اور بالوں کی جڑیں سب شامل ہیں۔',
+    },
+    reference: 'Nurul Idah',
+    important: true,
+  },
+  {
+    question: {
+      en: 'What is the sunnah method of performing ghusl?',
+      ru: 'Ghusl ka sunnat tareeqa kya hai?',
+      ur: 'غسل کا سنت طریقہ کیا ہے؟',
+    },
+    answer: {
+      en: 'The complete sunnah method: (1) Make <strong>niyyah</strong> (intention) for ghusl. (2) Wash both hands up to the wrists. (3) Wash the private parts. (4) Remove any physical impurity from the body. (5) Perform complete wudu as you would for salah — <strong>but delay washing the feet until the end</strong> if standing in a place where water collects. (6) Pour water over the head three times, ensuring it reaches the roots of the hair. (7) Pour water over the right shoulder three times. (8) Pour water over the left shoulder three times. (9) Rub the entire body to ensure water reaches everywhere. (10) Then wash the feet if delayed earlier.',
+      ru: 'Mukammal sunnat tareeqa yeh hai: (1) Ghusl ki <strong>niyyat</strong> karein. (2) Dono haath kalaaiyon tak dhoyein. (3) Sharmgaah dhoyein. (4) Jism se koi bhi najasat saaf karein. (5) Poora wuzu karein jaisa salah ke liye karte hain — <strong>lekin pairon ko aakhir tak maukhir karein</strong> agar aise jagah khade hain jahan paani jamta ho. (6) Sar par teen baar paani daalein, yaqeeni banayein ke baalon ki jarein bheeg jayein. (7) Daayein kandhe par teen baar paani daalein. (8) Baayein kandhe par teen baar paani daalein. (9) Poore jism ko mal kar dhoyein taake paani har jagah pahunche. (10) Phir pairon ko dhoyein agar pehle nahi dhoye.',
+      ur: 'مکمل سنت طریقہ یہ ہے: (۱) غسل کی <strong>نیت</strong> کریں۔ (۲) دونوں ہاتھ کلائیوں تک دھوئیں۔ (۳) شرمگاہ دھوئیں۔ (۴) جسم سے کوئی بھی نجاست صاف کریں۔ (۵) پورا وضو کریں جیسا نماز کے لیے کرتے ہیں — <strong>لیکن پیروں کو آخر تک مؤخر کریں</strong> اگر ایسی جگہ کھڑے ہیں جہاں پانی جمتا ہو۔ (۶) سر پر تین بار پانی ڈالیں، یقینی بنائیں کہ بالوں کی جڑیں بھیگ جائیں۔ (۷) دائیں کندھے پر تین بار پانی ڈالیں۔ (۸) بائیں کندھے پر تین بار پانی ڈالیں۔ (۹) پورے جسم کو مل کر دھوئیں تاکہ پانی ہر جگہ پہنچے۔ (۱۰) پھر پیروں کو دھوئیں اگر پہلے نہیں دھوئے۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah, Maraqi al-Falah',
+    important: true,
+  },
+  {
+    question: {
+      en: 'When is ghusl obligatory for a woman?',
+      ru: 'Aurat par ghusl kab farz hota hai?',
+      ur: 'عورت پر غسل کب فرض ہوتا ہے؟',
+    },
+    answer: {
+      en: 'Ghusl becomes obligatory (fard) on a woman in the following situations: (1) After haiz (menstruation) ends. (2) After nifas (post-natal bleeding) ends. (3) After janabah (sexual impurity — intercourse or discharge due to desire). Until ghusl is performed, salah, touching the mushaf, reciting the Quran, and entering the masjid are not permitted. <strong>Note regarding fasting:</strong> A woman cannot fast during haiz or nifas, but once the bleeding stops (even before ghusl), she should intend to fast. Similarly, a person in the state of janabah can fast — the fast is valid even without ghusl, though ghusl should not be delayed for salah.',
+      ru: 'Aurat par ghusl in halaat mein farz hota hai: (1) Haiz khatam hone ke baad. (2) Nifas (wiladat ke baad ka khoon) khatam hone ke baad. (3) Janabat ke baad (humbistari ya shahwat ki wajah se discharge). Jab tak ghusl na kiya jaye, salah, mushaf ko chhoona, Quran ki tilawat, aur masjid mein daakhil hona jaiz nahi. <strong>Roze ke baare mein ahem nuqta:</strong> Aurat haiz ya nifas ke dauraan roza nahi rakh sakti, lekin jaise hi khoon band ho jaye (ghusl se pehle bhi), roze ki niyyat kar leni chahiye. Isi tarah janabat ki haalat mein roza rakhna durust hai — roza bina ghusl ke bhi saheeh hai, albatta namaz ke liye ghusl mein deri nahi karni chahiye.',
+      ur: 'عورت پر غسل ان حالات میں فرض ہوتا ہے: (۱) حیض ختم ہونے کے بعد۔ (۲) نفاس (ولادت کے بعد کا خون) ختم ہونے کے بعد۔ (۳) جنابت کے بعد (ہمبستری یا شہوت کی وجہ سے ڈسچارج)۔ جب تک غسل نہ کیا جائے، نماز، مصحف کو چھونا، قرآن کی تلاوت، اور مسجد میں داخل ہونا جائز نہیں۔ <strong>روزے کے بارے میں اہم نکتہ:</strong> عورت حیض یا نفاس کے دوران روزہ نہیں رکھ سکتی، لیکن جیسے ہی خون بند ہو جائے (غسل سے پہلے بھی)، روزے کی نیت کر لینی چاہیے۔ اسی طرح جنابت کی حالت میں روزہ رکھنا درست ہے — روزہ بغیر غسل کے بھی صحیح ہے، البتہ نماز کے لیے غسل میں دیری نہیں کرنی چاہیے۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+    important: true,
+  },
+  {
+    question: {
+      en: 'Do I need to undo my braids or plaits for ghusl?',
+      ru: 'Kya ghusl ke liye chotiyan kholna zaroori hai?',
+      ur: 'کیا غسل کے لیے چوٹیاں کھولنا ضروری ہے؟',
+    },
+    answer: {
+      en: 'If water reaches the roots of the hair without undoing the braids, then it is not necessary to open them. However, if the braids are so tight that water cannot reach the scalp, they must be loosened enough for water to penetrate to the roots. <strong>This ruling is the same for ghusl after haiz, nifas, and janabah</strong> — there is no difference between them. The key requirement is that water must reach every part of the body including the hair roots.',
+      ru: 'Agar paani baalon ki jarein tak bina chotiyan kholay pahunch jaye, to kholna zaroori nahi. Lekin agar chotiyan itni kassi hon ke paani khopri tak nahi pahunche, to itna dheela karna zaroori hai ke paani jarein tak pahunche. <strong>Yeh hukm haiz, nifas aur janabat ke ghusl mein yaksan hai</strong> — koi farq nahi. Zaroori yeh hai ke paani jism ke har hisse tak pahunche baalon ki jarein samet.',
+      ur: 'اگر پانی بالوں کی جڑوں تک بغیر چوٹیاں کھولے پہنچ جائے، تو کھولنا ضروری نہیں۔ لیکن اگر چوٹیاں اتنی کسی ہوں کہ پانی کھوپڑی تک نہیں پہنچے، تو اتنا ڈھیلا کرنا ضروری ہے کہ پانی جڑوں تک پہنچے۔ <strong>یہ حکم حیض، نفاس اور جنابت کے غسل میں یکساں ہے</strong> — کوئی فرق نہیں۔ ضروری یہ ہے کہ پانی جسم کے ہر حصے تک پہنچے بالوں کی جڑیں سمیت۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+  },
+  {
+    question: {
+      en: 'Does nail polish invalidate my wudu or ghusl?',
+      ru: 'Kya nail polish wuzu ya ghusl ko batil karti hai?',
+      ur: 'کیا نیل پالش وضو یا غسل کو باطل کرتی ہے؟',
+    },
+    answer: {
+      en: 'Nail polish creates a barrier that prevents water from reaching the nails. Since washing the hands (including nails) is fard in both wudu and ghusl, wudu and ghusl will not be valid if nail polish is on. It must be removed before performing wudu or ghusl. Breathable nail polish is a debated topic — the safest position in the Hanafi school is to remove it.',
+      ru: 'Nail polish ek rokawat banaati hai jo paani ko nakhunon tak pahunchne nahi deti. Choonke haathon (nakhunon samet) ka dhona wuzu aur ghusl dono mein farz hai, isliye nail polish lagi ho to wuzu aur ghusl durust nahi hoga. Wuzu ya ghusl se pehle ise utaarna zaroori hai. Breathable nail polish ka masla ikhtilafi hai — Hanafi mazhab mein sabse mehfooz yeh hai ke ise utaar diya jaye.',
+      ur: 'نیل پالش ایک رکاوٹ بناتی ہے جو پانی کو ناخنوں تک پہنچنے نہیں دیتی۔ چونکہ ہاتھوں (ناخنوں سمیت) کا دھونا وضو اور غسل دونوں میں فرض ہے، اس لیے نیل پالش لگی ہو تو وضو اور غسل درست نہیں ہوگا۔ وضو یا غسل سے پہلے اسے اتارنا ضروری ہے۔ بریتھ ایبل نیل پالش کا مسئلہ اختلافی ہے — حنفی مذہب میں سب سے محفوظ یہ ہے کہ اسے اتار دیا جائے۔',
+    },
+    reference: 'Radd al-Muhtar',
+    important: true,
+  },
+  {
+    question: {
+      en: 'What breaks wudu for a woman?',
+      ru: 'Aurat ka wuzu kis cheez se toot-ta hai?',
+      ur: 'عورت کا وضو کس چیز سے ٹوٹتا ہے؟',
+    },
+    answer: {
+      en: 'The things that break wudu are the same for men and women: (1) Anything exiting from the front or back passage (urine, stool, gas, blood, discharge). (2) Blood, pus, or any fluid flowing from a wound to a place that requires washing. (3) Vomiting a mouthful. (4) Sleeping in a position where the sitting bones are not firmly on the ground. (5) Loss of consciousness. (6) Audible laughter during salah (for adults). <strong>Note:</strong> Phlegm (balgham) does not break wudu regardless of quantity. Gas that exits from the <strong>front passage does not break wudu</strong> in the Hanafi school — only gas from the back passage does. If blood appears in the mouth, wudu only breaks if the blood <strong>overpowers the saliva</strong> (i.e., the spit appears red or predominantly red).',
+      ru: 'Wuzu todne wali cheezein mardon aur aurton ke liye ek jaisi hain: (1) Aage ya peeche ke raaste se koi bhi cheez nikalna (peshab, paakhana, hawa, khoon, discharge). (2) Zakhm se khoon, peep ya koi maada beh kar dhone wali jagah tak pahunchna. (3) Munh bhar qay hona. (4) Aise andaaz mein sona jahan surein zameen par mazbooti se na hon. (5) Behoshi. (6) Salah ke dauran awaaz se hansna (baaligon ke liye). <strong>Ahem:</strong> Balgham (phlegm) kitni bhi miqdar ho wuzu nahi todta. <strong>Aglay raaste se hawa</strong> Hanafi mazhab mein wuzu nahi todti — sirf peechay ke raaste ki hawa todti hai. Agar munh mein khoon aaye to wuzu sirf tab tootega jab khoon <strong>thook par ghaalib</strong> ho (yaani thook laal ya zyada tar laal nazar aaye).',
+      ur: 'وضو توڑنے والی چیزیں مردوں اور عورتوں کے لیے ایک جیسی ہیں: (۱) آگے یا پیچھے کے راستے سے کوئی بھی چیز نکلنا (پیشاب، پاخانہ، ہوا، خون، ڈسچارج)۔ (۲) زخم سے خون، پیپ یا کوئی مادہ بہہ کر دھونے والی جگہ تک پہنچنا۔ (۳) منہ بھر قے ہونا۔ (۴) ایسے انداز میں سونا جہاں سرین زمین پر مضبوطی سے نہ ہوں۔ (۵) بے ہوشی۔ (۶) نماز کے دوران آواز سے ہنسنا (بالغوں کے لیے)۔ <strong>اہم:</strong> بلغم کتنی بھی مقدار ہو وضو نہیں توڑتا۔ <strong>اگلے راستے سے ہوا</strong> حنفی مذہب میں وضو نہیں توڑتی — صرف پیچھے کے راستے کی ہوا توڑتی ہے۔ اگر منہ میں خون آئے تو وضو صرف تب ٹوٹے گا جب خون <strong>تھوک پر غالب</strong> ہو (یعنی تھوک لال یا زیادہ تر لال نظر آئے)۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+  },
+  {
+    question: {
+      en: 'Does vaginal discharge break wudu?',
+      ru: 'Kya aurton ka discharge wuzu todta hai?',
+      ur: 'کیا عورتوں کا ڈسچارج وضو توڑتا ہے؟',
+    },
+    answer: {
+      en: 'In the Hanafi school, clear or white vaginal discharge (rutubat al-farj) that exits from the vagina does break wudu. This is the relied-upon position. A woman who experiences frequent discharge may qualify as a ma\'zoor if the discharge persists throughout an entire salah time.',
+      ru: 'Hanafi mazhab mein saaf ya safed discharge (rutubat al-farj) jo farj se nikle, woh wuzu todta hai. Yeh mutamad qoul hai. Agar kisi aurat ko baar baar discharge aata ho to woh ma\'zoor ki sharait poori karne par ma\'zoor shumaar ho sakti hai, agar discharge poore ek salah ke waqt mein barqaraar rahe.',
+      ur: 'حنفی مذہب میں صاف یا سفید ڈسچارج (رطوبتِ فرج) جو فرج سے نکلے، وہ وضو توڑتا ہے۔ یہ معتمد قول ہے۔ اگر کسی عورت کو بار بار ڈسچارج آتا ہو تو وہ معذور کی شرائط پوری کرنے پر معذور شمار ہو سکتی ہے، اگر ڈسچارج پورے ایک نماز کے وقت میں برقرار رہے۔',
+    },
+    reference: 'Radd al-Muhtar',
+    important: true,
+  },
+  {
+    question: {
+      en: 'What is the ruling on coloured discharge (brown/yellow) at the end of haiz?',
+      ru: 'Haiz ke aakhir mein rang daar discharge (bhoora/peela) ka kya hukm hai?',
+      ur: 'حیض کے آخر میں رنگ دار ڈسچارج (بھورا/پیلا) کا کیا حکم ہے؟',
+    },
+    answer: {
+      en: 'If brown or yellowish discharge appears within the maximum days of haiz (10 days) and is connected to the bleeding, it is counted as part of haiz. However, if brown/yellow discharge appears after the woman has become clean (seen clear white discharge — qassah baydaa) and is within her habit, it is NOT haiz. She should simply renew her wudu.',
+      ru: 'Agar bhoora ya peela discharge haiz ki zyada se zyada muddat (10 din) ke andar aaye aur khoon se muttasil ho, to yeh haiz ka hissa shumaar hoga. Lekin agar bhoora/peela discharge aurat ke paak hone ke baad aaye (safed saaf discharge yaani qassah baydaa dekhne ke baad) aur woh apni aadat ke andar ho, to yeh haiz NAHI hai. Usse sirf wuzu taza karna chahiye.',
+      ur: 'اگر بھورا یا پیلا ڈسچارج حیض کی زیادہ سے زیادہ مدت (۱۰ دن) کے اندر آئے اور خون سے متصل ہو، تو یہ حیض کا حصہ شمار ہوگا۔ لیکن اگر بھورا/پیلا ڈسچارج عورت کے پاک ہونے کے بعد آئے (سفید صاف ڈسچارج یعنی قصہ بیضاء دیکھنے کے بعد) اور وہ اپنی عادت کے اندر ہو، تو یہ حیض نہیں ہے۔ اسے صرف وضو تازہ کرنا چاہیے۔',
+    },
+    reference: 'Nurul Idah, Radd al-Muhtar',
+  },
+  {
+    question: {
+      en: 'Can I touch or read the mushaf (physical Quran) without wudu?',
+      ru: 'Kya main bina wuzu ke mushaf (Quran) ko choo ya parh sakti hoon?',
+      ur: 'کیا میں بغیر وضو کے مصحف (قرآن) کو چھو یا پڑھ سکتی ہوں؟',
+    },
+    answer: {
+      en: 'Touching the mushaf without wudu is not permitted in the Hanafi school. This applies to the Arabic text of the Quran. <strong>In the Hanafi school, books of tafsir and Quran translations where the Arabic text is included also cannot be touched without wudu</strong>, as they contain the Quranic text. If the Quran is in a cover or sleeve and you hold it by the cover without touching the pages directly, this is permitted. Reading from a screen (phone or tablet) without touching the screen is permitted, as it is not a physical mushaf.',
+      ru: 'Hanafi mazhab mein bina wuzu ke mushaf ko chhoona jaiz nahi hai. Yeh Quran ke Arabi matn par laagu hota hai. <strong>Hanafi mazhab mein tafsir ki kitaabein aur Quran ke tarjume jismein Arabi matn shamil ho unhe bhi bina wuzu chhoona jaiz nahi</strong>, kyunke un mein Qurani matn maujood hai. Agar Quran jild ya ghilaaf mein ho aur aap ghilaaf se pakrein bina safahaat ko seedha chhoye, to yeh jaiz hai. Mobile ya tablet ki screen se bina chhoye parhna jaiz hai, kyunke woh asli mushaf nahi hai.',
+      ur: 'حنفی مذہب میں بغیر وضو کے مصحف کو چھونا جائز نہیں ہے۔ یہ قرآن کے عربی متن پر لاگو ہوتا ہے۔ <strong>حنفی مذہب میں تفسیر کی کتابیں اور قرآن کے ترجمے جن میں عربی متن شامل ہو انہیں بھی بغیر وضو چھونا جائز نہیں</strong>، کیونکہ ان میں قرآنی متن موجود ہے۔ اگر قرآن جلد یا غلاف میں ہو اور آپ غلاف سے پکڑیں بغیر صفحات کو سیدھا چھوئے، تو یہ جائز ہے۔ موبائل یا ٹیبلٹ کی اسکرین سے بغیر چھوئے پڑھنا جائز ہے، کیونکہ وہ اصلی مصحف نہیں ہے۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah, Al-Hidayah',
+  },
+  {
+    question: {
+      en: 'What are the four fard (obligatory) acts of wudu?',
+      ru: 'Wuzu ke chaar farz kya hain?',
+      ur: 'وضو کے چار فرض کیا ہیں؟',
+    },
+    answer: {
+      en: 'The four fard of wudu in the Hanafi school are: (1) <strong>Washing the face</strong> — from the hairline to below the chin, and from one ear to the other. (2) <strong>Washing both arms including the elbows</strong>. (3) <strong>Masah (wiping) of one-quarter of the head</strong>. (4) <strong>Washing both feet including the ankles</strong>. If any of these four are missed or any part is left dry, the wudu is invalid.',
+      ru: 'Hanafi mazhab mein wuzu ke chaar farz yeh hain: (1) <strong>Chehrah dhona</strong> — baalon ki lakeer se thodi ke neeche tak, aur ek kaan se doosre kaan tak. (2) <strong>Dono haath kuhniyon samet dhona</strong>. (3) <strong>Sar ka ek chauthai hisse ka masah</strong>. (4) <strong>Dono paon takhno samet dhona</strong>. Agar in mein se koi chhoot jaye ya koi hissa khushk rah jaye to wuzu durust nahi.',
+      ur: 'حنفی مذہب میں وضو کے چار فرض یہ ہیں: (۱) <strong>چہرہ دھونا</strong> — بالوں کی لکیر سے ٹھوڑی کے نیچے تک، اور ایک کان سے دوسرے کان تک۔ (۲) <strong>دونوں ہاتھ کہنیوں سمیت دھونا</strong>۔ (۳) <strong>سر کے ایک چوتھائی حصے کا مسح</strong>۔ (۴) <strong>دونوں پاؤں ٹخنوں سمیت دھونا</strong>۔ اگر ان میں سے کوئی چھوٹ جائے یا کوئی حصہ خشک رہ جائے تو وضو درست نہیں۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+    important: true,
+  },
+  {
+    question: {
+      en: 'What is tayammum and when is it permitted?',
+      ru: 'Tayammum kya hai aur kab jaiz hai?',
+      ur: 'تیمم کیا ہے اور کب جائز ہے؟',
+    },
+    answer: {
+      en: 'Tayammum is dry ablution performed using clean earth or dust when water is unavailable or its use is harmful. <strong>It is permitted when:</strong> (1) Water is not available within approximately one mile. (2) There is genuine fear that using water will worsen an illness or delay recovery. (3) There is not enough time for ghusl/wudu before the salah time exits. <strong>How to perform:</strong> Make intention, strike both palms on clean earth, wipe the entire face, strike again and wipe both arms from fingertips to elbows (including elbows). Tayammum replaces both wudu and ghusl when their conditions are met.',
+      ru: 'Tayammum khushk wuzu hai jo paak mitti ya khaak se kiya jaata hai jab paani dastiyab na ho ya iska istemal nuqsandeh ho. <strong>Yeh tab jaiz hai jab:</strong> (1) Paani taqreeban ek meel ke andar dastiyab na ho. (2) Paani istemal karne se bimari badhne ya sehatmandi mein deri ka sachi andesha ho. (3) Salah ka waqt nikalne se pehle ghusl/wudu ka waqt na ho. <strong>Tareeqa:</strong> Niyyat karein, dono hatheliyaan paak mitti par maarein, poora chehra masah karein, dobara maarein aur dono baazuon ka ungliyon se kuhniyon (kuhniyon samet) tak masah karein. Tayammum wudu aur ghusl dono ki jagah leta hai jab unki sharaitein poori hon.',
+      ur: 'تیمم خشک وضو ہے جو پاک مٹی یا خاک سے کیا جاتا ہے جب پانی دستیاب نہ ہو یا اس کا استعمال نقصاندہ ہو۔ <strong>یہ تب جائز ہے جب:</strong> (۱) پانی تقریباً ایک میل کے اندر دستیاب نہ ہو۔ (۲) پانی استعمال کرنے سے بیماری بڑھنے یا صحتمندی میں دیری کا سچا اندیشہ ہو۔ (۳) نماز کا وقت نکلنے سے پہلے غسل/وضو کا وقت نہ ہو۔ <strong>طریقہ:</strong> نیت کریں، دونوں ہتھیلیاں پاک مٹی پر ماریں، پورا چہرہ مسح کریں، دوبارہ ماریں اور دونوں بازوؤں کا انگلیوں سے کہنیوں (کہنیوں سمیت) تک مسح کریں۔ تیمم وضو اور غسل دونوں کی جگہ لیتا ہے جب ان کی شرائط پوری ہوں۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+    important: true,
+  },
+  {
+    question: {
+      en: 'What are the types of najasah (impurity)?',
+      ru: 'Najaasat (napaaki) ki kitni qismein hain?',
+      ur: 'نجاست (ناپاکی) کی کتنی قسمیں ہیں؟',
+    },
+    answer: {
+      en: 'There are two types: (1) <strong>Najasah ghalizah (heavy impurity)</strong> — includes urine, stool, flowing blood, wine, and menstrual blood. Salah is not valid if ghalizah more than the size of a dirham (approximately the hollow of one\'s palm) is on the body or clothes. (2) <strong>Najasah khafifah (light impurity)</strong> — includes the urine of halal animals and droppings of haram birds. Salah is not valid if khafifah covers more than one-quarter of the affected garment or limb.',
+      ru: 'Do qismein hain: (1) <strong>Najaasat ghalizah (bhaari napaaki)</strong> — is mein peshab, paakhana, behne wala khoon, sharaab, aur haiz ka khoon shamil hai. Agar ghalizah dirham (taqreeban hatheli ka gaddha) se zyada jism ya kapdon par ho to namaz durust nahi. (2) <strong>Najaasat khafifah (halki napaaki)</strong> — is mein halal janwaron ka peshab aur haram parindon ki baeet shamil hai. Agar khafifah mutassira kapde ya uzu ke ek chauthai se zyada par ho to namaz durust nahi.',
+      ur: 'دو قسمیں ہیں: (۱) <strong>نجاست غلیظہ (بھاری ناپاکی)</strong> — اس میں پیشاب، پاخانہ، بہنے والا خون، شراب، اور حیض کا خون شامل ہے۔ اگر غلیظہ درہم (تقریباً ہتھیلی کا گڈھا) سے زیادہ جسم یا کپڑوں پر ہو تو نماز درست نہیں۔ (۲) <strong>نجاست خفیفہ (ہلکی ناپاکی)</strong> — اس میں حلال جانوروں کا پیشاب اور حرام پرندوں کی بیٹ شامل ہے۔ اگر خفیفہ متاثرہ کپڑے یا عضو کے ایک چوتھائی سے زیادہ پر ہو تو نماز درست نہیں۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+  },
+  {
+    question: {
+      en: 'Is niyyah (intention) required for wudu and ghusl?',
+      ru: 'Kya wuzu aur ghusl ke liye niyyat zaroori hai?',
+      ur: 'کیا وضو اور غسل کے لیے نیت ضروری ہے؟',
+    },
+    answer: {
+      en: 'In the Hanafi school, <strong>niyyah is sunnah for wudu</strong> — if someone washes the limbs of wudu without intention (e.g., to cool down), the wudu is still technically valid. However, <strong>niyyah is necessary for ghusl</strong> to be sunnah — without it, only the fard aspects are fulfilled. It is always recommended to make niyyah for both wudu and ghusl to gain full reward. Niyyah is made in the heart; verbal utterance is not required but is permissible.',
+      ru: 'Hanafi mazhab mein <strong>wuzu ke liye niyyat sunnat hai</strong> — agar koi bina niyyat ke wuzu ke aaaza dho le (maslan thandak ke liye), to wuzu fiqhi taur par durust hai. Lekin <strong>ghusl ke sunnat hone ke liye niyyat zaroori hai</strong> — bina niyyat sirf farz ada hote hain. Wuzu aur ghusl dono ke liye niyyat karna mustahab hai taake poora sawaab mile. Niyyat dil mein ki jaati hai; zabaan se kehna zaroori nahi lekin jaiz hai.',
+      ur: 'حنفی مذہب میں <strong>وضو کے لیے نیت سنت ہے</strong> — اگر کوئی بغیر نیت کے وضو کے اعضا دھو لے (مثلاً ٹھنڈک کے لیے)، تو وضو فقہی طور پر درست ہے۔ لیکن <strong>غسل کے سنت ہونے کے لیے نیت ضروری ہے</strong> — بغیر نیت صرف فرض ادا ہوتے ہیں۔ وضو اور غسل دونوں کے لیے نیت کرنا مستحب ہے تاکہ پورا ثواب ملے۔ نیت دل میں کی جاتی ہے؛ زبان سے کہنا ضروری نہیں لیکن جائز ہے۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+  },
+  {
+    question: {
+      en: 'What types of water can be used for wudu and ghusl?',
+      ru: 'Wuzu aur ghusl ke liye kaun sa paani istemal ho sakta hai?',
+      ur: 'وضو اور غسل کے لیے کون سا پانی استعمال ہو سکتا ہے؟',
+    },
+    answer: {
+      en: 'Water is categorized as: (1) <strong>Mutlaq (pure and purifying)</strong> — rain water, well water, river water, sea water, spring water, and melted snow/ice. This can be used for wudu and ghusl. (2) <strong>Musta\'mal (used water)</strong> — water that has been used for wudu or ghusl. It is clean but cannot be used again for wudu/ghusl. (3) <strong>Water mixed with a pure substance</strong> — if the water\'s properties (colour, taste, smell) change significantly due to mixing, it cannot be used. (4) <strong>Impure (najis) water</strong> — water contaminated with impurity cannot be used at all.',
+      ru: 'Paani ki qismein yeh hain: (1) <strong>Mutlaq (paak aur paak karne wala)</strong> — baarish, kuein, darya, samundar, chashme ka paani, aur pigla hua barf. Yeh wuzu aur ghusl ke liye istemal ho sakta hai. (2) <strong>Musta\'mal (istemal shuda paani)</strong> — woh paani jo wuzu ya ghusl mein istemal ho chuka. Yeh paak hai lekin dobara wuzu/ghusl ke liye istemal nahi ho sakta. (3) <strong>Paak cheez mili hua paani</strong> — agar paani ki sifaat (rang, zaaiqa, boo) kisi paak cheez milne se zyada badal jayein to istemal nahi ho sakta. (4) <strong>Napaak (najis) paani</strong> — najasat mila paani bilkul istemal nahi ho sakta.',
+      ur: 'پانی کی قسمیں یہ ہیں: (۱) <strong>مطلق (پاک اور پاک کرنے والا)</strong> — بارش، کنویں، دریا، سمندر، چشمے کا پانی، اور پگھلا ہوا برف۔ یہ وضو اور غسل کے لیے استعمال ہو سکتا ہے۔ (۲) <strong>مستعمل (استعمال شدہ پانی)</strong> — وہ پانی جو وضو یا غسل میں استعمال ہو چکا۔ یہ پاک ہے لیکن دوبارہ وضو/غسل کے لیے استعمال نہیں ہو سکتا۔ (۳) <strong>پاک چیز ملا ہوا پانی</strong> — اگر پانی کی صفات (رنگ، ذائقہ، بو) کسی پاک چیز ملنے سے زیادہ بدل جائیں تو استعمال نہیں ہو سکتا۔ (۴) <strong>ناپاک (نجس) پانی</strong> — نجاست ملا پانی بالکل استعمال نہیں ہو سکتا۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+  },
+  {
+    question: {
+      en: 'What are the basic rules of istinja (cleaning after using the toilet)?',
+      ru: 'Istinja (bait-ul-khala ke baad saaf karne) ke buniyadi ahkaam kya hain?',
+      ur: 'استنجا (بیت الخلا کے بعد صاف کرنے) کے بنیادی احکام کیا ہیں؟',
+    },
+    answer: {
+      en: 'Istinja is cleaning oneself after using the toilet. Key rulings: (1) <strong>Using water is best</strong> — it is the most thorough method of cleaning. (2) Dry materials (toilet paper, clean stones, etc.) may be used, but water is preferred. (3) Use the <strong>left hand</strong> for cleaning, not the right. (4) Do not face or turn your back toward the Qiblah while using the toilet (where possible). (5) Do not talk or engage in dhikr while relieving oneself. (6) Enter the bathroom with the left foot first and exit with the right foot.',
+      ru: 'Istinja bait-ul-khala ke baad apne aap ko saaf karna hai. Zaroori ahkaam: (1) <strong>Paani ka istemal afzal hai</strong> — yeh saaf karne ka sab se achi tareeqa hai. (2) Khushk cheezein (toilet paper, paak patthar wagairah) bhi istemal ho sakti hain, lekin paani behtar hai. (3) Saaf karne ke liye <strong>bayaan haath</strong> istemal karein, daayaan nahi. (4) Bait-ul-khala mein Qibla ki taraf munh ya peeth na karein (jahan mumkin ho). (5) Haja-e-zaroorat ke dauran baat na karein aur na dhikr karein. (6) Baithroom mein bayaan paon pehle rakhein aur nikalne mein dayaan paon.',
+      ur: 'استنجا بیت الخلا کے بعد اپنے آپ کو صاف کرنا ہے۔ ضروری احکام: (۱) <strong>پانی کا استعمال افضل ہے</strong> — یہ صاف کرنے کا سب سے اچھا طریقہ ہے۔ (۲) خشک چیزیں (ٹوائلٹ پیپر، پاک پتھر وغیرہ) بھی استعمال ہو سکتی ہیں، لیکن پانی بہتر ہے۔ (۳) صاف کرنے کے لیے <strong>بایاں ہاتھ</strong> استعمال کریں، دایاں نہیں۔ (۴) بیت الخلا میں قبلہ کی طرف منہ یا پیٹھ نہ کریں (جہاں ممکن ہو)۔ (۵) حاجت کے دوران بات نہ کریں اور نہ ذکر کریں۔ (۶) باتھ روم میں بایاں پاؤں پہلے رکھیں اور نکلنے میں دایاں پاؤں۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+  },
+  {
+    question: {
+      en: 'Can I do masah (wiping) on socks instead of washing feet for wudu?',
+      ru: 'Kya wuzu mein pairon ko dhone ki jagah mozon/jarabon par masah kar sakti hoon?',
+      ur: 'کیا وضو میں پیروں کو دھونے کی جگہ موزوں/جرابوں پر مسح کر سکتی ہوں؟',
+    },
+    answer: {
+      en: 'Masah on khuffain (leather socks) is permitted in the Hanafi school if: (1) The khuffain were worn <strong>after completing wudu</strong> with feet washed. (2) They cover the ankles. (3) One can walk in them for a reasonable distance. The duration is <strong>24 hours for a resident (muqeem)</strong> and <strong>72 hours for a traveller (musafir)</strong>, starting from the first wudu break after wearing them. <strong>Regular thin cotton socks</strong> do not qualify unless they are thick enough to stand on their own without being tied and water does not seep through them.',
+      ru: 'Hanafi mazhab mein khuffain (chamre ke moze) par masah jaiz hai agar: (1) Khuffain <strong>mukammal wuzu ke baad</strong> pairon ko dho kar pehne gaye hon. (2) Woh takhno dhak lein. (3) Un mein maaqool fasle tak chal sakein. Muddat <strong>muqeem ke liye 24 ghante</strong> aur <strong>musafir ke liye 72 ghante</strong> hai, jo khuffain pehnne ke baad pehli baar wuzu tootne se shuru hoti hai. <strong>Aam patli suti jarabein</strong> kaafi nahi jab tak itni moti na hon ke bina bandhe khud khadi rahein aur paani nah jhilke.',
+      ur: 'حنفی مذہب میں خفین (چمڑے کے موزے) پر مسح جائز ہے اگر: (۱) خفین <strong>مکمل وضو کے بعد</strong> پیروں کو دھو کر پہنے گئے ہوں۔ (۲) وہ ٹخنوں کو ڈھک لیں۔ (۳) ان میں معقول فاصلے تک چل سکیں۔ مدت <strong>مقیم کے لیے ۲۴ گھنٹے</strong> اور <strong>مسافر کے لیے ۷۲ گھنٹے</strong> ہے، جو خفین پہننے کے بعد پہلی بار وضو ٹوٹنے سے شروع ہوتی ہے۔ <strong>عام پتلی سوتی جرابیں</strong> کافی نہیں جب تک اتنی موٹی نہ ہوں کہ بغیر باندھے خود کھڑی رہیں اور پانی نہ جھلکے۔',
+    },
+    reference: 'Bahar-e-Shariat, Nurul Idah',
+  },
+];

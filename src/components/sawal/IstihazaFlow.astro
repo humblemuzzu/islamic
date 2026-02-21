@@ -1,0 +1,152 @@
+---
+import T from '../T.astro';
+---
+
+          <!-- ============ ISTIHAZA FLOW ============ -->
+          <div class="qa-screen" data-screen="istihaza-start">
+            <span class="qa-badge">Istihaza</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What do you need to know about istihaza?</span>
+              <span data-lang-text="ru">Istihaza ke baare mein kya jaanna chahte hain?</span>
+              <span data-lang-text="ur">استحاضہ کے بارے میں کیا جاننا چاہتے ہیں؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="istihaza-ruling">
+                <T en="What is istihaza and its ruling?" ru="Istihaza kya hai aur uska hukm?" ur="استحاضہ کیا ہے اور اسکا حکم؟" />
+              </button>
+              <button class="qa-option" data-goto="istihaza-wudu">
+                <T en="How to make wudu with istihaza?" ru="Istihaza mein wuzu kaise karein?" ur="استحاضہ میں وضو کیسے کریں؟" />
+              </button>
+              <button class="qa-option" data-goto="istihaza-mazoor">
+                <T en="What is ma'zoor (excused person)?" ru="Ma'zoor (mazoor) kya hota hai?" ur="معذور کیا ہوتا ہے؟" />
+              </button>
+              <button class="qa-option" data-goto="istihaza-fasting">
+                <T en="Can I fast during istihaza?" ru="Istihaza mein roza rakh sakti hoon?" ur="استحاضہ میں روزہ رکھ سکتی ہوں؟" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="istihaza-ruling">
+            <span class="qa-badge">Istihaza Ruling</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Istihaza — What is it?</span>
+                <span data-lang-text="ru">Istihaza — Yeh kya hai?</span>
+                <span data-lang-text="ur">استحاضہ — یہ کیا ہے؟</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Istihaza is any bleeding that does NOT meet haiz criteria — less than 3 days, more than 10 days, or bleeding during pregnancy.</span>
+                <span data-lang-text="ru">Istihaza woh khoon hai jo haiz ki shartein poori NAHI karta — 3 din se kam, 10 din se zyada, ya hamal ke dauran.</span>
+                <span data-lang-text="ur">استحاضہ وہ خون ہے جو حیض کی شرائط پوری نہیں کرتا — ۳ دن سے کم، ۱۰ دن سے زیادہ، یا حمل کے دوران۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Key Ruling" ru="Ahem Hukm" ur="اہم حکم" /></span>
+                <p>
+                  <span data-lang-text="en"><strong>You MUST pray during istihaza.</strong> It does not prevent salah or fasting.</span>
+                  <span data-lang-text="ru"><strong>Istihaza mein namaz FARZ hai.</strong> Yeh namaz ya roze se nahi rokta.</span>
+                  <span data-lang-text="ur"><strong>استحاضہ میں نماز FARZ ہے۔</strong> یہ نماز یا روزے سے نہیں روکتا۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="istihaza-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="istihaza-wudu">
+            <span class="qa-badge">Istihaza + Wudu</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Wudu with Istihaza</span>
+                <span data-lang-text="ru">Istihaza Mein Wuzu</span>
+                <span data-lang-text="ur">استحاضہ میں وضو</span>
+              </h3>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Method" ru="Tareeqa" ur="طریقہ" /></span>
+                <p>
+                  <span data-lang-text="en">1. Make fresh wudu for each fard salah time<br/>2. If bleeding is continuous, you are a <strong>ma'zoor</strong> (excused)<br/>3. Your wudu stays valid for the entire salah time<br/>4. If bleeding stops, make wudu for the next salah</span>
+                  <span data-lang-text="ru">1. Har farz namaz ke liye naya wuzu karein<br/>2. Agar khoon musalsal rahe to aap <strong>ma'zoor</strong> hain<br/>3. Aapka wuzu poore namaz ke waqt tak rahega<br/>4. Agar khoon band ho jaye, agli namaz ke liye wuzu karein</span>
+                  <span data-lang-text="ur">1. ہر فرض نماز کے لیے نیا وضو کریں<br/>2. اگر خون مسلسل رہے تو آپ <strong>معذور</strong> ہیں<br/>3. آپکا وضو پورے نماز کے وقت تک رہے گا<br/>4. اگر خون بند ہو جائے، اگلی نماز کے لیے وضو کریں</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="istihaza-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Istihaza: Ma'zoor explained -->
+          <div class="qa-screen" data-screen="istihaza-mazoor">
+            <span class="qa-badge">Ma'zoor</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Who is a Ma'zoor (Excused Person)?</span>
+                <span data-lang-text="ru">Ma'zoor (Mazoor) Kaun Hai?</span>
+                <span data-lang-text="ur">معذور کون ہے؟</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">A woman becomes a <strong>ma'zoor</strong> (excused person) when her bleeding or discharge is so continuous that she <strong>cannot maintain wudu for one complete fard namaz time</strong>.</span>
+                <span data-lang-text="ru">Aurat <strong>ma'zoor</strong> tab banti hai jab uska khoon ya discharge itna musalsal ho ke woh <strong>ek poore farz namaz ke waqt tak wuzu qaim nahi rakh sakti</strong>.</span>
+                <span data-lang-text="ur">عورت <strong>معذور</strong> تب بنتی ہے جب اسکا خون یا discharge اتنا مسلسل ہو کہ وہ <strong>ایک پورے فرض نماز کے وقت تک وضو قائم نہیں رکھ سکتی</strong>۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ma'zoor Rules" ru="Ma'zoor Ke Ahkaam" ur="معذور کے احکام" /></span>
+                <p>
+                  <span data-lang-text="en"><strong>How it starts:</strong> Bleeding must be continuous for one entire salah time (e.g., from Zuhr to Asr) — not even enough gap to perform wudu and pray.<br/><br/><strong>How it continues:</strong> Once established, ma'zoor status continues as long as bleeding occurs at least once in each subsequent salah time.<br/><br/><strong>How it ends:</strong> If one complete salah time passes with NO bleeding at all, ma'zoor status ends.<br/><br/><strong>Wudu rule:</strong> Ma'zoor makes wudu at the start of each salah time. That wudu is valid until the next salah time enters — even if bleeding occurs during the prayer.<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Istihaza ka Bayan, Masla 2-7</span>
+                  <span data-lang-text="ru"><strong>Kaise shuru hota hai:</strong> Khoon ek poore namaz ke waqt tak musalsal rahe (maslan Zuhr se Asr tak) — itna bhi waqfa na ho ke wuzu kar ke namaz parh sake.<br/><br/><strong>Kaise jaari rehta hai:</strong> Qaim hone ke baad, ma'zoor ka darja jab tak hai jab tak har namaz ke waqt mein kam se kam ek martaba khoon aaye.<br/><br/><strong>Kaise khatam hota hai:</strong> Agar ek poore namaz ka waqt bilkul bina khoon ke guzar jaye to ma'zoor ka darja khatam.<br/><br/><strong>Wuzu ka usool:</strong> Ma'zoor har namaz ke waqt ki ibtida mein wuzu kare. Woh wuzu agle waqt ke shuru hone tak sahih rahega — chahe namaz ke dauraan khoon aaye.<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Istihaza ka Bayan, Masla 2-7</span>
+                  <span data-lang-text="ur"><strong>کیسے شروع ہوتا ہے:</strong> خون ایک پورے نماز کے وقت تک مسلسل رہے (مثلاً ظہر سے عصر تک) — اتنا بھی وقفہ نہ ہو کہ وضو کر کے نماز پڑھ سکے۔<br/><br/><strong>کیسے جاری رہتا ہے:</strong> قائم ہونے کے بعد، معذور کا درجہ جب تک ہے جب تک ہر نماز کے وقت میں کم سے کم ایک مرتبہ خون آئے۔<br/><br/><strong>کیسے ختم ہوتا ہے:</strong> اگر ایک پورے نماز کا وقت بالکل بنا خون کے گزر جائے تو معذور کا درجہ ختم۔<br/><br/><strong>وضو کا اصول:</strong> معذور ہر نماز کے وقت کی ابتدا میں وضو کرے۔ وہ وضو اگلے وقت کے شروع ہونے تک صحیح رہے گا — چاہے نماز کے دوران خون آئے۔<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، استحاضہ کا بیان، مسئلہ ۲-۷</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="istihaza-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Istihaza: Fasting -->
+          <div class="qa-screen" data-screen="istihaza-fasting">
+            <span class="qa-badge">Istihaza + Fasting</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Yes — You MUST Fast During Istihaza</span>
+                <span data-lang-text="ru">Haan — Istihaza Mein Roza FARZ Hai</span>
+                <span data-lang-text="ur">ہاں — استحاضہ میں روزہ FARZ ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Istihaza does NOT prevent fasting. Unlike haiz (where fasting is haram), during istihaza <strong>all acts of worship are obligatory</strong> — salah, fasting, etc.</span>
+                <span data-lang-text="ru">Istihaza roze se NAHI rokta. Haiz ke baraks (jahan roza haram hai), istihaza mein <strong>tamaam ibadaat farz hain</strong> — namaz, roza, waghaira.</span>
+                <span data-lang-text="ur">استحاضہ روزے سے نہیں روکتا۔ حیض کے برعکس (جہاں روزہ حرام ہے)، استحاضہ میں <strong>تمام عبادات فرض ہیں</strong> — نماز، روزہ، وغیرہ۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Summary" ru="Khulasa" ur="خلاصہ" /></span>
+                <p>
+                  <span data-lang-text="en">• Fasting during istihaza is FARZ (if in Ramadan)<br/>• Your fast is valid despite the bleeding<br/>• You can also do nafl fasts during istihaza<br/>• The bleeding is istihaza, not haiz — it doesn't break the fast<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Istihaza ka Bayan, Masla 1</span>
+                  <span data-lang-text="ru">• Istihaza mein roza FARZ hai (agar Ramadan mein ho)<br/>• Khoon ke bawajood aapka roza sahih hai<br/>• Istihaza mein nafl roze bhi rakh sakti hain<br/>• Yeh khoon istihaza hai, haiz nahi — roza nahi todta<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Istihaza ka Bayan, Masla 1</span>
+                  <span data-lang-text="ur">• استحاضہ میں روزہ FARZ ہے (اگر رمضان میں ہو)<br/>• خون کے باوجود آپکا روزہ صحیح ہے<br/>• استحاضہ میں نفل روزے بھی رکھ سکتی ہیں<br/>• یہ خون استحاضہ ہے، حیض نہیں — روزہ نہیں توڑتا<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، استحاضہ کا بیان، مسئلہ ۱</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="istihaza-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+

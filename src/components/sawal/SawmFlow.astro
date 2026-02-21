@@ -1,0 +1,218 @@
+---
+import T from '../T.astro';
+---
+
+          <!-- ============ SAWM FLOW ============ -->
+          <div class="qa-screen" data-screen="sawm-start">
+            <span class="qa-badge">Sawm</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What is your question about fasting?</span>
+              <span data-lang-text="ru">Roze ke baare mein aapka sawal kya hai?</span>
+              <span data-lang-text="ur">روزے کے بارے میں آپکا سوال کیا ہے؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="sawm-during-haiz">
+                <T en="Can I fast during my period?" ru="Mahawari mein roza rakh sakti hoon?" ur="ماہواری میں روزہ رکھ سکتی ہوں؟" />
+              </button>
+              <button class="qa-option" data-goto="sawm-started">
+                <T en="My period started while I was fasting" ru="Roza rakhte hue mahawari shuru ho gaya" ur="روزہ رکھتے ہوئے ماہواری شروع ہو گئی" />
+              </button>
+              <button class="qa-option" data-goto="sawm-qaza">
+                <T en="Do I need to make up missed fasts?" ru="Kya chhoote hue rozon ki qaza karni hogi?" ur="کیا چھوٹے ہوئے روزوں کی قضا کرنی ہوگی؟" />
+              </button>
+              <button class="qa-option" data-goto="sawm-istihaza">
+                <T en="Can I fast during istihaza (irregular bleeding)?" ru="Istihaza mein roza rakh sakti hoon?" ur="استحاضہ میں روزہ رکھ سکتی ہوں؟" />
+              </button>
+              <button class="qa-option" data-goto="sawm-7din-myth">
+                <T en="Can I fast after 7 days even if bleeding?" ru="Kya 7 din ke baad khoon mein roza rakh sakti hoon?" ur="کیا ۷ دن کے بعد خون میں روزہ رکھ سکتی ہوں؟" />
+              </button>
+              <button class="qa-option" data-goto="sawm-gap-then-spotting">
+                <T en="I fasted during clean gap, then spotting came" ru="Saaf waqfe mein roza rakha, phir nuqtay aaye" ur="صاف وقفے میں روزہ رکھا، پھر نقطے آئے" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="sawm-during-haiz">
+            <span class="qa-badge">Sawm During Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Fasting is HARAM During Haiz</span>
+                <span data-lang-text="ru">Haiz Mein Roza HARAM Hai</span>
+                <span data-lang-text="ur">حیض میں روزہ HARAM ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">You must NOT fast during haiz. This is different from salah — missed fasts MUST be made up.</span>
+                <span data-lang-text="ru">Haiz mein roza rakhna MANA hai. Yeh namaz se alag hai — chhoote hue rozon ki qaza FARZ hai.</span>
+                <span data-lang-text="ur">آپ کو حیض میں روزہ نہیں رکھنا۔ یہ نماز سے مختلف ہے — چھوٹے ہوئے روزوں کی قضا FARZ ہے۔</span>
+              </p>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="sawm-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="sawm-started">
+            <span class="qa-badge">Sawm</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Your Fast is Broken</span>
+                <span data-lang-text="ru">Aapka Roza Toot Gaya</span>
+                <span data-lang-text="ur">آپکا روزہ ٹوٹ گیا</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">If haiz starts while you are fasting, that fast breaks. You must make it up (qaza) later.</span>
+                <span data-lang-text="ru">Agar roza rakhte hue haiz shuru ho jaye to woh roza toot jayega. Aapko baad mein qaza karni hogi.</span>
+                <span data-lang-text="ur">اگر روزہ رکھتے ہوئے حیض شروع ہو جائے تو وہ روزہ ٹوٹ جائے گا۔ آپکو بعد میں قضا کرنی ہوگی۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Note" ru="Ahem" ur="اہم" /></span>
+                <p>
+                  <span data-lang-text="en">If it was a fard fast (like Ramadan), qaza is fard. If it was nafl, qaza is still required.</span>
+                  <span data-lang-text="ru">Agar farz roza tha (jaise Ramadan), qaza farz hai. Agar nafl tha, qaza phir bhi zaroori hai.</span>
+                  <span data-lang-text="ur">اگر فرض روزہ تھا (جیسے رمضان)، قضا فرض ہے۔ اگر نفل تھا، قضا پھر بھی ضروری ہے۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="sawm-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="sawm-qaza">
+            <span class="qa-badge">Qaza of Fasts</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Yes — Missed Fasts Must Be Made Up</span>
+                <span data-lang-text="ru">Haan — Chhoote Hue Rozon Ki Qaza Karni Hog</span>
+                <span data-lang-text="ur">ہاں — چھوٹے ہوئے روزوں کی قضا کرنی ہوگی</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Unlike salah, missed fasts during haiz MUST be made up (qaza is farz).</span>
+                <span data-lang-text="ru">Namaz ke alag, haiz ke chhoote hue rozon ki qaza FARZ hai.</span>
+                <span data-lang-text="ur">نماز کے مختلف، حیض کے چھوٹے ہوئے روزوں کی قضا FARZ ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="When to make up" ru="Kab qaza karein" ur="کب قضا کریں" /></span>
+                <p>
+                  <span data-lang-text="en">Make up missed fasts after Ramadan at your convenience. Do not delay unnecessarily.</span>
+                  <span data-lang-text="ru">Ramadan ke baad apni suvidha ke mutabiq qaza karein. Bilawajah deri na karein.</span>
+                  <span data-lang-text="ur">رمضان کے بعد اپنی سہولت کے مطابق قضا کریں۔ بلاوجہ دیری نہ کریں۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="sawm-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Sawm: Fasting during istihaza -->
+          <div class="qa-screen" data-screen="sawm-istihaza">
+            <span class="qa-badge">Sawm + Istihaza</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Yes — Fasting is FARZ During Istihaza</span>
+                <span data-lang-text="ru">Haan — Istihaza Mein Roza FARZ Hai</span>
+                <span data-lang-text="ur">ہاں — استحاضہ میں روزہ FARZ ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Istihaza does NOT prevent fasting. Your fast is valid even if bleeding continues. You must fast during Ramadan as normal.</span>
+                <span data-lang-text="ru">Istihaza roza se NAHI rokta. Aapka roza sahih hai chahe khoon jaari ho. Ramadan mein roza aam tarah farz hai.</span>
+                <span data-lang-text="ur">استحاضہ روزے سے نہیں روکتا۔ آپکا روزہ صحیح ہے چاہے خون جاری ہو۔ رمضان میں روزہ عام طرح فرض ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Remember" ru="Yaad Rakhein" ur="یاد رکھیں" /></span>
+                <p>
+                  <span data-lang-text="en">• Istihaza bleeding does NOT break your fast<br/>• Unlike haiz, fasting is NOT haram during istihaza<br/>• If you skipped fasts thinking it was haiz but it turned out to be istihaza, you must make those up<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Istihaza ka Bayan, Masla 1</span>
+                  <span data-lang-text="ru">• Istihaza ka khoon roza NAHI todta<br/>• Haiz ke baraks, istihaza mein roza haram NAHI<br/>• Agar aapne haiz samajh kar roza chhora lekin woh istihaza nikla, to un rozon ki qaza karein<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Istihaza ka Bayan, Masla 1</span>
+                  <span data-lang-text="ur">• استحاضہ کا خون روزہ نہیں توڑتا<br/>• حیض کے برعکس، استحاضہ میں روزہ حرام نہیں<br/>• اگر آپ نے حیض سمجھ کر روزہ چھوڑا لیکن وہ استحاضہ نکلا، تو ان روزوں کی قضا کریں<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، استحاضہ کا بیان، مسئلہ ۱</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="sawm-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Sawm: 7 din myth -->
+          <div class="qa-screen" data-screen="sawm-7din-myth">
+            <span class="qa-badge">Misconception</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">WRONG — You Cannot Fast While Bleeding</span>
+                <span data-lang-text="ru">GHALAT — Khoon Mein Roza Nahi Rakh Sakti</span>
+                <span data-lang-text="ur">غلط — خون میں روزہ نہیں رکھ سکتی</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Some people say "7 din ke baad roza rakh lo" — this is <strong>absolutely wrong</strong>. There is no fixed 7-day rule in Hanafi fiqh.</span>
+                <span data-lang-text="ru">Kuch log kehte hain "7 din ke baad roza rakh lo" — yeh <strong>bilkul ghalat hai</strong>. Hanafi fiqh mein 7 din ka koi pakka usool nahi.</span>
+                <span data-lang-text="ur">کچھ لوگ کہتے ہیں "۷ دن کے بعد روزہ رکھ لو" — یہ <strong>بالکل غلط ہے</strong>۔ حنفی فقہ میں ۷ دن کا کوئی پکا اصول نہیں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Correct Rule" ru="Sahih Usool" ur="صحیح اصول" /></span>
+                <p>
+                  <span data-lang-text="en"><strong>Rule 1:</strong> You can ONLY fast after your bleeding has COMPLETELY STOPPED and you've done ghusl.<br/><br/><strong>Rule 2:</strong> Every woman's cycle is different. Some bleed 3 days, some 5, some 8, some 10. You cannot apply someone else's number to yourself.<br/><br/><strong>Rule 3:</strong> If bleeding continues past 10 days, THEN your habit number determines your haiz (e.g., if your habit is 7 days, haiz = 7 days, after that = istihaza and you must fast).<br/><br/>The "7 din" misconception likely comes from mixing up this last rule with a general rule. It ONLY applies if bleeding exceeds 10 days AND your habit was 7 days.<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan; Haiz ke Ahkaam, Masla 25</span>
+                  <span data-lang-text="ru"><strong>Usool 1:</strong> Roza SIRF tab rakh sakti hain jab khoon BILKUL BAND ho jaye aur ghusl kar lein.<br/><br/><strong>Usool 2:</strong> Har aurat ka cycle mukhtalif hai. Kisi ka 3 din, kisi ka 5, kisi ka 8, kisi ka 10. Aap doosron ki tadaad apne oopar laagu nahi kar sakti.<br/><br/><strong>Usool 3:</strong> Agar khoon 10 din se zyada chale, TAB aapki aadat ki tadaad haiz tay karegi (maslan aadat 7 din, haiz = 7 din, uske baad = istihaza aur roza farz).<br/><br/>"7 din" ki ghalat fehmi shayad is aakhri usool ko aam usool samajhne se aati hai. Yeh SIRF tab laagu hota hai jab khoon 10 din se zyada ho AUR aadat 7 din ho.<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan; Haiz ke Ahkaam, Masla 25</span>
+                  <span data-lang-text="ur"><strong>اصول ۱:</strong> روزہ صرف تب رکھ سکتی ہیں جب خون بالکل بند ہو جائے اور غسل کر لیں۔<br/><br/><strong>اصول ۲:</strong> ہر عورت کا cycle مختلف ہے۔ کسی کا ۳ دن، کسی کا ۵، کسی کا ۸، کسی کا ۱۰۔ آپ دوسروں کی تعداد اپنے اوپر لاگو نہیں کر سکتی۔<br/><br/><strong>اصول ۳:</strong> اگر خون ۱۰ دن سے زیادہ چلے، تب آپکی عادت کی تعداد حیض طے کرے گی (مثلاً عادت ۷ دن، حیض = ۷ دن، اسکے بعد = استحاضہ اور روزہ فرض)۔<br/><br/>"۷ دن" کی غلط فہمی شاید اس آخری اصول کو عام اصول سمجھنے سے آتی ہے۔ یہ صرف تب لاگو ہوتا ہے جب خون ۱۰ دن سے زیادہ ہو اور عادت ۷ دن ہو۔<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان؛ حیض کے احکام، مسئلہ ۲۵</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="sawm-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Sawm: Fasted during gap then spotting returned -->
+          <div class="qa-screen" data-screen="sawm-gap-then-spotting">
+            <span class="qa-badge">Important</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">It Depends — Total Days Matter</span>
+                <span data-lang-text="ru">Yeh Munhasir Hai — Kul Din Ahem Hain</span>
+                <span data-lang-text="ur">یہ منحصر ہے — کل دن اہم ہیں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">If you fasted during a clean gap between bleeding episodes, the ruling depends on <strong>whether the total period from first blood to return of spotting is within 10 days</strong>.</span>
+                <span data-lang-text="ru">Agar aapne do khoon ke darmiyan saaf waqfe mein roza rakha, hukm is par munhasir hai ke <strong>pehle khoon se nuqtay ki wapsi tak kul muddat 10 din ke andar hai ya nahi</strong>.</span>
+                <span data-lang-text="ur">اگر آپ نے دو خون کے درمیان صاف وقفے میں روزہ رکھا، حکم اس پر منحصر ہے کہ <strong>پہلے خون سے نقطے کی واپسی تک کل مدت ۱۰ دن کے اندر ہے یا نہیں</strong>۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en"><strong>If total is within 10 days:</strong> The entire period is haiz — including the clean gap. Fasts kept during the gap are BROKEN. Qaza is farz.<br/><br/><strong>If total exceeds 10 days:</strong> Your habit determines haiz days. Fasts kept on istihaza days are VALID. Fasts kept on haiz days are broken — qaza farz.<br/><br/><strong>There is no sin</strong> — you acted in good faith. Just calculate and make up the necessary fasts.<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 5; Haiz ke Ahkaam, Masla 25</span>
+                  <span data-lang-text="ru"><strong>Agar kul 10 din ke andar:</strong> Poori muddat haiz hai — saaf waqfa bhi. Waqfe mein rakhay roze TOOTE. Qaza farz.<br/><br/><strong>Agar kul 10 din se zyada:</strong> Aadat se haiz ke din tay honge. Istihaza ke dinon ke roze SAHIH hain. Haiz ke dinon ke roze toote — qaza farz.<br/><br/><strong>Koi gunah nahi</strong> — aapne nek niyyat se kiya. Sirf hisaab lagayein aur zaroori rozon ki qaza karein.<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 5; Haiz ke Ahkaam, Masla 25</span>
+                  <span data-lang-text="ur"><strong>اگر کل ۱۰ دن کے اندر:</strong> پوری مدت حیض ہے — صاف وقفہ بھی۔ وقفے میں رکھے روزے ٹوٹے۔ قضا فرض۔<br/><br/><strong>اگر کل ۱۰ دن سے زیادہ:</strong> عادت سے حیض کے دن طے ہوں گے۔ استحاضہ کے دنوں کے روزے صحیح ہیں۔ حیض کے دنوں کے روزے ٹوٹے — قضا فرض۔<br/><br/><strong>کوئی گناہ نہیں</strong> — آپ نے نیک نیت سے کیا۔ صرف حساب لگائیں اور ضروری روزوں کی قضا کریں۔<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان، مسئلہ ۵؛ حیض کے احکام، مسئلہ ۲۵</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="sawm-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+

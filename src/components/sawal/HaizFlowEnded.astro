@@ -1,0 +1,201 @@
+---
+import T from '../T.astro';
+---
+
+          <div class="qa-screen" data-screen="haiz-more-10">
+            <span class="qa-badge">Exceeds Maximum</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Exceeds Maximum — Habit Applies</span>
+                <span data-lang-text="ru">Zyada se Zyada se Guzar Gaya — Aadat Laagu Hogi</span>
+                <span data-lang-text="ur">زیادہ سے زیادہ سے گزر گیا — عادت لاگو ہوگی</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">The <strong>maximum haiz is 10 days</strong>. Beyond this, your <strong>habit ('aadah)</strong> determines which days are haiz.</span>
+                <span data-lang-text="ru"><strong>Haiz ki zyada se zyada muddat 10 din hai</strong>. Is se zyada ke liye aapki <strong>aadat</strong> tay karegi.</span>
+                <span data-lang-text="ur"><strong>حیض کی زیادہ سے زیادہ مدت ۱۰ دن ہے</strong>۔ اس سے زیادہ کے لیے آپکی <strong>عادت</strong> طے کرے گی۔</span>
+              </p>
+            </div>
+            <div class="qa-followup">
+              <p class="qa-followup-q">
+                <span data-lang-text="en">Do you have an established habit (your regular duration)?</span>
+                <span data-lang-text="ru">Kya aapki koi aadat qaim hai (aapki normal muddat)?</span>
+                <span data-lang-text="ur">کیا آپکی کوئی عادت قائم ہے (آپکی معمول کی مدت)؟</span>
+              </p>
+              <div class="qa-options compact">
+                <button class="qa-option" data-goto="haiz-has-habit">
+                  <T en="Yes, I have a habit" ru="Haan, meri aadat hai" ur="ہاں، میری عادت ہے" />
+                </button>
+                <button class="qa-option" data-goto="haiz-no-habit">
+                  <T en="No, first time / don't know" ru="Nahi, pehli baar / nahi malum" ur="نہیں، پہلی بار / نہیں معلوم" />
+                </button>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-current-duration">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Has habit -->
+          <div class="qa-screen" data-screen="haiz-has-habit">
+            <span class="qa-badge">Based on Habit</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Your Habit Days = Haiz</span>
+                <span data-lang-text="ru">Aapke Aadat Ke Din = Haiz</span>
+                <span data-lang-text="ur">آپکی عادت کے دن = حیض</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Count your habitual days as haiz. The remaining days are istihaza (you must pray during those days).</span>
+                <span data-lang-text="ru">Apne aadat ke dinon ko haiz shumaar karein. Baqi din istihaza hain (un dinon mein namaz zaroori hai).</span>
+                <span data-lang-text="ur">اپنی عادت کے دنوں کو حیض شمار کریں۔ باقی دن استحاضہ ہیں (ان دنوں میں نماز ضروری ہے)۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Example" ru="Misaal" ur="مثال" /></span>
+                <p>
+                  <span data-lang-text="en">If your habit is 7 days: Days 1-7 = Haiz, Days 8+ = Istihaza</span>
+                  <span data-lang-text="ru">Agar aapki aadat 7 din hai: Din 1-7 = Haiz, Din 8+ = Istihaza</span>
+                  <span data-lang-text="ur">اگر آپکی عادت ۷ دن ہے: دن ۱-۷ = حیض، دن ۸+ = استحاضہ</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-more-10">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: No habit -->
+          <div class="qa-screen" data-screen="haiz-no-habit">
+            <span class="qa-badge">No Habit</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">First 10 Days = Haiz</span>
+                <span data-lang-text="ru">Pehle 10 Din = Haiz</span>
+                <span data-lang-text="ur">پہلے ۱۰ دن = حیض</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Since you have no established habit, consider the <strong>first 10 days as haiz</strong>. Any bleeding beyond 10 days is istihaza.</span>
+                <span data-lang-text="ru">Kyonke aapki koi aadat nahi, <strong>pehle 10 din haiz</strong> shumaar karein. 10 din se zyada khoon istihaza hai.</span>
+                <span data-lang-text="ur">چونکہ آپکی کوئی عادت نہیں، <strong>پہلے ۱۰ دن حیض</strong> شمار کریں۔ ۱۰ دن سے زیادہ خون استحاضہ ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="After 10 Days" ru="10 Din Ke Baad" ur="۱۰ دن کے بعد" /></span>
+                <p>
+                  <span data-lang-text="en">After 10 days: perform ghusl, resume salah. The extra days are istihaza (you must pray).</span>
+                  <span data-lang-text="ru">10 din ke baad: ghusl karein, namaz shuru karein. Zehda din istihaza hain (namaz zaroori hai).</span>
+                  <span data-lang-text="ur">۱۰ دن کے بعد: غسل کریں، نماز شروع کریں۔ اضافی دن استحاضہ ہیں (نماز ضروری ہے)۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-more-10">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Bleeding has stopped -->
+          <div class="qa-screen" data-screen="haiz-ended-question">
+            <span class="qa-badge">Haiz Ended</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">How long did the bleeding last?</span>
+              <span data-lang-text="ru">Khoon kitne din raha?</span>
+              <span data-lang-text="ur">خون کتنے دن رہا؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="haiz-ended-less3">
+                <T en="Less than 3 days" ru="3 din se kam" ur="۳ دن سے کم" />
+              </button>
+              <button class="qa-option" data-goto="haiz-ended-3to10">
+                <T en="3 to 10 days" ru="3 se 10 din" ur="۳ سے ۱۰ دن" />
+              </button>
+              <button class="qa-option" data-goto="haiz-ended-more10">
+                <T en="More than 10 days" ru="10 din se zyada" ur="۱۰ دن سے زیادہ" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="haiz-ended-less3">
+            <span class="qa-badge">Not Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">That was NOT Haiz</span>
+                <span data-lang-text="ru">Woh Haiz NAHI tha</span>
+                <span data-lang-text="ur">وہ حیض نہیں تھا</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Less than 3 days is istihaza. You must make up any salah you missed during that time.</span>
+                <span data-lang-text="ru">3 din se kam istihaza hai. Uss waqt ki chhooti hui namazon ki qaza karein.</span>
+                <span data-lang-text="ur">۳ دن سے کم استحاضہ ہے۔ اس وقت کی چھوٹی ہوئی نمازوں کی قضا کریں۔</span>
+              </p>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-ended-question">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="haiz-ended-3to10">
+            <span class="qa-badge">Valid Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">That was Valid Haiz — Alhmadulillah!</span>
+                <span data-lang-text="ru">Woh Sahih Haiz tha — Alhmadulillah!</span>
+                <span data-lang-text="ur">وہ صحیح تھا — الحمدللہ!</span>
+              </h3>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Now do ghusl" ru="Ab ghusl karein" ur="اب غسل کریں" /></span>
+                <p>
+                  <span data-lang-text="en">1. Perform ghusl immediately<br/>2. Resume salah and fasting<br/>3. Make up missed Ramadan fasts<br/>4. Missed salah does NOT need qaza</span>
+                  <span data-lang-text="ru">1. Ghusl foran karein<br/>2. Namaz aur roza shuru karein<br/>3. Ramadan ke chhoote hue rozon ki qaza karein<br/>4. Chhooti hui namaz ki qaza nahi</span>
+                  <span data-lang-text="ur">1. غسل فوراً کریں<br/>2. نماز اور روزہ شروع کریں<br/>3. رمضان کے چھوٹے ہوئے روزوں کی قضا کریں<br/>4. چھوٹی ہوئی نماز کی قضا نہیں</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-ended-question">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="haiz-ended-more10">
+            <span class="qa-badge">Exceeds Maximum</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Exceeds 10 Days — Use Habit</span>
+                <span data-lang-text="ru">10 Din Se Zyada — Aadat Use Karein</span>
+                <span data-lang-text="ur">۱۰ دن سے زیادہ — عادت Use کریں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">If you have a habit, that many days were haiz. If no habit, first 10 days were haiz. The rest was istihaza.</span>
+                <span data-lang-text="ru">Agar aadat hai, utne din haiz the. Agar aadat nahi, pehle 10 din haiz the. Baqi istihaza tha.</span>
+                <span data-lang-text="ur">اگر عادت ہے، اتنے دن حیض تھے۔ اگر عادت نہیں، پہلے ۱۰ دن حیض تھے۔ باقی استحاضہ تھا۔</span>
+              </p>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-ended-question">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+

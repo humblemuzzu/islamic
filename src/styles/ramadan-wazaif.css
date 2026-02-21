@@ -1,0 +1,406 @@
+  /* ========================================
+     WAZAIF SECTION
+     ======================================== */
+  .wazaif-section {
+    padding: var(--space-4xl) 0;
+    background: var(--ivory);
+  }
+
+  .wazaif-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-top: var(--space-sm);
+  }
+
+  /* Day Selector */
+  .day-selector {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .day-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--teal);
+    background: var(--white);
+    border: 1.5px solid var(--sand);
+    cursor: pointer;
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .day-btn:hover {
+    background: var(--ivory-deep);
+    border-color: var(--teal-light);
+    transform: translateY(-2px);
+  }
+
+  .day-btn.active {
+    background: var(--teal);
+    color: var(--ivory);
+    border-color: var(--teal);
+    box-shadow: 0 4px 12px rgba(26, 92, 82, 0.25);
+  }
+
+  /* Wazaif Day Cards */
+  .wazaif-cards-container {
+    position: relative;
+  }
+
+  .wazaif-day-card {
+    display: none;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(212, 201, 181, 0.4);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    animation: fadeInCard 0.4s var(--ease-out);
+  }
+
+  .wazaif-day-card.active {
+    display: block;
+  }
+
+  @keyframes fadeInCard {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .wazaif-day-header {
+    padding: var(--space-lg) var(--space-xl);
+    background: linear-gradient(135deg, var(--teal-deep), var(--teal));
+    color: var(--ivory);
+  }
+
+  .wazaif-day-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .wazaif-day-num {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .ashra-badge {
+    display: inline-block;
+    padding: 0.25rem 0.8rem;
+    border-radius: var(--radius-xl);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .ashra-1 {
+    background: rgba(196, 162, 101, 0.25);
+    color: var(--gold-light);
+  }
+
+  .ashra-2 {
+    background: rgba(250, 247, 242, 0.15);
+    color: var(--ivory);
+  }
+
+  /* Dua Block */
+  .wazaif-dua-block {
+    padding: var(--space-lg) var(--space-xl);
+    border-bottom: 1px solid rgba(212, 201, 181, 0.3);
+    text-align: center;
+  }
+
+  .dua-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .dua-arabic {
+    font-family: var(--font-arabic);
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    color: var(--teal-deep);
+    direction: rtl;
+    line-height: 1.8;
+    margin-bottom: var(--space-sm);
+  }
+
+  .dua-transliteration {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: var(--space-xs);
+  }
+
+  .dua-urdu {
+    font-family: var(--font-urdu);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    direction: rtl;
+    line-height: 2;
+  }
+
+  /* Schedule */
+  .wazaif-schedule {
+    padding: var(--space-md) var(--space-xl) var(--space-lg);
+  }
+
+  .schedule-header-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    margin-bottom: var(--space-xs);
+  }
+
+  .schedule-col-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .schedule-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: background 0.3s ease;
+    align-items: center;
+  }
+
+  .schedule-row:hover {
+    background: rgba(26, 92, 82, 0.03);
+  }
+
+  .schedule-row:not(:last-child) {
+    border-bottom: 1px solid rgba(212, 201, 181, 0.2);
+  }
+
+  .schedule-namaz {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--teal-deep);
+  }
+
+  .namaz-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .namaz-fajr { background: #7EB5A6; }
+  .namaz-zohar { background: #C4A265; }
+  .namaz-asar { background: #D4936E; }
+  .namaz-magrib { background: #8B6DAE; }
+  .namaz-isha { background: #4A6B8A; }
+
+  .schedule-wazifa {
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+
+  .schedule-count {
+    font-size: 0.82rem;
+    color: var(--gold-muted);
+    font-weight: 600;
+  }
+
+  /* ========================================
+     DOWNLOAD BANNER
+     ======================================== */
+  .download-banner {
+    position: relative;
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, var(--teal-deep), var(--teal), var(--teal-light));
+    overflow: hidden;
+  }
+
+  .download-banner .pattern-overlay {
+    opacity: 0.05;
+  }
+
+  .download-banner-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xl);
+    flex-wrap: wrap;
+  }
+
+  .download-text {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 500;
+    color: var(--ivory);
+    line-height: 1.5;
+    max-width: 600px;
+  }
+
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 0.8rem 2rem;
+    border-radius: var(--radius-xl);
+    background: var(--gold);
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.4s var(--ease-out);
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(196, 162, 101, 0.3);
+  }
+
+  .download-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(196, 162, 101, 0.4);
+  }
+
+  .download-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
+  @media (max-width: 768px) {
+    .ramadan-hero {
+      min-height: auto;
+      padding: 7rem 0 3rem;
+    }
+
+    .crescent-decoration {
+      width: 80px;
+      height: 80px;
+      top: 10%;
+      right: 5%;
+      box-shadow: -14px 7px 0 0 var(--teal);
+    }
+
+    .hero-cta-row {
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .hero-pill {
+      width: 100%;
+      max-width: 240px;
+      justify-content: center;
+    }
+
+    .routine-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .day-selector {
+      gap: 6px;
+    }
+
+    .day-btn {
+      width: 36px;
+      height: 36px;
+      font-size: 0.78rem;
+    }
+
+    .wazaif-day-header {
+      padding: var(--space-md);
+    }
+
+    .wazaif-dua-block {
+      padding: var(--space-md);
+    }
+
+    .wazaif-schedule {
+      padding: var(--space-sm) var(--space-md) var(--space-md);
+    }
+
+    .schedule-header-row,
+    .schedule-row {
+      grid-template-columns: 0.8fr 1.5fr 0.7fr;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-xs);
+    }
+
+    .schedule-namaz {
+      font-size: 0.8rem;
+    }
+
+    .schedule-wazifa {
+      font-size: 0.8rem;
+    }
+
+    .schedule-count {
+      font-size: 0.75rem;
+    }
+
+    .download-banner-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .download-text {
+      text-align: center;
+    }
+
+    .dhikr-group-header {
+      padding: var(--space-md);
+    }
+
+    .dhikr-list {
+      padding: 0 var(--space-md) var(--space-md);
+    }
+
+    .dhikr-group-title h3 {
+      font-size: 0.88rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-title-ar {
+      font-size: clamp(3rem, 15vw, 5rem);
+    }
+
+    .wazaif-day-title {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    .schedule-header-row,
+    .schedule-row {
+      grid-template-columns: 1fr 1.3fr 0.7fr;
+    }
+  }

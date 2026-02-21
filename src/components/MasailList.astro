@@ -83,16 +83,14 @@ const { masail } = Astro.props;
     background: var(--ivory);
     border-radius: var(--radius-lg);
     border: 1px solid transparent;
+    border-left: 3px solid var(--gold);
     transition: all 0.4s var(--ease-out);
   }
 
   .masala-item:hover {
     border-color: var(--cream);
+    border-left-color: var(--gold-muted);
     box-shadow: var(--shadow-soft);
-  }
-
-  .masala-item.important {
-    border-left: 3px solid var(--gold);
   }
 
   .masala-number {

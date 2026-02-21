@@ -1,0 +1,803 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import T from '../components/T.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<Layout title="Dhikr Counter | Al-Masail" description="Track your daily dhikr and durood with a beautiful, interactive counter. Persist your progress across sessions.">
+  <Navbar />
+
+  <!-- Hero Header -->
+  <section class="counter-hero">
+    <div class="pattern-overlay"></div>
+    <div class="pattern-star"></div>
+
+    <div class="counter-hero-content container">
+      <a href="/" class="back-link reveal">
+        <svg viewBox="0 0 16 16" fill="none" class="back-icon">
+          <path d="M10 4l-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <T en="Back to Home" ru="Wapas Home" ur="واپس ہوم" />
+      </a>
+
+      <div class="topic-title-block reveal reveal-delay-1">
+        <span class="section-label">
+          <T en="Daily Remembrance" ru="Rozana Dhikr" ur="روزانہ ذکر" />
+        </span>
+        <h1 class="topic-title-ar">عَدَّاد الذِّكْر</h1>
+        <h2 class="topic-title-en">DHIKR COUNTER</h2>
+      </div>
+
+      <div class="topic-desc reveal reveal-delay-2">
+        <p data-lang-block="en">Keep track of your daily adhkar and durood. Tap to count, switch between different dhikr, and watch your progress grow.</p>
+        <p data-lang-block="ru">Apne rozana ke adhkar aur durood ka hisab rakhein. Tap karein, mukhtalif dhikr mein switch karein, aur apni taraqqi dekhein.</p>
+        <p data-lang-block="ur">اپنے روزانہ کے اذکار اور درود کا حساب رکھیں۔ ٹیپ کریں، مختلف ذکر میں سوئچ کریں، اور اپنی ترقی دیکھیں۔</p>
+      </div>
+    </div>
+
+    <div class="topic-hero-border">
+      <svg viewBox="0 0 1200 2" preserveAspectRatio="none">
+        <line x1="0" y1="1" x2="1200" y2="1" stroke="url(#goldLineCounter)" stroke-width="1" stroke-dasharray="8 12 3 12" />
+        <defs>
+          <linearGradient id="goldLineCounter">
+            <stop offset="0%" stop-color="transparent" />
+            <stop offset="30%" stop-color="#C4A265" />
+            <stop offset="70%" stop-color="#C4A265" />
+            <stop offset="100%" stop-color="transparent" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Theme Selector -->
+  <section class="counter-themes-section">
+    <div class="container">
+      <div class="themes-scroll reveal" id="themesScroll">
+        <button class="theme-pill active" data-theme="durood">
+          <span class="theme-pill-ar">صَلِّ عَلٰى مُحَمَّدٍ</span>
+          <span class="theme-pill-en">Durood</span>
+        </button>
+        <button class="theme-pill" data-theme="subhanallah">
+          <span class="theme-pill-ar">سُبْحَانَ اللّٰه</span>
+          <span class="theme-pill-en">SubhanAllah</span>
+        </button>
+        <button class="theme-pill" data-theme="alhamdulillah">
+          <span class="theme-pill-ar">اَلْحَمْدُ لِلّٰه</span>
+          <span class="theme-pill-en">Alhamdulillah</span>
+        </button>
+        <button class="theme-pill" data-theme="allahuakbar">
+          <span class="theme-pill-ar">اَللّٰهُ اَكْبَر</span>
+          <span class="theme-pill-en">Allahu Akbar</span>
+        </button>
+        <button class="theme-pill" data-theme="astagfirullah">
+          <span class="theme-pill-ar">اَسْتَغْفِرُ اللّٰه</span>
+          <span class="theme-pill-en">Astagfirullah</span>
+        </button>
+        <button class="theme-pill" data-theme="lailaha">
+          <span class="theme-pill-ar">لَا اِلٰهَ اِلَّا اللّٰه</span>
+          <span class="theme-pill-en">La Ilaha Illallah</span>
+        </button>
+        <button class="theme-pill" data-theme="lahawla">
+          <span class="theme-pill-ar">لَا حَوْلَ وَلَا قُوَّة</span>
+          <span class="theme-pill-en">La Hawla</span>
+        </button>
+        <button class="theme-pill" data-theme="yahayyu">
+          <span class="theme-pill-ar">يَا حَيُّ يَا قَيُّوم</span>
+          <span class="theme-pill-en">Ya Hayyu</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Counter Widget -->
+  <section class="counter-widget-section">
+    <div class="container">
+      <div class="counter-card reveal">
+        <!-- Dhikr text display -->
+        <div class="dhikr-display">
+          <p class="dhikr-arabic" id="dhikrArabic">اَللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ</p>
+          <p class="dhikr-translit" id="dhikrTranslit">Allahumma Salli Ala Muhammad</p>
+          <div class="dhikr-target" id="dhikrTarget" style="display: none;">
+            <T en="Target:" ru="Hadaf:" ur="ہدف:" />
+            <span id="targetNum"></span>
+          </div>
+        </div>
+
+        <!-- SVG Progress Ring + Count -->
+        <div class="counter-ring-wrap" id="counterRingWrap">
+          <svg class="progress-ring" viewBox="0 0 200 200" id="progressRing" style="display: none;">
+            <circle class="progress-ring-bg" cx="100" cy="100" r="88" />
+            <circle class="progress-ring-fill" cx="100" cy="100" r="88" id="progressFill" />
+          </svg>
+          <div class="counter-number" id="counterNumber">0</div>
+        </div>
+
+        <!-- Tap Button -->
+        <button class="tap-btn" id="tapBtn">
+          <span class="tap-btn-inner">
+            <T en="Tap" ru="Tap" ur="ٹیپ" />
+          </span>
+        </button>
+
+        <!-- Reset -->
+        <button class="reset-btn" id="resetBtn">
+          <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+            <path d="M2 2v5h5M14 14V9H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.5 6.5A6 6 0 0 0 3 3.5L2 7m12 3l-1 3.5a6 6 0 0 1-10.5-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <T en="Reset Today" ru="Aaj Reset" ur="آج ری سیٹ" />
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Dashboard -->
+  <section class="counter-stats-section">
+    <div class="container">
+      <div class="divider-ornament reveal">
+        <span>&#10022;</span>
+      </div>
+
+      <h3 class="stats-heading reveal">
+        <T en="Your Progress" ru="Aap Ki Taraqqi" ur="آپ کی ترقی" />
+      </h3>
+
+      <div class="stats-grid reveal reveal-delay-1">
+        <div class="stat-card">
+          <span class="stat-number" id="statToday">0</span>
+          <span class="stat-label"><T en="Today" ru="Aaj" ur="آج" /></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="statWeek">0</span>
+          <span class="stat-label"><T en="This Week" ru="Is Hafte" ur="اس ہفتے" /></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="statMonth">0</span>
+          <span class="stat-label"><T en="This Month" ru="Is Mahine" ur="اس مہینے" /></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="statAllTime">0</span>
+          <span class="stat-label"><T en="All Time" ru="Kul" ur="کل" /></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* ========== Hero ========== */
+  .counter-hero {
+    position: relative;
+    padding: 8rem 0 3.5rem;
+    background: linear-gradient(175deg, var(--ivory) 0%, var(--ivory-deep) 50%, var(--cream) 100%);
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .counter-hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-light);
+    margin-bottom: var(--space-2xl);
+    transition: color 0.3s ease;
+  }
+
+  .back-link:hover {
+    color: var(--teal);
+  }
+
+  .back-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .topic-title-block {
+    margin-bottom: var(--space-lg);
+  }
+
+  .topic-title-block .section-label {
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .topic-title-ar {
+    font-family: var(--font-arabic);
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 700;
+    color: var(--teal-deep);
+    direction: rtl;
+    line-height: 1.1;
+    margin-bottom: var(--space-xs);
+  }
+
+  .topic-title-en {
+    font-family: var(--font-body);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    font-weight: 300;
+    color: var(--text-light);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  .topic-desc {
+    max-width: 560px;
+    margin: 0 auto var(--space-lg);
+  }
+
+  .topic-desc p {
+    font-size: clamp(0.92rem, 1.5vw, 1.05rem);
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .topic-hero-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+
+  .topic-hero-border svg {
+    width: 100%;
+    height: 2px;
+  }
+
+  /* ========== Theme Selector ========== */
+  .counter-themes-section {
+    padding: var(--space-2xl) 0 var(--space-lg);
+    background: var(--ivory);
+  }
+
+  .themes-scroll {
+    display: flex;
+    gap: var(--space-sm);
+    overflow-x: auto;
+    padding: var(--space-xs) var(--space-xs);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .themes-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .theme-pill {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-xl);
+    border: 1.5px solid var(--sand);
+    background: var(--white);
+    cursor: pointer;
+    transition: all 0.3s var(--ease-out);
+    min-width: max-content;
+  }
+
+  .theme-pill:hover {
+    border-color: var(--teal-light);
+    transform: translateY(-1px);
+  }
+
+  .theme-pill.active {
+    background: var(--teal);
+    border-color: var(--teal);
+    box-shadow: 0 4px 16px rgba(26, 92, 82, 0.25);
+  }
+
+  .theme-pill-ar {
+    font-family: var(--font-arabic);
+    font-size: 0.95rem;
+    color: var(--teal-deep);
+    direction: rtl;
+    line-height: 1.3;
+  }
+
+  .theme-pill.active .theme-pill-ar {
+    color: var(--white);
+  }
+
+  .theme-pill-en {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+
+  .theme-pill.active .theme-pill-en {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  /* ========== Counter Widget ========== */
+  .counter-widget-section {
+    padding: var(--space-lg) 0 var(--space-2xl);
+    background: var(--ivory);
+  }
+
+  .counter-card {
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl) var(--space-xl);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+    border-top: 3px solid transparent;
+    background-image: linear-gradient(var(--white), var(--white)), linear-gradient(90deg, var(--teal), var(--gold));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  .dhikr-display {
+    margin-bottom: var(--space-xl);
+  }
+
+  .dhikr-arabic {
+    font-family: var(--font-arabic);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--teal-deep);
+    direction: rtl;
+    line-height: 1.4;
+    margin-bottom: var(--space-sm);
+  }
+
+  .dhikr-translit {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--text-light);
+    letter-spacing: 0.02em;
+  }
+
+  .dhikr-target {
+    margin-top: var(--space-sm);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--gold-muted);
+  }
+
+  .dhikr-target span {
+    font-weight: 600;
+  }
+
+  /* Ring + Number */
+  .counter-ring-wrap {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto var(--space-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .progress-ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  .progress-ring-bg {
+    fill: none;
+    stroke: var(--ivory-deep);
+    stroke-width: 6;
+  }
+
+  .progress-ring-fill {
+    fill: none;
+    stroke: var(--teal);
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-dasharray: 553;
+    stroke-dashoffset: 553;
+    transition: stroke-dashoffset 0.4s var(--ease-out);
+  }
+
+  .counter-number {
+    font-family: var(--font-body);
+    font-size: clamp(3rem, 10vw, 4.5rem);
+    font-weight: 700;
+    color: var(--teal-deep);
+    line-height: 1;
+    z-index: 1;
+    transition: transform 0.15s var(--ease-spring);
+  }
+
+  .counter-number.pulse {
+    transform: scale(1.08);
+  }
+
+  /* Gold glow when target reached */
+  .counter-ring-wrap.target-reached .progress-ring-fill {
+    stroke: var(--gold);
+    filter: drop-shadow(0 0 8px rgba(196, 162, 101, 0.5));
+  }
+
+  .counter-ring-wrap.target-reached .counter-number {
+    color: var(--gold);
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { filter: drop-shadow(0 0 8px rgba(196, 162, 101, 0.3)); }
+    50% { filter: drop-shadow(0 0 20px rgba(196, 162, 101, 0.6)); }
+  }
+
+  .counter-ring-wrap.glow-celebrate .progress-ring-fill {
+    animation: glowPulse 0.8s ease-in-out 3;
+  }
+
+  /* Tap Button */
+  .tap-btn {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal), var(--teal-deep));
+    border: none;
+    cursor: pointer;
+    margin-bottom: var(--space-lg);
+    transition: all 0.15s var(--ease-spring);
+    box-shadow: 0 6px 24px rgba(26, 92, 82, 0.3);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+  }
+
+  .tap-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 32px rgba(26, 92, 82, 0.4);
+  }
+
+  .tap-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 12px rgba(26, 92, 82, 0.3);
+  }
+
+  .tap-btn-inner {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.05em;
+  }
+
+  /* Reset */
+  .reset-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-light);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: color 0.3s ease;
+  }
+
+  .reset-btn:hover {
+    color: var(--gold-muted);
+  }
+
+  /* ========== Stats ========== */
+  .counter-stats-section {
+    padding: 0 0 var(--space-4xl);
+    background: var(--ivory);
+  }
+
+  .stats-heading {
+    text-align: center;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-weight: 600;
+    color: var(--teal-deep);
+    margin-bottom: var(--space-xl);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg) var(--space-md);
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .stat-number {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    color: var(--teal);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ========== Responsive ========== */
+  @media (max-width: 640px) {
+    .counter-card {
+      padding: var(--space-xl) var(--space-lg);
+    }
+
+    .counter-ring-wrap {
+      width: 160px;
+      height: 160px;
+    }
+
+    .progress-ring-bg,
+    .progress-ring-fill {
+      r: 70;
+    }
+
+    .tap-btn {
+      width: 88px;
+      height: 88px;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<script>
+  // ===== DHIKR THEMES DATA =====
+  const THEMES: Record<string, { arabic: string; translit: string; target: number | null }> = {
+    durood: { arabic: 'اَللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ', translit: 'Allahumma Salli Ala Muhammad', target: null },
+    subhanallah: { arabic: 'سُبْحَانَ اللّٰه', translit: 'SubhanAllah', target: 33 },
+    alhamdulillah: { arabic: 'اَلْحَمْدُ لِلّٰه', translit: 'Alhamdulillah', target: 33 },
+    allahuakbar: { arabic: 'اَللّٰهُ اَكْبَر', translit: 'Allahu Akbar', target: 34 },
+    astagfirullah: { arabic: 'اَسْتَغْفِرُ اللّٰه', translit: 'Astagfirullah', target: 100 },
+    lailaha: { arabic: 'لَا اِلٰهَ اِلَّا اللّٰه', translit: 'La Ilaha Illallah', target: 100 },
+    lahawla: { arabic: 'لَا حَوْلَ وَلَا قُوَّةَ اِلَّا بِاللّٰه', translit: 'La Hawla Wala Quwwata Illa Billah', target: null },
+    yahayyu: { arabic: 'يَا حَيُّ يَا قَيُّوم', translit: 'Ya Hayyu Ya Qayyum', target: null },
+  };
+
+  const STORAGE_KEY = 'al-masail-counter';
+
+  // ===== DOM REFS =====
+  const dhikrArabic = document.getElementById('dhikrArabic')!;
+  const dhikrTranslit = document.getElementById('dhikrTranslit')!;
+  const dhikrTargetEl = document.getElementById('dhikrTarget')! as HTMLElement;
+  const targetNum = document.getElementById('targetNum')!;
+  const counterNumber = document.getElementById('counterNumber')!;
+  const progressRing = document.getElementById('progressRing')! as unknown as SVGElement;
+  const progressFill = document.getElementById('progressFill')! as unknown as SVGCircleElement;
+  const counterRingWrap = document.getElementById('counterRingWrap')!;
+  const tapBtn = document.getElementById('tapBtn')!;
+  const resetBtn = document.getElementById('resetBtn')!;
+  const themePills = document.querySelectorAll('.theme-pill');
+
+  const statToday = document.getElementById('statToday')!;
+  const statWeek = document.getElementById('statWeek')!;
+  const statMonth = document.getElementById('statMonth')!;
+  const statAllTime = document.getElementById('statAllTime')!;
+
+  // ===== STATE =====
+  interface ThemeData {
+    days: Record<string, number>;
+    allTime: number;
+  }
+
+  interface CounterState {
+    activeTheme: string;
+    data: Record<string, ThemeData>;
+  }
+
+  function getTodayKey(): string {
+    return new Date().toISOString().slice(0, 10);
+  }
+
+  function loadState(): CounterState {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch {}
+    return { activeTheme: 'durood', data: {} };
+  }
+
+  function saveState(state: CounterState): void {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function getThemeData(state: CounterState, themeId: string): ThemeData {
+    if (!state.data[themeId]) {
+      state.data[themeId] = { days: {}, allTime: 0 };
+    }
+    return state.data[themeId];
+  }
+
+  // ===== PROGRESS RING =====
+  const CIRCUMFERENCE = 2 * Math.PI * 88; // r=88
+
+  function updateProgressRing(count: number, target: number | null): void {
+    if (target === null) {
+      (progressRing as unknown as HTMLElement).style.display = 'none';
+      counterRingWrap.classList.remove('target-reached');
+      return;
+    }
+    (progressRing as unknown as HTMLElement).style.display = 'block';
+    const progress = Math.min(count / target, 1);
+    const offset = CIRCUMFERENCE * (1 - progress);
+    progressFill.style.strokeDashoffset = String(offset);
+
+    if (count >= target) {
+      counterRingWrap.classList.add('target-reached');
+    } else {
+      counterRingWrap.classList.remove('target-reached');
+    }
+  }
+
+  // ===== STATS =====
+  function updateStats(themeData: ThemeData): void {
+    const todayKey = getTodayKey();
+    const today = new Date();
+
+    // Today
+    statToday.textContent = String(themeData.days[todayKey] || 0);
+
+    // This week (last 7 days)
+    let weekTotal = 0;
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(today);
+      d.setDate(d.getDate() - i);
+      const key = d.toISOString().slice(0, 10);
+      weekTotal += themeData.days[key] || 0;
+    }
+    statWeek.textContent = String(weekTotal);
+
+    // This month
+    let monthTotal = 0;
+    const yearMonth = todayKey.slice(0, 7); // "YYYY-MM"
+    for (const [key, val] of Object.entries(themeData.days)) {
+      if (key.startsWith(yearMonth)) {
+        monthTotal += val;
+      }
+    }
+    statMonth.textContent = String(monthTotal);
+
+    // All time
+    statAllTime.textContent = String(themeData.allTime);
+  }
+
+  // ===== RENDER THEME =====
+  function renderTheme(state: CounterState): void {
+    const themeId = state.activeTheme;
+    const theme = THEMES[themeId];
+    if (!theme) return;
+
+    dhikrArabic.textContent = theme.arabic;
+    dhikrTranslit.textContent = theme.translit;
+
+    if (theme.target !== null) {
+      dhikrTargetEl.style.display = '';
+      targetNum.textContent = String(theme.target);
+    } else {
+      dhikrTargetEl.style.display = 'none';
+    }
+
+    const themeData = getThemeData(state, themeId);
+    const todayCount = themeData.days[getTodayKey()] || 0;
+    counterNumber.textContent = String(todayCount);
+    updateProgressRing(todayCount, theme.target);
+    updateStats(themeData);
+
+    // Update active pill
+    themePills.forEach(pill => {
+      pill.classList.toggle('active', (pill as HTMLElement).dataset.theme === themeId);
+    });
+  }
+
+  // ===== INIT =====
+  let state = loadState();
+  renderTheme(state);
+
+  // ===== THEME SWITCHING =====
+  themePills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const themeId = (pill as HTMLElement).dataset.theme!;
+      state.activeTheme = themeId;
+      saveState(state);
+      renderTheme(state);
+    });
+  });
+
+  // ===== TAP COUNTER =====
+  let celebratedTarget = false;
+
+  tapBtn.addEventListener('click', () => {
+    const themeId = state.activeTheme;
+    const theme = THEMES[themeId];
+    const themeData = getThemeData(state, themeId);
+    const todayKey = getTodayKey();
+
+    // Increment
+    themeData.days[todayKey] = (themeData.days[todayKey] || 0) + 1;
+    themeData.allTime += 1;
+    saveState(state);
+
+    const todayCount = themeData.days[todayKey];
+    counterNumber.textContent = String(todayCount);
+
+    // Pulse animation
+    counterNumber.classList.add('pulse');
+    setTimeout(() => counterNumber.classList.remove('pulse'), 150);
+
+    // Progress ring
+    updateProgressRing(todayCount, theme.target);
+
+    // Target celebration
+    if (theme.target !== null && todayCount === theme.target && !celebratedTarget) {
+      celebratedTarget = true;
+      counterRingWrap.classList.add('glow-celebrate');
+      setTimeout(() => {
+        counterRingWrap.classList.remove('glow-celebrate');
+      }, 2500);
+    }
+
+    // Vibration
+    if (navigator.vibrate) {
+      navigator.vibrate(10);
+    }
+
+    // Update stats
+    updateStats(themeData);
+  });
+
+  // Reset celebration flag when theme changes
+  themePills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      celebratedTarget = false;
+    });
+  });
+
+  // ===== RESET =====
+  resetBtn.addEventListener('click', () => {
+    if (!confirm('Reset today\'s count for this dhikr?')) return;
+
+    const themeId = state.activeTheme;
+    const themeData = getThemeData(state, themeId);
+    const todayKey = getTodayKey();
+    const todayCount = themeData.days[todayKey] || 0;
+
+    themeData.allTime = Math.max(0, themeData.allTime - todayCount);
+    themeData.days[todayKey] = 0;
+    saveState(state);
+
+    counterNumber.textContent = '0';
+    updateProgressRing(0, THEMES[themeId].target);
+    updateStats(themeData);
+    celebratedTarget = false;
+    counterRingWrap.classList.remove('target-reached', 'glow-celebrate');
+  });
+</script>

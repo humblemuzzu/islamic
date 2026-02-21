@@ -41,7 +41,15 @@ const { titleAr, titleEn, subtitle, description, masailCount } = Astro.props;
       <p data-lang-block="ur">{description.ur}</p>
     </div>
 
-    <div class="topic-meta reveal reveal-delay-3">
+    <div class="topic-ornament reveal reveal-delay-3">
+      <span class="ornament-dot"></span>
+      <span class="ornament-line"></span>
+      <span class="ornament-star">&#10022;</span>
+      <span class="ornament-line"></span>
+      <span class="ornament-dot"></span>
+    </div>
+
+    <div class="topic-meta reveal reveal-delay-4">
       <span class="meta-count">{masailCount} <T en="Masail" ru="Masail" ur="مسائل" /></span>
       <span class="meta-dot">·</span>
       <span class="meta-school"><T en="Hanafi School" ru="Hanafi Maslak" ur="حنفی مسلک" /></span>
@@ -66,7 +74,7 @@ const { titleAr, titleEn, subtitle, description, masailCount } = Astro.props;
 <style>
   .topic-hero {
     position: relative;
-    padding: 8rem 0 3.5rem;
+    padding: 9rem 0 4.5rem;
     background: linear-gradient(175deg, var(--ivory) 0%, var(--ivory-deep) 50%, var(--cream) 100%);
     overflow: hidden;
     text-align: center;
@@ -84,7 +92,7 @@ const { titleAr, titleEn, subtitle, description, masailCount } = Astro.props;
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-light);
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-3xl);
     transition: color 0.3s ease;
   }
 
@@ -98,36 +106,36 @@ const { titleAr, titleEn, subtitle, description, masailCount } = Astro.props;
   }
 
   .topic-title-block {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xl);
   }
 
   .topic-title-block .section-label {
     display: block;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-lg);
   }
 
   .topic-title-ar {
     font-family: var(--font-arabic);
-    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-size: clamp(3rem, 10vw, 5.5rem);
     font-weight: 700;
     color: var(--teal-deep);
     direction: rtl;
-    line-height: 1.1;
-    margin-bottom: var(--space-xs);
+    line-height: 1.15;
+    margin-bottom: var(--space-sm);
   }
 
   .topic-title-en {
     font-family: var(--font-body);
-    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    font-size: clamp(0.85rem, 1.5vw, 1.05rem);
     font-weight: 300;
     color: var(--text-light);
-    letter-spacing: 0.25em;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
   }
 
   .topic-desc {
     max-width: 560px;
-    margin: 0 auto var(--space-lg);
+    margin: 0 auto var(--space-xl);
   }
 
   .topic-desc p {
@@ -135,6 +143,34 @@ const { titleAr, titleEn, subtitle, description, masailCount } = Astro.props;
     color: var(--text-secondary);
     font-weight: 300;
     line-height: 1.8;
+  }
+
+  .topic-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .ornament-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .ornament-line {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .ornament-star {
+    color: var(--gold);
+    font-size: 0.85rem;
+    opacity: 0.6;
   }
 
   .topic-meta {
@@ -166,5 +202,19 @@ const { titleAr, titleEn, subtitle, description, masailCount } = Astro.props;
   .topic-hero-border svg {
     width: 100%;
     height: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .topic-hero {
+      padding: 7.5rem 0 3rem;
+    }
+
+    .back-link {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .topic-title-block .section-label {
+      margin-bottom: var(--space-md);
+    }
   }
 </style>

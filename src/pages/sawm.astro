@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import TopicHeader from '../components/TopicHeader.astro';
+import MasailList from '../components/MasailList.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const masail = [
+  {
+    question: 'Can I fast during haiz?',
+    answer: 'No. A woman must not fast during haiz. If haiz begins during a fast (even just before Maghrib), that day\'s fast is broken and must be made up later. This is not optional — it is haram to fast during haiz.',
+    reference: 'Nurul Idah',
+    important: true,
+  },
+  {
+    question: 'Do I need to make up missed Ramadan fasts?',
+    answer: 'Yes. Unlike salah, fasts missed during haiz MUST be made up (qada). There is scholarly consensus on this. You can spread the makeup fasts throughout the year, but it is recommended to complete them as soon as reasonably possible.',
+    reference: 'Nurul Idah, Al-Hidayah',
+    important: true,
+  },
+  {
+    question: 'Can I fast during istihaza?',
+    answer: 'Yes. Istihaza does NOT prevent fasting. A woman with istihaza must fast in Ramadan and her fasts are completely valid. There is no need to make up fasts due to istihaza.',
+    reference: 'Nurul Idah',
+    important: true,
+  },
+  {
+    question: 'What if haiz starts in the middle of a fasting day?',
+    answer: 'If haiz begins at any point during a fasting day — even five minutes before Maghrib — the fast is invalidated. She must stop fasting, and that day must be made up later. She should not eat openly out of respect for the month of Ramadan, but she is permitted to eat and drink privately.',
+    reference: 'Maraqi al-Falah',
+  },
+  {
+    question: 'What if haiz ends during the night — can I start fasting the next day without ghusl?',
+    answer: 'If haiz ends during the night (before Fajr), the woman should intend to fast the next day even if she has not yet performed ghusl. She can perform ghusl after Fajr enters and her fast is still valid. The fast does not require ghusl before Fajr — what matters is that haiz has ended before Fajr time.',
+    reference: 'Nurul Idah, Maraqi al-Falah',
+    important: true,
+  },
+  {
+    question: 'Can I keep voluntary (nafl) fasts to make up for missed Ramadan fasts?',
+    answer: 'No. Missed Ramadan fasts must be made up as qada fasts with the specific intention of making up the missed obligatory fast. Nafl fasts are separate and do not count toward the obligation. The intention must be made before Fajr (or before zawal for some scholars) that this is a qada fast of Ramadan.',
+    reference: 'Nurul Idah',
+  },
+  {
+    question: 'Is there a deadline to make up missed fasts?',
+    answer: 'It is recommended to make them up as soon as possible and not delay until the next Ramadan. However, if a woman does delay, she is sinful for the unnecessary delay but the qada obligation remains — she still must make them up. There is no additional kaffarah (expiation) for delaying, just the obligation to complete the missed fasts.',
+    reference: 'Radd al-Muhtar',
+  },
+  {
+    question: 'Can I fast on behalf of a deceased relative who missed fasts?',
+    answer: 'In the Hanafi school, fasting on behalf of a deceased person is not valid. Instead, fidyah (monetary compensation) should be given for each missed fast — the amount is the same as sadaqat al-fitr (one sa\' of wheat or its monetary equivalent per fast). This should be given on behalf of the deceased.',
+    reference: 'Al-Hidayah, Radd al-Muhtar',
+  },
+  {
+    question: 'Does nifas have the same fasting rules as haiz?',
+    answer: 'Yes, exactly the same. A woman in nifas cannot fast, and any Ramadan fasts missed during nifas must be made up. Since nifas can last up to 40 days, a woman who gives birth during Ramadan may need to make up a significant number of fasts.',
+    reference: 'Nurul Idah',
+  },
+];
+---
+
+<Layout title="Sawm — Fasting Rulings | Al-Masail">
+  <Navbar />
+  <main>
+    <TopicHeader
+      titleAr="صَوم"
+      titleEn="Sawm — Fasting"
+      subtitle="Fasting"
+      description="Rulings on fasting during menstruation, making up missed Ramadan fasts, and related questions for women."
+      masailCount={masail.length}
+    />
+    <MasailList masail={masail} />
+  </main>
+  <Footer />
+</Layout>

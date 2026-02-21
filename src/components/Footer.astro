@@ -1,0 +1,180 @@
+---
+---
+
+<footer class="footer" id="about">
+  <div class="footer-pattern">
+    <div class="pattern-overlay"></div>
+  </div>
+
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand reveal">
+        <span class="footer-brand-ar">المسائل</span>
+        <span class="footer-brand-en">Al-Masail</span>
+        <p class="footer-tagline">
+          Hanafi fiqh masail for women, presented with clarity and care.
+        </p>
+      </div>
+
+      <div class="footer-links reveal reveal-delay-1">
+        <h4 class="footer-heading">Topics</h4>
+        <a href="/haiz">Haiz</a>
+        <a href="/istihaza">Istihaza</a>
+        <a href="/nifas">Nifas</a>
+        <a href="/salah">Salah</a>
+        <a href="/sawm">Sawm</a>
+        <a href="/taharah">Taharah</a>
+      </div>
+
+      <div class="footer-links reveal reveal-delay-2">
+        <h4 class="footer-heading">Resources</h4>
+        <a href="/#quick-question">Quick Q&A</a>
+        <a href="/#masail">All Masail</a>
+        <a href="/#about">About</a>
+      </div>
+
+      <div class="footer-note reveal reveal-delay-3">
+        <h4 class="footer-heading">Disclaimer</h4>
+        <p>
+          This resource is based on the Hanafi school of Islamic jurisprudence.
+          For personal situations, always consult a qualified scholar.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom reveal">
+      <div class="divider-ornament">
+        <span>✦</span>
+      </div>
+      <p class="footer-bismillah">
+        وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ ۚ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ
+      </p>
+      <p class="footer-copy">
+        &copy; Al-Masail. For the sake of Allah alone.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--green-dark);
+    color: var(--ivory);
+    padding: var(--space-4xl) 0 var(--space-2xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-3xl);
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-brand-ar {
+    display: block;
+    font-family: var(--font-arabic);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    direction: rtl;
+    margin-bottom: var(--space-xs);
+  }
+
+  .footer-brand-en {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sand);
+    margin-bottom: var(--space-md);
+  }
+
+  .footer-tagline {
+    font-size: 0.88rem;
+    color: rgba(250, 247, 242, 0.6);
+    line-height: 1.6;
+    max-width: 280px;
+  }
+
+  .footer-heading {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: var(--space-md);
+  }
+
+  .footer-links a {
+    display: block;
+    font-size: 0.88rem;
+    color: rgba(250, 247, 242, 0.6);
+    padding: var(--space-xs) 0;
+    transition: color 0.3s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--ivory);
+  }
+
+  .footer-note p {
+    font-size: 0.82rem;
+    color: rgba(250, 247, 242, 0.5);
+    line-height: 1.7;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-bottom .divider-ornament::before,
+  .footer-bottom .divider-ornament::after {
+    background: linear-gradient(90deg, transparent, var(--gold-muted), transparent);
+    opacity: 0.3;
+  }
+
+  .footer-bottom .divider-ornament span {
+    color: var(--gold-muted);
+    opacity: 0.4;
+  }
+
+  .footer-bismillah {
+    font-family: var(--font-arabic);
+    font-size: 1.05rem;
+    color: var(--gold);
+    direction: rtl;
+    margin-bottom: var(--space-md);
+    opacity: 0.6;
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(250, 247, 242, 0.35);
+  }
+
+  @media (max-width: 1024px) {
+    .footer-content {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+  }
+</style>

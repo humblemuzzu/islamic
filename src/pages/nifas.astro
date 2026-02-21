@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import TopicHeader from '../components/TopicHeader.astro';
+import MasailList from '../components/MasailList.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const masail = [
+  {
+    question: 'What is nifas?',
+    answer: 'Nifas is the bleeding that occurs after childbirth. It begins when blood is seen after delivery (or after most of the baby has emerged). The same rulings as haiz apply during nifas — no salah, no fasting, no touching the mushaf, no entering the masjid.',
+    reference: 'Nurul Idah',
+    important: true,
+  },
+  {
+    question: 'What is the maximum duration of nifas?',
+    answer: 'The maximum duration of nifas is 40 days. If bleeding continues beyond 40 days, the excess is istihaza. The woman should perform ghusl after 40 days and resume salah and fasting.',
+    reference: 'Nurul Idah, Al-Hidayah',
+    important: true,
+  },
+  {
+    question: 'Is there a minimum duration of nifas?',
+    answer: 'No, there is no minimum duration for nifas. If bleeding stops after just a few hours or even minutes after delivery, nifas has still occurred. The woman should perform ghusl and resume worship once the bleeding stops.',
+    reference: 'Nurul Idah',
+  },
+  {
+    question: 'What if I have no bleeding at all after childbirth?',
+    answer: 'If no blood is seen at all after delivery, there is no nifas. The woman should perform ghusl (as a precaution) and continue praying and fasting as normal. This is rare but possible.',
+    reference: 'Radd al-Muhtar',
+  },
+  {
+    question: 'What if bleeding stops before 40 days and then returns?',
+    answer: 'If bleeding stops and resumes within the 40-day window, the entire period (including the clean days in between) is counted as nifas, as long as the total does not exceed 40 days. The intermittent clean days are treated as part of nifas. However, during those clean gaps, it is mustahabb (recommended) to perform ghusl and pray as a precaution.',
+    reference: 'Nurul Idah',
+  },
+  {
+    question: 'Do I make up missed salah during nifas?',
+    answer: 'No. Like haiz, salah missed during nifas does NOT need to be made up. This is a mercy from Allah. However, fasts missed during nifas (such as Ramadan fasts) must be made up.',
+    reference: 'Maraqi al-Falah',
+    important: true,
+  },
+  {
+    question: 'When does the first haiz after nifas begin?',
+    answer: 'After nifas ends and the woman has at least 15 clean days of tuhr (purity), any new bleeding that meets haiz criteria (3-10 days) is considered the first haiz after childbirth. The 15-day minimum tuhr rule applies between nifas and the first haiz, just as it does between two haiz periods.',
+    reference: 'Nurul Idah, Al-Hidayah',
+  },
+  {
+    question: 'Does a miscarriage count as nifas?',
+    answer: 'It depends on the stage of pregnancy. If the miscarried fetus has visible human features (such as fingers, limbs, or facial features — generally after approximately 120 days of pregnancy), then the bleeding is nifas. If the fetus does not have visible human features (early miscarriage/chemical pregnancy), the bleeding is istihaza, not nifas.',
+    reference: 'Nurul Idah, Radd al-Muhtar',
+    important: true,
+  },
+];
+---
+
+<Layout title="Nifas — Post-Natal Bleeding | Al-Masail">
+  <Navbar />
+  <main>
+    <TopicHeader
+      titleAr="نِفَاس"
+      titleEn="Nifas — Post-Natal Bleeding"
+      subtitle="Post-Natal Bleeding"
+      description="Rulings on bleeding after childbirth — maximum durations, when to resume worship, and related questions."
+      masailCount={masail.length}
+    />
+    <MasailList masail={masail} />
+  </main>
+  <Footer />
+</Layout>

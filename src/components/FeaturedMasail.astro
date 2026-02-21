@@ -1,0 +1,399 @@
+---
+const masail = [
+  {
+    category: 'Haiz',
+    categoryAr: 'حَيض',
+    question: 'What is the minimum and maximum duration of haiz?',
+    answer: 'The minimum is 3 days and 3 nights (72 hours). The maximum is 10 days and 10 nights (240 hours). Any bleeding outside this range is istihaza.',
+    reference: 'Nurul Idah, Maraqi al-Falah',
+  },
+  {
+    category: 'Istihaza',
+    categoryAr: 'اِسْتِحَاضَة',
+    question: 'What is the minimum gap of purity between two haiz periods?',
+    answer: 'The minimum tuhr (purity) between two valid haiz periods is 15 days. If bleeding returns before 15 clean days, it is istihaza, not a new period.',
+    reference: 'Al-Hidayah, Nurul Idah',
+  },
+  {
+    category: 'Nifas',
+    categoryAr: 'نِفَاس',
+    question: 'What is the maximum duration of nifas (post-natal bleeding)?',
+    answer: 'The maximum nifas is 40 days. If bleeding continues beyond 40 days, the excess is istihaza. There is no minimum — even if bleeding stops after a few hours, nifas has occurred.',
+    reference: 'Nurul Idah',
+  },
+  {
+    category: 'Salah',
+    categoryAr: 'صَلَاة',
+    question: 'Do I make up salah missed during haiz?',
+    answer: 'No. Salah missed during a valid haiz does not need to be made up. This is a concession from Allah. However, if haiz ends and there is enough time remaining in the salah window for at least one rak\'ah, that salah becomes obligatory.',
+    reference: 'Maraqi al-Falah',
+  },
+  {
+    category: 'Sawm',
+    categoryAr: 'صَوم',
+    question: 'Do I make up fasts missed during haiz?',
+    answer: 'Yes. Unlike salah, fasts missed during haiz must be made up after Ramadan. You can spread them throughout the year but should not delay until the next Ramadan without reason.',
+    reference: 'Nurul Idah, Al-Hidayah',
+  },
+  {
+    category: 'Taharah',
+    categoryAr: 'طَهَارَة',
+    question: 'Can I recite Quran during haiz?',
+    answer: 'Reciting Quran from memory (without touching the mushaf) is not permitted during haiz according to the Hanafi school. However, du\'a that contains Quranic verses (with the intention of du\'a, not tilawah) is permitted. Dhikr and salawat are encouraged.',
+    reference: 'Radd al-Muhtar',
+  },
+];
+---
+
+<section class="featured-masail" id="masail">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Common Questions</span>
+      <p class="section-title-ar">المسائل المهمة</p>
+      <h2 class="section-title">Featured Masail</h2>
+    </div>
+
+    <!-- Filter chips -->
+    <div class="filter-bar reveal reveal-delay-1">
+      <button class="filter-chip active" data-filter="all">All</button>
+      <button class="filter-chip" data-filter="Haiz">Haiz</button>
+      <button class="filter-chip" data-filter="Istihaza">Istihaza</button>
+      <button class="filter-chip" data-filter="Nifas">Nifas</button>
+      <button class="filter-chip" data-filter="Salah">Salah</button>
+      <button class="filter-chip" data-filter="Sawm">Sawm</button>
+      <button class="filter-chip" data-filter="Taharah">Taharah</button>
+    </div>
+
+    <!-- Search -->
+    <div class="search-bar reveal reveal-delay-2">
+      <svg class="search-icon" viewBox="0 0 20 20" fill="none">
+        <circle cx="8.5" cy="8.5" r="6" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M13 13l4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <input
+        type="text"
+        class="search-input"
+        id="masailSearch"
+        placeholder="Search masail..."
+        autocomplete="off"
+      />
+    </div>
+
+    <!-- Masail grid -->
+    <div class="masail-grid" id="masailGrid">
+      {masail.map((m, i) => (
+        <article class={`masail-card reveal reveal-delay-${(i % 3) + 1}`} data-category={m.category}>
+          <div class="masail-card-header">
+            <span class="masail-category">
+              <span class="masail-category-ar">{m.categoryAr}</span>
+              {m.category}
+            </span>
+          </div>
+          <h3 class="masail-question">{m.question}</h3>
+          <div class="masail-answer-wrapper">
+            <p class="masail-answer">{m.answer}</p>
+            <div class="masail-reference">
+              <svg viewBox="0 0 16 16" fill="none" class="ref-icon">
+                <rect x="2" y="1" width="12" height="14" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M5 5h6M5 8h6M5 11h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+              {m.reference}
+            </div>
+          </div>
+          <button class="masail-toggle" aria-label="Toggle answer">
+            <span class="toggle-text">View Answer</span>
+            <svg viewBox="0 0 16 16" fill="none" class="toggle-icon">
+              <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </article>
+      ))}
+    </div>
+
+    <p class="no-results" id="noResults" style="display: none;">
+      No masail found matching your search. Try different keywords.
+    </p>
+  </div>
+</section>
+
+<style>
+  .featured-masail {
+    padding: var(--space-4xl) 0;
+    background: var(--white);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .section-header .section-label {
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  /* Filters */
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .filter-chip {
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: var(--radius-xl);
+    border: 1.5px solid var(--cream);
+    color: var(--text-secondary);
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .filter-chip:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+
+  .filter-chip.active {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--ivory);
+  }
+
+  /* Search */
+  .search-bar {
+    max-width: 480px;
+    margin: 0 auto var(--space-2xl);
+    position: relative;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: var(--text-light);
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    border: 1.5px solid var(--cream);
+    border-radius: var(--radius-xl);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    background: var(--ivory);
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  .search-input::placeholder {
+    color: var(--text-light);
+  }
+
+  .search-input:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(26, 92, 82, 0.08);
+  }
+
+  /* Grid */
+  .masail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .masail-card {
+    background: var(--ivory);
+    border: 1px solid transparent;
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    transition: all 0.4s var(--ease-out);
+  }
+
+  .masail-card:hover {
+    border-color: var(--cream);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .masail-card.hidden {
+    display: none;
+  }
+
+  .masail-card-header {
+    margin-bottom: var(--space-md);
+  }
+
+  .masail-category {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .masail-category-ar {
+    font-family: var(--font-arabic);
+    font-size: 0.9rem;
+    color: var(--gold);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .masail-question {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--teal-deep);
+    line-height: 1.45;
+    margin-bottom: var(--space-md);
+  }
+
+  .masail-answer-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s var(--ease-out), opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  .masail-card.open .masail-answer-wrapper {
+    max-height: 400px;
+    opacity: 1;
+  }
+
+  .masail-answer {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: var(--space-md);
+  }
+
+  .masail-reference {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.78rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: var(--space-md);
+  }
+
+  .ref-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  .masail-toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--teal);
+    transition: color 0.3s ease;
+    padding: 0;
+  }
+
+  .masail-toggle:hover {
+    color: var(--teal-deep);
+  }
+
+  .toggle-icon {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  .masail-card.open .toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  .masail-card.open .toggle-text {
+    display: none;
+  }
+
+  .masail-card.open .toggle-text::after {
+    content: 'Hide Answer';
+  }
+
+  .no-results {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.92rem;
+    padding: var(--space-2xl) 0;
+  }
+
+  @media (max-width: 768px) {
+    .masail-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Toggle answers
+  document.querySelectorAll('.masail-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.masail-card');
+      card?.classList.toggle('open');
+      const textEl = btn.querySelector('.toggle-text');
+      if (textEl) {
+        textEl.textContent = card?.classList.contains('open') ? 'Hide Answer' : 'View Answer';
+      }
+    });
+  });
+
+  // Filter chips
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+
+      const filter = chip.getAttribute('data-filter');
+      const cards = document.querySelectorAll('.masail-card');
+      let visible = 0;
+
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        const show = filter === 'all' || cat === filter;
+        card.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+
+      const noResults = document.getElementById('noResults');
+      if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+    });
+  });
+
+  // Search
+  const searchInput = document.getElementById('masailSearch') as HTMLInputElement;
+  searchInput?.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.masail-card');
+    let visible = 0;
+
+    cards.forEach(card => {
+      const text = card.textContent?.toLowerCase() || '';
+      const show = !query || text.includes(query);
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+
+    // Reset filter chips
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    document.querySelector('.filter-chip[data-filter="all"]')?.classList.add('active');
+
+    const noResults = document.getElementById('noResults');
+    if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+  });
+</script>

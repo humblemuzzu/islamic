@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import TopicHeader from '../components/TopicHeader.astro';
+import MasailList from '../components/MasailList.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const masail = [
+  {
+    question: 'What is istihaza?',
+    answer: 'Istihaza is any bleeding from the private parts that does not qualify as haiz (menstruation) or nifas (post-natal bleeding). It is considered irregular or dysfunctional bleeding. A woman experiencing istihaza is in the same legal category as someone with a chronic excuse — she must continue praying and fasting.',
+    reference: 'Nurul Idah',
+    important: true,
+  },
+  {
+    question: 'How do I distinguish between haiz and istihaza?',
+    answer: 'Haiz must meet three conditions: (1) it lasts at least 3 days and no more than 10 days, (2) there were at least 15 clean days since the last haiz, and (3) the blood appears from the private parts. If ANY of these conditions are not met, the bleeding is istihaza. The most common scenario is when bleeding returns before 15 clean days have passed between two periods.',
+    reference: 'Nurul Idah, Al-Hidayah',
+    important: true,
+  },
+  {
+    question: 'I had my period for 8 days, then 8 days later bleeding started again. Is this haiz or istihaza?',
+    answer: 'This is istihaza, NOT a new period. The minimum gap of purity (tuhr) between two valid haiz periods is 15 days. Since only 8 clean days passed, the 15-day minimum was not met. The second bleeding is istihaza. You must pray during this bleeding — make wudu for each salah time.',
+    reference: 'Nurul Idah, Al-Hidayah',
+    important: true,
+  },
+  {
+    question: 'Do I have to pray during istihaza?',
+    answer: 'Yes, absolutely. Istihaza does NOT prevent salah. You are obligated to pray all five daily prayers. Make fresh wudu before each fard salah. If bleeding is continuous and lasts an entire salah time, you qualify as a ma\'zoor (excused person).',
+    reference: 'Maraqi al-Falah',
+    important: true,
+  },
+  {
+    question: 'What is a ma\'zoor (excused person) and how does it apply to istihaza?',
+    answer: 'A ma\'zoor is someone whose wudu-breaking condition (like continuous bleeding) persists for an entire salah time without stopping long enough to make wudu and pray. Once established, in subsequent salah times, even one occurrence of the bleeding is enough to maintain ma\'zoor status. A ma\'zoor makes wudu at the start of each salah time, and that wudu lasts until the time exits — then it automatically breaks when the new salah time enters.',
+    reference: 'Nurul Idah, Radd al-Muhtar',
+  },
+  {
+    question: 'Can I fast during istihaza?',
+    answer: 'Yes. Istihaza does not prevent fasting. Your fasts during istihaza are valid. Unlike haiz, there is no prohibition on fasting during istihaza.',
+    reference: 'Nurul Idah',
+  },
+  {
+    question: 'What about bleeding that lasts less than 3 days?',
+    answer: 'Bleeding that lasts less than 3 complete days and nights (less than 72 hours) is istihaza, not haiz. This means you should have been praying during those days. You must make up (qada) any salah you missed, as it was not a valid haiz.',
+    reference: 'Nurul Idah',
+  },
+  {
+    question: 'What if bleeding exceeds 10 days — how do I know which part is haiz and which is istihaza?',
+    answer: 'When bleeding exceeds 10 days, refer to your established habit (\'aadah). The days matching your habit are haiz, and the rest is istihaza. For example, if your habit was 7 days and bleeding continues to 15 days — the first 7 days are haiz and the remaining 8 days are istihaza. You must make up salah for those 8 istihaza days. If you have no established habit, 10 days are haiz and the rest is istihaza.',
+    reference: 'Al-Hidayah, Nurul Idah',
+    important: true,
+  },
+];
+---
+
+<Layout title="Istihaza — Irregular Bleeding | Al-Masail">
+  <Navbar />
+  <main>
+    <TopicHeader
+      titleAr="اِسْتِحَاضَة"
+      titleEn="Istihaza — Irregular Bleeding"
+      subtitle="Irregular Bleeding"
+      description="Understanding istihaza, how it differs from haiz, and the rulings that apply — especially regarding salah and fasting."
+      masailCount={masail.length}
+    />
+    <MasailList masail={masail} />
+  </main>
+  <Footer />
+</Layout>

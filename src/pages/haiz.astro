@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import TopicHeader from '../components/TopicHeader.astro';
+import MasailList from '../components/MasailList.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const masail = [
+  {
+    question: 'What is the minimum duration of haiz?',
+    answer: 'The minimum duration of haiz (menstruation) is 3 days and 3 nights, which equals 72 hours. If bleeding lasts less than 72 complete hours, it is not considered haiz — it is istihaza (irregular bleeding). In that case, the woman must make up any salah she missed during those days.',
+    reference: 'Nurul Idah, Maraqi al-Falah',
+    important: true,
+  },
+  {
+    question: 'What is the maximum duration of haiz?',
+    answer: 'The maximum duration of haiz is 10 days and 10 nights, which equals 240 hours. If bleeding continues beyond 10 days, the excess is not haiz. The woman should refer to her established habit (\'aadah) to determine which days were haiz and which were istihaza.',
+    reference: 'Nurul Idah, Al-Hidayah',
+    important: true,
+  },
+  {
+    question: 'What if I have no established habit and bleeding exceeds 10 days?',
+    answer: 'If a woman has no previously established habit (such as someone experiencing haiz for the first time or cannot remember her pattern), then 10 days are counted as haiz and anything beyond that is istihaza. She should perform ghusl after 10 days and resume salah.',
+    reference: 'Al-Hidayah',
+  },
+  {
+    question: 'Can haiz start and stop within the 3 to 10 day window?',
+    answer: 'Yes. If bleeding starts and stops intermittently within the 3-10 day window, the entire period from the start of bleeding to the end (including dry gaps in between) is considered haiz, as long as the total span does not exceed 10 days. The dry days in between are also counted as part of haiz.',
+    reference: 'Nurul Idah',
+  },
+  {
+    question: 'What is the minimum gap of purity (tuhr) between two haiz periods?',
+    answer: 'The minimum tuhr (purity) between two valid haiz periods is 15 days. If bleeding returns before 15 complete clean days have passed, the second bleeding is istihaza, NOT a new haiz. For example: if haiz lasted 8 days, and after only 8 clean days bleeding starts again — the second bleeding is istihaza because the 15-day minimum gap was not met.',
+    reference: 'Nurul Idah, Al-Hidayah',
+    important: true,
+  },
+  {
+    question: 'Is there a maximum for the period of purity (tuhr) between two haiz cycles?',
+    answer: 'No. There is no maximum for tuhr. A woman may go months or even years without haiz (such as during pregnancy, breastfeeding, or due to medical conditions), and this is perfectly normal from a fiqh perspective.',
+    reference: 'Radd al-Muhtar',
+  },
+  {
+    question: 'What colour of blood counts as haiz?',
+    answer: 'Haiz can be any of the following colours: black, red, brown, muddy/dark, green-tinged, or yellowish. All of these are valid colours for menstrual blood in the Hanafi school. As long as the bleeding meets the duration and tuhr requirements, it is haiz regardless of colour.',
+    reference: 'Nurul Idah',
+  },
+  {
+    question: 'What if my habit changes — e.g., it was 7 days but this time it is 9?',
+    answer: 'If bleeding extends beyond your usual habit but stays within the 3-10 day maximum, the new duration becomes your updated habit. For example, if your habit was 7 days and this month it is 9 days, then 9 days is your haiz this cycle. Your habit updates accordingly for future reference.',
+    reference: 'Nurul Idah, Maraqi al-Falah',
+  },
+  {
+    question: 'What happens to salah during haiz?',
+    answer: 'During a valid haiz, salah is not obligatory and the missed prayers do NOT need to be made up. This is a concession and mercy from Allah. However, once haiz ends, the woman must perform ghusl and resume praying immediately. If haiz ends with enough time in the salah window for at least one rak\'ah, that salah becomes obligatory.',
+    reference: 'Maraqi al-Falah',
+    important: true,
+  },
+  {
+    question: 'What about fasting during haiz?',
+    answer: 'A woman must not fast during haiz. However, unlike salah, the missed fasts MUST be made up (qada). She should make them up after Ramadan at her convenience, but should not delay unnecessarily until the next Ramadan.',
+    reference: 'Nurul Idah, Al-Hidayah',
+  },
+  {
+    question: 'Can I recite Quran or make du\'a during haiz?',
+    answer: 'In the Hanafi school, reciting the Quran from memory (tilawah) is not permitted during haiz. However, du\'a that contains Quranic verses is permissible if the intention is du\'a rather than tilawah. Dhikr, salawat upon the Prophet (peace be upon him), and du\'a are all encouraged and permissible. Listening to Quran recitation is also permitted.',
+    reference: 'Radd al-Muhtar',
+  },
+  {
+    question: 'Can I enter the masjid during haiz?',
+    answer: 'A woman in the state of haiz should not enter the masjid. If there is a need to pass through (such as the masjid being the only pathway), some scholars have permitted passing through quickly without sitting. For Eid prayers or Islamic lectures held in a hall that is not technically a masjid, she may attend.',
+    reference: 'Nurul Idah, Radd al-Muhtar',
+  },
+];
+---
+
+<Layout title="Haiz — Menstruation | Al-Masail">
+  <Navbar />
+  <main>
+    <TopicHeader
+      titleAr="حَيض"
+      titleEn="Haiz — Menstruation"
+      subtitle="Menstruation"
+      description="Complete rulings regarding the menstrual cycle in the Hanafi school — durations, purity gaps, what is permitted and what is not."
+      masailCount={masail.length}
+    />
+    <MasailList masail={masail} />
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,199 @@
+---
+interface Masala {
+  question: string;
+  answer: string;
+  reference?: string;
+  important?: boolean;
+}
+
+interface Props {
+  masail: Masala[];
+}
+
+const { masail } = Astro.props;
+---
+
+<section class="masail-list-section">
+  <div class="container">
+    <div class="masail-list">
+      {masail.map((m, i) => (
+        <article class={`masala-item reveal reveal-delay-${(i % 3) + 1} ${m.important ? 'important' : ''}`}>
+          <div class="masala-number">
+            <span>{String(i + 1).padStart(2, '0')}</span>
+          </div>
+          <div class="masala-content">
+            <h3 class="masala-question">{m.question}</h3>
+            <div class="masala-answer-wrap">
+              <p class="masala-answer">{m.answer}</p>
+              {m.reference && (
+                <div class="masala-ref">
+                  <svg viewBox="0 0 16 16" fill="none" class="ref-icon">
+                    <rect x="2" y="1" width="12" height="14" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+                    <path d="M5 5h6M5 8h6M5 11h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  </svg>
+                  {m.reference}
+                </div>
+              )}
+            </div>
+            <button class="masala-toggle" aria-label="Toggle answer">
+              <span class="masala-toggle-text">View Answer</span>
+              <svg viewBox="0 0 16 16" fill="none" class="masala-toggle-icon">
+                <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .masail-list-section {
+    padding: var(--space-3xl) 0 var(--space-4xl);
+    background: var(--white);
+  }
+
+  .masail-list {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .masala-item {
+    display: flex;
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+    background: var(--ivory);
+    border-radius: var(--radius-lg);
+    border: 1px solid transparent;
+    transition: all 0.4s var(--ease-out);
+  }
+
+  .masala-item:hover {
+    border-color: var(--cream);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .masala-item.important {
+    border-left: 3px solid var(--gold);
+  }
+
+  .masala-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--teal);
+    border: 1px solid var(--cream);
+  }
+
+  .masala-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .masala-question {
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--teal-deep);
+    line-height: 1.5;
+    margin-bottom: var(--space-sm);
+  }
+
+  .masala-answer-wrap {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s var(--ease-out), opacity 0.3s ease, margin 0.3s ease;
+    margin-bottom: 0;
+  }
+
+  .masala-item.open .masala-answer-wrap {
+    max-height: 500px;
+    opacity: 1;
+    margin-bottom: var(--space-sm);
+  }
+
+  .masala-answer {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
+  }
+
+  .masala-ref {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.78rem;
+    color: var(--text-light);
+    font-style: italic;
+  }
+
+  .masala-ref .ref-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  .masala-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--teal);
+    padding: 0;
+    transition: color 0.3s ease;
+  }
+
+  .masala-toggle:hover {
+    color: var(--teal-deep);
+  }
+
+  .masala-toggle-icon {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  .masala-item.open .masala-toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  @media (max-width: 640px) {
+    .masala-item {
+      flex-direction: column;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+    }
+
+    .masala-number {
+      width: 32px;
+      height: 32px;
+      font-size: 0.72rem;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.masala-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.masala-item');
+      item?.classList.toggle('open');
+      const textEl = btn.querySelector('.masala-toggle-text');
+      if (textEl) {
+        textEl.textContent = item?.classList.contains('open') ? 'Hide Answer' : 'View Answer';
+      }
+    });
+  });
+</script>

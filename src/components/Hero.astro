@@ -1,0 +1,280 @@
+---
+---
+
+<section class="hero">
+  <div class="pattern-overlay"></div>
+  <div class="pattern-star"></div>
+
+  <!-- Animated geometric border -->
+  <div class="hero-geo-border">
+    <svg viewBox="0 0 1200 2" preserveAspectRatio="none">
+      <line x1="0" y1="1" x2="1200" y2="1" stroke="url(#goldLine)" stroke-width="1" stroke-dasharray="8 12 3 12" />
+      <defs>
+        <linearGradient id="goldLine">
+          <stop offset="0%" stop-color="transparent" />
+          <stop offset="30%" stop-color="#C4A265" />
+          <stop offset="70%" stop-color="#C4A265" />
+          <stop offset="100%" stop-color="transparent" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="hero-content container">
+    <div class="hero-bismillah reveal">
+      بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
+    </div>
+
+    <h1 class="hero-title reveal reveal-delay-1">
+      <span class="hero-title-ar">المسائل</span>
+      <span class="hero-title-en">Al-Masail</span>
+    </h1>
+
+    <p class="hero-subtitle reveal reveal-delay-2">
+      Your trusted guide to Hanafi fiqh masail for women.
+      <br />Clear, authentic answers rooted in tradition.
+    </p>
+
+    <div class="hero-actions reveal reveal-delay-3">
+      <a href="#quick-question" class="btn-primary">
+        Ask a Question
+        <span class="btn-arrow">&rarr;</span>
+      </a>
+      <a href="#categories" class="btn-secondary">Browse Topics</a>
+    </div>
+
+    <div class="hero-ornament reveal reveal-delay-4">
+      <span class="ornament-dot"></span>
+      <span class="ornament-line"></span>
+      <span class="ornament-star">✦</span>
+      <span class="ornament-line"></span>
+      <span class="ornament-dot"></span>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator reveal reveal-delay-5">
+    <span class="scroll-text">Scroll to explore</span>
+    <div class="scroll-line">
+      <div class="scroll-dot"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+      175deg,
+      var(--ivory) 0%,
+      var(--ivory-deep) 50%,
+      var(--cream) 100%
+    );
+    overflow: hidden;
+    padding: var(--space-4xl) 0 var(--space-2xl);
+  }
+
+  .hero-geo-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+
+  .hero-geo-border svg {
+    width: 100%;
+    height: 2px;
+  }
+
+  .hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-bismillah {
+    font-family: var(--font-arabic);
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    color: var(--gold);
+    margin-bottom: var(--space-2xl);
+    letter-spacing: 0.02em;
+    direction: rtl;
+  }
+
+  .hero-title {
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-title-ar {
+    display: block;
+    font-family: var(--font-arabic);
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-weight: 700;
+    color: var(--teal-deep);
+    line-height: 1.1;
+    direction: rtl;
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero-title-en {
+    display: block;
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 300;
+    color: var(--text-light);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-secondary);
+    max-width: 480px;
+    margin: 0 auto var(--space-2xl);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: var(--teal);
+    color: var(--ivory);
+    padding: 0.85rem 2rem;
+    border-radius: var(--radius-xl);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.35s var(--ease-out);
+    box-shadow: 0 4px 20px rgba(26, 92, 82, 0.2);
+  }
+
+  .btn-primary:hover {
+    background: var(--teal-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(26, 92, 82, 0.3);
+  }
+
+  .btn-arrow {
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  .btn-primary:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    color: var(--teal);
+    padding: 0.85rem 2rem;
+    border-radius: var(--radius-xl);
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1.5px solid var(--teal);
+    transition: all 0.35s var(--ease-out);
+    background: transparent;
+  }
+
+  .btn-secondary:hover {
+    background: var(--teal);
+    color: var(--ivory);
+    transform: translateY(-2px);
+  }
+
+  /* Ornament */
+  .hero-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-top: var(--space-3xl);
+  }
+
+  .ornament-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .ornament-line {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .ornament-star {
+    color: var(--gold);
+    font-size: 0.85rem;
+  }
+
+  .ornament-line:last-of-type {
+    background: linear-gradient(270deg, var(--gold), transparent);
+  }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .scroll-text {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: var(--sand);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-dot {
+    width: 3px;
+    height: 10px;
+    background: var(--gold);
+    border-radius: 2px;
+    position: absolute;
+    left: -1px;
+    animation: scrollBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollBounce {
+    0%, 100% { top: 0; }
+    50% { top: 30px; }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 100svh;
+    }
+
+    .scroll-indicator {
+      display: none;
+    }
+  }
+</style>

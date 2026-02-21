@@ -1,0 +1,243 @@
+---
+---
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner container">
+    <a href="/" class="nav-brand">
+      <span class="brand-ar">المسائل</span>
+      <span class="brand-en">Al-Masail</span>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="/#categories" class="nav-link">Topics</a>
+      <a href="/#quick-question" class="nav-link">Quick Q&A</a>
+      <a href="/#masail" class="nav-link">Masail</a>
+      <a href="/#about" class="nav-link">About</a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile overlay -->
+<div class="nav-mobile-overlay" id="navOverlay">
+  <div class="mobile-menu">
+    <div class="mobile-brand">
+      <span class="brand-ar">المسائل</span>
+    </div>
+    <a href="/#categories" class="mobile-link">Topics</a>
+    <a href="/#quick-question" class="mobile-link">Quick Q&A</a>
+    <a href="/#masail" class="mobile-link">Masail</a>
+    <a href="/#about" class="mobile-link">About</a>
+    <div class="divider-ornament" style="margin: 1.5rem 0;">
+      <span>✦</span>
+    </div>
+    <p class="mobile-bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p>
+  </div>
+</div>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: var(--space-md) 0;
+    transition: all 0.4s var(--ease-out);
+    background: transparent;
+  }
+
+  .navbar.scrolled {
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 20px rgba(26, 92, 82, 0.06);
+    padding: var(--space-sm) 0;
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+  }
+
+  .brand-ar {
+    font-family: var(--font-arabic);
+    font-size: 1.6rem;
+    color: var(--teal);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .navbar.scrolled .brand-ar {
+    font-size: 1.4rem;
+  }
+
+  .brand-en {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: var(--space-xl);
+  }
+
+  .nav-link {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    position: relative;
+    padding: var(--space-xs) 0;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--gold);
+    transition: width 0.3s var(--ease-out);
+  }
+
+  .nav-link:hover {
+    color: var(--teal);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--teal);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Mobile overlay */
+  .nav-mobile-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    background: rgba(15, 61, 54, 0.95);
+    backdrop-filter: blur(30px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s var(--ease-out);
+  }
+
+  .nav-mobile-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-menu {
+    text-align: center;
+  }
+
+  .mobile-brand {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .mobile-brand .brand-ar {
+    font-size: 2.5rem;
+    color: var(--gold);
+  }
+
+  .mobile-link {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--ivory);
+    padding: var(--space-md) 0;
+    transition: color 0.3s ease;
+    letter-spacing: 0.02em;
+  }
+
+  .mobile-link:hover {
+    color: var(--gold);
+  }
+
+  .mobile-bismillah {
+    font-family: var(--font-arabic);
+    font-size: 1.1rem;
+    color: var(--gold-muted);
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+    .nav-toggle {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  // Scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar?.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const overlay = document.getElementById('navOverlay');
+
+  toggle?.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    overlay?.classList.toggle('open');
+    document.body.style.overflow = overlay?.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Close on link click
+  overlay?.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle?.classList.remove('active');
+      overlay?.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>

@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import TopicHeader from '../components/TopicHeader.astro';
+import MasailList from '../components/MasailList.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const masail = [
+  {
+    question: 'What are the 3 fard (obligatory) acts of ghusl?',
+    answer: 'The three fard of ghusl are: (1) Rinsing the mouth (madmadah) — water must reach every part of the inside of the mouth. (2) Rinsing the nose (istinshaq) — water must be drawn up into both nostrils. (3) Washing the entire body — not a single spot the size of a hair\'s breadth should remain dry, including under nails, inside the navel, and the roots of the hair.',
+    reference: 'Nurul Idah',
+    important: true,
+  },
+  {
+    question: 'What is the sunnah method of performing ghusl?',
+    answer: 'The complete sunnah method: (1) Wash both hands up to the wrists. (2) Wash the private parts. (3) Remove any physical impurity from the body. (4) Perform complete wudu as you would for salah. (5) Pour water over the head three times, ensuring it reaches the roots of the hair. (6) Pour water over the right shoulder three times. (7) Pour water over the left shoulder three times. (8) Rub the entire body to ensure water reaches everywhere.',
+    reference: 'Nurul Idah, Maraqi al-Falah',
+    important: true,
+  },
+  {
+    question: 'When is ghusl obligatory for a woman?',
+    answer: 'Ghusl becomes obligatory (fard) on a woman in the following situations: (1) After haiz (menstruation) ends. (2) After nifas (post-natal bleeding) ends. (3) After janabah (sexual impurity — intercourse or discharge due to desire). Until ghusl is performed, salah, fasting, touching the mushaf, and entering the masjid are not permitted.',
+    reference: 'Nurul Idah',
+    important: true,
+  },
+  {
+    question: 'Do I need to undo my braids or plaits for ghusl?',
+    answer: 'If water reaches the roots of the hair without undoing the braids, then it is not necessary to open them. However, if the braids are so tight that water cannot reach the scalp, they must be loosened enough for water to penetrate to the roots. For ghusl after janabah, reaching the roots is sufficient. For ghusl after haiz, extra care should be taken to ensure thorough washing.',
+    reference: 'Nurul Idah',
+  },
+  {
+    question: 'Does nail polish invalidate my wudu or ghusl?',
+    answer: 'Nail polish creates a barrier that prevents water from reaching the nails. Since washing the hands (including nails) is fard in both wudu and ghusl, wudu and ghusl will not be valid if nail polish is on. It must be removed before performing wudu or ghusl. Breathable nail polish is a debated topic — the safest position in the Hanafi school is to remove it.',
+    reference: 'Radd al-Muhtar',
+    important: true,
+  },
+  {
+    question: 'What breaks wudu for a woman?',
+    answer: 'The things that break wudu are the same for men and women: (1) Anything exiting from the front or back passage (urine, stool, gas, blood, discharge). (2) Blood, pus, or any fluid flowing from a wound to a place that requires washing. (3) Vomiting a mouthful. (4) Sleeping in a position where the sitting bones are not firmly on the ground. (5) Loss of consciousness. (6) Audible laughter during salah (for adults).',
+    reference: 'Nurul Idah',
+  },
+  {
+    question: 'Does vaginal discharge break wudu?',
+    answer: 'In the Hanafi school, clear or white vaginal discharge (rutubat al-farj) that exits from the vagina does break wudu. This is the relied-upon position. A woman who experiences frequent discharge may qualify as a ma\'zoor if the discharge persists throughout an entire salah time.',
+    reference: 'Radd al-Muhtar',
+    important: true,
+  },
+  {
+    question: 'What is the ruling on coloured discharge (brown/yellow) at the end of haiz?',
+    answer: 'If brown or yellowish discharge appears within the maximum days of haiz (10 days) and is connected to the bleeding, it is counted as part of haiz. However, if brown/yellow discharge appears after the woman has become clean (seen clear white discharge — qassah baydaa) and is within her habit, it is NOT haiz. She should simply renew her wudu.',
+    reference: 'Nurul Idah, Radd al-Muhtar',
+  },
+  {
+    question: 'Can I touch or read the mushaf (physical Quran) without wudu?',
+    answer: 'Touching the mushaf without wudu is not permitted in the Hanafi school. This applies to the Arabic text of the Quran. If the Quran is in a cover or sleeve and you hold it by the cover without touching the pages directly, this is permitted. Reading from a screen (phone or tablet) without wudu is permitted, as it is not a physical mushaf.',
+    reference: 'Nurul Idah, Al-Hidayah',
+  },
+];
+---
+
+<Layout title="Taharah — Purification | Al-Masail">
+  <Navbar />
+  <main>
+    <TopicHeader
+      titleAr="طَهَارَة"
+      titleEn="Taharah — Purification"
+      subtitle="Purification"
+      description="Wudu, ghusl, and purity rulings specific to women — what breaks wudu, how to perform ghusl, and common questions."
+      masailCount={masail.length}
+    />
+    <MasailList masail={masail} />
+  </main>
+  <Footer />
+</Layout>

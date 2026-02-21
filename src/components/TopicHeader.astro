@@ -1,0 +1,156 @@
+---
+interface Props {
+  titleAr: string;
+  titleEn: string;
+  subtitle: string;
+  description: string;
+  masailCount: number;
+}
+
+const { titleAr, titleEn, subtitle, description, masailCount } = Astro.props;
+---
+
+<section class="topic-hero">
+  <div class="pattern-overlay"></div>
+  <div class="pattern-star"></div>
+
+  <div class="topic-hero-content container">
+    <a href="/" class="back-link reveal">
+      <svg viewBox="0 0 16 16" fill="none" class="back-icon">
+        <path d="M10 4l-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back to Home
+    </a>
+
+    <div class="topic-title-block reveal reveal-delay-1">
+      <span class="section-label">{subtitle}</span>
+      <h1 class="topic-title-ar">{titleAr}</h1>
+      <h2 class="topic-title-en">{titleEn}</h2>
+    </div>
+
+    <p class="topic-desc reveal reveal-delay-2">{description}</p>
+
+    <div class="topic-meta reveal reveal-delay-3">
+      <span class="meta-count">{masailCount} Masail</span>
+      <span class="meta-dot">·</span>
+      <span class="meta-school">Hanafi School</span>
+    </div>
+  </div>
+
+  <div class="topic-hero-border">
+    <svg viewBox="0 0 1200 2" preserveAspectRatio="none">
+      <line x1="0" y1="1" x2="1200" y2="1" stroke="url(#goldLineTopic)" stroke-width="1" stroke-dasharray="8 12 3 12" />
+      <defs>
+        <linearGradient id="goldLineTopic">
+          <stop offset="0%" stop-color="transparent" />
+          <stop offset="30%" stop-color="#C4A265" />
+          <stop offset="70%" stop-color="#C4A265" />
+          <stop offset="100%" stop-color="transparent" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+</section>
+
+<style>
+  .topic-hero {
+    position: relative;
+    padding: 8rem 0 3.5rem;
+    background: linear-gradient(175deg, var(--ivory) 0%, var(--ivory-deep) 50%, var(--cream) 100%);
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .topic-hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-light);
+    margin-bottom: var(--space-2xl);
+    transition: color 0.3s ease;
+  }
+
+  .back-link:hover {
+    color: var(--teal);
+  }
+
+  .back-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .topic-title-block {
+    margin-bottom: var(--space-lg);
+  }
+
+  .topic-title-block .section-label {
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .topic-title-ar {
+    font-family: var(--font-arabic);
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 700;
+    color: var(--teal-deep);
+    direction: rtl;
+    line-height: 1.1;
+    margin-bottom: var(--space-xs);
+  }
+
+  .topic-title-en {
+    font-family: var(--font-body);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    font-weight: 300;
+    color: var(--text-light);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  .topic-desc {
+    max-width: 560px;
+    margin: 0 auto var(--space-lg);
+    font-size: clamp(0.92rem, 1.5vw, 1.05rem);
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .topic-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    font-size: 0.82rem;
+    color: var(--text-light);
+  }
+
+  .meta-count {
+    font-weight: 600;
+    color: var(--teal);
+  }
+
+  .meta-dot {
+    color: var(--sand);
+  }
+
+  .topic-hero-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+
+  .topic-hero-border svg {
+    width: 100%;
+    height: 2px;
+  }
+</style>

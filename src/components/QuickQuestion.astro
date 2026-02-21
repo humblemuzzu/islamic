@@ -1,0 +1,727 @@
+---
+---
+
+<section class="quick-question" id="quick-question">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Interactive Guide</span>
+      <p class="section-title-ar">سؤال سريع</p>
+      <h2 class="section-title">Quick Question</h2>
+      <p class="section-desc">
+        Tap through common scenarios to find your answer. Based on Hanafi fiqh rulings.
+      </p>
+    </div>
+
+    <div class="qa-container reveal reveal-delay-1">
+      <!-- Progress bar -->
+      <div class="qa-progress">
+        <div class="qa-progress-bar" id="qaProgressBar"></div>
+      </div>
+
+      <!-- Question panel -->
+      <div class="qa-panel" id="qaPanel">
+        <!-- Start screen -->
+        <div class="qa-screen active" data-screen="start">
+          <div class="qa-icon">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
+              <text x="24" y="30" text-anchor="middle" font-family="serif" font-size="20" fill="currentColor">؟</text>
+            </svg>
+          </div>
+          <h3 class="qa-question">What would you like to know about?</h3>
+          <div class="qa-options">
+            <button class="qa-option" data-goto="haiz-start">
+              <span class="qa-option-ar">حَيض</span>
+              Period & Bleeding Questions
+            </button>
+            <button class="qa-option" data-goto="salah-start">
+              <span class="qa-option-ar">صَلَاة</span>
+              Prayer During Cycle
+            </button>
+            <button class="qa-option" data-goto="ghusl-start">
+              <span class="qa-option-ar">غُسل</span>
+              Ghusl & Purification
+            </button>
+          </div>
+        </div>
+
+        <!-- HAIZ FLOW -->
+        <div class="qa-screen" data-screen="haiz-start">
+          <span class="qa-badge">Haiz</span>
+          <h3 class="qa-question">How many days did your bleeding last?</h3>
+          <div class="qa-options">
+            <button class="qa-option" data-goto="haiz-less-3">Less than 3 days</button>
+            <button class="qa-option" data-goto="haiz-3-10">3 to 10 days</button>
+            <button class="qa-option" data-goto="haiz-more-10">More than 10 days</button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="haiz-less-3">
+          <span class="qa-badge">Haiz</span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">This is NOT Haiz</h3>
+            <p class="qa-answer-text">
+              In the Hanafi school, the <strong>minimum duration of haiz is 3 days and 3 nights (72 hours)</strong>.
+              Any bleeding that lasts less than 3 complete days is considered <strong>istihaza</strong> (irregular bleeding),
+              not menstruation.
+            </p>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label">Ruling</span>
+              <p>You must make up any salah you missed during this bleeding, as it was not haiz. Perform wudu for each salah time.</p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="haiz-start">&larr; Back</button>
+            <button class="qa-restart" data-goto="start">Start Over</button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="haiz-3-10">
+          <span class="qa-badge">Haiz</span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon success">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">This is Valid Haiz</h3>
+            <p class="qa-answer-text">
+              Bleeding that lasts between <strong>3 days (minimum) and 10 days (maximum)</strong>
+              is considered valid haiz in the Hanafi school.
+            </p>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label">Ruling</span>
+              <p>During this time, salah and fasting are not required. After bleeding stops, perform ghusl and resume worship. Missed fasts must be made up; missed salah does not need to be made up.</p>
+            </div>
+          </div>
+          <div class="qa-followup">
+            <p class="qa-followup-q">Did bleeding start again after stopping?</p>
+            <div class="qa-options compact">
+              <button class="qa-option" data-goto="haiz-gap-check">Yes, it returned</button>
+              <button class="qa-option" data-goto="haiz-clean">No, I became clean</button>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="haiz-start">&larr; Back</button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="haiz-gap-check">
+          <span class="qa-badge">Haiz &middot; Follow-up</span>
+          <h3 class="qa-question">How many days of purity (no bleeding) were there between the two bleedings?</h3>
+          <div class="qa-options">
+            <button class="qa-option" data-goto="haiz-gap-less15">Less than 15 days</button>
+            <button class="qa-option" data-goto="haiz-gap-15plus">15 days or more</button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="haiz-gap-less15">
+          <span class="qa-badge">Istihaza</span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon warning">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">The Second Bleeding is Istihaza</h3>
+            <p class="qa-answer-text">
+              In the Hanafi school, the <strong>minimum gap of purity (tuhr) between two valid haiz periods is 15 days</strong>.
+              If bleeding returns before 15 clean days have passed, the second bleeding is <strong>istihaza</strong>, not a new period.
+            </p>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label">Ruling</span>
+              <p>You must pray during istihaza. Perform wudu for each salah time. If bleeding is continuous, you are considered a ma'zoor (excused person) — make fresh wudu at each salah time and pray normally.</p>
+            </div>
+            <div class="qa-example">
+              <span class="qa-example-label">Example</span>
+              <div class="qa-timeline">
+                <div class="timeline-block haiz">
+                  <span class="timeline-label">Haiz</span>
+                  <span class="timeline-days">8 days</span>
+                </div>
+                <div class="timeline-block tuhr short">
+                  <span class="timeline-label">Clean</span>
+                  <span class="timeline-days">8 days</span>
+                </div>
+                <div class="timeline-block istihaza">
+                  <span class="timeline-label">Istihaza</span>
+                  <span class="timeline-days">bleeding</span>
+                </div>
+              </div>
+              <p class="qa-example-note">Gap of only 8 days — less than 15, so the second bleeding is istihaza.</p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="haiz-gap-check">&larr; Back</button>
+            <button class="qa-restart" data-goto="start">Start Over</button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="haiz-gap-15plus">
+          <span class="qa-badge">Haiz</span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon success">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">This is a New Valid Haiz</h3>
+            <p class="qa-answer-text">
+              Since there were <strong>15 or more clean days</strong> between the two bleedings,
+              the second bleeding is considered a <strong>new haiz period</strong> (provided it meets the 3-10 day criteria).
+            </p>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label">Ruling</span>
+              <p>The same rulings of haiz apply. Leave salah and fasting during this time. After it ends, perform ghusl and resume worship.</p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="haiz-gap-check">&larr; Back</button>
+            <button class="qa-restart" data-goto="start">Start Over</button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="haiz-clean">
+          <span class="qa-badge">Haiz &middot; Complete</span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon success">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">Alhamdulillah, Your Haiz is Complete</h3>
+            <p class="qa-answer-text">
+              Your haiz ended within the valid range. Perform <strong>ghusl</strong> and resume
+              salah and other acts of worship.
+            </p>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label">Remember</span>
+              <p>Make up any missed fasts from Ramadan. Missed salah during haiz does not need to be made up.</p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-restart" data-goto="start">Start Over</button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="haiz-more-10">
+          <span class="qa-badge">Haiz &middot; Exceeds Maximum</span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon warning">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">Exceeds Maximum — Habit Applies</h3>
+            <p class="qa-answer-text">
+              The <strong>maximum duration of haiz is 10 days</strong> in the Hanafi school.
+              If bleeding exceeds 10 days, your <strong>previous habit ('aadah)</strong> determines which days count as haiz and the rest is istihaza.
+            </p>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label">Ruling</span>
+              <p>If your regular habit was, for example, 7 days — then 7 days are haiz and the remaining days are istihaza. You must make up salah for the istihaza days. If you have no established habit, 10 days are considered haiz and the rest is istihaza.</p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="haiz-start">&larr; Back</button>
+            <button class="qa-restart" data-goto="start">Start Over</button>
+          </div>
+        </div>
+
+        <!-- SALAH FLOW -->
+        <div class="qa-screen" data-screen="salah-start">
+          <span class="qa-badge">Salah</span>
+          <h3 class="qa-question">Are you currently in your haiz (period)?</h3>
+          <div class="qa-options">
+            <button class="qa-option" data-goto="salah-in-haiz">Yes, I am in haiz</button>
+            <button class="qa-option" data-goto="salah-istihaza">No, but I have irregular bleeding</button>
+            <button class="qa-option" data-goto="salah-ended">My haiz just ended</button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="salah-in-haiz">
+          <span class="qa-badge">Salah During Haiz</span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">Salah is Not Obligatory During Haiz</h3>
+            <p class="qa-answer-text">
+              During a valid haiz, a woman <strong>does not pray and does not need to make up</strong>
+              the missed prayers. This is a mercy from Allah.
+            </p>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label">Note</span>
+              <p>You may still make du'a, do dhikr, and listen to Quran. Touching the mushaf (physical Quran) is not permitted during haiz without a barrier.</p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="salah-start">&larr; Back</button>
+            <button class="qa-restart" data-goto="start">Start Over</button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="salah-istihaza">
+          <span class="qa-badge">Salah During Istihaza</span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon warning">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">You Must Pray During Istihaza</h3>
+            <p class="qa-answer-text">
+              Istihaza does <strong>not</strong> prevent salah. You are obligated to pray.
+              Make fresh wudu for each fard salah time.
+            </p>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label">Ruling</span>
+              <p>If the bleeding is continuous, you become a ma'zoor (excused person). Your wudu is valid for the entire salah time — it breaks when the new salah time enters. Pray as normal.</p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="salah-start">&larr; Back</button>
+            <button class="qa-restart" data-goto="start">Start Over</button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="salah-ended">
+          <span class="qa-badge">After Haiz</span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon success">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">Perform Ghusl & Resume Salah</h3>
+            <p class="qa-answer-text">
+              Once haiz ends, perform <strong>ghusl</strong> (full ritual bath) immediately and start praying.
+              If haiz ended with enough time remaining for at least one rak'ah before the salah time exits,
+              that salah becomes obligatory on you.
+            </p>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label">Important</span>
+              <p>Do not delay ghusl unnecessarily. If haiz ends close to the end of a salah time, pray that salah first, then make up any you might owe.</p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="salah-start">&larr; Back</button>
+            <button class="qa-restart" data-goto="start">Start Over</button>
+          </div>
+        </div>
+
+        <!-- GHUSL FLOW -->
+        <div class="qa-screen" data-screen="ghusl-start">
+          <span class="qa-badge">Ghusl</span>
+          <h3 class="qa-question">What do you need to know about ghusl?</h3>
+          <div class="qa-options">
+            <button class="qa-option" data-goto="ghusl-when">When is ghusl required?</button>
+            <button class="qa-option" data-goto="ghusl-how">How to perform ghusl</button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="ghusl-when">
+          <span class="qa-badge">When is Ghusl Required</span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">Ghusl Becomes Obligatory After:</h3>
+            <ul class="qa-answer-list">
+              <li>Haiz (menstruation) ends</li>
+              <li>Nifas (post-natal bleeding) ends</li>
+              <li>Janabah (sexual impurity)</li>
+            </ul>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label">Note</span>
+              <p>Until ghusl is performed, salah, fasting (holding a fast), touching the mushaf, and entering the masjid are not permitted.</p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="ghusl-start">&larr; Back</button>
+            <button class="qa-restart" data-goto="start">Start Over</button>
+          </div>
+        </div>
+
+        <div class="qa-screen" data-screen="ghusl-how">
+          <span class="qa-badge">How to Perform Ghusl</span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon success">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">The 3 Fard of Ghusl</h3>
+            <ol class="qa-answer-list numbered">
+              <li><strong>Rinsing the mouth</strong> — water must reach every part inside</li>
+              <li><strong>Rinsing the nose</strong> — water drawn up into the nostrils</li>
+              <li><strong>Washing the entire body</strong> — no dry spot the size of a hair's breadth should remain</li>
+            </ol>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label">Sunnah Method</span>
+              <p>Wash hands, then private parts, perform wudu, pour water over the head 3 times, then the right side, then the left side, ensuring water reaches everywhere including the roots of the hair.</p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="ghusl-start">&larr; Back</button>
+            <button class="qa-restart" data-goto="start">Start Over</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .quick-question {
+    padding: var(--space-4xl) 0;
+    background: linear-gradient(180deg, var(--ivory) 0%, var(--ivory-deep) 100%);
+    position: relative;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .section-header .section-label {
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .section-desc {
+    margin-top: var(--space-md);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 300;
+  }
+
+  .qa-container {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    border: 1px solid var(--cream);
+  }
+
+  .qa-progress {
+    height: 3px;
+    background: var(--cream);
+  }
+
+  .qa-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    width: 0%;
+    transition: width 0.5s var(--ease-out);
+  }
+
+  .qa-panel {
+    padding: var(--space-2xl);
+    min-height: 300px;
+  }
+
+  .qa-screen {
+    display: none;
+    animation: fadeSlideIn 0.4s var(--ease-out);
+  }
+
+  .qa-screen.active {
+    display: block;
+  }
+
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .qa-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--teal);
+    margin: 0 auto var(--space-lg);
+  }
+
+  .qa-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: rgba(26, 92, 82, 0.08);
+    padding: 4px 12px;
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--space-lg);
+  }
+
+  .qa-question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--teal-deep);
+    margin-bottom: var(--space-xl);
+    line-height: 1.4;
+  }
+
+  .qa-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .qa-options.compact {
+    margin-top: var(--space-md);
+  }
+
+  .qa-option {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    width: 100%;
+    text-align: left;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--ivory);
+    border: 1.5px solid var(--cream);
+    border-radius: var(--radius-md);
+    font-size: 0.92rem;
+    color: var(--text-primary);
+    transition: all 0.3s var(--ease-out);
+    font-weight: 400;
+  }
+
+  .qa-option:hover {
+    border-color: var(--teal);
+    background: rgba(26, 92, 82, 0.04);
+    transform: translateX(4px);
+  }
+
+  .qa-option-ar {
+    font-family: var(--font-arabic);
+    font-size: 1rem;
+    color: var(--gold);
+    min-width: 40px;
+    text-align: center;
+    direction: rtl;
+  }
+
+  /* Answer styles */
+  .qa-answer {
+    margin-bottom: var(--space-xl);
+  }
+
+  .qa-answer-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--teal);
+    margin-bottom: var(--space-md);
+  }
+
+  .qa-answer-icon.success { color: var(--teal-light); }
+  .qa-answer-icon.warning { color: var(--gold-muted); }
+
+  .qa-answer-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--teal-deep);
+    margin-bottom: var(--space-md);
+  }
+
+  .qa-answer-text {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: var(--space-lg);
+  }
+
+  .qa-answer-list {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: var(--space-lg);
+    padding-left: var(--space-lg);
+  }
+
+  .qa-answer-list li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .qa-answer-list.numbered {
+    list-style: decimal;
+  }
+
+  .qa-ruling {
+    background: rgba(26, 92, 82, 0.04);
+    border-left: 3px solid var(--teal);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin-bottom: var(--space-lg);
+  }
+
+  .qa-ruling-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: var(--space-xs);
+  }
+
+  .qa-ruling p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Example / Timeline */
+  .qa-example {
+    background: var(--ivory);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+
+  .qa-example-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .qa-timeline {
+    display: flex;
+    gap: 2px;
+    margin-bottom: var(--space-md);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .timeline-block {
+    flex: 1;
+    padding: var(--space-md) var(--space-sm);
+    text-align: center;
+    min-width: 0;
+  }
+
+  .timeline-block.haiz {
+    background: var(--teal);
+    color: var(--ivory);
+  }
+
+  .timeline-block.tuhr {
+    background: var(--cream);
+    color: var(--text-secondary);
+  }
+
+  .timeline-block.tuhr.short {
+    background: rgba(196, 162, 101, 0.15);
+    color: var(--gold-muted);
+  }
+
+  .timeline-block.istihaza {
+    background: var(--gold);
+    color: var(--white);
+  }
+
+  .timeline-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .timeline-days {
+    font-size: 0.78rem;
+    font-weight: 400;
+  }
+
+  .qa-example-note {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+  }
+
+  /* Follow-up */
+  .qa-followup {
+    border-top: 1px solid var(--cream);
+    padding-top: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+
+  .qa-followup-q {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--teal-deep);
+    margin-bottom: var(--space-sm);
+  }
+
+  /* Navigation */
+  .qa-nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--cream);
+  }
+
+  .qa-back, .qa-restart {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-light);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+  }
+
+  .qa-back:hover, .qa-restart:hover {
+    color: var(--teal);
+    background: rgba(26, 92, 82, 0.04);
+  }
+
+  @media (max-width: 640px) {
+    .qa-panel {
+      padding: var(--space-lg);
+    }
+  }
+</style>
+
+<script>
+  const panel = document.getElementById('qaPanel');
+  const progressBar = document.getElementById('qaProgressBar');
+
+  // Track depth for progress bar
+  const depthMap: Record<string, number> = {
+    'start': 0,
+    'haiz-start': 25, 'salah-start': 25, 'ghusl-start': 25,
+    'haiz-less-3': 75, 'haiz-3-10': 75, 'haiz-more-10': 75,
+    'salah-in-haiz': 75, 'salah-istihaza': 75, 'salah-ended': 75,
+    'ghusl-when': 75, 'ghusl-how': 75,
+    'haiz-gap-check': 60,
+    'haiz-gap-less15': 100, 'haiz-gap-15plus': 100, 'haiz-clean': 100,
+  };
+
+  function goToScreen(screenId: string) {
+    const screens = panel?.querySelectorAll('.qa-screen');
+    screens?.forEach(s => s.classList.remove('active'));
+
+    const target = panel?.querySelector(`[data-screen="${screenId}"]`);
+    if (target) {
+      target.classList.add('active');
+
+      // Update progress
+      const depth = depthMap[screenId] ?? 50;
+      if (progressBar) {
+        (progressBar as HTMLElement).style.width = `${depth}%`;
+      }
+    }
+  }
+
+  // Attach click handlers to all options, back buttons, restart buttons
+  panel?.addEventListener('click', (e) => {
+    const target = (e.target as HTMLElement).closest('[data-goto]');
+    if (target) {
+      const screenId = target.getAttribute('data-goto');
+      if (screenId) goToScreen(screenId);
+    }
+  });
+</script>

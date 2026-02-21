@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import TopicHeader from '../components/TopicHeader.astro';
+import MasailList from '../components/MasailList.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const masail = [
+  {
+    question: 'Is salah obligatory during haiz?',
+    answer: 'No. During a valid haiz, salah is not obligatory and the missed prayers do NOT need to be made up (qada). This is a concession from Allah specifically for women during menstruation. A woman should not feel guilty about this — it is the ruling of the Shariah.',
+    reference: 'Nurul Idah, Maraqi al-Falah',
+    important: true,
+  },
+  {
+    question: 'Is salah obligatory during istihaza?',
+    answer: 'Yes. Istihaza does NOT excuse a woman from salah. She must pray all five daily prayers. She should make fresh wudu for each salah time. If the bleeding is continuous, she qualifies as a ma\'zoor (excused person) — her wudu is valid for the entire salah time and breaks when the new time enters.',
+    reference: 'Nurul Idah',
+    important: true,
+  },
+  {
+    question: 'What if my haiz ends close to the end of a salah time?',
+    answer: 'If haiz ends and there is enough time remaining in the current salah window to perform at least the takbeer tahreemah (opening Allahu Akbar), that salah becomes obligatory upon you. You should perform ghusl and pray that salah. If the time has already exited, that salah does not need to be made up.',
+    reference: 'Maraqi al-Falah, Radd al-Muhtar',
+    important: true,
+  },
+  {
+    question: 'What if haiz starts during a salah time I haven\'t prayed yet?',
+    answer: 'If haiz begins during a salah time that you have not yet prayed, that salah is dropped — you do not need to make it up. For example, if haiz starts at 2pm and you had not yet prayed Dhuhr, that Dhuhr is excused.',
+    reference: 'Maraqi al-Falah',
+  },
+  {
+    question: 'How should a woman perform salah differently from a man?',
+    answer: 'In the Hanafi school, there are specific differences in women\'s salah posture: (1) In qiyam, hands are placed on the chest rather than below the navel. (2) In ruku, she bends only slightly and does not fully flatten her back, keeping her arms close to her body. (3) In sajdah, she keeps her stomach close to her thighs and her arms close to her sides (not spread out). (4) In qa\'dah (sitting), she sits with both legs to her right side (tawarruk). These are established positions in the Hanafi school.',
+    reference: 'Maraqi al-Falah, Radd al-Muhtar',
+  },
+  {
+    question: 'Can a woman lead other women in salah?',
+    answer: 'Yes, a woman may lead other women in congregational prayer. She stands in the middle of the first row (not in front of the row like a male imam). However, it is makrooh tahreemi (prohibitively disliked) for a woman to lead men in salah.',
+    reference: 'Al-Hidayah',
+  },
+  {
+    question: 'Should I delay ghusl after haiz ends to pray at a better time?',
+    answer: 'No. Do not delay ghusl unnecessarily. Once haiz ends, perform ghusl as soon as possible and begin praying. If a salah time is about to exit, prioritize praying that salah first and foremost.',
+    reference: 'Maraqi al-Falah',
+  },
+  {
+    question: 'Can I make du\'a and dhikr during haiz even though I can\'t pray?',
+    answer: 'Absolutely. Du\'a, dhikr, salawat upon the Prophet (peace be upon him), istighfar, and all forms of remembrance of Allah are permissible and encouraged during haiz. A woman should not feel disconnected from worship during this time — these acts carry immense reward.',
+    reference: 'Radd al-Muhtar',
+  },
+  {
+    question: 'What if I\'m unsure whether my bleeding is haiz or istihaza?',
+    answer: 'Refer to your established habit. If bleeding matches your usual pattern and meets the criteria (3-10 days, after 15+ clean days), it is haiz. If unsure and the bleeding is unusual, treat the days matching your habit as haiz and the rest as istihaza. When in doubt about your specific situation, consult a knowledgeable scholar.',
+    reference: 'Nurul Idah',
+  },
+  {
+    question: 'Can I recite tasbeeh or do dhikr during sajdah ash-shukr (prostration of gratitude) during haiz?',
+    answer: 'Sajdah ash-shukr requires one to be in a state of purity (wudu), so it cannot be performed during haiz. However, you can express gratitude to Allah through verbal du\'a, saying Alhamdulillah, and other forms of dhikr without performing the physical sajdah.',
+    reference: 'Radd al-Muhtar',
+  },
+];
+---
+
+<Layout title="Salah — Prayer Rulings | Al-Masail">
+  <Navbar />
+  <main>
+    <TopicHeader
+      titleAr="صَلَاة"
+      titleEn="Salah — Prayer"
+      subtitle="Prayer"
+      description="Women-specific rulings on prayer — during haiz, istihaza, and general posture differences in the Hanafi school."
+      masailCount={masail.length}
+    />
+    <MasailList masail={masail} />
+  </main>
+  <Footer />
+</Layout>

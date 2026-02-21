@@ -70,6 +70,44 @@ import T from './T.astro';
             <button class="qa-option" data-goto="haiz-more-10">
               <T en="More than 10 days" ru="10 din se zyada" ur="۱۰ دن سے زیادہ" />
             </button>
+            <button class="qa-option" data-goto="haiz-spotting-home">
+              <T en="Spotting/dots — bleeding stopped & returned" ru="Nuqtay/dhabbay — khoon band hua phir aaya" ur="نقطے/دھبے — خون بند ہوا پھر آیا" />
+            </button>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+          </div>
+        </div>
+
+        <!-- Spotting/intermittent bleeding -->
+        <div class="qa-screen" data-screen="haiz-spotting-home">
+          <span class="qa-badge">Spotting</span>
+          <div class="qa-answer">
+            <div class="qa-answer-icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="qa-answer-title">
+              <span data-lang-text="en">Key Rule: Bleeding Does NOT Need to Be Continuous</span>
+              <span data-lang-text="ru">Ahem Usool: Khoon Ka Musalsal Rehna Zaroori NAHI</span>
+              <span data-lang-text="ur">اہم اصول: خون کا مسلسل رہنا ضروری نہیں</span>
+            </h3>
+            <p class="qa-answer-text">
+              <span data-lang-text="en">If blood comes and goes within the <strong>10-day window</strong> — even if it stops for a few hours or days — the entire period <strong>including clean gaps</strong> is counted as haiz. Do NOT pray during the clean gaps within 10 days.</span>
+              <span data-lang-text="ru">Agar khoon <strong>10 din ke andar</strong> aata jata rahe — chahe kuch ghante ya din band ho — poori muddat <strong>saaf waqfon samait</strong> haiz mein shumaar hogi. 10 din ke andar saaf waqfon mein namaz NA parhein.</span>
+              <span data-lang-text="ur">اگر خون <strong>۱۰ دن کے اندر</strong> آتا جاتا رہے — چاہے کچھ گھنٹے یا دن بند ہو — پوری مدت <strong>صاف وقفوں سمیت</strong> حیض میں شمار ہوگی۔ ۱۰ دن کے اندر صاف وقفوں میں نماز نہ پڑھیں۔</span>
+            </p>
+            <div class="qa-ruling">
+              <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+              <p>
+                <span data-lang-text="en">• If total days (first blood → last spot) is within 10 days: ALL is haiz<br/>• If total exceeds 10 days: your habit determines haiz, rest is istihaza<br/>• Fasts kept during the "gap" that turned out to be haiz must be made up<br/><br/>For the full interactive guide, visit the <strong><a href="/sawal" style="color: var(--teal)">Fori Sawal</a></strong> page.</span>
+                <span data-lang-text="ru">• Agar kul din (pehla khoon → aakhri nuqta) 10 din ke andar: SAB haiz<br/>• Agar kul 10 din se zyada: aadat se haiz tay, baqi istihaza<br/>• Waqfe mein rakhay roze jo haiz nikle, unki qaza karein<br/><br/>Mukammal guide ke liye <strong><a href="/sawal" style="color: var(--teal)">Fori Sawal</a></strong> page dekhein.</span>
+                <span data-lang-text="ur">• اگر کل دن (پہلا خون → آخری نقطہ) ۱۰ دن کے اندر: سب حیض<br/>• اگر کل ۱۰ دن سے زیادہ: عادت سے حیض طے، باقی استحاضہ<br/>• وقفے میں رکھے روزے جو حیض نکلے، انکی قضا کریں<br/><br/>مکمل guide کے لیے <strong><a href="/sawal" style="color: var(--teal)">فوری سوال</a></strong> page دیکھیں۔</span>
+              </p>
+            </div>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="haiz-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            <button class="qa-restart" data-goto="start"><T en="Start Over" ru="Dobara Shuru" ur="دوبارہ شروع" /></button>
           </div>
         </div>
 
@@ -163,6 +201,9 @@ import T from './T.astro';
             <button class="qa-option" data-goto="haiz-gap-15plus">
               <T en="15 days or more" ru="15 din ya zyada" ur="۱۵ دن یا زیادہ" />
             </button>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="haiz-3-10">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
           </div>
         </div>
 
@@ -276,6 +317,7 @@ import T from './T.astro';
             </div>
           </div>
           <div class="qa-nav-row">
+            <button class="qa-back" data-goto="haiz-3-10">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
             <button class="qa-restart" data-goto="start"><T en="Start Over" ru="Dobara Shuru" ur="دوبارہ شروع" /></button>
           </div>
         </div>
@@ -329,6 +371,9 @@ import T from './T.astro';
             <button class="qa-option" data-goto="salah-ended">
               <T en="My haiz just ended" ru="Mera haiz abhi khatam hua" ur="میرا حیض ابھی ختم ہوا" />
             </button>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
           </div>
         </div>
 
@@ -440,6 +485,9 @@ import T from './T.astro';
             <button class="qa-option" data-goto="ghusl-how">
               <T en="How to perform ghusl" ru="Ghusl ka tareeqa" ur="غسل کا طریقہ" />
             </button>
+          </div>
+          <div class="qa-nav-row">
+            <button class="qa-back" data-goto="start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
           </div>
         </div>
 
@@ -867,7 +915,7 @@ import T from './T.astro';
   const depthMap: Record<string, number> = {
     'start': 0,
     'haiz-start': 25, 'salah-start': 25, 'ghusl-start': 25,
-    'haiz-less-3': 75, 'haiz-3-10': 75, 'haiz-more-10': 75,
+    'haiz-less-3': 75, 'haiz-3-10': 75, 'haiz-more-10': 75, 'haiz-spotting-home': 100,
     'salah-in-haiz': 75, 'salah-istihaza': 75, 'salah-ended': 75,
     'ghusl-when': 75, 'ghusl-how': 75,
     'haiz-gap-check': 60,

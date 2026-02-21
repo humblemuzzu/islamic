@@ -1,0 +1,2758 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import T from '../components/T.astro';
+import '../styles/global.css';
+
+const categories = [
+  { id: 'haiz', ar: 'حَيض', label: { en: 'Haiz (Period)', ru: 'Haiz', ur: 'حیض' } },
+  { id: 'istihaza', ar: 'اسْتِحَاضَة', label: { en: 'Istihaza', ru: 'Istihaza', ur: 'استحاضہ' } },
+  { id: 'nifas', ar: 'نِفَاس', label: { en: 'Nifas', ru: 'Nifas', ur: 'نفاس' } },
+  { id: 'salah', ar: 'صَلَاة', label: { en: 'Salah', ru: 'Namaz', ur: 'نماز' } },
+  { id: 'sawm', ar: 'صَوۡم', label: { en: 'Sawm', ru: 'Roza', ur: 'روزہ' } },
+  { id: 'ghusl', ar: 'غُسل', label: { en: 'Ghusl', ru: 'Ghusl', ur: 'غسل' } },
+  { id: 'quran', ar: 'قُرۡآن', label: { en: 'Quran', ru: 'Quran', ur: 'قرآن' } },
+  { id: 'masjid', ar: 'مَسۡجِد', label: { en: 'Masjid', ru: 'Masjid', ur: 'مسجد' } },
+  { id: 'zawaj', ar: 'نِكَاح', label: { en: 'Zawaj', ru: 'Zawaj', ur: 'نکاح' } },
+];
+---
+
+<Layout title="Fori Sawal — Interactive Fiqh Guide | Al-Masail">
+  <Navbar />
+  <main>
+    <!-- Hero Section matching topic pages -->
+    <section class="topic-hero">
+      <div class="pattern-overlay"></div>
+      <div class="pattern-star"></div>
+
+      <div class="topic-hero-content container">
+        <a href="/" class="back-link reveal">
+          <svg viewBox="0 0 16 16" fill="none" class="back-icon">
+            <path d="M10 4l-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <T en="Back to Home" ru="Wapas Home" ur="واپس ہوم" />
+        </a>
+
+        <div class="topic-title-block reveal reveal-delay-1">
+          <span class="section-label"><T en="Interactive Guide" ru="Rahnuma Sawalaat" ur="رہنما سوالات" /></span>
+          <h1 class="topic-title-ar">سؤال و جواب</h1>
+          <h2 class="topic-title-en">FORI SAWAL</h2>
+        </div>
+
+        <div class="topic-desc reveal reveal-delay-2">
+          <p data-lang-block="en">Select a topic and answer a few simple questions to get your personalized answer based on Hanafi fiqh.</p>
+          <p data-lang-block="ru">Ek topic choose karein aur kuch sawal ka jawab dein taake aapko Hanafi fiqh ke mutabiq jawab mile.</p>
+          <p data-lang-block="ur">ایک topic choose کریں اور کچھ سوال کا جواب دیں تاکہ آپ کو حنفی فقہ کے مطابق جواب ملے۔</p>
+        </div>
+
+        <div class="topic-ornament reveal reveal-delay-3">
+          <span class="ornament-dot"></span>
+          <span class="ornament-line"></span>
+          <span class="ornament-star">&#10022;</span>
+          <span class="ornament-line"></span>
+          <span class="ornament-dot"></span>
+        </div>
+
+        <div class="topic-meta reveal reveal-delay-4">
+          <span class="meta-count">9 <T en="Topics" ru="Topics" ur="عنوانات" /></span>
+          <span class="meta-dot">&middot;</span>
+          <span class="meta-school"><T en="Hanafi School" ru="Hanafi Maslak" ur="حنفی مسلک" /></span>
+        </div>
+      </div>
+
+      <div class="topic-hero-border">
+        <svg viewBox="0 0 1200 2" preserveAspectRatio="none">
+          <line x1="0" y1="1" x2="1200" y2="1" stroke="url(#goldLineSawal)" stroke-width="1" stroke-dasharray="8 12 3 12" />
+          <defs>
+            <linearGradient id="goldLineSawal">
+              <stop offset="0%" stop-color="transparent" />
+              <stop offset="30%" stop-color="#C4A265" />
+              <stop offset="70%" stop-color="#C4A265" />
+              <stop offset="100%" stop-color="transparent" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Interactive Section -->
+    <section class="sawal-interactive">
+      <div class="container sawal-container">
+
+      <!-- Category Selection -->
+      <div class="category-selection reveal" id="categorySelection">
+        <h3 class="category-prompt">
+          <span data-lang-text="en">What would you like to ask about?</span>
+          <span data-lang-text="ru">Aap kya sawal karna chahte hain?</span>
+          <span data-lang-text="ur">آپ کیا سوال کرنا چاہتے ہیں؟</span>
+        </h3>
+        <div class="category-chips">
+          <button class="category-chip" data-goto="haiz-start">
+            <span class="chip-ar">حَيض</span>
+            <span class="chip-label"><T en="Haiz" ru="Haiz" ur="حیض" /></span>
+          </button>
+          <button class="category-chip" data-goto="istihaza-start">
+            <span class="chip-ar">اسْتِحَاضَة</span>
+            <span class="chip-label"><T en="Istihaza" ru="Istihaza" ur="استحاضہ" /></span>
+          </button>
+          <button class="category-chip" data-goto="nifas-start">
+            <span class="chip-ar">نِفَاس</span>
+            <span class="chip-label"><T en="Nifas" ru="Nifas" ur="نفاس" /></span>
+          </button>
+          <button class="category-chip" data-goto="salah-start">
+            <span class="chip-ar">صَلَاة</span>
+            <span class="chip-label"><T en="Salah" ru="Namaz" ur="نماز" /></span>
+          </button>
+          <button class="category-chip" data-goto="sawm-start">
+            <span class="chip-ar">صَوۡم</span>
+            <span class="chip-label"><T en="Sawm" ru="Roza" ur="روزہ" /></span>
+          </button>
+          <button class="category-chip" data-goto="ghusl-start">
+            <span class="chip-ar">غُسل</span>
+            <span class="chip-label"><T en="Ghusl" ru="Ghusl" ur="غسل" /></span>
+          </button>
+          <button class="category-chip" data-goto="quran-start">
+            <span class="chip-ar">قُرۡآن</span>
+            <span class="chip-label"><T en="Quran" ru="Quran" ur="قرآن" /></span>
+          </button>
+          <button class="category-chip" data-goto="masjid-start">
+            <span class="chip-ar">مَسۡجِد</span>
+            <span class="chip-label"><T en="Masjid" ru="Masjid" ur="مسجد" /></span>
+          </button>
+          <button class="category-chip" data-goto="zawaj-start">
+            <span class="chip-ar">نِكَاح</span>
+            <span class="chip-label"><T en="Zawaj" ru="Zawaj" ur="نکاح" /></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Decision Tree Container -->
+      <div class="qa-container" id="qaContainer" style="display: none;">
+        <div class="qa-progress">
+          <div class="qa-progress-bar" id="qaProgressBar"></div>
+        </div>
+        <div class="qa-panel" id="qaPanel">
+          
+          <!-- ============ HAIZ FLOW ============ -->
+          <div class="qa-screen" data-screen="haiz-start">
+            <span class="qa-badge">Haiz</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">Are you currently experiencing bleeding?</span>
+              <span data-lang-text="ru">Kya aapko abhi khoon aa raha hai?</span>
+              <span data-lang-text="ur">کیا آپکو ابھی خون آ رہا ہے؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="haiz-current-duration">
+                <T en="Yes, I am bleeding now" ru="Haan, abhi khoon aa raha hai" ur="ہاں، ابھی خون آ رہا ہے" />
+              </button>
+              <button class="qa-option" data-goto="haiz-ended-question">
+                <T en="My bleeding has stopped" ru="Mera khoon band ho gaya" ur="میرا خون بند ہو گیا" />
+              </button>
+              <button class="qa-option" data-goto="haiz-spotting">
+                <T en="I have spotting/dots (nuqtay)" ru="Mujhe nuqtay/dhabbay aa rahe hain" ur="مجھے نقطے/دھبے آ رہے ہیں" />
+              </button>
+              <button class="qa-option" data-goto="haiz-advice">
+                <T en="I want general info about haiz" ru="Haiz ke baare mein general info chahiye" ur="حیض کے بارے میں general info چاہیے" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Spotting/dots question -->
+          <div class="qa-screen" data-screen="haiz-spotting">
+            <span class="qa-badge">Spotting</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What type of spotting are you seeing?</span>
+              <span data-lang-text="ru">Aapko kaisa spotting dikhai de raha hai?</span>
+              <span data-lang-text="ur">آپکو کیسا spotting دکھائی دے رہا ہے؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="haiz-spotting-within10">
+                <T en="Spotting/dots within my period window (10 days)" ru="Period ke andar (10 din) nuqtay/dhabbay" ur="حیض کے اندر (۱۰ دن) نقطے/دھبے" />
+              </button>
+              <button class="qa-option" data-goto="haiz-spotting-afterstop">
+                <T en="Bleeding stopped, then dots returned" ru="Khoon band hua, phir nuqtay dobara aaye" ur="خون بند ہوا، پھر نقطے دوبارہ آئے" />
+              </button>
+              <button class="qa-option" data-goto="haiz-spotting-colors">
+                <T en="I see only slight colored discharge" ru="Sirf halka rang ka discharge aa raha hai" ur="صرف ہلکا رنگ کا discharge آ رہا ہے" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Spotting within 10-day window -->
+          <div class="qa-screen" data-screen="haiz-spotting-within10">
+            <span class="qa-badge">Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">It is ALL Counted as Haiz</span>
+                <span data-lang-text="ru">Yeh SAB Haiz Mein Shumaar Hoga</span>
+                <span data-lang-text="ur">یہ سب حیض میں شمار ہوگا</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">In the Hanafi school, bleeding does <strong>NOT need to be continuous</strong>. Even if blood comes and goes — stops for a few hours, then returns — as long as it is all <strong>within the 10-day window</strong>, the entire period (including clean gaps) is counted as haiz.</span>
+                <span data-lang-text="ru">Hanafi maslak mein khoon ka <strong>musalsal rehna zaroori NAHI</strong>. Chahe khoon aaye aur jaye — kuch ghante band ho, phir aaye — jab tak yeh sab <strong>10 din ke andar</strong> ho, poori muddat (saaf waqfon samait) haiz mein shumaar hogi.</span>
+                <span data-lang-text="ur">حنفی مسلک میں خون کا <strong>مسلسل رہنا ضروری نہیں</strong>۔ چاہے خون آئے اور جائے — کچھ گھنٹے بند ہو، پھر آئے — جب تک یہ سب <strong>۱۰ دن کے اندر</strong> ہو، پوری مدت (صاف وقفوں سمیت) حیض میں شمار ہوگی۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en">• The clean gaps between spotting within 10 days are also part of haiz<br/>• Do NOT pray or fast during these clean gaps<br/>• Wait for a full clean period of 15 days before considering your haiz over<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 5</span>
+                  <span data-lang-text="ru">• 10 din ke andar spotting ke darmiyan saaf waqfe bhi haiz ka hissa hain<br/>• In saaf waqfon mein namaz ya roza NA rakhein<br/>• Haiz khatam samajhne ke liye poore 15 saaf din ka intezaar karein<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 5</span>
+                  <span data-lang-text="ur">• ۱۰ دن کے اندر spotting کے درمیان صاف وقفے بھی حیض کا حصہ ہیں<br/>• ان صاف وقفوں میں نماز یا روزہ نہ رکھیں<br/>• حیض ختم سمجھنے کے لیے پورے ۱۵ صاف دن کا انتظار کریں<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان، مسئلہ ۵</span>
+                </p>
+              </div>
+              <div class="qa-example">
+                <span class="qa-example-label"><T en="Example" ru="Misaal" ur="مثال" /></span>
+                <div class="qa-timeline">
+                  <div class="timeline-block haiz">
+                    <span class="timeline-label"><T en="Blood" ru="Khoon" ur="خون" /></span>
+                    <span class="timeline-days"><T en="3 days" ru="3 din" ur="۳ دن" /></span>
+                  </div>
+                  <div class="timeline-block tuhr short">
+                    <span class="timeline-label"><T en="Clean" ru="Saaf" ur="صاف" /></span>
+                    <span class="timeline-days"><T en="2 days" ru="2 din" ur="۲ دن" /></span>
+                  </div>
+                  <div class="timeline-block haiz">
+                    <span class="timeline-label"><T en="Dots" ru="Nuqtay" ur="نقطے" /></span>
+                    <span class="timeline-days"><T en="1 day" ru="1 din" ur="۱ دن" /></span>
+                  </div>
+                </div>
+                <p class="qa-example-note">
+                  <span data-lang-text="en">All 6 days = Haiz (including the 2 clean days in between). Do not pray during the clean gap.</span>
+                  <span data-lang-text="ru">Poore 6 din = Haiz (beech ke 2 saaf din bhi). Saaf waqfe mein namaz na parhein.</span>
+                  <span data-lang-text="ur">پورے ۶ دن = حیض (بیچ کے ۲ صاف دن بھی)۔ صاف وقفے میں نماز نہ پڑھیں۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-spotting">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Bleeding stopped, then dots returned -->
+          <div class="qa-screen" data-screen="haiz-spotting-afterstop">
+            <span class="qa-badge">Spotting Return</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">How many total days has it been since bleeding first started (including clean gap)?</span>
+              <span data-lang-text="ru">Pehle khoon se le kar ab tak kul kitne din hue hain (saaf waqfa samait)?</span>
+              <span data-lang-text="ur">پہلے خون سے لے کر اب تک کل کتنے دن ہوئے ہیں (صاف وقفہ سمیت)؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="haiz-spotting-within10">
+                <T en="10 days or less in total" ru="Kul 10 din ya kam" ur="کل ۱۰ دن یا کم" />
+              </button>
+              <button class="qa-option" data-goto="haiz-spotting-over10">
+                <T en="More than 10 days in total" ru="Kul 10 din se zyada" ur="کل ۱۰ دن سے زیادہ" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-spotting">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Spotting over 10 days total -->
+          <div class="qa-screen" data-screen="haiz-spotting-over10">
+            <span class="qa-badge">Exceeds 10 Days</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Your Habit Determines Your Haiz Days</span>
+                <span data-lang-text="ru">Aapki Aadat Se Haiz Ke Din Tay Honge</span>
+                <span data-lang-text="ur">آپکی عادت سے حیض کے دن طے ہوں گے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Since the total period (bleeding + clean gaps + spotting) exceeds 10 days, your <strong>previous habit ('aadah)</strong> applies. Your regular number of days = haiz. The remaining days = istihaza.</span>
+                <span data-lang-text="ru">Chunkeh kul muddat (khoon + saaf waqfa + nuqtay) 10 din se zyada hai, aapki <strong>pichli aadat</strong> laagu hogi. Aapke mamool ke din = haiz. Baqi din = istihaza.</span>
+                <span data-lang-text="ur">چونکہ کل مدت (خون + صاف وقفہ + نقطے) ۱۰ دن سے زیادہ ہے، آپکی <strong>پچھلی عادت</strong> لاگو ہوگی۔ آپکے معمول کے دن = حیض۔ باقی دن = استحاضہ۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en">• Count your habit days from the start of bleeding as haiz<br/>• All remaining days (including spotting) = istihaza<br/>• Prayers missed on istihaza days must be made up (qaza)<br/>• If no established habit: first 10 days = haiz, rest = istihaza<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 4</span>
+                  <span data-lang-text="ru">• Khoon shuru hone se aadat ke din haiz shumaar karein<br/>• Baqi tamaam din (nuqtay samait) = istihaza<br/>• Istihaza ke dinon ki chhooti hui namazein qaza karein<br/>• Agar koi aadat nahi: pehle 10 din = haiz, baqi = istihaza<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 4</span>
+                  <span data-lang-text="ur">• خون شروع ہونے سے عادت کے دن حیض شمار کریں<br/>• باقی تمام دن (نقطے سمیت) = استحاضہ<br/>• استحاضہ کے دنوں کی چھوٹی ہوئی نمازیں قضا کریں<br/>• اگر کوئی عادت نہیں: پہلے ۱۰ دن = حیض، باقی = استحاضہ<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان، مسئلہ ۴</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-spotting-afterstop">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Spotting - slight colored discharge -->
+          <div class="qa-screen" data-screen="haiz-spotting-colors">
+            <span class="qa-badge">Discharge Colors</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Any of These 6 Colors = Haiz Blood</span>
+                <span data-lang-text="ru">In 6 Rangon Mein Se Koi Bhi = Haiz Ka Khoon</span>
+                <span data-lang-text="ur">ان ۶ رنگوں میں سے کوئی بھی = حیض کا خون</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Even slight discharge counts as haiz blood if it is any of these colors: <strong>Black, Red, Green, Yellow, Turbid/Muddy, Dust-colored</strong>. Only <strong>pure white discharge is NOT haiz</strong> — it means you are clean (paak).</span>
+                <span data-lang-text="ru">Halka discharge bhi haiz ka khoon hai agar in rangon mein se ho: <strong>Kaala, Laal, Sabz, Zard, Gadla, Matila</strong>. Sirf <strong>bilkul safed discharge haiz NAHI</strong> — iska matlab aap paak hain.</span>
+                <span data-lang-text="ur">ہلکا discharge بھی حیض کا خون ہے اگر ان رنگوں میں سے ہو: <strong>کالا، لال، سبز، زرد، گدلا، مٹیلا</strong>۔ صرف <strong>بالکل سفید discharge حیض نہیں</strong> — اسکا مطلب آپ پاک ہیں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Important" ru="Ahem" ur="اہم" /></span>
+                <p>
+                  <span data-lang-text="en">Even if the discharge is very light yellow or brownish — if it's not pure white, it counts as haiz blood. Spotting of any of these 6 colors within the haiz window (3-10 days) is haiz.<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 11</span>
+                  <span data-lang-text="ru">Chahe discharge bahut halka zard ya bhura ho — agar bilkul safed nahi hai to haiz ka khoon hai. Haiz ki muddat (3-10 din) ke andar in 6 rangon ka spotting haiz hai.<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 11</span>
+                  <span data-lang-text="ur">چاہے discharge بہت ہلکا زرد یا بھورا ہو — اگر بالکل سفید نہیں ہے تو حیض کا خون ہے۔ حیض کی مدت (۳-۱۰ دن) کے اندر ان ۶ رنگوں کا spotting حیض ہے۔<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان، مسئلہ ۱۱</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-spotting">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Currently bleeding - Duration -->
+            <span class="qa-badge">Haiz</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">How many days has the bleeding lasted so far?</span>
+              <span data-lang-text="ru">Khoon abhi tak kitne din se aa raha hai?</span>
+              <span data-lang-text="ur">خون ابھی تک کتنے دن سے آ رہا ہے؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="haiz-less-3">
+                <T en="Less than 3 days" ru="3 din se kam" ur="۳ دن سے کم" />
+              </button>
+              <button class="qa-option" data-goto="haiz-3-10">
+                <T en="3 to 10 days" ru="3 se 10 din" ur="۳ سے ۱۰ دن" />
+              </button>
+              <button class="qa-option" data-goto="haiz-more-10">
+                <T en="More than 10 days" ru="10 din se zyada" ur="۱۰ دن سے زیادہ" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Less than 3 days -->
+          <div class="qa-screen" data-screen="haiz-less-3">
+            <span class="qa-badge">Not Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">This is NOT Haiz</span>
+                <span data-lang-text="ru">Yeh Haiz NAHI hai</span>
+                <span data-lang-text="ur">یہ حیض نہیں ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">The <strong>minimum duration of haiz is 3 days and 3 nights (72 hours)</strong>. Any bleeding lasting less than this is <strong>istihaza</strong> (irregular bleeding), not menstruation.</span>
+                <span data-lang-text="ru"><strong>Haiz ki kam se kam muddat 3 din aur 3 raatein (72 ghante) hai</strong>. Is se kam rahe woh <strong>istihaza</strong> hai, haiz nahi.</span>
+                <span data-lang-text="ur"><strong>حیض کی کم سے کم مدت ۳ دن اور ۳ راتیں (۷۲ گھنٹے) ہے</strong>۔ اس سے کم رہے وہ <strong>استحاضہ</strong> ہے، حیض نہیں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en">You must make up any salah you missed. Perform wudu for each salah. Fasting is NOT required to be made up.</span>
+                  <span data-lang-text="ru">Jo namazein chhooti hain unki qaza karein. Har namaz ke liye wuzu karein. Roza qaza zaroori nahi.</span>
+                  <span data-lang-text="ur">جو نمازیں چھوٹی ہیں انکی قضا کریں۔ ہر نماز کے لیے وضو کریں۔ روزہ کی قضا ضروری نہیں۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-current-duration">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: 3-10 days -->
+          <div class="qa-screen" data-screen="haiz-3-10">
+            <span class="qa-badge">Valid Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">This is Valid Haiz</span>
+                <span data-lang-text="ru">Yeh Sahih Haiz hai</span>
+                <span data-lang-text="ur">یہ صحیح حیض ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Bleeding between <strong>3-10 days</strong> is valid haiz in the Hanafi school.</span>
+                <span data-lang-text="ru"><strong>3 se 10 din</strong> tak ka khoon Hanafi maslak mein sahih haiz hai.</span>
+                <span data-lang-text="ur"><strong>۳ سے ۱۰ دن</strong> تک کا خون حنفی مسلک میں صحیح حیض ہے۔</span>
+              </p>
+            </div>
+            <div class="qa-followup">
+              <p class="qa-followup-q">
+                <span data-lang-text="en">Has the bleeding stopped now?</span>
+                <span data-lang-text="ru">Kya khoon abhi band ho gaya?</span>
+                <span data-lang-text="ur">کیا خون ابھی بند ہو گیا؟</span>
+              </p>
+              <div class="qa-options compact">
+                <button class="qa-option" data-goto="haiz-just-ended">
+                  <T en="Yes, just stopped" ru="Haan, abhi band hua" ur="ہاں، ابھی بند ہوا" />
+                </button>
+                <button class="qa-option" data-goto="haiz-still-flowing">
+                  <T en="No, still flowing" ru="Nahi, abhi bhi bah raha hai" ur="نہیں، ابھی بھی بہ رہا ہے" />
+                </button>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-current-duration">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Still flowing -->
+          <div class="qa-screen" data-screen="haiz-still-flowing">
+            <span class="qa-badge">Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">You are in Haiz — Continue Waiting</span>
+                <span data-lang-text="ru">Aap haiz mein hain — Rukhna rahega</span>
+                <span data-lang-text="ur">آپ حیض میں ہیں — رکھنا ہوگا</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">As long as bleeding continues within the 3-10 day window, you remain in haiz. Wait for bleeding to stop completely.</span>
+                <span data-lang-text="ru">Jab tak khoon 3-10 din ke andar bahta rahe, aap haiz mein hain. Khoon bilkul band hone ka intezaar karein.</span>
+                <span data-lang-text="ur">جب تک خون ۳ سے ۱۰ دن کے اندر بہتا رہے، آپ حیض میں ہیں۔ خون بالکل بند ہونے کا انتظار کریں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Rulings During Haiz" ru="Haiz Ke Ahkaam" ur="حیض کے احکام" /></span>
+                <p>
+                  <span data-lang-text="en">• Salah and fasting are not required<br/>• Missed salah does NOT need qaza<br/>• Missed fasts MUST be made up (qaza)<br/>• Cannot recite Quran or touch mushaf<br/>• Cannot enter Masjid</span>
+                  <span data-lang-text="ru">• Namaz aur roza zaroori nahi<br/>• Chhooti hui namaz ki qaza nahi<br/>• Chhoote hue rozon ki qaza FARZ hai<br/>• Quran parhna ya mushaf chhoona nahi<br/>• Masjid mein jaana nahi</span>
+                  <span data-lang-text="ur">• نماز اور روزہ ضروری نہیں<br/>• چھوٹی ہوئی نماز کی قضا نہیں<br/>• چھوٹے ہوئے روزوں کی قضا FARZ ہے<br/>• قرآن پڑھنا یا مصحف چھونا نہیں<br/>• مسجد میں جانا نہیں</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-3-10">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Just ended -->
+          <div class="qa-screen" data-screen="haiz-just-ended">
+            <span class="qa-badge">Haiz Complete</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Alhamdulillah, Your Haiz is Complete!</span>
+                <span data-lang-text="ru">Alhamdulillah, Aapka Haiz Mukammal Ho Gaya!</span>
+                <span data-lang-text="ur">الحمدللہ، آپ کا حیض مکمل ہو گیا!</span>
+              </h3>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="What to do now" ru="Ab kya karna hai" ur="اب کیا کرنا ہے" /></span>
+                <p>
+                  <span data-lang-text="en">1. Perform <strong>ghusl</strong> immediately<br/>2. Resume salah and fasting<br/>3. Make up any missed Ramadan fasts<br/>4. Missed salah during haiz does NOT need qaza</span>
+                  <span data-lang-text="ru">1. <strong>Ghusl</strong> foran karein<br/>2. Namaz aur roza shuru karein<br/>3. Ramadan ke chhoote hue rozon ki qaza karein<br/>4. Haiz ki namazon ki qaza nahi</span>
+                  <span data-lang-text="ur">1. <strong>غسل</strong> فوراً کریں<br/>2. نماز اور روزہ شروع کریں<br/>3. رمضان کے چھوٹے ہوئے روزوں کی قضا کریں<br/>4. حیض کی نمازوں کی قضا نہیں</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-followup">
+              <p class="qa-followup-q">
+                <span data-lang-text="en">Did bleeding return after stopping?</span>
+                <span data-lang-text="ru">Kya khoon band hone ke baad dobara aaya?</span>
+                <span data-lang-text="ur">کیا خون بند ہونے کے بعد دوبارہ آیا؟</span>
+              </p>
+              <div class="qa-options compact">
+                <button class="qa-option" data-goto="haiz-gap-check">
+                  <T en="Yes, it returned" ru="Haan, dobara aaya" ur="ہاں، دوبارہ آیا" />
+                </button>
+                <button class="qa-option" data-goto="haiz-clean-done">
+                  <T en="No, I am clean now" ru="Nahi, main paak ho gayi" ur="نہیں، میں پاک ہو گئی" />
+                </button>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-3-10">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Gap check (tuhr) -->
+          <div class="qa-screen" data-screen="haiz-gap-check">
+            <span class="qa-badge">Tuhr Check</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">How many clean (no bleeding) days were there before bleeding returned?</span>
+              <span data-lang-text="ru">Khoon dobara aane se pehle kitne saaf (bina khoon) din guzre?</span>
+              <span data-lang-text="ur">خون دوبارہ آنے سے پہلے کتنے صاف (بنا خون) دن گزرے؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="haiz-gap-less15">
+                <T en="Less than 15 days" ru="15 din se kam" ur="۱۵ دن سے کم" />
+              </button>
+              <button class="qa-option" data-goto="haiz-gap-15plus">
+                <T en="15 days or more" ru="15 din ya zyada" ur="۱۵ دن یا زیادہ" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-just-ended">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Gap less than 15 days = istihaza -->
+          <div class="qa-screen" data-screen="haiz-gap-less15">
+            <span class="qa-badge">Istihaza</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">The Second Bleeding is Istihaza</span>
+                <span data-lang-text="ru">Doosra Khoon Istihaza Hai</span>
+                <span data-lang-text="ur">دوسرا خون استحاضہ ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">The <strong>minimum gap of purity (tuhr) between two valid haiz periods is 15 days</strong>. Since less than 15 clean days passed, this second bleeding is <strong>istihaza</strong>, not a new haiz.</span>
+                <span data-lang-text="ru"><strong>Do sahih haiz ke darmiyan kam se kam 15 din paaki (tuhr) zaroori hai</strong>. Chunkeh 15 saaf din nahi guzre, yeh doosra khoon <strong>istihaza</strong> hai, naya haiz nahi.</span>
+                <span data-lang-text="ur"><strong>دو صحیح حیض کے درمیان کم سے کم ۱۵ دن پاکی (طہر) ضروری ہے</strong>۔ چونکہ ۱۵ صاف دن نہیں گزرے، یہ دوسرا خون <strong>استحاضہ</strong> ہے، نیا حیض نہیں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en">You MUST pray during istihaza. Perform fresh wudu for each fard salah time. If bleeding is continuous, you are a ma'zoor (excused person).</span>
+                  <span data-lang-text="ru">Istihaza mein namaz FARZ hai. Har farz namaz ke liye naya wuzu karein. Agar khoon musalsal rahe to aap ma'zoor hain.</span>
+                  <span data-lang-text="ur">استحاضہ میں نماز FARZ ہے۔ ہر فرض نماز کے لیے نیا وضو کریں۔ اگر خون مسلسل رہے تو آپ معذور ہیں۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-gap-check">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Gap 15+ days = new haiz -->
+          <div class="qa-screen" data-screen="haiz-gap-15plus">
+            <span class="qa-badge">New Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">This is a New Valid Haiz</span>
+                <span data-lang-text="ru">Yeh Naya Sahih Haiz Hai</span>
+                <span data-lang-text="ur">یہ نیا صحیح حیض ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Since <strong>15 or more clean days</strong> passed between the two bleedings, this second bleeding is a <strong>new haiz period</strong> (if it meets the 3-10 day criteria).</span>
+                <span data-lang-text="ru">Chunkeh dono khoon ke darmiyan <strong>15 ya zyada saaf din</strong> guzre, yeh doosra khoon <strong>naya haiz</strong> hai (agar 3-10 din ki shart poori ho).</span>
+                <span data-lang-text="ur">چونکہ دونوں خون کے درمیان <strong>۱۵ یا زیادہ صاف دن</strong> گزرے، یہ دوسرا خون <strong>نیا حیض</strong> ہے (اگر ۳-۱۰ دن کی شرط پوری ہو)۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en">The same haiz rulings apply — leave salah and fasting. After it ends, perform ghusl and resume worship.</span>
+                  <span data-lang-text="ru">Haiz ke wahi ahkaam laagu honge — namaz aur roza chhor dein. Khatam hone par ghusl karein aur ibadat shuru karein.</span>
+                  <span data-lang-text="ur">حیض کے وہی احکام لاگو ہوں گے — نماز اور روزہ چھوڑ دیں۔ ختم ہونے پر غسل کریں اور عبادت شروع کریں۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-gap-check">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Clean and done -->
+          <div class="qa-screen" data-screen="haiz-clean-done">
+            <span class="qa-badge">Complete</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Alhamdulillah — You are Clean</span>
+                <span data-lang-text="ru">Alhamdulillah — Aap Paak Hain</span>
+                <span data-lang-text="ur">الحمدللہ — آپ پاک ہیں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Your haiz ended within the valid range. Make sure you have performed ghusl and resumed all worship.</span>
+                <span data-lang-text="ru">Aapka haiz sahih muddat mein khatam hua. Ghusl kar lein aur tamaam ibadaat shuru karein.</span>
+                <span data-lang-text="ur">آپ کا حیض صحیح مدت میں ختم ہوا۔ غسل کر لیں اور تمام عبادات شروع کریں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Remember" ru="Yaad Rakhein" ur="یاد رکھیں" /></span>
+                <p>
+                  <span data-lang-text="en">Make up missed Ramadan fasts. Missed salah during haiz does NOT need qaza.</span>
+                  <span data-lang-text="ru">Ramadan ke chhoote hue roze qaza karein. Haiz ki namazein qaza nahi karni.</span>
+                  <span data-lang-text="ur">رمضان کے چھوٹے ہوئے روزے قضا کریں۔ حیض کی نمازیں قضا نہیں کرنی۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-just-ended">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: More than 10 days -->
+          <div class="qa-screen" data-screen="haiz-more-10">
+            <span class="qa-badge">Exceeds Maximum</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Exceeds Maximum — Habit Applies</span>
+                <span data-lang-text="ru">Zyada se Zyada se Guzar Gaya — Aadat Laagu Hogi</span>
+                <span data-lang-text="ur">زیادہ سے زیادہ سے گزر گیا — عادت لاگو ہوگی</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">The <strong>maximum haiz is 10 days</strong>. Beyond this, your <strong>habit ('aadah)</strong> determines which days are haiz.</span>
+                <span data-lang-text="ru"><strong>Haiz ki zyada se zyada muddat 10 din hai</strong>. Is se zyada ke liye aapki <strong>aadat</strong> tay karegi.</span>
+                <span data-lang-text="ur"><strong>حیض کی زیادہ سے زیادہ مدت ۱۰ دن ہے</strong>۔ اس سے زیادہ کے لیے آپکی <strong>عادت</strong> طے کرے گی۔</span>
+              </p>
+            </div>
+            <div class="qa-followup">
+              <p class="qa-followup-q">
+                <span data-lang-text="en">Do you have an established habit (your regular duration)?</span>
+                <span data-lang-text="ru">Kya aapki koi aadat qaim hai (aapki normal muddat)?</span>
+                <span data-lang-text="ur">کیا آپکی کوئی عادت قائم ہے (آپکی معمول کی مدت)؟</span>
+              </p>
+              <div class="qa-options compact">
+                <button class="qa-option" data-goto="haiz-has-habit">
+                  <T en="Yes, I have a habit" ru="Haan, meri aadat hai" ur="ہاں، میری عادت ہے" />
+                </button>
+                <button class="qa-option" data-goto="haiz-no-habit">
+                  <T en="No, first time / don't know" ru="Nahi, pehli baar / nahi malum" ur="نہیں، پہلی بار / نہیں معلوم" />
+                </button>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-current-duration">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Has habit -->
+          <div class="qa-screen" data-screen="haiz-has-habit">
+            <span class="qa-badge">Based on Habit</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Your Habit Days = Haiz</span>
+                <span data-lang-text="ru">Aapke Aadat Ke Din = Haiz</span>
+                <span data-lang-text="ur">آپکی عادت کے دن = حیض</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Count your habitual days as haiz. The remaining days are istihaza (you must pray during those days).</span>
+                <span data-lang-text="ru">Apne aadat ke dinon ko haiz shumaar karein. Baqi din istihaza hain (un dinon mein namaz zaroori hai).</span>
+                <span data-lang-text="ur">اپنی عادت کے دنوں کو حیض شمار کریں۔ باقی دن استحاضہ ہیں (ان دنوں میں نماز ضروری ہے)۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Example" ru="Misaal" ur="مثال" /></span>
+                <p>
+                  <span data-lang-text="en">If your habit is 7 days: Days 1-7 = Haiz, Days 8+ = Istihaza</span>
+                  <span data-lang-text="ru">Agar aapki aadat 7 din hai: Din 1-7 = Haiz, Din 8+ = Istihaza</span>
+                  <span data-lang-text="ur">اگر آپکی عادت ۷ دن ہے: دن ۱-۷ = حیض، دن ۸+ = استحاضہ</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-more-10">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: No habit -->
+          <div class="qa-screen" data-screen="haiz-no-habit">
+            <span class="qa-badge">No Habit</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">First 10 Days = Haiz</span>
+                <span data-lang-text="ru">Pehle 10 Din = Haiz</span>
+                <span data-lang-text="ur">پہلے ۱۰ دن = حیض</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Since you have no established habit, consider the <strong>first 10 days as haiz</strong>. Any bleeding beyond 10 days is istihaza.</span>
+                <span data-lang-text="ru">Kyonke aapki koi aadat nahi, <strong>pehle 10 din haiz</strong> shumaar karein. 10 din se zyada khoon istihaza hai.</span>
+                <span data-lang-text="ur">چونکہ آپکی کوئی عادت نہیں، <strong>پہلے ۱۰ دن حیض</strong> شمار کریں۔ ۱۰ دن سے زیادہ خون استحاضہ ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="After 10 Days" ru="10 Din Ke Baad" ur="۱۰ دن کے بعد" /></span>
+                <p>
+                  <span data-lang-text="en">After 10 days: perform ghusl, resume salah. The extra days are istihaza (you must pray).</span>
+                  <span data-lang-text="ru">10 din ke baad: ghusl karein, namaz shuru karein. Zehda din istihaza hain (namaz zaroori hai).</span>
+                  <span data-lang-text="ur">۱۰ دن کے بعد: غسل کریں، نماز شروع کریں۔ اضافی دن استحاضہ ہیں (نماز ضروری ہے)۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-more-10">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Bleeding has stopped -->
+          <div class="qa-screen" data-screen="haiz-ended-question">
+            <span class="qa-badge">Haiz Ended</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">How long did the bleeding last?</span>
+              <span data-lang-text="ru">Khoon kitne din raha?</span>
+              <span data-lang-text="ur">خون کتنے دن رہا؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="haiz-ended-less3">
+                <T en="Less than 3 days" ru="3 din se kam" ur="۳ دن سے کم" />
+              </button>
+              <button class="qa-option" data-goto="haiz-ended-3to10">
+                <T en="3 to 10 days" ru="3 se 10 din" ur="۳ سے ۱۰ دن" />
+              </button>
+              <button class="qa-option" data-goto="haiz-ended-more10">
+                <T en="More than 10 days" ru="10 din se zyada" ur="۱۰ دن سے زیادہ" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="haiz-ended-less3">
+            <span class="qa-badge">Not Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">That was NOT Haiz</span>
+                <span data-lang-text="ru">Woh Haiz NAHI tha</span>
+                <span data-lang-text="ur">وہ حیض نہیں تھا</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Less than 3 days is istihaza. You must make up any salah you missed during that time.</span>
+                <span data-lang-text="ru">3 din se kam istihaza hai. Uss waqt ki chhooti hui namazon ki qaza karein.</span>
+                <span data-lang-text="ur">۳ دن سے کم استحاضہ ہے۔ اس وقت کی چھوٹی ہوئی نمازوں کی قضا کریں۔</span>
+              </p>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-ended-question">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="haiz-ended-3to10">
+            <span class="qa-badge">Valid Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">That was Valid Haiz — Alhmadulillah!</span>
+                <span data-lang-text="ru">Woh Sahih Haiz tha — Alhmadulillah!</span>
+                <span data-lang-text="ur">وہ صحیح تھا — الحمدللہ!</span>
+              </h3>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Now do ghusl" ru="Ab ghusl karein" ur="اب غسل کریں" /></span>
+                <p>
+                  <span data-lang-text="en">1. Perform ghusl immediately<br/>2. Resume salah and fasting<br/>3. Make up missed Ramadan fasts<br/>4. Missed salah does NOT need qaza</span>
+                  <span data-lang-text="ru">1. Ghusl foran karein<br/>2. Namaz aur roza shuru karein<br/>3. Ramadan ke chhoote hue rozon ki qaza karein<br/>4. Chhooti hui namaz ki qaza nahi</span>
+                  <span data-lang-text="ur">1. غسل فوراً کریں<br/>2. نماز اور روزہ شروع کریں<br/>3. رمضان کے چھوٹے ہوئے روزوں کی قضا کریں<br/>4. چھوٹی ہوئی نماز کی قضا نہیں</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-ended-question">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="haiz-ended-more10">
+            <span class="qa-badge">Exceeds Maximum</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Exceeds 10 Days — Use Habit</span>
+                <span data-lang-text="ru">10 Din Se Zyada — Aadat Use Karein</span>
+                <span data-lang-text="ur">۱۰ دن سے زیادہ — عادت Use کریں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">If you have a habit, that many days were haiz. If no habit, first 10 days were haiz. The rest was istihaza.</span>
+                <span data-lang-text="ru">Agar aadat hai, utne din haiz the. Agar aadat nahi, pehle 10 din haiz the. Baqi istihaza tha.</span>
+                <span data-lang-text="ur">اگر عادت ہے، اتنے دن حیض تھے۔ اگر عادت نہیں، پہلے ۱۰ دن حیض تھے۔ باقی استحاضہ تھا۔</span>
+              </p>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-ended-question">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: General Info -->
+          <div class="qa-screen" data-screen="haiz-advice">
+            <span class="qa-badge">Haiz Info</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What would you like to know?</span>
+              <span data-lang-text="ru">Aap kya jaanna chahte hain?</span>
+              <span data-lang-text="ur">آپ کیا جاننا چاہتے ہیں؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="haiz-age-info">
+                <T en="Age limits (when does it start/stop?)" ru="Umr ki haddiyaan (kab shuru/hotm hota hai?)" ur="عمر کی حدیں (کب شروع/ہوتم ہوتی ہے؟)" />
+              </button>
+              <button class="qa-option" data-goto="haiz-colors-info">
+                <T en="What colors count as haiz?" ru="Kis rang ka khoon haiz mana jata hai?" ur="کس رنگ کا خون حیض مانا جاتا ہے؟" />
+              </button>
+              <button class="qa-option" data-goto="haiz-tuhr-info">
+                <T en="Gap between periods (tuhr)" ru="Do haiz ke darmiyan waqfa (tuhr)" ur="دو حیض کے درمیان وقفہ (طہر)" />
+              </button>
+              <button class="qa-option" data-goto="haiz-prayed-unknowingly">
+                <T en="I prayed during haiz without knowing" ru="Maine bina jaane haiz mein namaz parhi" ur="میں نے بنا جانے حیض میں نماز پڑھی" />
+              </button>
+              <button class="qa-option" data-goto="haiz-misconception-7days">
+                <T en="Can I fast after 7 days?" ru="Kya 7 din ke baad roza rakh sakti hoon?" ur="کیا ۷ دن کے بعد روزہ رکھ سکتی ہوں؟" />
+              </button>
+              <button class="qa-option" data-goto="haiz-pregnant">
+                <T en="Bleeding during pregnancy" ru="Hamal mein khoon aana" ur="حمل میں خون آنا" />
+              </button>
+              <button class="qa-option" data-goto="haiz-fasted-gap">
+                <T en="I fasted/prayed during gap, then bleeding returned" ru="Maine waqfe mein roza/namaz ki, phir khoon aaya" ur="میں نے وقفے میں روزہ/نماز کی، پھر خون آیا" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="haiz-age-info">
+            <span class="qa-badge">Haiz Age</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Age Limits for Haiz</span>
+                <span data-lang-text="ru">Haiz Ki Umr Ki Haddiyaan</span>
+                <span data-lang-text="ur">حیض کی عمر کی حدیں</span>
+              </h3>
+              <ul class="qa-answer-list">
+                <li>
+                  <span data-lang-text="en"><strong>Minimum age:</strong> 9 years (before this is istihaza)</span>
+                  <span data-lang-text="ru"><strong>Kam se kam umar:</strong> 9 saal (is se pehle istihaza)</span>
+                  <span data-lang-text="ur"><strong>کم سے کم عمر:</strong> ۹ سال (اس سے پہلے استحاضہ)</span>
+                </li>
+                <li>
+                  <span data-lang-text="en"><strong>Maximum age (menopause):</strong> 55 years (after this bleeding is usually istihaza, but see exception)</span>
+                  <span data-lang-text="ru"><strong>Zyada se zyada umar:</strong> 55 saal (is ke baad khoon aam taur par istihaza, lekin exception dekhein)</span>
+                  <span data-lang-text="ur"><strong>زیادہ سے زیادہ عمر:</strong> ۵۵ سال (اس کے بعد خون عام طور پر استحاضہ، لیکن exception دیکھیں)</span>
+                </li>
+              </ul>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Important Exception" ru="Ahem Exception" ur="اہم Exception" /></span>
+                <p>
+                  <span data-lang-text="en">If above 55 and bleeding looks like your previous haiz (same color/pattern), it IS still haiz.</span>
+                  <span data-lang-text="ru">55 se oopar aur khoon pehle jaisa dikhe (wahi rang/pattern), to woh phir bhi haiz hai.</span>
+                  <span data-lang-text="ur">۵۵ سے اوپر اور خون پہلے جیسا دکھے (وہی رنگ/pattern)، تو وہ پھر بھی حیض ہے۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-advice">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="haiz-colors-info">
+            <span class="qa-badge">Haiz Colors</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">6 Valid Colors of Haiz Blood</span>
+                <span data-lang-text="ru">Khoon Ke 6 Durust Rang</span>
+                <span data-lang-text="ur">خون کے ۶ درست رنگ</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">In the Hanafi school, haiz blood can be any of these 6 colors:</span>
+                <span data-lang-text="ru">Hanafi maslak mein haiz ka khoon in 6 rangon mein se koi bhi ho sakta hai:</span>
+                <span data-lang-text="ur">حنفی مسلک میں حیض کا خون ان ۶ رنگوں میں سے کوئی بھی ہو سکتا ہے:</span>
+              </p>
+              <ul class="qa-answer-list">
+                <li><span data-lang-text="en">Black (siyah)</span><span data-lang-text="ru">Kaala (siyah)</span><span data-lang-text="ur">کالا (سیاہ)</span></li>
+                <li><span data-lang-text="en">Red (surkh)</span><span data-lang-text="ru">Surkh (laal)</span><span data-lang-text="ur">سرخ (لال)</span></li>
+                <li><span data-lang-text="en">Green (sabz)</span><span data-lang-text="ru">Sabz (hara)</span><span data-lang-text="ur">سبز (ہرا)</span></li>
+                <li><span data-lang-text="en">Yellow (zard)</span><span data-lang-text="ru">Zard (peela)</span><span data-lang-text="ur">زرد (پیلا)</span></li>
+                <li><span data-lang-text="en">Turbid/Muddy (gadla)</span><span data-lang-text="ru">Gadla (maila)</span><span data-lang-text="ur">گدلا (میلا)</span></li>
+                <li><span data-lang-text="en">Dust-colored (matila)</span><span data-lang-text="ru">Matila (mitti jaisa)</span><span data-lang-text="ur">مٹیلا (مٹی جیسا)</span></li>
+              </ul>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Important" ru="Ahem" ur="اہم" /></span>
+                <p>
+                  <span data-lang-text="en"><strong>White discharge is NOT haiz</strong> — it is a sign of purity (tuhr).</span>
+                  <span data-lang-text="ru"><strong>Safed discharge haiz NAHI hai</strong> — yeh paaki (tuhr) ki nishani hai.</span>
+                  <span data-lang-text="ur"><strong>سفید ڈسچارج حیض نہیں ہے</strong> — یہ پاکی (طہر) کی نشانی ہے۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-advice">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="haiz-tuhr-info">
+            <span class="qa-badge">Tuhr (Gap)</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Minimum Gap Between Haiz</span>
+                <span data-lang-text="ru">Do Haiz Ke Darmiyan Kam Se Kam Waqfa</span>
+                <span data-lang-text="ur">دو حیض کے درمیان کم سے کم وقفہ</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">The <strong>minimum tuhr (purity gap) is 15 days</strong>. If bleeding returns before 15 clean days, the second bleeding is istihaza, NOT a new haiz.</span>
+                <span data-lang-text="ru"><strong>Kam se kam tuhr 15 din hai</strong>. Agar 15 saaf din guzarne se pehle khoon aa jaye, doosra khoon istihaza hai, naya haiz nahi.</span>
+                <span data-lang-text="ur"><strong>کم سے کم طہر ۱۵ دن ہے</strong>۔ اگر ۱۵ صاف دن گزرنے سے پہلے خون آ جائے، دوسرا خون استحاضہ ہے، نیا حیض نہیں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Example" ru="Misaal" ur="مثال" /></span>
+                <p>
+                  <span data-lang-text="en">Haiz 7 days → Clean 8 days → Bleeding = Istihaza (gap only 8 days, less than 15)</span>
+                  <span data-lang-text="ru">Haiz 7 din → Paak 8 din → Khoon = Istihaza (fasla sirf 8 din, 15 se kam)</span>
+                  <span data-lang-text="ur">حیض ۷ دن → پاک ۸ دن → خون = استحاضہ (فاصلہ صرف ۸ دن، ۱۵ سے کم)</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-advice">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Prayed unknowingly during haiz -->
+          <div class="qa-screen" data-screen="haiz-prayed-unknowingly">
+            <span class="qa-badge">Important</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">No Sin — But the Prayer Does Not Count</span>
+                <span data-lang-text="ru">Gunah Nahi — Lekin Namaz Shumaar Nahi Hogi</span>
+                <span data-lang-text="ur">گناہ نہیں — لیکن نماز شمار نہیں ہوگی</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">If you prayed without realizing you were in haiz, <strong>there is no sin on you</strong>. However, the prayer performed during haiz is <strong>not valid</strong>. Since salah during haiz is excused by Allah, <strong>you do not need to make it up (qaza)</strong> either.</span>
+                <span data-lang-text="ru">Agar aapne bina jaane haiz mein namaz parhi, to <strong>aap par koi gunah nahi</strong>. Lekin haiz mein parhi hui namaz <strong>sahih nahi hai</strong>. Chunkeh haiz mein namaz Allah ne maaf ki hai, <strong>qaza bhi nahi karni</strong>.</span>
+                <span data-lang-text="ur">اگر آپ نے بنا جانے حیض میں نماز پڑھی، تو <strong>آپ پر کوئی گناہ نہیں</strong>۔ لیکن حیض میں پڑھی ہوئی نماز <strong>صحیح نہیں ہے</strong>۔ چونکہ حیض میں نماز اللہ نے معاف کی ہے، <strong>قضا بھی نہیں کرنی</strong>۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Summary" ru="Khulasa" ur="خلاصہ" /></span>
+                <p>
+                  <span data-lang-text="en">• No sin for praying without knowing<br/>• The prayer is not counted (not valid)<br/>• No qaza needed for salah during haiz<br/>• If you fasted during haiz unknowingly, that fast also breaks — qaza is farz<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ke Ahkaam</span>
+                  <span data-lang-text="ru">• Bina jaane namaz parhne par koi gunah nahi<br/>• Namaz shumaar nahi (sahih nahi)<br/>• Haiz ki namaz ki qaza nahi karni<br/>• Agar bina jaane roza rakha to woh bhi toot jayega — qaza farz hai<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ke Ahkaam</span>
+                  <span data-lang-text="ur">• بنا جانے نماز پڑھنے پر کوئی گناہ نہیں<br/>• نماز شمار نہیں (صحیح نہیں)<br/>• حیض کی نماز کی قضا نہیں کرنی<br/>• اگر بنا جانے روزہ رکھا تو وہ بھی ٹوٹ جائے گا — قضا فرض ہے<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کے احکام</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-advice">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Misconception about 7 days -->
+          <div class="qa-screen" data-screen="haiz-misconception-7days">
+            <span class="qa-badge">Misconception</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">WRONG — You Cannot Just Fast After 7 Days</span>
+                <span data-lang-text="ru">GHALAT — 7 Din Ke Baad Roza Rakhna Durust Nahi</span>
+                <span data-lang-text="ur">غلط — ۷ دن کے بعد روزہ رکھنا درست نہیں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">A common misconception is "7 din ke baad roza rakh lo" (fast after 7 days). This is <strong>WRONG</strong>. There is no fixed rule of 7 days. The correct ruling is:</span>
+                <span data-lang-text="ru">Aam ghalat fehmi hai ke "7 din ke baad roza rakh lo". Yeh <strong>GHALAT</strong> hai. 7 din ka koi pakka usool nahi. Sahih hukm yeh hai:</span>
+                <span data-lang-text="ur">عام غلط فہمی ہے کہ "۷ دن کے بعد روزہ رکھ لو"۔ یہ <strong>غلط</strong> ہے۔ ۷ دن کا کوئی پکا اصول نہیں۔ صحیح حکم یہ ہے:</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Correct Ruling" ru="Sahih Hukm" ur="صحیح حکم" /></span>
+                <p>
+                  <span data-lang-text="en"><strong>Your haiz ends when bleeding ACTUALLY STOPS</strong> — not at some fixed number of days. Every woman's cycle is different.<br/><br/>• If your habit is 5 days and bleeding stops at 5 → ghusl, start praying/fasting<br/>• If your habit is 8 days and bleeding stops at 8 → ghusl, start praying/fasting<br/>• If bleeding continues past 10 days → your habit days = haiz, rest = istihaza<br/><br/>You can only fast/pray after bleeding STOPS and you do ghusl. There is NO shortcut of "7 din".<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan</span>
+                  <span data-lang-text="ru"><strong>Aapka haiz tab khatam hota hai jab khoon WAQI MEIN band ho</strong> — kisi pakke dino ki tadaad par nahi. Har aurat ka cycle alag hai.<br/><br/>• Agar aadat 5 din hai aur khoon 5 din par band ho → ghusl karein, namaz/roza shuru<br/>• Agar aadat 8 din hai aur khoon 8 din par band ho → ghusl karein, namaz/roza shuru<br/>• Agar khoon 10 din se zyada chale → aadat ke din = haiz, baqi = istihaza<br/><br/>Roza/namaz sirf khoon BAND hone aur ghusl ke baad ho sakta hai. "7 din" ka koi shortcut nahi.<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan</span>
+                  <span data-lang-text="ur"><strong>آپکا حیض تب ختم ہوتا ہے جب خون واقعی میں بند ہو</strong> — کسی پکے دنوں کی تعداد پر نہیں۔ ہر عورت کا cycle الگ ہے۔<br/><br/>• اگر عادت ۵ دن ہے اور خون ۵ دن پر بند ہو → غسل کریں، نماز/روزہ شروع<br/>• اگر عادت ۸ دن ہے اور خون ۸ دن پر بند ہو → غسل کریں، نماز/روزہ شروع<br/>• اگر خون ۱۰ دن سے زیادہ چلے → عادت کے دن = حیض، باقی = استحاضہ<br/><br/>روزہ/نماز صرف خون بند ہونے اور غسل کے بعد ہو سکتا ہے۔ "۷ دن" کا کوئی shortcut نہیں۔<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-advice">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Pregnant woman bleeding -->
+          <div class="qa-screen" data-screen="haiz-pregnant">
+            <span class="qa-badge">Pregnancy</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Bleeding During Pregnancy = Istihaza</span>
+                <span data-lang-text="ru">Hamal Mein Khoon = Istihaza</span>
+                <span data-lang-text="ur">حمل میں خون = استحاضہ</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">In the Hanafi school, any bleeding during pregnancy is <strong>istihaza, NOT haiz</strong> and NOT nifas. Nifas only begins after the child is born.</span>
+                <span data-lang-text="ru">Hanafi maslak mein hamal ke dauraan koi bhi khoon <strong>istihaza hai, haiz NAHI</strong> aur na nifas. Nifas sirf bachche ki paidaish ke baad shuru hota hai.</span>
+                <span data-lang-text="ur">حنفی مسلک میں حمل کے دوران کوئی بھی خون <strong>استحاضہ ہے، حیض نہیں</strong> اور نہ نفاس۔ نفاس صرف بچے کی پیدائش کے بعد شروع ہوتا ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en">• Salah is FARZ during pregnancy bleeding<br/>• Fasting is FARZ if physically able<br/>• Make fresh wudu for each salah time<br/>• If bleeding is continuous, ma'zoor rules apply<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 8</span>
+                  <span data-lang-text="ru">• Hamal ke khoon mein namaz FARZ hai<br/>• Agar jism ki taqat ho to roza FARZ hai<br/>• Har namaz ke waqt naya wuzu karein<br/>• Agar khoon musalsal rahe to ma'zoor ke ahkaam<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 8</span>
+                  <span data-lang-text="ur">• حمل کے خون میں نماز FARZ ہے<br/>• اگر جسم کی طاقت ہو تو روزہ FARZ ہے<br/>• ہر نماز کے وقت نیا وضو کریں<br/>• اگر خون مسلسل رہے تو معذور کے احکام<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان، مسئلہ ۸</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-advice">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Haiz: Fasted/prayed during gap, then bleeding returned -->
+          <div class="qa-screen" data-screen="haiz-fasted-gap">
+            <span class="qa-badge">Important</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">Was the total time from first bleeding to the return of spotting within 10 days?</span>
+              <span data-lang-text="ru">Pehle khoon se le kar nuqtay wapas aane tak kul 10 din ke andar tha?</span>
+              <span data-lang-text="ur">پہلے خون سے لے کر نقطے واپس آنے تک کل ۱۰ دن کے اندر تھا؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="haiz-fasted-gap-within10">
+                <T en="Yes, within 10 days total" ru="Haan, kul 10 din ke andar" ur="ہاں، کل ۱۰ دن کے اندر" />
+              </button>
+              <button class="qa-option" data-goto="haiz-fasted-gap-over10">
+                <T en="No, more than 10 days total" ru="Nahi, kul 10 din se zyada" ur="نہیں، کل ۱۰ دن سے زیادہ" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-advice">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Fasted during gap - within 10 days -->
+          <div class="qa-screen" data-screen="haiz-fasted-gap-within10">
+            <span class="qa-badge">Haiz Ruling</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Those Fasts & Prayers Do Not Count</span>
+                <span data-lang-text="ru">Woh Roze Aur Namazein Shumaar Nahi</span>
+                <span data-lang-text="ur">وہ روزے اور نمازیں شمار نہیں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Since the bleeding returned within the 10-day window, the <strong>entire period is haiz</strong> — including the clean gap. The prayers you performed during the gap are <strong>not valid</strong> (but no qaza needed for salah). The fasts you kept are <strong>broken — you must make them up (qaza)</strong>.</span>
+                <span data-lang-text="ru">Chunkeh khoon 10 din ke andar wapas aaya, <strong>poori muddat haiz hai</strong> — saaf waqfa samait. Waqfe mein parhi hui namazein <strong>sahih nahi</strong> (lekin qaza nahi karni). Rakhay hue roze <strong>toot gaye — qaza farz hai</strong>.</span>
+                <span data-lang-text="ur">چونکہ خون ۱۰ دن کے اندر واپس آیا، <strong>پوری مدت حیض ہے</strong> — صاف وقفہ سمیت۔ وقفے میں پڑھی ہوئی نمازیں <strong>صحیح نہیں</strong> (لیکن قضا نہیں کرنی)۔ رکھے ہوئے روزے <strong>ٹوٹ گئے — قضا فرض ہے</strong>۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="What to do" ru="Kya karein" ur="کیا کریں" /></span>
+                <p>
+                  <span data-lang-text="en">• Salah during the gap: no qaza needed (haiz salah is excused)<br/>• Fasts during the gap: qaza is FARZ (must make up)<br/>• There is no sin — you acted based on what you knew<br/>• Wait until bleeding fully stops and 10 days are complete<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 5; Haiz ke Ahkaam, Masla 25</span>
+                  <span data-lang-text="ru">• Waqfe ki namaz: qaza nahi karni (haiz ki namaz maaf hai)<br/>• Waqfe ke roze: qaza FARZ hai (puri karni hogi)<br/>• Koi gunah nahi — aapne woh kiya jo malum tha<br/>• Jab tak khoon puri tarah band na ho aur 10 din poore hon, intezaar karein<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 5; Haiz ke Ahkaam, Masla 25</span>
+                  <span data-lang-text="ur">• وقفے کی نماز: قضا نہیں کرنی (حیض کی نماز معاف ہے)<br/>• وقفے کے روزے: قضا FARZ ہے (پوری کرنی ہوگی)<br/>• کوئی گناہ نہیں — آپ نے وہ کیا جو معلوم تھا<br/>• جب تک خون پوری طرح بند نہ ہو اور ۱۰ دن پورے ہوں، انتظار کریں<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان، مسئلہ ۵؛ حیض کے احکام، مسئلہ ۲۵</span>
+                </p>
+              </div>
+              <div class="qa-example">
+                <span class="qa-example-label"><T en="Example" ru="Misaal" ur="مثال" /></span>
+                <div class="qa-timeline">
+                  <div class="timeline-block haiz">
+                    <span class="timeline-label"><T en="Blood" ru="Khoon" ur="خون" /></span>
+                    <span class="timeline-days"><T en="5 days" ru="5 din" ur="۵ دن" /></span>
+                  </div>
+                  <div class="timeline-block tuhr short">
+                    <span class="timeline-label"><T en="Gap" ru="Waqfa" ur="وقفہ" /></span>
+                    <span class="timeline-days"><T en="2 days" ru="2 din" ur="۲ دن" /></span>
+                  </div>
+                  <div class="timeline-block haiz">
+                    <span class="timeline-label"><T en="Dots" ru="Nuqtay" ur="نقطے" /></span>
+                    <span class="timeline-days"><T en="1 day" ru="1 din" ur="۱ دن" /></span>
+                  </div>
+                </div>
+                <p class="qa-example-note">
+                  <span data-lang-text="en">Total = 8 days (within 10). All 8 days = haiz. Fasts kept on days 6-7 must be made up.</span>
+                  <span data-lang-text="ru">Kul = 8 din (10 ke andar). Poore 8 din = haiz. Din 6-7 ke rozon ki qaza karein.</span>
+                  <span data-lang-text="ur">کل = ۸ دن (۱۰ کے اندر)۔ پورے ۸ دن = حیض۔ دن ۶-۷ کے روزوں کی قضا کریں۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-fasted-gap">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Fasted during gap - over 10 days -->
+          <div class="qa-screen" data-screen="haiz-fasted-gap-over10">
+            <span class="qa-badge">Habit Applies</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Your Habit Determines — Retroactive Ruling</span>
+                <span data-lang-text="ru">Aapki Aadat Se Tay Hoga — Wapas Laagu Hoga</span>
+                <span data-lang-text="ur">آپکی عادت سے طے ہوگا — واپس لاگو ہوگا</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Since the total exceeds 10 days, your <strong>habit ('aadah)</strong> is used to determine haiz days. Your habitual number of days = haiz (starting from day 1). Everything beyond that = istihaza.</span>
+                <span data-lang-text="ru">Chunkeh kul 10 din se zyada hua, aapki <strong>aadat</strong> se haiz ke din tay honge. Aapke aadat ke din = haiz (din 1 se). Usse aage = istihaza.</span>
+                <span data-lang-text="ur">چونکہ کل ۱۰ دن سے زیادہ ہوا، آپکی <strong>عادت</strong> سے حیض کے دن طے ہوں گے۔ آپکے عادت کے دن = حیض (دن ۱ سے)۔ اس سے آگے = استحاضہ۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="What to do about fasts/prayers" ru="Rozon/namazon ka kya karein" ur="روزوں/نمازوں کا کیا کریں" /></span>
+                <p>
+                  <span data-lang-text="en">• Count back: fasts kept during actual haiz days = broken, qaza farz<br/>• Fasts kept during istihaza days = valid, no qaza needed<br/>• Prayers during haiz days = excused (no qaza)<br/>• Prayers missed during istihaza days = qaza farz<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 4-5</span>
+                  <span data-lang-text="ru">• Wapas gino: haiz ke dinon mein rakhay roze = toote, qaza farz<br/>• Istihaza ke dinon mein rakhay roze = sahih, qaza nahi<br/>• Haiz ke dinon ki namaz = maaf (qaza nahi)<br/>• Istihaza ke dinon ki chhooti namaz = qaza farz<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 4-5</span>
+                  <span data-lang-text="ur">• واپس گنیں: حیض کے دنوں میں رکھے روزے = ٹوٹے، قضا فرض<br/>• استحاضہ کے دنوں میں رکھے روزے = صحیح، قضا نہیں<br/>• حیض کے دنوں کی نماز = معاف (قضا نہیں)<br/>• استحاضہ کے دنوں کی چھوٹی نماز = قضا فرض<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان، مسئلہ ۴-۵</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="haiz-fasted-gap">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- ============ ISTIHAZA FLOW ============ -->
+          <div class="qa-screen" data-screen="istihaza-start">
+            <span class="qa-badge">Istihaza</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What do you need to know about istihaza?</span>
+              <span data-lang-text="ru">Istihaza ke baare mein kya jaanna chahte hain?</span>
+              <span data-lang-text="ur">استحاضہ کے بارے میں کیا جاننا چاہتے ہیں؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="istihaza-ruling">
+                <T en="What is istihaza and its ruling?" ru="Istihaza kya hai aur uska hukm?" ur="استحاضہ کیا ہے اور اسکا حکم؟" />
+              </button>
+              <button class="qa-option" data-goto="istihaza-wudu">
+                <T en="How to make wudu with istihaza?" ru="Istihaza mein wuzu kaise karein?" ur="استحاضہ میں وضو کیسے کریں؟" />
+              </button>
+              <button class="qa-option" data-goto="istihaza-mazoor">
+                <T en="What is ma'zoor (excused person)?" ru="Ma'zoor (mazoor) kya hota hai?" ur="معذور کیا ہوتا ہے؟" />
+              </button>
+              <button class="qa-option" data-goto="istihaza-fasting">
+                <T en="Can I fast during istihaza?" ru="Istihaza mein roza rakh sakti hoon?" ur="استحاضہ میں روزہ رکھ سکتی ہوں؟" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="istihaza-ruling">
+            <span class="qa-badge">Istihaza Ruling</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Istihaza — What is it?</span>
+                <span data-lang-text="ru">Istihaza — Yeh kya hai?</span>
+                <span data-lang-text="ur">استحاضہ — یہ کیا ہے؟</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Istihaza is any bleeding that does NOT meet haiz criteria — less than 3 days, more than 10 days, or bleeding during pregnancy.</span>
+                <span data-lang-text="ru">Istihaza woh khoon hai jo haiz ki shartein poori NAHI karta — 3 din se kam, 10 din se zyada, ya hamal ke dauran.</span>
+                <span data-lang-text="ur">استحاضہ وہ خون ہے جو حیض کی شرائط پوری نہیں کرتا — ۳ دن سے کم، ۱۰ دن سے زیادہ، یا حمل کے دوران۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Key Ruling" ru="Ahem Hukm" ur="اہم حکم" /></span>
+                <p>
+                  <span data-lang-text="en"><strong>You MUST pray during istihaza.</strong> It does not prevent salah or fasting.</span>
+                  <span data-lang-text="ru"><strong>Istihaza mein namaz FARZ hai.</strong> Yeh namaz ya roze se nahi rokta.</span>
+                  <span data-lang-text="ur"><strong>استحاضہ میں نماز FARZ ہے۔</strong> یہ نماز یا روزے سے نہیں روکتا۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="istihaza-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="istihaza-wudu">
+            <span class="qa-badge">Istihaza + Wudu</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Wudu with Istihaza</span>
+                <span data-lang-text="ru">Istihaza Mein Wuzu</span>
+                <span data-lang-text="ur">استحاضہ میں وضو</span>
+              </h3>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Method" ru="Tareeqa" ur="طریقہ" /></span>
+                <p>
+                  <span data-lang-text="en">1. Make fresh wudu for each fard salah time<br/>2. If bleeding is continuous, you are a <strong>ma'zoor</strong> (excused)<br/>3. Your wudu stays valid for the entire salah time<br/>4. If bleeding stops, make wudu for the next salah</span>
+                  <span data-lang-text="ru">1. Har farz namaz ke liye naya wuzu karein<br/>2. Agar khoon musalsal rahe to aap <strong>ma'zoor</strong> hain<br/>3. Aapka wuzu poore namaz ke waqt tak rahega<br/>4. Agar khoon band ho jaye, agli namaz ke liye wuzu karein</span>
+                  <span data-lang-text="ur">1. ہر فرض نماز کے لیے نیا وضو کریں<br/>2. اگر خون مسلسل رہے تو آپ <strong>معذور</strong> ہیں<br/>3. آپکا وضو پورے نماز کے وقت تک رہے گا<br/>4. اگر خون بند ہو جائے، اگلی نماز کے لیے وضو کریں</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="istihaza-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Istihaza: Ma'zoor explained -->
+          <div class="qa-screen" data-screen="istihaza-mazoor">
+            <span class="qa-badge">Ma'zoor</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Who is a Ma'zoor (Excused Person)?</span>
+                <span data-lang-text="ru">Ma'zoor (Mazoor) Kaun Hai?</span>
+                <span data-lang-text="ur">معذور کون ہے؟</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">A woman becomes a <strong>ma'zoor</strong> (excused person) when her bleeding or discharge is so continuous that she <strong>cannot maintain wudu for one complete fard namaz time</strong>.</span>
+                <span data-lang-text="ru">Aurat <strong>ma'zoor</strong> tab banti hai jab uska khoon ya discharge itna musalsal ho ke woh <strong>ek poore farz namaz ke waqt tak wuzu qaim nahi rakh sakti</strong>.</span>
+                <span data-lang-text="ur">عورت <strong>معذور</strong> تب بنتی ہے جب اسکا خون یا discharge اتنا مسلسل ہو کہ وہ <strong>ایک پورے فرض نماز کے وقت تک وضو قائم نہیں رکھ سکتی</strong>۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ma'zoor Rules" ru="Ma'zoor Ke Ahkaam" ur="معذور کے احکام" /></span>
+                <p>
+                  <span data-lang-text="en"><strong>How it starts:</strong> Bleeding must be continuous for one entire salah time (e.g., from Zuhr to Asr) — not even enough gap to perform wudu and pray.<br/><br/><strong>How it continues:</strong> Once established, ma'zoor status continues as long as bleeding occurs at least once in each subsequent salah time.<br/><br/><strong>How it ends:</strong> If one complete salah time passes with NO bleeding at all, ma'zoor status ends.<br/><br/><strong>Wudu rule:</strong> Ma'zoor makes wudu at the start of each salah time. That wudu is valid until the next salah time enters — even if bleeding occurs during the prayer.<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Istihaza ka Bayan, Masla 2-7</span>
+                  <span data-lang-text="ru"><strong>Kaise shuru hota hai:</strong> Khoon ek poore namaz ke waqt tak musalsal rahe (maslan Zuhr se Asr tak) — itna bhi waqfa na ho ke wuzu kar ke namaz parh sake.<br/><br/><strong>Kaise jaari rehta hai:</strong> Qaim hone ke baad, ma'zoor ka darja jab tak hai jab tak har namaz ke waqt mein kam se kam ek martaba khoon aaye.<br/><br/><strong>Kaise khatam hota hai:</strong> Agar ek poore namaz ka waqt bilkul bina khoon ke guzar jaye to ma'zoor ka darja khatam.<br/><br/><strong>Wuzu ka usool:</strong> Ma'zoor har namaz ke waqt ki ibtida mein wuzu kare. Woh wuzu agle waqt ke shuru hone tak sahih rahega — chahe namaz ke dauraan khoon aaye.<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Istihaza ka Bayan, Masla 2-7</span>
+                  <span data-lang-text="ur"><strong>کیسے شروع ہوتا ہے:</strong> خون ایک پورے نماز کے وقت تک مسلسل رہے (مثلاً ظہر سے عصر تک) — اتنا بھی وقفہ نہ ہو کہ وضو کر کے نماز پڑھ سکے۔<br/><br/><strong>کیسے جاری رہتا ہے:</strong> قائم ہونے کے بعد، معذور کا درجہ جب تک ہے جب تک ہر نماز کے وقت میں کم سے کم ایک مرتبہ خون آئے۔<br/><br/><strong>کیسے ختم ہوتا ہے:</strong> اگر ایک پورے نماز کا وقت بالکل بنا خون کے گزر جائے تو معذور کا درجہ ختم۔<br/><br/><strong>وضو کا اصول:</strong> معذور ہر نماز کے وقت کی ابتدا میں وضو کرے۔ وہ وضو اگلے وقت کے شروع ہونے تک صحیح رہے گا — چاہے نماز کے دوران خون آئے۔<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، استحاضہ کا بیان، مسئلہ ۲-۷</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="istihaza-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Istihaza: Fasting -->
+          <div class="qa-screen" data-screen="istihaza-fasting">
+            <span class="qa-badge">Istihaza + Fasting</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Yes — You MUST Fast During Istihaza</span>
+                <span data-lang-text="ru">Haan — Istihaza Mein Roza FARZ Hai</span>
+                <span data-lang-text="ur">ہاں — استحاضہ میں روزہ FARZ ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Istihaza does NOT prevent fasting. Unlike haiz (where fasting is haram), during istihaza <strong>all acts of worship are obligatory</strong> — salah, fasting, etc.</span>
+                <span data-lang-text="ru">Istihaza roze se NAHI rokta. Haiz ke baraks (jahan roza haram hai), istihaza mein <strong>tamaam ibadaat farz hain</strong> — namaz, roza, waghaira.</span>
+                <span data-lang-text="ur">استحاضہ روزے سے نہیں روکتا۔ حیض کے برعکس (جہاں روزہ حرام ہے)، استحاضہ میں <strong>تمام عبادات فرض ہیں</strong> — نماز، روزہ، وغیرہ۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Summary" ru="Khulasa" ur="خلاصہ" /></span>
+                <p>
+                  <span data-lang-text="en">• Fasting during istihaza is FARZ (if in Ramadan)<br/>• Your fast is valid despite the bleeding<br/>• You can also do nafl fasts during istihaza<br/>• The bleeding is istihaza, not haiz — it doesn't break the fast<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Istihaza ka Bayan, Masla 1</span>
+                  <span data-lang-text="ru">• Istihaza mein roza FARZ hai (agar Ramadan mein ho)<br/>• Khoon ke bawajood aapka roza sahih hai<br/>• Istihaza mein nafl roze bhi rakh sakti hain<br/>• Yeh khoon istihaza hai, haiz nahi — roza nahi todta<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Istihaza ka Bayan, Masla 1</span>
+                  <span data-lang-text="ur">• استحاضہ میں روزہ FARZ ہے (اگر رمضان میں ہو)<br/>• خون کے باوجود آپکا روزہ صحیح ہے<br/>• استحاضہ میں نفل روزے بھی رکھ سکتی ہیں<br/>• یہ خون استحاضہ ہے، حیض نہیں — روزہ نہیں توڑتا<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، استحاضہ کا بیان، مسئلہ ۱</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="istihaza-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- ============ NIFAS FLOW ============ -->
+          <div class="qa-screen" data-screen="nifas-start">
+            <span class="qa-badge">Nifas</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What do you need to know about nifas (postnatal bleeding)?</span>
+              <span data-lang-text="ru">Nifas (wiladat ke baad khoon) ke baare mein kya jaanna chahte hain?</span>
+              <span data-lang-text="ur">نفاس (ولادت کے بعد خون) کے بارے میں کیا جاننا چاہتے ہیں؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="nifas-duration">
+                <T en="How long does nifas last?" ru="Nifas kitne din rehta hai?" ur="نفاس کتنے دن رہتا ہے؟" />
+              </button>
+              <button class="qa-option" data-goto="nifas-rulings">
+                <T en="What are the rulings during nifas?" ru="Nifas ke dauran kaunse ahkaam hain?" ur="نفاس کے دوران کون سے احکام ہیں؟" />
+              </button>
+              <button class="qa-option" data-goto="nifas-early-stop">
+                <T en="Bleeding stopped before 40 days" ru="Khoon 40 din se pehle band ho gaya" ur="خون ۴۰ دن سے پہلے بند ہو گیا" />
+              </button>
+              <button class="qa-option" data-goto="nifas-over40">
+                <T en="Bleeding continued beyond 40 days" ru="Khoon 40 din se zyada chala" ur="خون ۴۰ دن سے زیادہ چلا" />
+              </button>
+              <button class="qa-option" data-goto="nifas-miscarriage">
+                <T en="Bleeding after miscarriage" ru="Hamal girne ke baad khoon" ur="حمل گرنے کے بعد خون" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="nifas-duration">
+            <span class="qa-badge">Nifas Duration</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Nifas Duration</span>
+                <span data-lang-text="ru">Nifas Ki Muddat</span>
+                <span data-lang-text="ur">نفاس کی مدت</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">The <strong>maximum nifas is 40 days</strong>. There is no minimum — bleeding can stop immediately after childbirth.</span>
+                <span data-lang-text="ru"><strong>Nifas ki zyada se zyada muddat 40 din hai</strong>. Koi minimum nahi — khoon bilkul shuru mein hi band ho sakta hai.</span>
+                <span data-lang-text="ur"><strong>نفاس کی زیادہ سے زیادہ مدت ۴۰ دن ہے</strong>۔ کوئی کم سے کم نہیں — خون بالکل شروع میں ہی بند ہو سکتا ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Key Points" ru="Ahem Baton" ur="اہم باتیں" /></span>
+                <p>
+                  <span data-lang-text="en">• Up to 40 days = nifas (same rulings as haiz)<br/>• More than 40 days = istihaza (must pray)<br/>• No minimum — even 1 drop counts as nifas</span>
+                  <span data-lang-text="ru">• 40 din tak = nifas (haiz ke ahkaam)<br/>• 40 din se zyada = istihaza (namaz zaroori)<br/>• Koi minimum nahi — 1 boond bhi nifas hai</span>
+                  <span data-lang-text="ur">• ۴۰ دن تک = نفاس (حیض کے احکام)<br/>• ۴۰ دن سے زیادہ = استحاضہ (نماز ضروری)<br/>• کوئی کم سے کم نہیں — ۱ بھی بوند بھی نفاس ہے</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="nifas-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="nifas-rulings">
+            <span class="qa-badge">Nifas Rulings</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Rulings During Nifas</span>
+                <span data-lang-text="ru">Nifas Ke Ahkaam</span>
+                <span data-lang-text="ur">نفاس کے احکام</span>
+              </h3>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Same as Haiz" ru="Haiz Jaisa" ur="حیض جیسا" /></span>
+                <p>
+                  <span data-lang-text="en">• Salah and fasting are not required<br/>• Missed salah does NOT need qaza<br/>• Missed fasts MUST be made up<br/>• Cannot recite Quran or touch mushaf<br/>• Cannot enter Masjid</span>
+                  <span data-lang-text="ru">• Namaz aur roza zaroori nahi<br/>• Chhooti hui namaz ki qaza nahi<br/>• Chhoote hue rozon ki qaza FARZ<br/>• Quran parhna ya mushaf chhoona nahi<br/>• Masjid mein jaana nahi</span>
+                  <span data-lang-text="ur">• نماز اور روزہ ضروری نہیں<br/>• چھوٹی ہوئی نماز کی قضا نہیں<br/>• چھوٹے ہوئے روزوں کی قضا FARZ<br/>• قرآن پڑھنا یا مصحف چھونا نہیں<br/>• مسجد میں جانا نہیں</span>
+                </p>
+              </div>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="After Nifas" ru="Nifas Ke Baad" ur="نفاس کے بعد" /></span>
+                <p>
+                  <span data-lang-text="en">1. After 40 days (or if bleeding stops): perform ghusl<br/>2. Resume salah and fasting<br/>3. Minimum gap between nifas and next haiz = 15 days</span>
+                  <span data-lang-text="ru">1. 40 din ke baad (ya khoon band ho): ghusl karein<br/>2. Namaz aur roza shuru karein<br/>3. Nifas aur agle haiz ke darmiyan kam se kam 15 din</span>
+                  <span data-lang-text="ur">1. ۴۰ دن کے بعد (یا خون بند ہو): غسل کریں<br/>2. نماز اور روزہ شروع کریں<br/>3. نفاس اور اگلے حیض کے درمیان کم سے کم ۱۵ دن</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="nifas-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Nifas: Early stop -->
+          <div class="qa-screen" data-screen="nifas-early-stop">
+            <span class="qa-badge">Nifas Early</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Alhamdulillah — Perform Ghusl & Resume Worship</span>
+                <span data-lang-text="ru">Alhamdulillah — Ghusl Karein Aur Ibadat Shuru Karein</span>
+                <span data-lang-text="ur">الحمدللہ — غسل کریں اور عبادت شروع کریں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">There is <strong>no minimum for nifas</strong>. If bleeding stops before 40 days — even after just a few hours — your nifas is complete.</span>
+                <span data-lang-text="ru">Nifas ki <strong>koi kam se kam muddat nahi</strong>. Agar khoon 40 din se pehle band ho jaye — chahe kuch ghanton ke baad — aapka nifas mukammal ho gaya.</span>
+                <span data-lang-text="ur">نفاس کی <strong>کوئی کم سے کم مدت نہیں</strong>۔ اگر خون ۴۰ دن سے پہلے بند ہو جائے — چاہے کچھ گھنٹوں کے بعد — آپکا نفاس مکمل ہو گیا۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="What to do" ru="Kya karein" ur="کیا کریں" /></span>
+                <p>
+                  <span data-lang-text="en">1. Perform ghusl immediately<br/>2. Resume salah and fasting<br/>3. Make up missed fasts (qaza farz)<br/>4. If bleeding returns after ghusl but within 40 days total = still nifas<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Nifas ka Bayan</span>
+                  <span data-lang-text="ru">1. Foran ghusl karein<br/>2. Namaz aur roza shuru karein<br/>3. Chhoote hue rozon ki qaza karein (farz)<br/>4. Agar ghusl ke baad khoon wapas aaye lekin kul 40 din ke andar ho = phir bhi nifas<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Nifas ka Bayan</span>
+                  <span data-lang-text="ur">1. فوراً غسل کریں<br/>2. نماز اور روزہ شروع کریں<br/>3. چھوٹے ہوئے روزوں کی قضا کریں (فرض)<br/>4. اگر غسل کے بعد خون واپس آئے لیکن کل ۴۰ دن کے اندر ہو = پھر بھی نفاس<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، نفاس کا بیان</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="nifas-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Nifas: Over 40 days -->
+          <div class="qa-screen" data-screen="nifas-over40">
+            <span class="qa-badge">Over 40 Days</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Beyond 40 Days = Istihaza</span>
+                <span data-lang-text="ru">40 Din Se Zyada = Istihaza</span>
+                <span data-lang-text="ur">۴۰ دن سے زیادہ = استحاضہ</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">The <strong>maximum nifas is 40 days</strong>. Any bleeding beyond 40 days is istihaza. If you had a habit from a previous pregnancy, your habit days = nifas and the rest = istihaza.</span>
+                <span data-lang-text="ru"><strong>Nifas ki zyada se zyada muddat 40 din hai</strong>. 40 din se zyada ka khoon istihaza hai. Agar pichli wiladat ki aadat hai to aadat ke din = nifas aur baqi = istihaza.</span>
+                <span data-lang-text="ur"><strong>نفاس کی زیادہ سے زیادہ مدت ۴۰ دن ہے</strong>۔ ۴۰ دن سے زیادہ کا خون استحاضہ ہے۔ اگر پچھلی ولادت کی عادت ہے تو عادت کے دن = نفاس اور باقی = استحاضہ۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en">• After 40 days: perform ghusl and start praying<br/>• Make up missed fasts (qaza farz)<br/>• If bleeding continues, make fresh wudu for each salah (ma'zoor rules)<br/>• Next haiz can only start after 15 clean days from end of nifas<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Nifas ka Bayan</span>
+                  <span data-lang-text="ru">• 40 din ke baad: ghusl karein aur namaz shuru karein<br/>• Chhoote hue rozon ki qaza karein (farz)<br/>• Agar khoon jaari rahe to har namaz ke liye naya wuzu (ma'zoor ke ahkaam)<br/>• Agla haiz nifas khatam hone ke 15 saaf dinon ke baad hi ho sakta hai<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Nifas ka Bayan</span>
+                  <span data-lang-text="ur">• ۴۰ دن کے بعد: غسل کریں اور نماز شروع کریں<br/>• چھوٹے ہوئے روزوں کی قضا کریں (فرض)<br/>• اگر خون جاری رہے تو ہر نماز کے لیے نیا وضو (معذور کے احکام)<br/>• اگلا حیض نفاس ختم ہونے کے ۱۵ صاف دنوں کے بعد ہی ہو سکتا ہے<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، نفاس کا بیان</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="nifas-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Nifas: Miscarriage -->
+          <div class="qa-screen" data-screen="nifas-miscarriage">
+            <span class="qa-badge">Miscarriage</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Miscarriage — It Depends on the Stage</span>
+                <span data-lang-text="ru">Hamal Girna — Yeh Halat Par Munhasir Hai</span>
+                <span data-lang-text="ur">حمل گرنا — یہ حالت پر منحصر ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Whether bleeding after a miscarriage is nifas depends on how developed the baby was.</span>
+                <span data-lang-text="ru">Hamal girne ke baad khoon nifas hai ya nahi yeh is par munhasir hai ke bachcha kitna bana hua tha.</span>
+                <span data-lang-text="ur">حمل گرنے کے بعد خون نفاس ہے یا نہیں یہ اس پر منحصر ہے کہ بچہ کتنا بنا ہوا تھا۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en"><strong>If limbs/features were formed</strong> (typically after ~120 days/4 months of pregnancy): the bleeding IS nifas. Same rulings as normal nifas apply (max 40 days).<br/><br/><strong>If no limbs/features were formed</strong> (early miscarriage, just a clot): the bleeding is NOT nifas. It is istihaza. You must pray and fast.<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Nifas ka Bayan</span>
+                  <span data-lang-text="ru"><strong>Agar aaza bane hue the</strong> (aam taur par ~120 din/4 mahine ke baad): khoon nifas HAI. Aam nifas ke ahkaam laagu (zyada se zyada 40 din).<br/><br/><strong>Agar aaza nahi bane the</strong> (jaldi hamal girna, sirf lothra): khoon nifas NAHI. Istihaza hai. Namaz aur roza zaroori hai.<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Nifas ka Bayan</span>
+                  <span data-lang-text="ur"><strong>اگر اعضا بنے ہوئے تھے</strong> (عام طور پر ~۱۲۰ دن/۴ مہینے کے بعد): خون نفاس ہے۔ عام نفاس کے احکام لاگو (زیادہ سے زیادہ ۴۰ دن)۔<br/><br/><strong>اگر اعضا نہیں بنے تھے</strong> (جلدی حمل گرنا، صرف لوتھڑا): خون نفاس نہیں۔ استحاضہ ہے۔ نماز اور روزہ ضروری ہے۔<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، نفاس کا بیان</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="nifas-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- ============ SALAH FLOW ============ -->
+          <div class="qa-screen" data-screen="salah-start">
+            <span class="qa-badge">Salah</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What is your question about salah?</span>
+              <span data-lang-text="ru">Namaz ke baare mein aapka sawal kya hai?</span>
+              <span data-lang-text="ur">نماز کے بارے میں آپکا سوال کیا ہے؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="salah-during-cycle">
+                <T en="Can I pray during my period?" ru="Mahawari mein namaz parh sakti hoon?" ur="ماہواری میں نماز پڑھ سکتی ہوں؟" />
+              </button>
+              <button class="qa-option" data-goto="salah-after-cycle">
+                <T en="My period just ended — now what?" ru="Mera mahawari abhi khatam hua — ab kya?" ur="میری ماہواری ابھی ختم ہوئی — اب کیا؟" />
+              </button>
+              <button class="qa-option" data-goto="salah-istihaza">
+                <T en="I have irregular bleeding — can I pray?" ru="Mujhe ghair mamool khoon aa raha hai — namaz parh sakti hoon?" ur="مجھے غیر معمول خون آ رہا ہے — نماز پڑھ سکتی ہوں؟" />
+              </button>
+              <button class="qa-option" data-goto="salah-haiz-started-during">
+                <T en="Haiz started while I was praying" ru="Namaz parhte hue haiz shuru ho gaya" ur="نماز پڑھتے ہوئے حیض شروع ہو گیا" />
+              </button>
+              <button class="qa-option" data-goto="salah-prayed-unknowingly">
+                <T en="I prayed without knowing I was in haiz" ru="Maine bina jaane haiz mein namaz parhi" ur="میں نے بنا جانے حیض میں نماز پڑھی" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <!-- Salah: Haiz started during prayer -->
+          <div class="qa-screen" data-screen="salah-haiz-started-during">
+            <span class="qa-badge">Haiz During Salah</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">That Salah is Excused (Maaf)</span>
+                <span data-lang-text="ru">Woh Namaz Maaf Hai</span>
+                <span data-lang-text="ur">وہ نماز معاف ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">If haiz begins while you are in the middle of praying, <strong>stop the prayer immediately</strong>. That salah is excused — you do not need to make it up.</span>
+                <span data-lang-text="ru">Agar namaz ke dauraan haiz shuru ho jaye to <strong>foran namaz band karein</strong>. Woh namaz maaf hai — qaza nahi karni.</span>
+                <span data-lang-text="ur">اگر نماز کے دوران حیض شروع ہو جائے تو <strong>فوراً نماز بند کریں</strong>۔ وہ نماز معاف ہے — قضا نہیں کرنی۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Also Important" ru="Aur Ahem" ur="اور اہم" /></span>
+                <p>
+                  <span data-lang-text="en">• If haiz starts just at the beginning of a salah time (e.g., Zuhr), that salah is also maaf<br/>• Even if only a short time of the salah was left when haiz started, it is still maaf<br/>• Do not feel guilty — this is Allah's mercy<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ke Ahkaam, Masla 16-17</span>
+                  <span data-lang-text="ru">• Agar namaz ke waqt ki shuruat mein haiz aaye (maslan Zuhr), woh namaz bhi maaf<br/>• Chahe namaz ka thoda sa waqt bacha tha jab haiz shuru hua, phir bhi maaf<br/>• Malaal na karein — yeh Allah ki rahmah hai<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ke Ahkaam, Masla 16-17</span>
+                  <span data-lang-text="ur">• اگر نماز کے وقت کی شروعات میں حیض آئے (مثلاً ظہر)، وہ نماز بھی معاف<br/>• چاہے نماز کا تھوڑا سا وقت بچا تھا جب حیض شروع ہوا، پھر بھی معاف<br/>• ملال نہ کریں — یہ اللہ کی رحمت ہے<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کے احکام، مسئلہ ۱۶-۱۷</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="salah-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Salah: Prayed unknowingly during haiz -->
+          <div class="qa-screen" data-screen="salah-prayed-unknowingly">
+            <span class="qa-badge">No Sin</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">No Sin — But Prayer is Not Valid</span>
+                <span data-lang-text="ru">Gunah Nahi — Lekin Namaz Sahih Nahi</span>
+                <span data-lang-text="ur">گناہ نہیں — لیکن نماز صحیح نہیں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">If you prayed without knowing you were in haiz (e.g., you discovered blood after praying), <strong>there is no sin</strong>. However, the prayer is not valid. Since salah during haiz is excused, <strong>no qaza is needed</strong> — you don't need to repeat it.</span>
+                <span data-lang-text="ru">Agar aapne bina jaane haiz mein namaz parhi (maslan namaz ke baad khoon dekha), <strong>koi gunah nahi</strong>. Lekin namaz sahih nahi. Chunkeh haiz mein namaz maaf hai, <strong>qaza bhi nahi</strong> — dobara parhne ki zaroorat nahi.</span>
+                <span data-lang-text="ur">اگر آپ نے بنا جانے حیض میں نماز پڑھی (مثلاً نماز کے بعد خون دیکھا)، <strong>کوئی گناہ نہیں</strong>۔ لیکن نماز صحیح نہیں۔ چونکہ حیض میں نماز معاف ہے، <strong>قضا بھی نہیں</strong> — دوبارہ پڑھنے کی ضرورت نہیں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Important Note" ru="Ahem Baat" ur="اہم بات" /></span>
+                <p>
+                  <span data-lang-text="en">Haiz blood is counted from when you <strong>first see it</strong>, not from when it might have started internally. If you were sleeping and saw blood upon waking, haiz starts from when you noticed it.<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 10, 27</span>
+                  <span data-lang-text="ru">Haiz ka khoon tab se shumaar hota hai jab aapne <strong>pehli baar dekha</strong>, andar se kab shuru hua usse nahi. Agar so rahi thin aur uthne par khoon dekha to haiz usi waqt se shuru jab dekha.<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 10, 27</span>
+                  <span data-lang-text="ur">حیض کا خون تب سے شمار ہوتا ہے جب آپ نے <strong>پہلی بار دیکھا</strong>، اندر سے کب شروع ہوا اس سے نہیں۔ اگر سو رہی تھیں اور اٹھنے پر خون دیکھا تو حیض اسی وقت سے شروع جب دیکھا۔<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان، مسئلہ ۱۰، ۲۷</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="salah-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="salah-during-cycle">
+            <span class="qa-badge">Salah During Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Salah is NOT Required During Haiz</span>
+                <span data-lang-text="ru">Haiz Mein Namaz Farz Nahi</span>
+                <span data-lang-text="ur">حیض میں نماز فرض نہیں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">During a valid haiz (3-10 days), you do NOT pray. This is a mercy from Allah.</span>
+                <span data-lang-text="ru">Sahih haiz ke dauraan (3-10 din), aap namaz NAHI padhti. Yeh Allah ki rahmah hai.</span>
+                <span data-lang-text="ur">صحیح حیض کے دوران (۳-۱۰ دن)، آپ نماز نہیں پڑھتی۔ یہ اللہ کی رحمت ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Important" ru="Ahem" ur="اہم" /></span>
+                <p>
+                  <span data-lang-text="en">• Missed salah during haiz does NOT need to be made up (qaza)<br/>• You CAN make du'a, dhikr, listen to Quran<br/>• You CANNOT touch the mushaf</span>
+                  <span data-lang-text="ru">• Haiz ki chhooti hui namaz ki qaza NAHI karni<br/>• Du'a, dhikr, Quran sunna jaiz hai<br/>• Mushaf chhoona jaiz nahi</span>
+                  <span data-lang-text="ur">• حیض کی چھوٹی ہوئی نماز کی قضا نہیں کرنی<br/>• دعا، ذکر، قرآن سننا جائز ہے<br/>• مصحف چھونا جائز نہیں</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="salah-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="salah-after-cycle">
+            <span class="qa-badge">After Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Perform Ghusl & Resume Salah</span>
+                <span data-lang-text="ru">Ghusl Karein aur Namaz Shuru Karein</span>
+                <span data-lang-text="ur">غسل کریں اور نماز شروع کریں</span>
+              </h3>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Steps" ru="Qadam" ur="ق" /></span>
+                <p>
+                  <span data-lang-text="en">1. Perform ghusl immediately<br/>2. Resume all salah<br/>3. If haiz ended late in salah time, pray if enough time for takbeer</span>
+                  <span data-lang-text="ru">1. Ghusl foran karein<br/>2. Sare namazein shuru karein<br/>3. Agar haiz namaz ke waqt ke akhir mein khatam hua, takbeer ke liye waqt ho to parhein</span>
+                  <span data-lang-text="ur">1. غسل فوراً کریں<br/>2. تمام نمازیں شروع کریں<br/>3. اگر حیض نماز کے وقت کے آخر میں ختم ہوا، تکبیر کے لیے وقت ہو تو پڑھیں</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="salah-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="salah-istihaza">
+            <span class="qa-badge">Salah During Istihaza</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">You MUST Pray During Istihaza</span>
+                <span data-lang-text="ru">Istihaza Mein Namaz FARZ Hai</span>
+                <span data-lang-text="ur">استحاضہ میں نماز FARZ ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Istihaza does NOT prevent salah. You are obligated to pray.</span>
+                <span data-lang-text="ru">Istihaza namaz se NAHI rokta. Aap par namaz farz hai.</span>
+                <span data-lang-text="ur">استحاضہ نماز سے نہیں روکتا۔ آپ پر نماز فرض ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Method" ru="Tareeqa" ur="طریقہ" /></span>
+                <p>
+                  <span data-lang-text="en">Make fresh wudu for each fard salah time. If bleeding is continuous, you are a ma'zoor.</span>
+                  <span data-lang-text="ru">Har farz namaz ke liye naya wuzu karein. Agar khoon musalsal rahe to aap ma'zoor hain.</span>
+                  <span data-lang-text="ur">ہر فرض نماز کے لیے نیا وضو کریں۔ اگر خون مسلسل رہے تو آپ معذور ہیں۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="salah-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- ============ SAWM FLOW ============ -->
+          <div class="qa-screen" data-screen="sawm-start">
+            <span class="qa-badge">Sawm</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What is your question about fasting?</span>
+              <span data-lang-text="ru">Roze ke baare mein aapka sawal kya hai?</span>
+              <span data-lang-text="ur">روزے کے بارے میں آپکا سوال کیا ہے؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="sawm-during-haiz">
+                <T en="Can I fast during my period?" ru="Mahawari mein roza rakh sakti hoon?" ur="ماہواری میں روزہ رکھ سکتی ہوں؟" />
+              </button>
+              <button class="qa-option" data-goto="sawm-started">
+                <T en="My period started while I was fasting" ru="Roza rakhte hue mahawari shuru ho gaya" ur="روزہ رکھتے ہوئے ماہواری شروع ہو گئی" />
+              </button>
+              <button class="qa-option" data-goto="sawm-qaza">
+                <T en="Do I need to make up missed fasts?" ru="Kya chhoote hue rozon ki qaza karni hogi?" ur="کیا چھوٹے ہوئے روزوں کی قضا کرنی ہوگی؟" />
+              </button>
+              <button class="qa-option" data-goto="sawm-istihaza">
+                <T en="Can I fast during istihaza (irregular bleeding)?" ru="Istihaza mein roza rakh sakti hoon?" ur="استحاضہ میں روزہ رکھ سکتی ہوں؟" />
+              </button>
+              <button class="qa-option" data-goto="sawm-7din-myth">
+                <T en="Can I fast after 7 days even if bleeding?" ru="Kya 7 din ke baad khoon mein roza rakh sakti hoon?" ur="کیا ۷ دن کے بعد خون میں روزہ رکھ سکتی ہوں؟" />
+              </button>
+              <button class="qa-option" data-goto="sawm-gap-then-spotting">
+                <T en="I fasted during clean gap, then spotting came" ru="Saaf waqfe mein roza rakha, phir nuqtay aaye" ur="صاف وقفے میں روزہ رکھا، پھر نقطے آئے" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="sawm-during-haiz">
+            <span class="qa-badge">Sawm During Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Fasting is HARAM During Haiz</span>
+                <span data-lang-text="ru">Haiz Mein Roza HARAM Hai</span>
+                <span data-lang-text="ur">حیض میں روزہ HARAM ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">You must NOT fast during haiz. This is different from salah — missed fasts MUST be made up.</span>
+                <span data-lang-text="ru">Haiz mein roza rakhna MANA hai. Yeh namaz se alag hai — chhoote hue rozon ki qaza FARZ hai.</span>
+                <span data-lang-text="ur">آپ کو حیض میں روزہ نہیں رکھنا۔ یہ نماز سے مختلف ہے — چھوٹے ہوئے روزوں کی قضا FARZ ہے۔</span>
+              </p>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="sawm-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="sawm-started">
+            <span class="qa-badge">Sawm</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Your Fast is Broken</span>
+                <span data-lang-text="ru">Aapka Roza Toot Gaya</span>
+                <span data-lang-text="ur">آپکا روزہ ٹوٹ گیا</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">If haiz starts while you are fasting, that fast breaks. You must make it up (qaza) later.</span>
+                <span data-lang-text="ru">Agar roza rakhte hue haiz shuru ho jaye to woh roza toot jayega. Aapko baad mein qaza karni hogi.</span>
+                <span data-lang-text="ur">اگر روزہ رکھتے ہوئے حیض شروع ہو جائے تو وہ روزہ ٹوٹ جائے گا۔ آپکو بعد میں قضا کرنی ہوگی۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Note" ru="Ahem" ur="اہم" /></span>
+                <p>
+                  <span data-lang-text="en">If it was a fard fast (like Ramadan), qaza is fard. If it was nafl, qaza is still required.</span>
+                  <span data-lang-text="ru">Agar farz roza tha (jaise Ramadan), qaza farz hai. Agar nafl tha, qaza phir bhi zaroori hai.</span>
+                  <span data-lang-text="ur">اگر فرض روزہ تھا (جیسے رمضان)، قضا فرض ہے۔ اگر نفل تھا، قضا پھر بھی ضروری ہے۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="sawm-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="sawm-qaza">
+            <span class="qa-badge">Qaza of Fasts</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Yes — Missed Fasts Must Be Made Up</span>
+                <span data-lang-text="ru">Haan — Chhoote Hue Rozon Ki Qaza Karni Hog</span>
+                <span data-lang-text="ur">ہاں — چھوٹے ہوئے روزوں کی قضا کرنی ہوگی</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Unlike salah, missed fasts during haiz MUST be made up (qaza is farz).</span>
+                <span data-lang-text="ru">Namaz ke alag, haiz ke chhoote hue rozon ki qaza FARZ hai.</span>
+                <span data-lang-text="ur">نماز کے مختلف، حیض کے چھوٹے ہوئے روزوں کی قضا FARZ ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="When to make up" ru="Kab qaza karein" ur="کب قضا کریں" /></span>
+                <p>
+                  <span data-lang-text="en">Make up missed fasts after Ramadan at your convenience. Do not delay unnecessarily.</span>
+                  <span data-lang-text="ru">Ramadan ke baad apni suvidha ke mutabiq qaza karein. Bilawajah deri na karein.</span>
+                  <span data-lang-text="ur">رمضان کے بعد اپنی سہولت کے مطابق قضا کریں۔ بلاوجہ دیری نہ کریں۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="sawm-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Sawm: Fasting during istihaza -->
+          <div class="qa-screen" data-screen="sawm-istihaza">
+            <span class="qa-badge">Sawm + Istihaza</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Yes — Fasting is FARZ During Istihaza</span>
+                <span data-lang-text="ru">Haan — Istihaza Mein Roza FARZ Hai</span>
+                <span data-lang-text="ur">ہاں — استحاضہ میں روزہ FARZ ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Istihaza does NOT prevent fasting. Your fast is valid even if bleeding continues. You must fast during Ramadan as normal.</span>
+                <span data-lang-text="ru">Istihaza roza se NAHI rokta. Aapka roza sahih hai chahe khoon jaari ho. Ramadan mein roza aam tarah farz hai.</span>
+                <span data-lang-text="ur">استحاضہ روزے سے نہیں روکتا۔ آپکا روزہ صحیح ہے چاہے خون جاری ہو۔ رمضان میں روزہ عام طرح فرض ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Remember" ru="Yaad Rakhein" ur="یاد رکھیں" /></span>
+                <p>
+                  <span data-lang-text="en">• Istihaza bleeding does NOT break your fast<br/>• Unlike haiz, fasting is NOT haram during istihaza<br/>• If you skipped fasts thinking it was haiz but it turned out to be istihaza, you must make those up<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Istihaza ka Bayan, Masla 1</span>
+                  <span data-lang-text="ru">• Istihaza ka khoon roza NAHI todta<br/>• Haiz ke baraks, istihaza mein roza haram NAHI<br/>• Agar aapne haiz samajh kar roza chhora lekin woh istihaza nikla, to un rozon ki qaza karein<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Istihaza ka Bayan, Masla 1</span>
+                  <span data-lang-text="ur">• استحاضہ کا خون روزہ نہیں توڑتا<br/>• حیض کے برعکس، استحاضہ میں روزہ حرام نہیں<br/>• اگر آپ نے حیض سمجھ کر روزہ چھوڑا لیکن وہ استحاضہ نکلا، تو ان روزوں کی قضا کریں<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، استحاضہ کا بیان، مسئلہ ۱</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="sawm-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Sawm: 7 din myth -->
+          <div class="qa-screen" data-screen="sawm-7din-myth">
+            <span class="qa-badge">Misconception</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">WRONG — You Cannot Fast While Bleeding</span>
+                <span data-lang-text="ru">GHALAT — Khoon Mein Roza Nahi Rakh Sakti</span>
+                <span data-lang-text="ur">غلط — خون میں روزہ نہیں رکھ سکتی</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Some people say "7 din ke baad roza rakh lo" — this is <strong>absolutely wrong</strong>. There is no fixed 7-day rule in Hanafi fiqh.</span>
+                <span data-lang-text="ru">Kuch log kehte hain "7 din ke baad roza rakh lo" — yeh <strong>bilkul ghalat hai</strong>. Hanafi fiqh mein 7 din ka koi pakka usool nahi.</span>
+                <span data-lang-text="ur">کچھ لوگ کہتے ہیں "۷ دن کے بعد روزہ رکھ لو" — یہ <strong>بالکل غلط ہے</strong>۔ حنفی فقہ میں ۷ دن کا کوئی پکا اصول نہیں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Correct Rule" ru="Sahih Usool" ur="صحیح اصول" /></span>
+                <p>
+                  <span data-lang-text="en"><strong>Rule 1:</strong> You can ONLY fast after your bleeding has COMPLETELY STOPPED and you've done ghusl.<br/><br/><strong>Rule 2:</strong> Every woman's cycle is different. Some bleed 3 days, some 5, some 8, some 10. You cannot apply someone else's number to yourself.<br/><br/><strong>Rule 3:</strong> If bleeding continues past 10 days, THEN your habit number determines your haiz (e.g., if your habit is 7 days, haiz = 7 days, after that = istihaza and you must fast).<br/><br/>The "7 din" misconception likely comes from mixing up this last rule with a general rule. It ONLY applies if bleeding exceeds 10 days AND your habit was 7 days.<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan; Haiz ke Ahkaam, Masla 25</span>
+                  <span data-lang-text="ru"><strong>Usool 1:</strong> Roza SIRF tab rakh sakti hain jab khoon BILKUL BAND ho jaye aur ghusl kar lein.<br/><br/><strong>Usool 2:</strong> Har aurat ka cycle mukhtalif hai. Kisi ka 3 din, kisi ka 5, kisi ka 8, kisi ka 10. Aap doosron ki tadaad apne oopar laagu nahi kar sakti.<br/><br/><strong>Usool 3:</strong> Agar khoon 10 din se zyada chale, TAB aapki aadat ki tadaad haiz tay karegi (maslan aadat 7 din, haiz = 7 din, uske baad = istihaza aur roza farz).<br/><br/>"7 din" ki ghalat fehmi shayad is aakhri usool ko aam usool samajhne se aati hai. Yeh SIRF tab laagu hota hai jab khoon 10 din se zyada ho AUR aadat 7 din ho.<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan; Haiz ke Ahkaam, Masla 25</span>
+                  <span data-lang-text="ur"><strong>اصول ۱:</strong> روزہ صرف تب رکھ سکتی ہیں جب خون بالکل بند ہو جائے اور غسل کر لیں۔<br/><br/><strong>اصول ۲:</strong> ہر عورت کا cycle مختلف ہے۔ کسی کا ۳ دن، کسی کا ۵، کسی کا ۸، کسی کا ۱۰۔ آپ دوسروں کی تعداد اپنے اوپر لاگو نہیں کر سکتی۔<br/><br/><strong>اصول ۳:</strong> اگر خون ۱۰ دن سے زیادہ چلے، تب آپکی عادت کی تعداد حیض طے کرے گی (مثلاً عادت ۷ دن، حیض = ۷ دن، اسکے بعد = استحاضہ اور روزہ فرض)۔<br/><br/>"۷ دن" کی غلط فہمی شاید اس آخری اصول کو عام اصول سمجھنے سے آتی ہے۔ یہ صرف تب لاگو ہوتا ہے جب خون ۱۰ دن سے زیادہ ہو اور عادت ۷ دن ہو۔<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان؛ حیض کے احکام، مسئلہ ۲۵</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="sawm-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- Sawm: Fasted during gap then spotting returned -->
+          <div class="qa-screen" data-screen="sawm-gap-then-spotting">
+            <span class="qa-badge">Important</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">It Depends — Total Days Matter</span>
+                <span data-lang-text="ru">Yeh Munhasir Hai — Kul Din Ahem Hain</span>
+                <span data-lang-text="ur">یہ منحصر ہے — کل دن اہم ہیں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">If you fasted during a clean gap between bleeding episodes, the ruling depends on <strong>whether the total period from first blood to return of spotting is within 10 days</strong>.</span>
+                <span data-lang-text="ru">Agar aapne do khoon ke darmiyan saaf waqfe mein roza rakha, hukm is par munhasir hai ke <strong>pehle khoon se nuqtay ki wapsi tak kul muddat 10 din ke andar hai ya nahi</strong>.</span>
+                <span data-lang-text="ur">اگر آپ نے دو خون کے درمیان صاف وقفے میں روزہ رکھا، حکم اس پر منحصر ہے کہ <strong>پہلے خون سے نقطے کی واپسی تک کل مدت ۱۰ دن کے اندر ہے یا نہیں</strong>۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Ruling" ru="Hukm" ur="حکم" /></span>
+                <p>
+                  <span data-lang-text="en"><strong>If total is within 10 days:</strong> The entire period is haiz — including the clean gap. Fasts kept during the gap are BROKEN. Qaza is farz.<br/><br/><strong>If total exceeds 10 days:</strong> Your habit determines haiz days. Fasts kept on istihaza days are VALID. Fasts kept on haiz days are broken — qaza farz.<br/><br/><strong>There is no sin</strong> — you acted in good faith. Just calculate and make up the necessary fasts.<br/><br/><strong>Reference:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 5; Haiz ke Ahkaam, Masla 25</span>
+                  <span data-lang-text="ru"><strong>Agar kul 10 din ke andar:</strong> Poori muddat haiz hai — saaf waqfa bhi. Waqfe mein rakhay roze TOOTE. Qaza farz.<br/><br/><strong>Agar kul 10 din se zyada:</strong> Aadat se haiz ke din tay honge. Istihaza ke dinon ke roze SAHIH hain. Haiz ke dinon ke roze toote — qaza farz.<br/><br/><strong>Koi gunah nahi</strong> — aapne nek niyyat se kiya. Sirf hisaab lagayein aur zaroori rozon ki qaza karein.<br/><br/><strong>Hawala:</strong> Bahar-e-Shariat, Jild 1, Haiz ka Bayan, Masla 5; Haiz ke Ahkaam, Masla 25</span>
+                  <span data-lang-text="ur"><strong>اگر کل ۱۰ دن کے اندر:</strong> پوری مدت حیض ہے — صاف وقفہ بھی۔ وقفے میں رکھے روزے ٹوٹے۔ قضا فرض۔<br/><br/><strong>اگر کل ۱۰ دن سے زیادہ:</strong> عادت سے حیض کے دن طے ہوں گے۔ استحاضہ کے دنوں کے روزے صحیح ہیں۔ حیض کے دنوں کے روزے ٹوٹے — قضا فرض۔<br/><br/><strong>کوئی گناہ نہیں</strong> — آپ نے نیک نیت سے کیا۔ صرف حساب لگائیں اور ضروری روزوں کی قضا کریں۔<br/><br/><strong>حوالہ:</strong> بہار شریعت، جلد ۱، حیض کا بیان، مسئلہ ۵؛ حیض کے احکام، مسئلہ ۲۵</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="sawm-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- ============ GHUSL FLOW ============ -->
+          <div class="qa-screen" data-screen="ghusl-start">
+            <span class="qa-badge">Ghusl</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What do you need to know about ghusl?</span>
+              <span data-lang-text="ru">Ghusl ke baare mein kya jaanna chahte hain?</span>
+              <span data-lang-text="ur">غسل کے بارے میں کیا جاننا چاہتے ہیں؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="ghusl-when">
+                <T en="When is ghusl required?" ru="Ghusl kab farz hota hai?" ur="غسل کب فرض ہوتا ہے؟" />
+              </button>
+              <button class="qa-option" data-goto="ghusl-how">
+                <T en="How to perform ghusl" ru="Ghusl ka tareeqa" ur="غسل کا طریقہ" />
+              </button>
+              <button class="qa-option" data-goto="ghusl-10days">
+                <T en="Haiz lasted 10 days — do ghusl?" ru="Haiz 10 din raha — ghusl karein?" ur="حیض ۱۰ دن رہا — غسل کریں؟" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="ghusl-when">
+            <span class="qa-badge">Ghusl Required</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">When is Ghusl Obligatory?</span>
+                <span data-lang-text="ru">Ghusl Kab Farz Hota Hai?</span>
+                <span data-lang-text="ur">غسل کب فرض ہوتا ہے؟</span>
+              </h3>
+              <ul class="qa-answer-list">
+                <li><span data-lang-text="en">Haiz ends</span><span data-lang-text="ru">Haiz khatam ho</span><span data-lang-text="ur">حیض ختم ہو</span></li>
+                <li><span data-lang-text="en">Nifas ends (before 40 days)</span><span data-lang-text="ru">Nifas khatam ho (40 din se pehle)</span><span data-lang-text="ur">نفاس ختم ہو (۴۰ دن سے پہلے)</span></li>
+                <li><span data-lang-text="en">Janabah (after intimacy)</span><span data-lang-text="ru">Janabat (humbistari ke baad)</span><span data-lang-text="ur">جنابت (ہمبستری کے بعد)</span></li>
+              </ul>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="ghusl-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="ghusl-how">
+            <span class="qa-badge">Ghusl Method</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">The 3 Fard of Ghusl</span>
+                <span data-lang-text="ru">Ghusl Ke 3 Farz</span>
+                <span data-lang-text="ur">غسل کے ۳ فرض</span>
+              </h3>
+              <ol class="qa-answer-list numbered">
+                <li><span data-lang-text="en"><strong>Rinse mouth</strong> — water must reach everywhere</span><span data-lang-text="ru"><strong>Kuli karna</strong> — paani har hisse tak pahunchna chahiye</span><span data-lang-text="ur"><strong>کلی کرنا</strong> — پانی ہر حصے تک پہنچنا چاہیے</span></li>
+                <li><span data-lang-text="en"><strong>Rinse nose</strong> — draw water into nostrils</span><span data-lang-text="ru"><strong>Naak mein paani dalna</strong> — naak ke andar tak paani jayega</span><span data-lang-text="ur"><strong>ناک میں پانی ڈالنا</strong> — ناک کے اندر تک پانی جائے گا</span></li>
+                <li><span data-lang-text="en"><strong>Wash entire body</strong> — no dry spot</span><span data-lang-text="ru"><strong>Poora jism dhona</strong> — koi khushk jagah na rahe</span><span data-lang-text="ur"><strong>پورا جسم دھونا</strong> — کوئی خشک جگہ نہ رہے</span></li>
+              </ol>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="ghusl-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="ghusl-10days">
+            <span class="qa-badge">Full 10 Days</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Ghusl is Still Mustahab — But Not Farz</span>
+                <span data-lang-text="ru">Ghusl Phir Bhi Mustahab Hai — Lekin Farz Nahi</span>
+                <span data-lang-text="ur">غسل پھر بھی مستحب ہے — لیکن فرض نہیں</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">If haiz lasted the full 10 days, you become pure immediately after 10 days — ghusl is mustahab (recommended), not farz.</span>
+                <span data-lang-text="ru">Agar haiz poore 10 din chala to aap 10 din ke fauran baad paak ho jaate hain — ghusl mustahab hai, farz nahi.</span>
+                <span data-lang-text="ur">اگر حیض پورے ۱۰ دن چلا تو آپ ۱۰ دن کے فوراً بعد پاک ہو جاتے ہیں — غسل مستحب ہے، فرض نہیں۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="What this means" ru="Iska matlab" ur="اسکا مطلب" /></span>
+                <p>
+                  <span data-lang-text="en">You can pray and have intimacy even BEFORE ghusl. But ghusl first is better (mustahab).</span>
+                  <span data-lang-text="ru">Aap ghusl se pehle bhi namaz parh sakte hain aur humbistari kar sakte hain. Lekin pehle ghusl behtar hai.</span>
+                  <span data-lang-text="ur">آپ غسل سے پہلے بھی نماز پڑھ سکتے ہیں اور ہمبستری کر سکتے ہیں۔ لیکن پہلے غسل بہتر ہے۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="ghusl-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- ============ QURAN FLOW ============ -->
+          <div class="qa-screen" data-screen="quran-start">
+            <span class="qa-badge">Quran</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What do you need to know about Quran during haiz?</span>
+              <span data-lang-text="ru">Haiz mein Quran ke baare mein kya jaanna chahte hain?</span>
+              <span data-lang-text="ur">حیض میں قرآن کے بارے میں کیا جاننا چاہتے ہیں؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="quran-recite">
+                <T en="Can I recite/recite Quran?" ru="Quran parh sakti hoon?" ur="قرآن پڑھ سکتی ہوں؟" />
+              </button>
+              <button class="qa-option" data-goto="quran-touch">
+                <T en="Can I touch the mushaf?" ru="Mushaf chhoo sakti hoon?" ur="مصحف چھو سکتی ہوں؟" />
+              </button>
+              <button class="qa-option" data-goto="quran-listen">
+                <T en="Can I listen to Quran?" ru="Quran sun sakti hoon?" ur="قرآن سن سکتی ہوں؟" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="quran-recite">
+            <span class="qa-badge">Reciting Quran</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Reciting Quran is NOT Permitted</span>
+                <span data-lang-text="ru">Quran Parhna JAIZ NAHI Hai</span>
+                <span data-lang-text="ur">قرآن پڑھنا جائز نہیں ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">During haiz, you cannot recite Quran — not from memory, not from the mushaf.</span>
+                <span data-lang-text="ru">Haiz mein aap Quran NAHI parh sakti — na yaad se, na mushaf se.</span>
+                <span data-lang-text="ur">حیض میں آپ قرآن نہیں پڑھ سکتی — نہ یاد سے، نہ مصحف سے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="But allowed" ru="Lekin jaiz hai" ur="لیکن جائز ہے" /></span>
+                <p>
+                  <span data-lang-text="en">• Du'a containing Quranic words (if intention is du'a)<br/>• Bismillah, Alhambra as dhikr<br/>• Listening to Quran</span>
+                  <span data-lang-text="ru">• Du'a mein Qurani alfaaz (niyyat du'a ki ho)<br/>• Bismillah, Alhambra dhikr ke taur par<br/>• Quran sunna</span>
+                  <span data-lang-text="ur">• دعا میں قرآنی الفاظ (نیت دعا کی ہو)<br/>• بسم اللہ، الحمدللہ ذکر کے طور پر<br/>• قرآن سننا</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="quran-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="quran-touch">
+            <span class="qa-badge">Touching Mushaf</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Touching Mushaf is HARAM</span>
+                <span data-lang-text="ru">Mushaf Chhoona HARAM Hai</span>
+                <span data-lang-text="ur">مصحف چھونا HARAM ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">It is haram to touch the physical Quran (mushaf) without a barrier during haiz.</span>
+                <span data-lang-text="ru">Haiz mein bina haail ke mushaf chhoona haram hai.</span>
+                <span data-lang-text="ur">حیض میں بغیر حائل کے مصحف چھونا حرام ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Allowed" ru="Jaiz hai" ur="جائز ہے" /></span>
+                <p>
+                  <span data-lang-text="en">• Holding Quran through a cloth/cover<br/>• Carrying Quran in a bag/juzdan</span>
+                  <span data-lang-text="ru">• Quran ko kapre/cover se pakadna<br/>• Quran bag/juzdan mein rakhna</span>
+                  <span data-lang-text="ur">• قرآن کو کپڑے/cover سے پکڑنا<br/>• قرآن بیگ/جزدان میں رکھنا</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="quran-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="quran-listen">
+            <span class="qa-badge">Listening to Quran</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon success">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Listening to Quran is Permitted</span>
+                <span data-lang-text="ru">Quran Sunna JAIZ Hai</span>
+                <span data-lang-text="ur">قرآن سننا جائز ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">You can listen to Quran recitation during haiz. This is completely permissible.</span>
+                <span data-lang-text="ru">Aap haiz mein Quran ki tilawat sun sakti hain. Yeh bilkul jaiz hai.</span>
+                <span data-lang-text="ur">آپ حیض میں قرآن کی تلاوت سن سکتی ہیں۔ یہ بالکل جائز ہے۔</span>
+              </p>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="quran-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- ============ MASJID FLOW ============ -->
+          <div class="qa-screen" data-screen="masjid-start">
+            <span class="qa-badge">Masjid</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">Can I enter the Masjid during haiz?</span>
+              <span data-lang-text="ru">Haiz mein Masjid mein ja sakti hoon?</span>
+              <span data-lang-text="ur">حیض میں مسجد میں جا سکتی ہوں؟</span>
+            </h3>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Entering Masjid is HARAM</span>
+                <span data-lang-text="ru">Masjid Mein Jaana HARAM Hai</span>
+                <span data-lang-text="ur">مسجد میں جانا HARAM ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">It is haram for a woman in haiz to enter the Masjid. This includes sitting, staying, or performing i'tikaaf.</span>
+                <span data-lang-text="ru">Haiz wali aurat ka Masjid mein jaana haram hai. Is mein baithna, rehna, ya i'tikaaf karna sab shamil hai.</span>
+                <span data-lang-text="ur">حیض والی عورت کا مسجد میں جانا حرام ہے۔ اس میں بیٹھنا، رہنا، یا اعتکاف کرنا سب شامل ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Exception" ru="Exception" ur="Exception" /></span>
+                <p>
+                  <span data-lang-text="en">If the Masjid is the only path and there's no alternative, you may pass through quickly without sitting.</span>
+                  <span data-lang-text="ru">Agar Masjid hi akela raasta ho aur koi doosra raasta na ho, to bina baithe jaldi guzar jaana jaiz hai.</span>
+                  <span data-lang-text="ur">اگر مسجد ہی اکیلا راستہ ہو اور کوئی دوسرا راستہ نہ ہو، تو بغیر بیٹھے جلدی گزر جانا جائز ہے۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <!-- ============ ZAWAJ FLOW ============ -->
+          <div class="qa-screen" data-screen="zawaj-start">
+            <span class="qa-badge">Zawaj</span>
+            <h3 class="qa-question">
+              <span data-lang-text="en">What is your question about intimacy?</span>
+              <span data-lang-text="ru">Humbistari ke baare mein aapka sawal kya hai?</span>
+              <span data-lang-text="ur">ہمبستری کے بارے میں آپکا سوال کیا ہے؟</span>
+            </h3>
+            <div class="qa-options">
+              <button class="qa-option" data-goto="zawaj-during-haiz">
+                <T en="Intimacy during haiz?" ru="Haiz ke dauran humbistari?" ur="حیض کے دوران ہمبستری؟" />
+              </button>
+              <button class="qa-option" data-goto="zawaj-intimate-parts">
+                <T en="What intimacy is not allowed?" ru="Konsi humbistari jaiz nahi?" ur="کون سی ہمبستری جائز نہیں؟" />
+              </button>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="categorySelection">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="zawaj-during-haiz">
+            <span class="qa-badge">Intimacy During Haiz</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Intimacy During Haiz is HARAM</span>
+                <span data-lang-text="ru">Haiz Mein Humbistari HARAM Hai</span>
+                <span data-lang-text="ur">حیض میں ہمبستری HARAM ہے</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Sexual intercourse during haiz is strictly prohibited (haram). It is a major sin.</span>
+                <span data-lang-text="ru">Haiz ke dauran humbistari sakht mana (haram) hai. Yeh bada gunaah hai.</span>
+                <span data-lang-text="ur">حیض کے دوران ہمبستری سخت منع (حرام) ہے۔ یہ بڑا گناہ ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Exception" ru="Exception" ur="Exception" /></span>
+                <p>
+                  <span data-lang-text="en">If haiz lasted full 10 days (or nifas 40 days), intimacy is allowed even before ghusl — but ghusl first is better.</span>
+                  <span data-lang-text="ru">Agar haiz poore 10 din (ya nifas 40 din) chala to ghusl se pehle bhi jaiz hai — lekin pehle ghusl behtar hai.</span>
+                  <span data-lang-text="ur">اگر حیض پورے ۱۰ دن (یا نفاس ۴۰ دن) چلا تو غسل سے پہلے بھی جائز ہے — لیکن پہلے غسل بہتر ہے۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="zawaj-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+          <div class="qa-screen" data-screen="zawaj-intimate-parts">
+            <span class="qa-badge">Intimate Parts</span>
+            <div class="qa-answer">
+              <div class="qa-answer-icon warning">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="qa-answer-title">
+                <span data-lang-text="en">Prohibited Area</span>
+                <span data-lang-text="ru">Mana Hissa</span>
+                <span data-lang-text="ur">منع حصہ</span>
+              </h3>
+              <p class="qa-answer-text">
+                <span data-lang-text="en">Physical intimacy between the navel and knees with bare skin is not allowed during haiz.</span>
+                <span data-lang-text="ru">Naaf aur ghutnon ke darmiyan nange jism se qurbat haiz mein mana hai.</span>
+                <span data-lang-text="ur">ناف اور گھٹنوں کے درمیان ننگے جسم سے قربت حیض میں منع ہے۔</span>
+              </p>
+              <div class="qa-ruling">
+                <span class="qa-ruling-label"><T en="Allowed" ru="Jaiz" ur="جائز" /></span>
+                <p>
+                  <span data-lang-text="en">Intimacy above the navel and below the knees is permitted.</span>
+                  <span data-lang-text="ru">Naaf ke oopar aur ghutnon ke neeche jaiz hai.</span>
+                  <span data-lang-text="ur">ناف کے اوپر اور گھٹنوں کے نیچے جائز ہے۔</span>
+                </p>
+              </div>
+            </div>
+            <div class="qa-nav-row">
+              <button class="qa-back" data-goto="zawaj-start">&larr; <T en="Back" ru="Wapas" ur="واپس" /></button>
+              <button class="qa-restart" data-goto="categorySelection"><T en="New Question" ru="Naya Sawal" ur="نیا سوال" /></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* ===== Hero Section (matches TopicHeader) ===== */
+  .topic-hero {
+    position: relative;
+    padding: 9rem 0 4.5rem;
+    background: linear-gradient(175deg, var(--ivory) 0%, var(--ivory-deep) 50%, var(--cream) 100%);
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .topic-hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-light);
+    margin-bottom: var(--space-3xl);
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    color: var(--teal);
+  }
+
+  .back-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .topic-title-block {
+    margin-bottom: var(--space-xl);
+  }
+
+  .topic-title-block .section-label {
+    display: block;
+    margin-bottom: var(--space-lg);
+  }
+
+  .topic-title-ar {
+    font-family: var(--font-arabic);
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    font-weight: 700;
+    color: var(--teal-deep);
+    direction: rtl;
+    line-height: 1.15;
+    margin-bottom: var(--space-sm);
+  }
+
+  .topic-title-en {
+    font-family: var(--font-body);
+    font-size: clamp(0.85rem, 1.5vw, 1.05rem);
+    font-weight: 300;
+    color: var(--text-light);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  .topic-desc {
+    max-width: 560px;
+    margin: 0 auto var(--space-xl);
+  }
+
+  .topic-desc p {
+    font-size: clamp(0.92rem, 1.5vw, 1.05rem);
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .topic-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .ornament-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .ornament-line {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .ornament-star {
+    color: var(--gold);
+    font-size: 0.85rem;
+    opacity: 0.6;
+  }
+
+  .topic-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    font-size: 0.82rem;
+    color: var(--text-light);
+  }
+
+  .meta-count {
+    font-weight: 600;
+    color: var(--teal);
+  }
+
+  .meta-dot {
+    color: var(--sand);
+  }
+
+  .topic-hero-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+
+  .topic-hero-border svg {
+    width: 100%;
+    height: 2px;
+  }
+
+  /* ===== Interactive Section ===== */
+  .sawal-interactive {
+    padding: var(--space-3xl) 0 var(--space-4xl);
+    background: var(--ivory);
+  }
+
+  .sawal-container {
+    max-width: 720px;
+  }
+
+  /* ===== Category Selection ===== */
+  .category-selection {
+    text-align: center;
+  }
+
+  .category-prompt {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--teal-deep);
+    margin-bottom: var(--space-xl);
+  }
+
+  .category-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+  }
+
+  .category-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--white);
+    border: 1.5px solid var(--cream);
+    border-radius: var(--radius-lg);
+    transition: all 0.3s var(--ease-out);
+    cursor: pointer;
+  }
+
+  .category-chip:hover {
+    border-color: var(--teal);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+    background: linear-gradient(180deg, var(--teal) 0%, var(--teal) 2px, var(--white) 2px);
+  }
+
+  .chip-ar {
+    font-family: var(--font-arabic);
+    font-size: 1.5rem;
+    color: var(--gold);
+    direction: rtl;
+  }
+
+  .chip-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  /* ===== QA Container ===== */
+  .qa-container {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    border: 1px solid var(--cream);
+  }
+
+  .qa-progress {
+    height: 3px;
+    background: var(--cream);
+  }
+
+  .qa-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    width: 0%;
+    transition: width 0.5s var(--ease-out);
+  }
+
+  .qa-panel {
+    padding: var(--space-2xl);
+    min-height: 300px;
+  }
+
+  .qa-screen {
+    display: none;
+    animation: fadeSlideIn 0.4s var(--ease-out);
+  }
+
+  .qa-screen.active {
+    display: block;
+  }
+
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .qa-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--teal);
+    margin: 0 auto var(--space-lg);
+  }
+
+  .qa-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: rgba(26, 92, 82, 0.08);
+    padding: 4px 12px;
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--space-lg);
+  }
+
+  .qa-question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--teal-deep);
+    margin-bottom: var(--space-xl);
+    line-height: 1.4;
+  }
+
+  .qa-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .qa-options.compact {
+    margin-top: var(--space-md);
+  }
+
+  .qa-option {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    width: 100%;
+    text-align: left;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--ivory);
+    border: 1.5px solid var(--cream);
+    border-radius: var(--radius-md);
+    font-size: 0.92rem;
+    color: var(--text-primary);
+    transition: all 0.3s var(--ease-out);
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .qa-option:hover {
+    border-color: var(--teal);
+    background: rgba(26, 92, 82, 0.04);
+    transform: translateX(4px);
+  }
+
+  .qa-option-ar {
+    font-family: var(--font-arabic);
+    font-size: 1rem;
+    color: var(--gold);
+    min-width: 40px;
+    text-align: center;
+    direction: rtl;
+  }
+
+  /* ===== Answer Styles ===== */
+  .qa-answer {
+    margin-bottom: var(--space-xl);
+  }
+
+  .qa-answer-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--teal);
+    margin-bottom: var(--space-md);
+  }
+
+  .qa-answer-icon.success { color: var(--teal-light); }
+  .qa-answer-icon.warning { color: var(--gold-muted); }
+
+  .qa-answer-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--teal-deep);
+    margin-bottom: var(--space-md);
+  }
+
+  .qa-answer-text {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: var(--space-lg);
+  }
+
+  .qa-answer-list {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: var(--space-lg);
+    padding-left: var(--space-lg);
+  }
+
+  .qa-answer-list li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .qa-answer-list.numbered {
+    list-style: decimal;
+  }
+
+  .qa-ruling {
+    background: rgba(26, 92, 82, 0.04);
+    border-left: 3px solid var(--teal);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin-bottom: var(--space-lg);
+  }
+
+  .qa-ruling-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: var(--space-xs);
+  }
+
+  .qa-ruling p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .qa-followup {
+    border-top: 1px solid var(--cream);
+    padding-top: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+
+  .qa-followup-q {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--teal-deep);
+    margin-bottom: var(--space-sm);
+  }
+
+  .qa-nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--cream);
+  }
+
+  .qa-back, .qa-restart {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-light);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  .qa-back:hover, .qa-restart:hover {
+    color: var(--teal);
+    background: rgba(26, 92, 82, 0.04);
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    .topic-hero {
+      padding: 7.5rem 0 3rem;
+    }
+
+    .back-link {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .topic-title-block .section-label {
+      margin-bottom: var(--space-md);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .qa-panel {
+      padding: var(--space-lg);
+    }
+
+    .category-chip {
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    .chip-ar {
+      font-size: 1.25rem;
+    }
+
+    .chip-label {
+      font-size: 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  const categorySelection = document.getElementById('categorySelection');
+  const qaContainer = document.getElementById('qaContainer');
+  const panel = document.getElementById('qaPanel');
+  const progressBar = document.getElementById('qaProgressBar');
+
+  const depthMap: Record<string, number> = {
+    'categorySelection': 10,
+    // Haiz
+    'haiz-start': 20, 'haiz-current-duration': 30, 'haiz-ended-question': 30,
+    'haiz-less-3': 100, 'haiz-3-10': 60, 'haiz-more-10': 60,
+    'haiz-has-habit': 100, 'haiz-no-habit': 100,
+    'haiz-still-flowing': 100, 'haiz-just-ended': 80,
+    'haiz-gap-check': 90, 'haiz-gap-less15': 100, 'haiz-gap-15plus': 100, 'haiz-clean-done': 100,
+    'haiz-ended-less3': 100, 'haiz-ended-3to10': 100, 'haiz-ended-more10': 100,
+    'haiz-advice': 40, 'haiz-age-info': 100, 'haiz-colors-info': 100, 'haiz-tuhr-info': 100,
+    // Haiz: Spotting
+    'haiz-spotting': 40, 'haiz-spotting-within10': 100, 'haiz-spotting-afterstop': 60,
+    'haiz-spotting-over10': 100, 'haiz-spotting-colors': 100,
+    // Haiz: Special scenarios
+    'haiz-prayed-unknowingly': 100, 'haiz-misconception-7days': 100,
+    'haiz-pregnant': 100, 'haiz-fasted-gap': 60,
+    'haiz-fasted-gap-within10': 100, 'haiz-fasted-gap-over10': 100,
+    // Istihaza
+    'istihaza-start': 20, 'istihaza-ruling': 100, 'istihaza-wudu': 100,
+    'istihaza-mazoor': 100, 'istihaza-fasting': 100,
+    // Nifas
+    'nifas-start': 20, 'nifas-duration': 100, 'nifas-rulings': 100,
+    'nifas-early-stop': 100, 'nifas-over40': 100, 'nifas-miscarriage': 100,
+    // Salah
+    'salah-start': 20, 'salah-during-cycle': 100, 'salah-after-cycle': 100, 'salah-istihaza': 100,
+    'salah-haiz-started-during': 100, 'salah-prayed-unknowingly': 100,
+    // Sawm
+    'sawm-start': 20, 'sawm-during-haiz': 100, 'sawm-started': 100, 'sawm-qaza': 100,
+    'sawm-istihaza': 100, 'sawm-7din-myth': 100, 'sawm-gap-then-spotting': 100,
+    // Ghusl
+    'ghusl-start': 20, 'ghusl-when': 100, 'ghusl-how': 100, 'ghusl-10days': 100,
+    // Quran
+    'quran-start': 20, 'quran-recite': 100, 'quran-touch': 100, 'quran-listen': 100,
+    // Masjid
+    'masjid-start': 50,
+    // Zawaj
+    'zawaj-start': 20, 'zawaj-during-haiz': 100, 'zawaj-intimate-parts': 100,
+  };
+
+  function goToScreen(screenId: string) {
+    if (screenId === 'categorySelection') {
+      if (categorySelection) categorySelection.style.display = 'block';
+      if (qaContainer) qaContainer.style.display = 'none';
+      if (progressBar) progressBar.style.width = '0%';
+      return;
+    }
+
+    if (categorySelection) categorySelection.style.display = 'none';
+    if (qaContainer) qaContainer.style.display = 'block';
+
+    const screens = panel?.querySelectorAll('.qa-screen');
+    screens?.forEach(s => s.classList.remove('active'));
+
+    const target = panel?.querySelector(`[data-screen="${screenId}"]`);
+    if (target) {
+      target.classList.add('active');
+      const depth = depthMap[screenId] ?? 50;
+      if (progressBar) progressBar.style.width = `${depth}%`;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  document.addEventListener('click', (e) => {
+    const target = (e.target as HTMLElement).closest('[data-goto]');
+    if (target) {
+      const screenId = target.getAttribute('data-goto');
+      if (screenId) goToScreen(screenId);
+    }
+  });
+</script>

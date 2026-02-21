@@ -1,0 +1,72 @@
+---
+---
+
+<div class="lang-toggle" data-lang-toggle>
+  <button class="lang-btn" data-lang-switch="ru">RU</button>
+  <button class="lang-btn" data-lang-switch="en">EN</button>
+  <button class="lang-btn" data-lang-switch="ur">اردو</button>
+</div>
+
+<style>
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    background: rgba(26, 92, 82, 0.06);
+    border-radius: var(--radius-xl);
+    padding: 2px;
+    gap: 2px;
+  }
+
+  .lang-btn {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: var(--radius-xl);
+    color: var(--text-light);
+    transition: all 0.25s ease;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+  }
+
+  .lang-btn:hover {
+    color: var(--teal);
+  }
+
+  .lang-btn.active {
+    background: var(--teal);
+    color: var(--ivory);
+  }
+
+  .lang-btn[data-lang-switch="ur"] {
+    font-family: var(--font-arabic);
+    font-size: 0.82rem;
+    letter-spacing: 0;
+  }
+</style>
+
+<script>
+  function initLangToggle(toggle: Element) {
+    const currentLang = document.documentElement.getAttribute('data-lang') || 'ru';
+    toggle.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-switch') === currentLang);
+    });
+
+    toggle.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest('[data-lang-switch]');
+      if (!btn) return;
+      const lang = btn.getAttribute('data-lang-switch');
+      if (!lang) return;
+
+      document.documentElement.setAttribute('data-lang', lang);
+      localStorage.setItem('al-masail-lang', lang);
+
+      document.querySelectorAll('[data-lang-toggle]').forEach(t => {
+        t.querySelectorAll('.lang-btn').forEach(b => {
+          b.classList.toggle('active', b.getAttribute('data-lang-switch') === lang);
+        });
+      });
+    });
+  }
+
+  document.querySelectorAll('[data-lang-toggle]').forEach(initLangToggle);
+</script>

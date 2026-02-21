@@ -1,11 +1,17 @@
 ---
+import T from './T.astro';
+
 const categories = [
   {
     id: 'haiz',
     titleAr: 'حَيض',
     titleEn: 'Haiz',
-    subtitle: 'Menstruation',
-    description: 'Rules regarding the menstrual cycle, minimum & maximum durations, and related rulings.',
+    subtitle: { en: 'Menstruation', ru: 'Haiz ke Masail', ur: 'حیض کے مسائل' },
+    description: {
+      en: 'Rules regarding the menstrual cycle, minimum & maximum durations, and related rulings.',
+      ru: 'Mahawari ke ahkaam, kam se kam aur zyada se zyada muddat, aur mutalliqa masail.',
+      ur: 'ماہواری کے احکام، کم سے کم اور زیادہ سے زیادہ مدت، اور متعلقہ مسائل۔'
+    },
     icon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5"/><path d="M20 8v24M8 20h24" stroke="currentColor" stroke-width="1" opacity="0.3"/><circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5"/></svg>`,
     count: 12,
   },
@@ -13,8 +19,12 @@ const categories = [
     id: 'istihaza',
     titleAr: 'اِسْتِحَاضَة',
     titleEn: 'Istihaza',
-    subtitle: 'Irregular Bleeding',
-    description: 'Understanding istihaza, its distinction from haiz, and prayer rulings during it.',
+    subtitle: { en: 'Irregular Bleeding', ru: 'Istihaza ke Masail', ur: 'استحاضہ کے مسائل' },
+    description: {
+      en: 'Understanding istihaza, its distinction from haiz, and prayer rulings during it.',
+      ru: 'Istihaza ki pehchaan, haiz se farq, aur is dauraan namaz ke ahkaam.',
+      ur: 'استحاضہ کی پہچان، حیض سے فرق، اور اس دوران نماز کے احکام۔'
+    },
     icon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 4L20 36" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="20" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="28" r="4" stroke="currentColor" stroke-width="1.5"/></svg>`,
     count: 8,
   },
@@ -22,8 +32,12 @@ const categories = [
     id: 'nifas',
     titleAr: 'نِفَاس',
     titleEn: 'Nifas',
-    subtitle: 'Post-Natal Bleeding',
-    description: 'Rulings on post-childbirth bleeding, maximum duration, and when to resume salah.',
+    subtitle: { en: 'Post-Natal Bleeding', ru: 'Nifas ke Masail', ur: 'نفاس کے مسائل' },
+    description: {
+      en: 'Rulings on post-childbirth bleeding, maximum duration, and when to resume salah.',
+      ru: 'Wiladat ke baad khoon ke ahkaam, zyada se zyada muddat, aur namaz kab shuru karein.',
+      ur: 'ولادت کے بعد خون کے احکام، زیادہ سے زیادہ مدت، اور نماز کب شروع کریں۔'
+    },
     icon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6c-8 10-14 16-14 22a14 14 0 0028 0c0-6-6-12-14-22z" stroke="currentColor" stroke-width="1.5"/></svg>`,
     count: 8,
   },
@@ -31,8 +45,12 @@ const categories = [
     id: 'salah',
     titleAr: 'صَلَاة',
     titleEn: 'Salah',
-    subtitle: 'Prayer',
-    description: 'Women-specific rulings on prayer, including posture differences and makeup prayers.',
+    subtitle: { en: 'Prayer', ru: 'Namaz ke Masail', ur: 'نماز کے مسائل' },
+    description: {
+      en: 'Women-specific rulings on prayer, including posture differences and makeup prayers.',
+      ru: 'Khawateen ke liye namaz ke khaas ahkaam, tareeqa aur qaza namaz.',
+      ur: 'خواتین کے لیے نماز کے خاص احکام، طریقہ اور قضا نماز۔'
+    },
     icon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 4v8M20 28v8M4 20h8M28 20h8" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="1.5"/></svg>`,
     count: 10,
   },
@@ -40,8 +58,12 @@ const categories = [
     id: 'sawm',
     titleAr: 'صَوم',
     titleEn: 'Sawm',
-    subtitle: 'Fasting',
-    description: 'Fasting rulings during menstruation, making up missed fasts, and related questions.',
+    subtitle: { en: 'Fasting', ru: 'Roze ke Masail', ur: 'روزے کے مسائل' },
+    description: {
+      en: 'Fasting rulings during menstruation, making up missed fasts, and related questions.',
+      ru: 'Haiz mein roze ke ahkaam, chhoote hue rozon ki qaza, aur mutalliqa sawalaat.',
+      ur: 'حیض میں روزے کے احکام، چھوٹے ہوئے روزوں کی قضا، اور متعلقہ سوالات۔'
+    },
     icon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M26 8a12 12 0 100 24 12 12 0 01-12-12A12 12 0 0126 8z" stroke="currentColor" stroke-width="1.5"/></svg>`,
     count: 9,
   },
@@ -49,8 +71,12 @@ const categories = [
     id: 'taharah',
     titleAr: 'طَهَارَة',
     titleEn: 'Taharah',
-    subtitle: 'Purification',
-    description: 'Wudu, ghusl, and purity rulings specific to women in the Hanafi school.',
+    subtitle: { en: 'Purification', ru: 'Tahaarat ke Masail', ur: 'طہارت کے مسائل' },
+    description: {
+      en: 'Wudu, ghusl, and purity rulings specific to women in the Hanafi school.',
+      ru: 'Wuzu, ghusl, aur paaki ke ahkaam jo khawateen se mutalliq hain, Hanafi maslak ke mutabiq.',
+      ur: 'وضو، غسل، اور پاکی کے احکام جو خواتین سے متعلق ہیں، حنفی مسلک کے مطابق۔'
+    },
     icon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 4l4 12h-8l4-12z" stroke="currentColor" stroke-width="1.5"/><path d="M12 24c0 4.4 3.6 8 8 8s8-3.6 8-8" stroke="currentColor" stroke-width="1.5"/><path d="M12 24h16" stroke="currentColor" stroke-width="1"/></svg>`,
     count: 9,
   },
@@ -60,9 +86,9 @@ const categories = [
 <section class="categories" id="categories">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label">Browse by Topic</span>
+      <span class="section-label"><T en="Browse by Topic" ru="Mauzu' ke hisab se" ur="موضوع کے حساب سے" /></span>
       <p class="section-title-ar">أبْوَاب المَسَائِل</p>
-      <h2 class="section-title">Chapters of Masail</h2>
+      <h2 class="section-title"><T en="Chapters of Masail" ru="Masail ke Abwab" ur="مسائل کے ابواب" /></h2>
     </div>
 
     <div class="categories-grid">
@@ -74,11 +100,23 @@ const categories = [
               <span class="card-title-ar">{cat.titleAr}</span>
               <h3 class="card-title-en">{cat.titleEn}</h3>
             </div>
-            <p class="card-subtitle">{cat.subtitle}</p>
-            <p class="card-desc">{cat.description}</p>
+            <p class="card-subtitle">
+              <span data-lang-text="en">{cat.subtitle.en}</span>
+              <span data-lang-text="ru">{cat.subtitle.ru}</span>
+              <span data-lang-text="ur">{cat.subtitle.ur}</span>
+            </p>
+            <p class="card-desc">
+              <span data-lang-text="en">{cat.description.en}</span>
+              <span data-lang-text="ru">{cat.description.ru}</span>
+              <span data-lang-text="ur">{cat.description.ur}</span>
+            </p>
           </div>
           <div class="card-footer">
-            <span class="card-count">{cat.count} masail</span>
+            <span class="card-count">
+              <span data-lang-text="en">{cat.count} masail</span>
+              <span data-lang-text="ru">{cat.count} masail</span>
+              <span data-lang-text="ur">{cat.count} مسائل</span>
+            </span>
             <span class="card-arrow">&rarr;</span>
           </div>
         </a>

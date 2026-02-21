@@ -3,7 +3,7 @@
    Islamic aesthetic: warm, earthy, elegant
    ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
   /* Core palette */
@@ -27,6 +27,7 @@
   /* Typography */
   --font-arabic: 'Amiri', serif;
   --font-body: 'Outfit', sans-serif;
+  --font-urdu: 'Noto Nastaliq Urdu', 'Amiri', serif;
 
   /* Spacing */
   --space-xs: 0.25rem;
@@ -222,3 +223,36 @@ img {
     --space-4xl: 3.5rem;
   }
 }
+
+/* ========================================
+   Language Switching (i18n)
+   ======================================== */
+
+[data-lang-text],
+[data-lang-block] {
+  display: none !important;
+}
+
+html[data-lang="en"] [data-lang-text="en"],
+html[data-lang="ru"] [data-lang-text="ru"],
+html[data-lang="ur"] [data-lang-text="ur"] {
+  display: inline !important;
+}
+
+html[data-lang="en"] [data-lang-block="en"],
+html[data-lang="ru"] [data-lang-block="ru"],
+html[data-lang="ur"] [data-lang-block="ur"] {
+  display: block !important;
+}
+
+[data-lang-text="ur"],
+[data-lang-block="ur"] {
+  font-family: var(--font-urdu);
+  direction: rtl;
+  line-height: 2;
+}
+
+/* Toggle text (View Answer / Hide Answer) */
+.show-when-open { display: none !important; }
+.open .show-when-closed { display: none !important; }
+.open .show-when-open { display: inline !important; }

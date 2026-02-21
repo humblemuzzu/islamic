@@ -1,4 +1,5 @@
 ---
+import T from './T.astro';
 ---
 
 <section class="hero">
@@ -30,17 +31,20 @@
       <span class="hero-title-en">Al-Masail</span>
     </h1>
 
-    <p class="hero-subtitle reveal reveal-delay-2">
-      Your trusted guide to Hanafi fiqh masail for women.
-      <br />Clear, authentic answers rooted in tradition.
-    </p>
+    <div class="hero-subtitle reveal reveal-delay-2">
+      <p data-lang-block="en">Your trusted guide to Hanafi fiqh masail for women.<br />Clear, authentic answers rooted in tradition.</p>
+      <p data-lang-block="ru">Khawateen ke liye Hanafi fiqhi masail ka bharosemand zariya.<br />Wazeh, mustanid jawabat riwayat ki bunyad par.</p>
+      <p data-lang-block="ur">خواتین کے لیے حنفی فقہی مسائل کا بھروسہ مند ذریعہ۔<br />واضح، مستند جوابات روایت کی بنیاد پر۔</p>
+    </div>
 
     <div class="hero-actions reveal reveal-delay-3">
       <a href="#quick-question" class="btn-primary">
-        Ask a Question
+        <T en="Ask a Question" ru="Sawal Poochhein" ur="سوال پوچھیں" />
         <span class="btn-arrow">&rarr;</span>
       </a>
-      <a href="#categories" class="btn-secondary">Browse Topics</a>
+      <a href="#categories" class="btn-secondary">
+        <T en="Browse Topics" ru="Mauzu'aat Dekhein" ur="موضوعات دیکھیں" />
+      </a>
     </div>
 
     <div class="hero-ornament reveal reveal-delay-4">
@@ -54,7 +58,7 @@
 
   <!-- Scroll indicator -->
   <div class="scroll-indicator reveal reveal-delay-5">
-    <span class="scroll-text">Scroll to explore</span>
+    <span class="scroll-text"><T en="Scroll to explore" ru="Neeche scroll karein" ur="نیچے سکرول کریں" /></span>
     <div class="scroll-line">
       <div class="scroll-dot"></div>
     </div>
@@ -133,10 +137,13 @@
   }
 
   .hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--text-secondary);
     max-width: 480px;
     margin: 0 auto var(--space-2xl);
+  }
+
+  .hero-subtitle p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-secondary);
     font-weight: 300;
     line-height: 1.8;
   }

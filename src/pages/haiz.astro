@@ -8,67 +8,163 @@ import '../styles/global.css';
 
 const masail = [
   {
-    question: 'What is the minimum duration of haiz?',
-    answer: 'The minimum duration of haiz (menstruation) is 3 days and 3 nights, which equals 72 hours. If bleeding lasts less than 72 complete hours, it is not considered haiz — it is istihaza (irregular bleeding). In that case, the woman must make up any salah she missed during those days.',
+    question: {
+      en: 'What is the minimum duration of haiz?',
+      ru: 'Haiz ki kam se kam muddat kya hai?',
+      ur: 'حیض کی کم سے کم مدت کیا ہے؟',
+    },
+    answer: {
+      en: 'The minimum duration of haiz (menstruation) is 3 days and 3 nights, which equals 72 hours. If bleeding lasts less than 72 complete hours, it is not considered haiz — it is istihaza (irregular bleeding). In that case, the woman must make up any salah she missed during those days.',
+      ru: 'Haiz ki kam se kam muddat 3 din aur 3 raatein hai, yaani 72 ghantay. Agar khoon 72 ghantay se kam aaye to yeh haiz nahi — yeh istihaza (ghair mamool khoon) hai. Is soorat mein aurat ko un dinon ki chhooti hui salah ki qaza karni hogi.',
+      ur: 'حیض کی کم سے کم مدت ۳ دن اور ۳ راتیں ہے، یعنی ۷۲ گھنٹے۔ اگر خون ۷۲ گھنٹے سے کم آئے تو یہ حیض نہیں — یہ استحاضہ (غیر معمول خون) ہے۔ اس صورت میں عورت کو ان دنوں کی چھوٹی ہوئی نماز کی قضا کرنی ہوگی۔',
+    },
     reference: 'Nurul Idah, Maraqi al-Falah',
     important: true,
   },
   {
-    question: 'What is the maximum duration of haiz?',
-    answer: 'The maximum duration of haiz is 10 days and 10 nights, which equals 240 hours. If bleeding continues beyond 10 days, the excess is not haiz. The woman should refer to her established habit (\'aadah) to determine which days were haiz and which were istihaza.',
+    question: {
+      en: 'What is the maximum duration of haiz?',
+      ru: 'Haiz ki zyada se zyada muddat kya hai?',
+      ur: 'حیض کی زیادہ سے زیادہ مدت کیا ہے؟',
+    },
+    answer: {
+      en: 'The maximum duration of haiz is 10 days and 10 nights, which equals 240 hours. If bleeding continues beyond 10 days, the excess is not haiz. The woman should refer to her established habit (\'aadah) to determine which days were haiz and which were istihaza.',
+      ru: 'Haiz ki zyada se zyada muddat 10 din aur 10 raatein hai, yaani 240 ghantay. Agar khoon 10 din se zyada aaye to jo zyada hai woh haiz nahi. Aurat ko apni purani aadat (\'aadah) dekh kar faisla karna chahiye ke kaunse din haiz the aur kaunse istihaza.',
+      ur: 'حیض کی زیادہ سے زیادہ مدت ۱۰ دن اور ۱۰ راتیں ہے، یعنی ۲۴۰ گھنٹے۔ اگر خون ۱۰ دن سے زیادہ آئے تو جو زیادہ ہے وہ حیض نہیں۔ عورت کو اپنی پرانی عادت دیکھ کر فیصلہ کرنا چاہیے کہ کون سے دن حیض تھے اور کون سے استحاضہ۔',
+    },
     reference: 'Nurul Idah, Al-Hidayah',
     important: true,
   },
   {
-    question: 'What if I have no established habit and bleeding exceeds 10 days?',
-    answer: 'If a woman has no previously established habit (such as someone experiencing haiz for the first time or cannot remember her pattern), then 10 days are counted as haiz and anything beyond that is istihaza. She should perform ghusl after 10 days and resume salah.',
+    question: {
+      en: 'What if I have no established habit and bleeding exceeds 10 days?',
+      ru: 'Agar meri koi purani aadat nahi aur khoon 10 din se zyada aaye to?',
+      ur: 'اگر میری کوئی پرانی عادت نہیں اور خون ۱۰ دن سے زیادہ آئے تو؟',
+    },
+    answer: {
+      en: 'If a woman has no previously established habit (such as someone experiencing haiz for the first time or cannot remember her pattern), then 10 days are counted as haiz and anything beyond that is istihaza. She should perform ghusl after 10 days and resume salah.',
+      ru: 'Agar aurat ki koi pehle se aadat nahi hai (jaise pehli baar haiz aa raha ho ya apna pattern yaad na ho), to 10 din haiz shumaar honge aur us ke baad ka khoon istihaza hoga. Usse 10 din ke baad ghusl kar ke salah shuru karni chahiye.',
+      ur: 'اگر عورت کی کوئی پہلے سے عادت نہیں ہے (جیسے پہلی بار حیض آ رہا ہو یا اپنا معمول یاد نہ ہو)، تو ۱۰ دن حیض شمار ہوں گے اور اس کے بعد کا خون استحاضہ ہوگا۔ اسے ۱۰ دن کے بعد غسل کر کے نماز شروع کرنی چاہیے۔',
+    },
     reference: 'Al-Hidayah',
   },
   {
-    question: 'Can haiz start and stop within the 3 to 10 day window?',
-    answer: 'Yes. If bleeding starts and stops intermittently within the 3-10 day window, the entire period from the start of bleeding to the end (including dry gaps in between) is considered haiz, as long as the total span does not exceed 10 days. The dry days in between are also counted as part of haiz.',
+    question: {
+      en: 'Can haiz start and stop within the 3 to 10 day window?',
+      ru: 'Kya haiz 3 se 10 din ke andar shuru aur band ho sakta hai?',
+      ur: 'کیا حیض ۳ سے ۱۰ دن کے اندر شروع اور بند ہو سکتا ہے؟',
+    },
+    answer: {
+      en: 'Yes. If bleeding starts and stops intermittently within the 3-10 day window, the entire period from the start of bleeding to the end (including dry gaps in between) is considered haiz, as long as the total span does not exceed 10 days. The dry days in between are also counted as part of haiz.',
+      ru: 'Haan. Agar khoon 3 se 10 din ke andar aat-jaat karta rahe (beech mein ruk ke phir aaye), to shuru se aakhir tak ka poora arsa haiz mein shumaar hoga, jab tak ke poori muddat 10 din se na badhay. Beech ke khushk din bhi haiz ka hissa honge.',
+      ur: 'ہاں۔ اگر خون ۳ سے ۱۰ دن کے اندر آتا جاتا رہے (بیچ میں رک کر پھر آئے)، تو شروع سے آخر تک کا پورا عرصہ حیض میں شمار ہوگا، جب تک کہ پوری مدت ۱۰ دن سے نہ بڑھے۔ بیچ کے خشک دن بھی حیض کا حصہ ہوں گے۔',
+    },
     reference: 'Nurul Idah',
   },
   {
-    question: 'What is the minimum gap of purity (tuhr) between two haiz periods?',
-    answer: 'The minimum tuhr (purity) between two valid haiz periods is 15 days. If bleeding returns before 15 complete clean days have passed, the second bleeding is istihaza, NOT a new haiz. For example: if haiz lasted 8 days, and after only 8 clean days bleeding starts again — the second bleeding is istihaza because the 15-day minimum gap was not met.',
+    question: {
+      en: 'What is the minimum gap of purity (tuhr) between two haiz periods?',
+      ru: 'Do haiz ke darmiyan paaki (tuhr) ka kam se kam waqfa kitna hai?',
+      ur: 'دو حیض کے درمیان پاکی (طہر) کا کم سے کم وقفہ کتنا ہے؟',
+    },
+    answer: {
+      en: 'The minimum tuhr (purity) between two valid haiz periods is 15 days. If bleeding returns before 15 complete clean days have passed, the second bleeding is istihaza, NOT a new haiz. For example: if haiz lasted 8 days, and after only 8 clean days bleeding starts again — the second bleeding is istihaza because the 15-day minimum gap was not met.',
+      ru: 'Do haiz ke darmiyan tuhr (paaki) ki kam se kam muddat 15 din hai. Agar 15 saaf din poore hone se pehle khoon wapas aa jaye, to doosra khoon istihaza hai, naya haiz NAHI. Misal ke taur par: agar haiz 8 din raha, aur sirf 8 saaf dinon ke baad phir khoon aaye — to doosra khoon istihaza hai kyunke 15 din ka waqfa poora nahi hua.',
+      ur: 'دو حیض کے درمیان طہر (پاکی) کی کم سے کم مدت ۱۵ دن ہے۔ اگر ۱۵ صاف دن پورے ہونے سے پہلے خون واپس آ جائے، تو دوسرا خون استحاضہ ہے، نیا حیض نہیں۔ مثال کے طور پر: اگر حیض ۸ دن رہا، اور صرف ۸ صاف دنوں کے بعد پھر خون آئے — تو دوسرا خون استحاضہ ہے کیونکہ ۱۵ دن کا وقفہ پورا نہیں ہوا۔',
+    },
     reference: 'Nurul Idah, Al-Hidayah',
     important: true,
   },
   {
-    question: 'Is there a maximum for the period of purity (tuhr) between two haiz cycles?',
-    answer: 'No. There is no maximum for tuhr. A woman may go months or even years without haiz (such as during pregnancy, breastfeeding, or due to medical conditions), and this is perfectly normal from a fiqh perspective.',
+    question: {
+      en: 'Is there a maximum for the period of purity (tuhr) between two haiz cycles?',
+      ru: 'Kya do haiz ke darmiyan paaki (tuhr) ki koi zyada se zyada hadd hai?',
+      ur: 'کیا دو حیض کے درمیان پاکی (طہر) کی کوئی زیادہ سے زیادہ حد ہے؟',
+    },
+    answer: {
+      en: 'No. There is no maximum for tuhr. A woman may go months or even years without haiz (such as during pregnancy, breastfeeding, or due to medical conditions), and this is perfectly normal from a fiqh perspective.',
+      ru: 'Nahi. Tuhr ki koi zyada se zyada hadd nahi hai. Aurat mahino ya saalon tak bina haiz ke reh sakti hai (jaise hamal, doodh pilane, ya kisi medical wajah se), aur yeh fiqh ke mutabiq bilkul normal hai.',
+      ur: 'نہیں۔ طہر کی کوئی زیادہ سے زیادہ حد نہیں ہے۔ عورت مہینوں یا سالوں تک بغیر حیض کے رہ سکتی ہے (جیسے حمل، دودھ پلانے، یا کسی طبی وجہ سے)، اور یہ فقہ کے مطابق بالکل نارمل ہے۔',
+    },
     reference: 'Radd al-Muhtar',
   },
   {
-    question: 'What colour of blood counts as haiz?',
-    answer: 'Haiz can be any of the following colours: black, red, brown, muddy/dark, green-tinged, or yellowish. All of these are valid colours for menstrual blood in the Hanafi school. As long as the bleeding meets the duration and tuhr requirements, it is haiz regardless of colour.',
+    question: {
+      en: 'What colour of blood counts as haiz?',
+      ru: 'Haiz mein khoon ka kaun sa rang shumaar hota hai?',
+      ur: 'حیض میں خون کا کون سا رنگ شمار ہوتا ہے؟',
+    },
+    answer: {
+      en: 'Haiz can be any of the following colours: black, red, brown, muddy/dark, green-tinged, or yellowish. All of these are valid colours for menstrual blood in the Hanafi school. As long as the bleeding meets the duration and tuhr requirements, it is haiz regardless of colour.',
+      ru: 'Haiz mein khoon ka rang kaala, laal, bhoora, gehra/maila, halkay sabz ya zard ho sakta hai. Yeh sab rang Hanafi mazhab mein haiz ke liye durust hain. Jab tak khoon muddat aur tuhr ki sharaitein poori kare, yeh haiz hai chahe rang kuch bhi ho.',
+      ur: 'حیض میں خون کا رنگ کالا، لال، بھورا، گہرا/میلا، ہلکے سبز یا زرد ہو سکتا ہے۔ یہ سب رنگ حنفی مذہب میں حیض کے لیے درست ہیں۔ جب تک خون مدت اور طہر کی شرائط پوری کرے، یہ حیض ہے چاہے رنگ کچھ بھی ہو۔',
+    },
     reference: 'Nurul Idah',
   },
   {
-    question: 'What if my habit changes — e.g., it was 7 days but this time it is 9?',
-    answer: 'If bleeding extends beyond your usual habit but stays within the 3-10 day maximum, the new duration becomes your updated habit. For example, if your habit was 7 days and this month it is 9 days, then 9 days is your haiz this cycle. Your habit updates accordingly for future reference.',
+    question: {
+      en: 'What if my habit changes — e.g., it was 7 days but this time it is 9?',
+      ru: 'Agar meri aadat badal jaye — jaise pehle 7 din thi lekin is baar 9 din ho?',
+      ur: 'اگر میری عادت بدل جائے — جیسے پہلے ۷ دن تھی لیکن اس بار ۹ دن ہو؟',
+    },
+    answer: {
+      en: 'If bleeding extends beyond your usual habit but stays within the 3-10 day maximum, the new duration becomes your updated habit. For example, if your habit was 7 days and this month it is 9 days, then 9 days is your haiz this cycle. Your habit updates accordingly for future reference.',
+      ru: 'Agar khoon apni aadat se zyada aaye lekin 3 se 10 din ke andar rahe, to nayi muddat apki nayi aadat ban jayegi. Misal ke taur par, agar apki aadat 7 din thi aur is mahine 9 din aaya, to 9 din is mahinay ka haiz hai. Apki aadat aage ke liye update ho jayegi.',
+      ur: 'اگر خون اپنی عادت سے زیادہ آئے لیکن ۳ سے ۱۰ دن کے اندر رہے، تو نئی مدت آپ کی نئی عادت بن جائے گی۔ مثال کے طور پر، اگر آپ کی عادت ۷ دن تھی اور اس مہینے ۹ دن آیا، تو ۹ دن اس مہینے کا حیض ہے۔ آپ کی عادت آگے کے لیے اپ ڈیٹ ہو جائے گی۔',
+    },
     reference: 'Nurul Idah, Maraqi al-Falah',
   },
   {
-    question: 'What happens to salah during haiz?',
-    answer: 'During a valid haiz, salah is not obligatory and the missed prayers do NOT need to be made up. This is a concession and mercy from Allah. However, once haiz ends, the woman must perform ghusl and resume praying immediately. If haiz ends with enough time in the salah window for at least one rak\'ah, that salah becomes obligatory.',
+    question: {
+      en: 'What happens to salah during haiz?',
+      ru: 'Haiz ke dauran salah ka kya hukm hai?',
+      ur: 'حیض کے دوران نماز کا کیا حکم ہے؟',
+    },
+    answer: {
+      en: 'During a valid haiz, salah is not obligatory and the missed prayers do NOT need to be made up. This is a concession and mercy from Allah. However, once haiz ends, the woman must perform ghusl and resume praying immediately. If haiz ends with enough time in the salah window for at least one rak\'ah, that salah becomes obligatory.',
+      ru: 'Haiz ke dauran salah farz nahi hai aur chhoti hui namazein qaza bhi nahi karni. Yeh Allah ki taraf se rukhsat aur rehmat hai. Lekin jab haiz khatam ho jaye to aurat ko foran ghusl kar ke namaz shuru karni chahiye. Agar haiz khatam hone par salah ke waqt mein kam se kam ek rak\'ah ki gunjaish ho, to woh salah farz ho jati hai.',
+      ur: 'حیض کے دوران نماز فرض نہیں ہے اور چھوٹی ہوئی نمازیں قضا بھی نہیں کرنی۔ یہ اللہ کی طرف سے رخصت اور رحمت ہے۔ لیکن جب حیض ختم ہو جائے تو عورت کو فوراً غسل کر کے نماز شروع کرنی چاہیے۔ اگر حیض ختم ہونے پر نماز کے وقت میں کم سے کم ایک رکعت کی گنجائش ہو، تو وہ نماز فرض ہو جاتی ہے۔',
+    },
     reference: 'Maraqi al-Falah',
     important: true,
   },
   {
-    question: 'What about fasting during haiz?',
-    answer: 'A woman must not fast during haiz. However, unlike salah, the missed fasts MUST be made up (qada). She should make them up after Ramadan at her convenience, but should not delay unnecessarily until the next Ramadan.',
+    question: {
+      en: 'What about fasting during haiz?',
+      ru: 'Haiz ke dauran roze ka kya hukm hai?',
+      ur: 'حیض کے دوران روزے کا کیا حکم ہے؟',
+    },
+    answer: {
+      en: 'A woman must not fast during haiz. However, unlike salah, the missed fasts MUST be made up (qada). She should make them up after Ramadan at her convenience, but should not delay unnecessarily until the next Ramadan.',
+      ru: 'Aurat haiz ke dauran roza nahi rakh sakti. Lekin salah ke bar-aks, chhoote hue rozon ki qaza LAZMI hai. Woh Ramadan ke baad apni suvidha ke mutabiq qaza kare, lekin aglay Ramadan tak bilawajah taakhir na kare.',
+      ur: 'عورت حیض کے دوران روزہ نہیں رکھ سکتی۔ لیکن نماز کے برعکس، چھوٹے ہوئے روزوں کی قضا لازمی ہے۔ وہ رمضان کے بعد اپنی سہولت کے مطابق قضا کرے، لیکن اگلے رمضان تک بلاوجہ تاخیر نہ کرے۔',
+    },
     reference: 'Nurul Idah, Al-Hidayah',
   },
   {
-    question: 'Can I recite Quran or make du\'a during haiz?',
-    answer: 'In the Hanafi school, reciting the Quran from memory (tilawah) is not permitted during haiz. However, du\'a that contains Quranic verses is permissible if the intention is du\'a rather than tilawah. Dhikr, salawat upon the Prophet (peace be upon him), and du\'a are all encouraged and permissible. Listening to Quran recitation is also permitted.',
+    question: {
+      en: 'Can I recite Quran or make du\'a during haiz?',
+      ru: 'Kya haiz ke dauran Quran parh sakti hoon ya du\'a kar sakti hoon?',
+      ur: 'کیا حیض کے دوران قرآن پڑھ سکتی ہوں یا دعا کر سکتی ہوں؟',
+    },
+    answer: {
+      en: 'In the Hanafi school, reciting the Quran from memory (tilawah) is not permitted during haiz. However, du\'a that contains Quranic verses is permissible if the intention is du\'a rather than tilawah. Dhikr, salawat upon the Prophet (peace be upon him), and du\'a are all encouraged and permissible. Listening to Quran recitation is also permitted.',
+      ru: 'Hanafi mazhab mein haiz ke dauran zabani Quran ki tilawat jaiz nahi hai. Lekin agar du\'a mein Qurani ayaat aayein aur niyyat du\'a ki ho tilawat ki nahi, to yeh jaiz hai. Dhikr, Nabi (sallallahu alaihi wasallam) par salawat, aur du\'a sab jaiz aur mustahab hain. Quran sunna bhi jaiz hai.',
+      ur: 'حنفی مذہب میں حیض کے دوران زبانی قرآن کی تلاوت جائز نہیں ہے۔ لیکن اگر دعا میں قرآنی آیات آئیں اور نیت دعا کی ہو تلاوت کی نہیں، تو یہ جائز ہے۔ ذکر، نبی (صلی اللہ علیہ وسلم) پر صلوٰۃ، اور دعا سب جائز اور مستحب ہیں۔ قرآن سننا بھی جائز ہے۔',
+    },
     reference: 'Radd al-Muhtar',
   },
   {
-    question: 'Can I enter the masjid during haiz?',
-    answer: 'A woman in the state of haiz should not enter the masjid. If there is a need to pass through (such as the masjid being the only pathway), some scholars have permitted passing through quickly without sitting. For Eid prayers or Islamic lectures held in a hall that is not technically a masjid, she may attend.',
+    question: {
+      en: 'Can I enter the masjid during haiz?',
+      ru: 'Kya haiz ke dauran masjid mein ja sakti hoon?',
+      ur: 'کیا حیض کے دوران مسجد میں جا سکتی ہوں؟',
+    },
+    answer: {
+      en: 'A woman in the state of haiz should not enter the masjid. If there is a need to pass through (such as the masjid being the only pathway), some scholars have permitted passing through quickly without sitting. For Eid prayers or Islamic lectures held in a hall that is not technically a masjid, she may attend.',
+      ru: 'Haiz ki haalat mein aurat ko masjid mein nahi jana chahiye. Agar guzarne ki zaroorat ho (jaise masjid hi akela raasta ho), to baaz ulama ne bina baithe jaldi guzar jaane ki ijazat di hai. Eid ki namaz ya deeni lectures jo kisi aise hall mein hon jo fiqhi taur par masjid na ho, wahan ja sakti hain.',
+      ur: 'حیض کی حالت میں عورت کو مسجد میں نہیں جانا چاہیے۔ اگر گزرنے کی ضرورت ہو (جیسے مسجد ہی اکیلا راستہ ہو)، تو بعض علماء نے بغیر بیٹھے جلدی گزر جانے کی اجازت دی ہے۔ عید کی نماز یا دینی لیکچرز جو کسی ایسے ہال میں ہوں جو فقہی طور پر مسجد نہ ہو، وہاں جا سکتی ہیں۔',
+    },
     reference: 'Nurul Idah, Radd al-Muhtar',
   },
 ];
@@ -80,8 +176,16 @@ const masail = [
     <TopicHeader
       titleAr="حَيض"
       titleEn="Haiz — Menstruation"
-      subtitle="Menstruation"
-      description="Complete rulings regarding the menstrual cycle in the Hanafi school — durations, purity gaps, what is permitted and what is not."
+      subtitle={{
+        en: 'Menstruation',
+        ru: 'Haiz',
+        ur: 'حیض',
+      }}
+      description={{
+        en: 'Complete rulings regarding the menstrual cycle in the Hanafi school — durations, purity gaps, what is permitted and what is not.',
+        ru: 'Hanafi mazhab mein haiz ke mukammal ahkaam — muddat, paaki ka waqfa, kya jaiz hai aur kya nahi.',
+        ur: 'حنفی مذہب میں حیض کے مکمل احکام — مدت، پاکی کا وقفہ، کیا جائز ہے اور کیا نہیں۔',
+      }}
       masailCount={masail.length}
     />
     <MasailList masail={masail} />

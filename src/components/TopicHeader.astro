@@ -1,9 +1,12 @@
 ---
+import T from './T.astro';
+import type { I18nText } from '../i18n/types';
+
 interface Props {
   titleAr: string;
   titleEn: string;
-  subtitle: string;
-  description: string;
+  subtitle: I18nText;
+  description: I18nText;
   masailCount: number;
 }
 
@@ -19,21 +22,29 @@ const { titleAr, titleEn, subtitle, description, masailCount } = Astro.props;
       <svg viewBox="0 0 16 16" fill="none" class="back-icon">
         <path d="M10 4l-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      Back to Home
+      <T en="Back to Home" ru="Wapas Home" ur="واپس ہوم" />
     </a>
 
     <div class="topic-title-block reveal reveal-delay-1">
-      <span class="section-label">{subtitle}</span>
+      <span class="section-label">
+        <span data-lang-text="en">{subtitle.en}</span>
+        <span data-lang-text="ru">{subtitle.ru}</span>
+        <span data-lang-text="ur">{subtitle.ur}</span>
+      </span>
       <h1 class="topic-title-ar">{titleAr}</h1>
       <h2 class="topic-title-en">{titleEn}</h2>
     </div>
 
-    <p class="topic-desc reveal reveal-delay-2">{description}</p>
+    <div class="topic-desc reveal reveal-delay-2">
+      <p data-lang-block="en">{description.en}</p>
+      <p data-lang-block="ru">{description.ru}</p>
+      <p data-lang-block="ur">{description.ur}</p>
+    </div>
 
     <div class="topic-meta reveal reveal-delay-3">
-      <span class="meta-count">{masailCount} Masail</span>
+      <span class="meta-count">{masailCount} <T en="Masail" ru="Masail" ur="مسائل" /></span>
       <span class="meta-dot">·</span>
-      <span class="meta-school">Hanafi School</span>
+      <span class="meta-school"><T en="Hanafi School" ru="Hanafi Maslak" ur="حنفی مسلک" /></span>
     </div>
   </div>
 
@@ -117,6 +128,9 @@ const { titleAr, titleEn, subtitle, description, masailCount } = Astro.props;
   .topic-desc {
     max-width: 560px;
     margin: 0 auto var(--space-lg);
+  }
+
+  .topic-desc p {
     font-size: clamp(0.92rem, 1.5vw, 1.05rem);
     color: var(--text-secondary);
     font-weight: 300;

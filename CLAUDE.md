@@ -12,7 +12,8 @@ A static, interactive Q&A website for women's Hanafi fiqh masail (Islamic jurisp
 - **Styling:** Vanilla CSS with CSS custom properties (no Tailwind, no CSS frameworks)
 - **Interactivity:** Vanilla TypeScript/JS in `<script>` tags within Astro components
 - **Database:** None — fully static, all content hardcoded in components
-- **Fonts:** Google Fonts — Amiri (Arabic serif) + Outfit (English sans-serif)
+- **Fonts:** Google Fonts — Amiri (Arabic serif) + Outfit (English sans-serif) + Noto Nastaliq Urdu (Urdu script)
+- **i18n:** 3-language support (Roman Urdu default, English, Urdu script) via CSS data-attribute toggle
 - **Icons:** Inline SVGs, no icon libraries
 
 ## Commands
@@ -25,19 +26,31 @@ A static, interactive Q&A website for women's Hanafi fiqh masail (Islamic jurisp
 
 ```
 src/
-├── components/          # Astro components (self-contained with scoped CSS + JS)
+├── i18n/
+│   └── types.ts         # Shared types: Lang, I18nText, I18nMasala
+├── components/
+│   ├── T.astro          # Translation helper — renders 3 <span data-lang-text> elements
+│   ├── LangToggle.astro # Language toggle pill (RU | EN | اردو) for navbar
 │   ├── Navbar.astro     # Fixed nav, blurs on scroll, mobile hamburger overlay
 │   ├── Hero.astro       # Full-viewport hero with Bismillah, Arabic title, CTAs
 │   ├── Categories.astro # 6 topic cards (haiz, istihaza, nifas, salah, sawm, taharah)
 │   ├── QuickQuestion.astro  # Interactive decision-tree Q&A (the main feature)
 │   ├── FeaturedMasail.astro # Expandable Q&A cards with filters + search
+│   ├── TopicHeader.astro    # Shared header for topic pages
+│   ├── MasailList.astro     # Shared expandable masail list for topic pages
 │   └── Footer.astro     # Dark green footer with Quranic ayah + disclaimer
 ├── layouts/
-│   └── Layout.astro     # Base HTML layout with meta, scroll-reveal observer
+│   └── Layout.astro     # Base HTML layout with meta, scroll-reveal, FOUC-prevention lang script
 ├── pages/
-│   └── index.astro      # Homepage — imports and composes all components
+│   ├── index.astro      # Homepage — imports and composes all components
+│   ├── haiz.astro       # Haiz topic page (12 masail)
+│   ├── istihaza.astro   # Istihaza topic page (8 masail)
+│   ├── nifas.astro      # Nifas topic page (8 masail)
+│   ├── salah.astro      # Salah topic page (10 masail)
+│   ├── sawm.astro       # Sawm topic page (9 masail)
+│   └── taharah.astro    # Taharah topic page (9 masail)
 └── styles/
-    └── global.css       # CSS variables, reset, utilities, pattern backgrounds
+    └── global.css       # CSS variables, reset, utilities, patterns, language toggle rules
 ```
 
 ## Design System & Aesthetic
@@ -62,6 +75,7 @@ The site should feel like opening a beautifully bound Islamic book. Warm, earthy
 ### Typography
 - **Arabic text:** `var(--font-arabic)` — Amiri, serif. Used for Arabic titles, Bismillah, Quranic text. Always set `direction: rtl` on Arabic text.
 - **English text:** `var(--font-body)` — Outfit, sans-serif. Weights 300-700.
+- **Urdu script text:** `var(--font-urdu)` — Noto Nastaliq Urdu, serif. Applied automatically via `[data-lang-text="ur"]` CSS rule with `direction: rtl`.
 - Section labels: 0.75rem, uppercase, letter-spacing 0.15em, gold-muted color
 - Section titles: clamp(1.75rem, 4vw, 2.5rem), teal-deep, font-weight 600
 
@@ -127,10 +141,47 @@ This is the actual Islamic jurisprudence logic hardcoded into the site. **Do not
 - Cannot fast during haiz
 - Missed fasts MUST be made up (unlike salah which doesn't need makeup)
 
+## 3-Language System (i18n)
+
+**All content must be provided in 3 languages: Roman Urdu (default), English, and Urdu script.**
+
+### How It Works
+- CSS data-attribute toggle: `html[data-lang="ru|en|ur"]` controls which `[data-lang-text]` spans are visible
+- All 3 language versions are rendered inline at build time (no JS DOM manipulation for content)
+- `<T en="..." ru="..." ur="..." />` helper component renders 3 `<span data-lang-text>` elements
+- Language preference persists via `localStorage` key `al-masail-lang`
+- Inline `<script is:inline>` in `<head>` prevents FOUC by setting `data-lang` before paint
+- `LangToggle.astro` component provides the `RU | EN | اردو` pill toggle in the navbar
+
+### MUST DO for All New/Edited Content
+1. **Every user-facing text** must have all 3 languages: `{ en, ru, ur }`
+2. Use `<T en="..." ru="..." ur="..." />` for inline text or `data-lang-text` / `data-lang-block` spans for block content
+3. **Masail data** uses `I18nText` type: `question: { en, ru, ur }`, `answer: { en, ru, ur }`
+4. **References stay English** — book names (Nurul Idah, Al-Hidayah, etc.) do NOT translate
+5. **Fiqh terms** (haiz, istihaza, nifas, salah, sawm, taharah, ghusl, wudu) stay as-is in English & Roman Urdu. In Urdu script, use their Arabic/Urdu forms (حیض، استحاضہ، نفاس، نماز، etc.)
+
+### NEVER Translate
+- **Bismillah** — stays Arabic in all languages (بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ)
+- **Quranic ayaat** — footer ayah (Surah Hud 11:88) and any Quranic text stays Arabic
+- **Arabic titles** (المسائل, section title Arabic text like أبْوَاب المَسَائِل) — stays Arabic
+- **Meta tags / page titles** — stay English for SEO (baked at build time)
+
+### CSS Rules (in global.css)
+- `[data-lang-text]` / `[data-lang-block]` — hidden by default
+- `html[data-lang="xx"] [data-lang-text="xx"]` — shown as `display: inline`
+- `html[data-lang="xx"] [data-lang-block="xx"]` — shown as `display: block`
+- Urdu text automatically gets `font-family: var(--font-urdu)` and `direction: rtl`
+- Toggle text (View Answer / Hide Answer) uses CSS-only `.show-when-closed` / `.show-when-open` classes
+
+### Page stays LTR
+- The `<html>` element keeps `dir="ltr"` — only Urdu text elements get `direction: rtl` via CSS
+- Do NOT flip the entire page direction
+
 ## Component Patterns
 
 ### Adding New Masail Content
-- Add to the `masail` array in `FeaturedMasail.astro` with: category, categoryAr, question, answer, reference
+- Add to the `masail` array with: category, categoryAr, question (I18nText), answer (I18nText), reference
+- All question/answer fields must be `{ en: '...', ru: '...', ur: '...' }` — never plain strings
 - Add new filter chip if introducing a new category
 
 ### Adding New Decision Tree Paths (QuickQuestion.astro)
@@ -139,10 +190,13 @@ This is the actual Islamic jurisprudence logic hardcoded into the site. **Do not
 - Answer screens use `.qa-answer`, `.qa-ruling`, `.qa-example` blocks
 - Update the `depthMap` object in the script for progress bar tracking
 - Visual timeline blocks available: `.haiz`, `.tuhr`, `.istihaza` classes
+- All text content must be triple-rendered with `data-lang-text` spans or `<T>` component
 
-### Adding New Category Pages
+### Adding New Category/Topic Pages
 - Create new pages in `src/pages/` (e.g., `haiz.astro`)
 - Use the `Layout.astro` wrapper
+- TopicHeader props `subtitle` and `description` must be `I18nText` objects
+- MasailList expects masail with `I18nText` question/answer fields
 - Follow existing component patterns for consistency
 
 ## Important Notes

@@ -1,4 +1,5 @@
 ---
+import T from './T.astro';
 ---
 
 <footer class="footer" id="about">
@@ -12,12 +13,14 @@
         <span class="footer-brand-ar">المسائل</span>
         <span class="footer-brand-en">Al-Masail</span>
         <p class="footer-tagline">
-          Hanafi fiqh masail for women, presented with clarity and care.
+          <span data-lang-text="en">Hanafi fiqh masail for women, presented with clarity and care.</span>
+          <span data-lang-text="ru">Khawateen ke liye Hanafi fiqhi masail, wuzoohat aur ehtimaam ke saath.</span>
+          <span data-lang-text="ur">خواتین کے لیے حنفی فقہی مسائل، وضاحت اور اہتمام کے ساتھ۔</span>
         </p>
       </div>
 
       <div class="footer-links reveal reveal-delay-1">
-        <h4 class="footer-heading">Topics</h4>
+        <h4 class="footer-heading"><T en="Topics" ru="Mauzu'aat" ur="موضوعات" /></h4>
         <a href="/haiz">Haiz</a>
         <a href="/istihaza">Istihaza</a>
         <a href="/nifas">Nifas</a>
@@ -27,17 +30,18 @@
       </div>
 
       <div class="footer-links reveal reveal-delay-2">
-        <h4 class="footer-heading">Resources</h4>
-        <a href="/#quick-question">Quick Q&A</a>
-        <a href="/#masail">All Masail</a>
-        <a href="/#about">About</a>
+        <h4 class="footer-heading"><T en="Resources" ru="Wasail" ur="وسائل" /></h4>
+        <a href="/#quick-question"><T en="Quick Q&A" ru="Fori Sawal" ur="فوری سوال" /></a>
+        <a href="/#masail"><T en="All Masail" ru="Tamaam Masail" ur="تمام مسائل" /></a>
+        <a href="/#about"><T en="About" ru="Ta'aruf" ur="تعارف" /></a>
       </div>
 
       <div class="footer-note reveal reveal-delay-3">
-        <h4 class="footer-heading">Disclaimer</h4>
+        <h4 class="footer-heading"><T en="Disclaimer" ru="Ikhtilaai Bayaan" ur="اختلائی بیان" /></h4>
         <p>
-          This resource is based on the Hanafi school of Islamic jurisprudence.
-          For personal situations, always consult a qualified scholar.
+          <span data-lang-text="en">This resource is based on the Hanafi school of Islamic jurisprudence. For personal situations, always consult a qualified scholar.</span>
+          <span data-lang-text="ru">Yeh malumat Hanafi maslak par mabni hain. Zaati halaat ke liye hamesha kisi mustanad aalim se mashwara karein.</span>
+          <span data-lang-text="ur">یہ معلومات حنفی مسلک پر مبنی ہیں۔ ذاتی حالات کے لیے ہمیشہ کسی مستند عالم سے مشورہ کریں۔</span>
         </p>
       </div>
     </div>
@@ -50,7 +54,9 @@
         وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ ۚ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ
       </p>
       <p class="footer-copy">
-        &copy; Al-Masail. For the sake of Allah alone.
+        <span data-lang-text="en">&copy; Al-Masail. For the sake of Allah alone.</span>
+        <span data-lang-text="ru">&copy; Al-Masail. Sirf Allah ki raza ke liye.</span>
+        <span data-lang-text="ur">&copy; المسائل۔ صرف اللہ کی رضا کے لیے۔</span>
       </p>
     </div>
   </div>

@@ -1,45 +1,95 @@
 ---
+import T from './T.astro';
+
 const masail = [
   {
     category: 'Haiz',
     categoryAr: 'حَيض',
-    question: 'What is the minimum and maximum duration of haiz?',
-    answer: 'The minimum is 3 days and 3 nights (72 hours). The maximum is 10 days and 10 nights (240 hours). Any bleeding outside this range is istihaza.',
+    question: {
+      en: 'What is the minimum and maximum duration of haiz?',
+      ru: 'Haiz ki kam se kam aur zyada se zyada muddat kya hai?',
+      ur: 'حیض کی کم سے کم اور زیادہ سے زیادہ مدت کیا ہے؟',
+    },
+    answer: {
+      en: 'The minimum is 3 days and 3 nights (72 hours). The maximum is 10 days and 10 nights (240 hours). Any bleeding outside this range is istihaza.',
+      ru: 'Kam se kam 3 din aur 3 raatein (72 ghante). Zyada se zyada 10 din aur 10 raatein (240 ghante). Is se bahar ka khoon istihaza hai.',
+      ur: 'کم سے کم ۳ دن اور ۳ راتیں (۷۲ گھنٹے)۔ زیادہ سے زیادہ ۱۰ دن اور ۱۰ راتیں (۲۴۰ گھنٹے)۔ اس سے باہر کا خون استحاضہ ہے۔',
+    },
     reference: 'Nurul Idah, Maraqi al-Falah',
   },
   {
     category: 'Istihaza',
     categoryAr: 'اِسْتِحَاضَة',
-    question: 'What is the minimum gap of purity between two haiz periods?',
-    answer: 'The minimum tuhr (purity) between two valid haiz periods is 15 days. If bleeding returns before 15 clean days, it is istihaza, not a new period.',
+    question: {
+      en: 'What is the minimum gap of purity between two haiz periods?',
+      ru: 'Do haiz ke darmiyan paaki ka kam se kam fasla kya hai?',
+      ur: 'دو حیض کے درمیان پاکی کا کم سے کم فاصلہ کیا ہے؟',
+    },
+    answer: {
+      en: 'The minimum tuhr (purity) between two valid haiz periods is 15 days. If bleeding returns before 15 clean days, it is istihaza, not a new period.',
+      ru: 'Do sahih haiz ke darmiyan kam se kam tuhr (paaki) 15 din hai. Agar 15 saaf din se pehle khoon aaye to yeh istihaza hai, naya haiz nahi.',
+      ur: 'دو صحیح حیض کے درمیان کم سے کم طہر (پاکی) ۱۵ دن ہے۔ اگر ۱۵ صاف دن سے پہلے خون آئے تو یہ استحاضہ ہے، نیا حیض نہیں۔',
+    },
     reference: 'Al-Hidayah, Nurul Idah',
   },
   {
     category: 'Nifas',
     categoryAr: 'نِفَاس',
-    question: 'What is the maximum duration of nifas (post-natal bleeding)?',
-    answer: 'The maximum nifas is 40 days. If bleeding continues beyond 40 days, the excess is istihaza. There is no minimum — even if bleeding stops after a few hours, nifas has occurred.',
+    question: {
+      en: 'What is the maximum duration of nifas (post-natal bleeding)?',
+      ru: 'Nifas (wiladat ke baad khoon) ki zyada se zyada muddat kya hai?',
+      ur: 'نفاس (ولادت کے بعد خون) کی زیادہ سے زیادہ مدت کیا ہے؟',
+    },
+    answer: {
+      en: 'The maximum nifas is 40 days. If bleeding continues beyond 40 days, the excess is istihaza. There is no minimum — even if bleeding stops after a few hours, nifas has occurred.',
+      ru: 'Nifas ki zyada se zyada muddat 40 din hai. Agar 40 din ke baad bhi khoon rahe to woh istihaza hai. Koi kam se kam muddat nahi — chand ghanton mein bhi band ho to nifas ho gaya.',
+      ur: 'نفاس کی زیادہ سے زیادہ مدت ۴۰ دن ہے۔ اگر ۴۰ دن کے بعد بھی خون رہے تو وہ استحاضہ ہے۔ کوئی کم سے کم مدت نہیں — چند گھنٹوں میں بھی بند ہو تو نفاس ہو گیا۔',
+    },
     reference: 'Nurul Idah',
   },
   {
     category: 'Salah',
     categoryAr: 'صَلَاة',
-    question: 'Do I make up salah missed during haiz?',
-    answer: 'No. Salah missed during a valid haiz does not need to be made up. This is a concession from Allah. However, if haiz ends and there is enough time remaining in the salah window for at least one rak\'ah, that salah becomes obligatory.',
+    question: {
+      en: 'Do I make up salah missed during haiz?',
+      ru: 'Kya haiz mein chhooti hui namazein qaza karni hain?',
+      ur: 'کیا حیض میں چھوٹی ہوئی نمازیں قضا کرنی ہیں؟',
+    },
+    answer: {
+      en: 'No. Salah missed during a valid haiz does not need to be made up. This is a concession from Allah. However, if haiz ends and there is enough time remaining in the salah window for at least one rak\'ah, that salah becomes obligatory.',
+      ru: 'Nahi. Sahih haiz mein chhooti hui namazein qaza nahi karni. Yeh Allah ki taraf se rukhsat hai. Lekin agar haiz khatam ho aur namaz ka itna waqt bacha ho ke ek rakat padh sakein, to woh namaz farz ho jati hai.',
+      ur: 'نہیں۔ صحیح حیض میں چھوٹی ہوئی نمازیں قضا نہیں کرنی۔ یہ اللہ کی طرف سے رخصت ہے۔ لیکن اگر حیض ختم ہو اور نماز کا اتنا وقت بچا ہو کہ ایک رکعت پڑھ سکیں، تو وہ نماز فرض ہو جاتی ہے۔',
+    },
     reference: 'Maraqi al-Falah',
   },
   {
     category: 'Sawm',
     categoryAr: 'صَوم',
-    question: 'Do I make up fasts missed during haiz?',
-    answer: 'Yes. Unlike salah, fasts missed during haiz must be made up after Ramadan. You can spread them throughout the year but should not delay until the next Ramadan without reason.',
+    question: {
+      en: 'Do I make up fasts missed during haiz?',
+      ru: 'Kya haiz mein chhoote hue roze qaza karne hain?',
+      ur: 'کیا حیض میں چھوٹے ہوئے روزے قضا کرنے ہیں؟',
+    },
+    answer: {
+      en: 'Yes. Unlike salah, fasts missed during haiz must be made up after Ramadan. You can spread them throughout the year but should not delay until the next Ramadan without reason.',
+      ru: 'Haan. Namaz ke baraks, haiz mein chhoote hue roze Ramzan ke baad qaza karne zaroori hain. Poore saal mein kar sakti hain lekin bila wajah agle Ramzan tak deri na karein.',
+      ur: 'ہاں۔ نماز کے برعکس، حیض میں چھوٹے ہوئے روزے رمضان کے بعد قضا کرنے ضروری ہیں۔ پورے سال میں کر سکتی ہیں لیکن بلا وجہ اگلے رمضان تک دیری نہ کریں۔',
+    },
     reference: 'Nurul Idah, Al-Hidayah',
   },
   {
     category: 'Taharah',
     categoryAr: 'طَهَارَة',
-    question: 'Can I recite Quran during haiz?',
-    answer: 'Reciting Quran from memory (without touching the mushaf) is not permitted during haiz according to the Hanafi school. However, du\'a that contains Quranic verses (with the intention of du\'a, not tilawah) is permitted. Dhikr and salawat are encouraged.',
+    question: {
+      en: 'Can I recite Quran during haiz?',
+      ru: 'Kya haiz mein Quran padh sakti hoon?',
+      ur: 'کیا حیض میں قرآن پڑھ سکتی ہوں؟',
+    },
+    answer: {
+      en: 'Reciting Quran from memory (without touching the mushaf) is not permitted during haiz according to the Hanafi school. However, du\'a that contains Quranic verses (with the intention of du\'a, not tilawah) is permitted. Dhikr and salawat are encouraged.',
+      ru: 'Hanafi maslak mein haiz ke dauraan zubani Quran padhna (tilawat) jaiz nahi. Lekin du\'a jo Qurani ayaat par mushtamil ho (du\'a ki niyyat se, tilawat ki nahi) jaiz hai. Dhikr aur durood bhejne ki targheeb hai.',
+      ur: 'حنفی مسلک میں حیض کے دوران زبانی قرآن پڑھنا (تلاوت) جائز نہیں۔ لیکن دعا جو قرآنی آیات پر مشتمل ہو (دعا کی نیت سے، تلاوت کی نہیں) جائز ہے۔ ذکر اور درود بھیجنے کی ترغیب ہے۔',
+    },
     reference: 'Radd al-Muhtar',
   },
 ];
@@ -48,14 +98,14 @@ const masail = [
 <section class="featured-masail" id="masail">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label">Common Questions</span>
+      <span class="section-label"><T en="Common Questions" ru="Aam Sawalaat" ur="عام سوالات" /></span>
       <p class="section-title-ar">المسائل المهمة</p>
-      <h2 class="section-title">Featured Masail</h2>
+      <h2 class="section-title"><T en="Featured Masail" ru="Ahem Masail" ur="اہم مسائل" /></h2>
     </div>
 
     <!-- Filter chips -->
     <div class="filter-bar reveal reveal-delay-1">
-      <button class="filter-chip active" data-filter="all">All</button>
+      <button class="filter-chip active" data-filter="all"><T en="All" ru="Sab" ur="سب" /></button>
       <button class="filter-chip" data-filter="Haiz">Haiz</button>
       <button class="filter-chip" data-filter="Istihaza">Istihaza</button>
       <button class="filter-chip" data-filter="Nifas">Nifas</button>
@@ -89,9 +139,17 @@ const masail = [
               {m.category}
             </span>
           </div>
-          <h3 class="masail-question">{m.question}</h3>
+          <h3 class="masail-question">
+            <span data-lang-text="en">{m.question.en}</span>
+            <span data-lang-text="ru">{m.question.ru}</span>
+            <span data-lang-text="ur">{m.question.ur}</span>
+          </h3>
           <div class="masail-answer-wrapper">
-            <p class="masail-answer">{m.answer}</p>
+            <p class="masail-answer">
+              <span data-lang-text="en">{m.answer.en}</span>
+              <span data-lang-text="ru">{m.answer.ru}</span>
+              <span data-lang-text="ur">{m.answer.ur}</span>
+            </p>
             <div class="masail-reference">
               <svg viewBox="0 0 16 16" fill="none" class="ref-icon">
                 <rect x="2" y="1" width="12" height="14" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
@@ -101,7 +159,10 @@ const masail = [
             </div>
           </div>
           <button class="masail-toggle" aria-label="Toggle answer">
-            <span class="toggle-text">View Answer</span>
+            <span class="toggle-text">
+              <span class="show-when-closed"><T en="View Answer" ru="Jawab Dekhein" ur="جواب دیکھیں" /></span>
+              <span class="show-when-open"><T en="Hide Answer" ru="Jawab Chhupayein" ur="جواب چھپائیں" /></span>
+            </span>
             <svg viewBox="0 0 16 16" fill="none" class="toggle-icon">
               <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -111,7 +172,9 @@ const masail = [
     </div>
 
     <p class="no-results" id="noResults" style="display: none;">
-      No masail found matching your search. Try different keywords.
+      <span data-lang-text="en">No masail found matching your search. Try different keywords.</span>
+      <span data-lang-text="ru">Aapki talaash se koi masla nahi mila. Doosre alfaaz try karein.</span>
+      <span data-lang-text="ur">آپ کی تلاش سے کوئی مسئلہ نہیں ملا۔ دوسرے الفاظ آزمائیں۔</span>
     </p>
   </div>
 </section>
@@ -318,14 +381,6 @@ const masail = [
     transform: rotate(180deg);
   }
 
-  .masail-card.open .toggle-text {
-    display: none;
-  }
-
-  .masail-card.open .toggle-text::after {
-    content: 'Hide Answer';
-  }
-
   .no-results {
     text-align: center;
     color: var(--text-light);
@@ -346,10 +401,6 @@ const masail = [
     btn.addEventListener('click', () => {
       const card = btn.closest('.masail-card');
       card?.classList.toggle('open');
-      const textEl = btn.querySelector('.toggle-text');
-      if (textEl) {
-        textEl.textContent = card?.classList.contains('open') ? 'Hide Answer' : 'View Answer';
-      }
     });
   });
 

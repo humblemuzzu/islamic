@@ -1,4 +1,6 @@
 ---
+import LangToggle from './LangToggle.astro';
+import T from './T.astro';
 ---
 
 <nav class="navbar" id="navbar">
@@ -9,11 +11,13 @@
     </a>
 
     <div class="nav-links" id="navLinks">
-      <a href="/#categories" class="nav-link">Topics</a>
-      <a href="/#quick-question" class="nav-link">Quick Q&A</a>
-      <a href="/#masail" class="nav-link">Masail</a>
-      <a href="/#about" class="nav-link">About</a>
+      <a href="/#categories" class="nav-link"><T en="Topics" ru="Mauzu'aat" ur="موضوعات" /></a>
+      <a href="/#quick-question" class="nav-link"><T en="Quick Q&A" ru="Fori Sawal" ur="فوری سوال" /></a>
+      <a href="/#masail" class="nav-link"><T en="Masail" ru="Masail" ur="مسائل" /></a>
+      <a href="/#about" class="nav-link"><T en="About" ru="Ta'aruf" ur="تعارف" /></a>
     </div>
+
+    <LangToggle />
 
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
       <span></span>
@@ -29,10 +33,13 @@
     <div class="mobile-brand">
       <span class="brand-ar">المسائل</span>
     </div>
-    <a href="/#categories" class="mobile-link">Topics</a>
-    <a href="/#quick-question" class="mobile-link">Quick Q&A</a>
-    <a href="/#masail" class="mobile-link">Masail</a>
-    <a href="/#about" class="mobile-link">About</a>
+    <div class="mobile-lang-toggle">
+      <LangToggle />
+    </div>
+    <a href="/#categories" class="mobile-link"><T en="Topics" ru="Mauzu'aat" ur="موضوعات" /></a>
+    <a href="/#quick-question" class="mobile-link"><T en="Quick Q&A" ru="Fori Sawal" ur="فوری سوال" /></a>
+    <a href="/#masail" class="mobile-link"><T en="Masail" ru="Masail" ur="مسائل" /></a>
+    <a href="/#about" class="mobile-link"><T en="About" ru="Ta'aruf" ur="تعارف" /></a>
     <div class="divider-ornament" style="margin: 1.5rem 0;">
       <span>✦</span>
     </div>
@@ -64,6 +71,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--space-lg);
   }
 
   .nav-brand {
@@ -95,6 +103,8 @@
   .nav-links {
     display: flex;
     gap: var(--space-xl);
+    flex: 1;
+    justify-content: center;
   }
 
   .nav-link {
@@ -176,12 +186,18 @@
   }
 
   .mobile-brand {
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
   }
 
   .mobile-brand .brand-ar {
     font-size: 2.5rem;
     color: var(--gold);
+  }
+
+  .mobile-lang-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-xl);
   }
 
   .mobile-link {

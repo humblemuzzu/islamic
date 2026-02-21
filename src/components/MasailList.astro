@@ -1,7 +1,10 @@
 ---
+import T from './T.astro';
+import type { I18nText } from '../i18n/types';
+
 interface Masala {
-  question: string;
-  answer: string;
+  question: I18nText;
+  answer: I18nText;
   reference?: string;
   important?: boolean;
 }
@@ -22,9 +25,17 @@ const { masail } = Astro.props;
             <span>{String(i + 1).padStart(2, '0')}</span>
           </div>
           <div class="masala-content">
-            <h3 class="masala-question">{m.question}</h3>
+            <h3 class="masala-question">
+              <span data-lang-text="en">{m.question.en}</span>
+              <span data-lang-text="ru">{m.question.ru}</span>
+              <span data-lang-text="ur">{m.question.ur}</span>
+            </h3>
             <div class="masala-answer-wrap">
-              <p class="masala-answer">{m.answer}</p>
+              <p class="masala-answer">
+                <span data-lang-text="en">{m.answer.en}</span>
+                <span data-lang-text="ru">{m.answer.ru}</span>
+                <span data-lang-text="ur">{m.answer.ur}</span>
+              </p>
               {m.reference && (
                 <div class="masala-ref">
                   <svg viewBox="0 0 16 16" fill="none" class="ref-icon">
@@ -36,7 +47,10 @@ const { masail } = Astro.props;
               )}
             </div>
             <button class="masala-toggle" aria-label="Toggle answer">
-              <span class="masala-toggle-text">View Answer</span>
+              <span class="masala-toggle-text">
+                <span class="show-when-closed"><T en="View Answer" ru="Jawab Dekhein" ur="جواب دیکھیں" /></span>
+                <span class="show-when-open"><T en="Hide Answer" ru="Jawab Chhupayein" ur="جواب چھپائیں" /></span>
+              </span>
               <svg viewBox="0 0 16 16" fill="none" class="masala-toggle-icon">
                 <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -190,10 +204,6 @@ const { masail } = Astro.props;
     btn.addEventListener('click', () => {
       const item = btn.closest('.masala-item');
       item?.classList.toggle('open');
-      const textEl = btn.querySelector('.masala-toggle-text');
-      if (textEl) {
-        textEl.textContent = item?.classList.contains('open') ? 'Hide Answer' : 'View Answer';
-      }
     });
   });
 </script>

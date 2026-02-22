@@ -11,7 +11,9 @@ type RenderPassage = {
 const GEMINI_EMBED_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent";
 const GEMINI_GENERATE_URL =
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+  "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
+
+// ── Embedding functions ───────────────────────────────────
 
 export async function embedWithGemini(text: string): Promise<number[]> {
   const key = process.env.GEMINI_API_KEY ?? process.env.GOOGLE_API_KEY;
@@ -66,6 +68,8 @@ export async function embedWithMistral(text: string): Promise<number[]> {
   return vector;
 }
 
+// ── Answer formatting ─────────────────────────────────────
+
 export async function formatWithGemini(
   question: string,
   passages: RenderPassage[],
@@ -73,6 +77,12 @@ export async function formatWithGemini(
 ): Promise<string> {
   const key = process.env.GEMINI_API_KEY ?? process.env.GOOGLE_API_KEY;
   if (!key) return formatPassagesRaw(passages, lang);
+
+  // Only send top 3 passages, truncated to keep context focused
+  const trimmedPassages = passages.slice(0, 3).map((p) => ({
+    ...p,
+    text: truncateText(p.text, 800),
+  }));
 
   const response = await fetch(`${GEMINI_GENERATE_URL}?key=${key}`, {
     method: "POST",
@@ -82,13 +92,15 @@ export async function formatWithGemini(
       contents: [
         {
           role: "user",
-          parts: [{ text: buildUserPrompt(question, passages) }],
+          parts: [{ text: buildUserPrompt(question, trimmedPassages) }],
         },
       ],
       generationConfig: {
-        temperature: 0.1,
-        topP: 0.8,
-        maxOutputTokens: 1800,
+        temperature: 0.15,
+        topP: 0.85,
+        maxOutputTokens: 800,
+        // Disable thinking for formatting (faster + no token budget conflict)
+        thinkingConfig: { thinkingBudget: 0 },
       },
     }),
   });
@@ -96,53 +108,114 @@ export async function formatWithGemini(
   if (!response.ok) return formatPassagesRaw(passages, lang);
 
   const data = (await response.json()) as {
-    candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }>;
+    candidates?: Array<{
+      content?: {
+        parts?: Array<{ text?: string; thought?: boolean }>;
+      };
+    }>;
   };
 
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+  // Gemini 2.5 Flash may return multiple parts (thinking + answer).
+  // Collect all non-thought text parts.
+  const parts = data.candidates?.[0]?.content?.parts ?? [];
+  const textParts = parts
+    .filter((p) => p.text && !p.thought)
+    .map((p) => p.text!.trim())
+    .filter(Boolean);
+
+  const text = textParts.join("\n\n");
   return text || formatPassagesRaw(passages, lang);
 }
 
 export function formatPassagesRaw(passages: RenderPassage[], lang: AskLang): string {
+  // Fallback: show truncated passages with citations
   return passages
+    .slice(0, 3)
     .map((p) => {
-      const pageLabel = p.pageStart === p.pageEnd ? `${p.pageStart}` : `${p.pageStart}-${p.pageEnd}`;
+      const pageLabel =
+        p.pageStart === p.pageEnd ? `${p.pageStart}` : `${p.pageStart}-${p.pageEnd}`;
       const prefix = lang === "ur" ? "صفحہ" : "Page";
-      return `📖 ${p.sourceBook}, ${prefix} ${pageLabel}\n\n${p.text}`;
+      const truncated = truncateText(p.text, 400);
+      return `📖 ${p.sourceBook}, ${prefix} ${pageLabel}\n\n${truncated}`;
     })
     .join("\n\n---\n\n");
 }
 
+// ── Prompt builders ───────────────────────────────────────
+
+function buildSystemPrompt(lang: AskLang): string {
+  const langInstruction =
+    lang === "ur"
+      ? "اردو رسم الخط میں جواب دو۔"
+      : lang === "en"
+        ? "Reply in simple English."
+        : "Roman Urdu mein jawab do (jaise: 'Ghusl ke 3 farz hain...').";
+
+  return `You are "Kitab Search" — a librarian for Hanafi fiqh books.
+
+YOUR JOB: Read the retrieved passages and give a SHORT, CLEAR answer to the user's question.
+
+CRITICAL RULES:
+1. ${langInstruction}
+2. Be CONCISE. Maximum 5-8 sentences for the main answer. No walls of text.
+3. Extract ONLY the specific ruling that answers the question. Do NOT dump the entire passage.
+4. Format as a direct answer, like a knowledgeable person explaining simply.
+5. After your answer, cite the source: 📖 Book Name, Page X
+6. ONLY use information from the given passages. Never add your own fiqh knowledge.
+7. If passages don't clearly answer the question, say so honestly.
+8. Preserve Arabic text (Quran, Hadith) exactly — do NOT translate Arabic.
+9. If the answer involves a numbered list (like "3 farz"), list them clearly.
+
+EXAMPLE FORMAT (Roman Urdu):
+"Ghusl ke 3 farz hain:
+1. Kuli karna (munh mein paani daalna)
+2. Naak mein paani daalna
+3. Poore badan par paani bahana — koi bhi jagah khushk na rahe
+
+📖 Bahar-e-Shariat Jild 1, Page 316"
+
+EXAMPLE FORMAT (English):
+"There are 3 obligatory acts (farz) of ghusl:
+1. Rinsing the mouth (gargling)
+2. Sniffing water into the nose
+3. Washing the entire body — no spot should remain dry
+
+📖 Bahar-e-Shariat Vol 1, Page 316"
+
+DO NOT write long paragraphs. DO NOT paste raw Urdu text. EXTRACT the ruling and present it simply.`;
+}
+
 function buildUserPrompt(question: string, passages: RenderPassage[]): string {
-  const payload = passages
+  const passageText = passages
     .map((p, idx) => {
-      const chapter = p.chapterHeader ? `Chapter: ${p.chapterHeader}\n` : "";
-      return [
-        `=== PASSAGE ${idx + 1} ===`,
-        `Book: ${p.sourceBook}`,
-        `Pages: ${p.pageStart}-${p.pageEnd}`,
-        chapter,
-        `Text:\n${p.text}`,
-      ]
-        .filter(Boolean)
-        .join("\n");
+      const chapter = p.chapterHeader ? ` | Chapter: ${p.chapterHeader}` : "";
+      return `--- Passage ${idx + 1} (${p.sourceBook}, p.${p.pageStart}${chapter}) ---\n${p.text}`;
     })
     .join("\n\n");
 
-  return `User query (search terms only):\n${question}\n\nRetrieved passages:\n${payload}`;
+  return `Question: ${question}\n\nPassages from books:\n${passageText}`;
 }
 
-function buildSystemPrompt(lang: AskLang): string {
-  const languageLabel =
-    lang === "ur" ? "Urdu script" : lang === "en" ? "English" : "Roman Urdu";
+// ── Utilities ─────────────────────────────────────────────
 
-  return [
-    "You are Kitab Search formatter.",
-    "Only present information from given passages.",
-    "Do not generate new fiqh rulings.",
-    "If passage is insufficient, state that clearly.",
-    "Preserve Arabic quotations exactly.",
-    `Respond in ${languageLabel}.`,
-    "Show citation after each passage as: 📖 Book, Page X-Y",
-  ].join(" ");
+/** Truncate text to roughly `maxWords` words, cutting at a sentence boundary if possible. */
+function truncateText(text: string, maxWords: number): string {
+  const words = text.split(/\s+/);
+  if (words.length <= maxWords) return text;
+
+  const truncated = words.slice(0, maxWords).join(" ");
+
+  // Try to cut at a sentence boundary
+  const lastSentenceEnd = Math.max(
+    truncated.lastIndexOf("۔"),
+    truncated.lastIndexOf("."),
+    truncated.lastIndexOf("—"),
+    truncated.lastIndexOf("\n"),
+  );
+
+  if (lastSentenceEnd > truncated.length * 0.5) {
+    return truncated.slice(0, lastSentenceEnd + 1) + " …";
+  }
+
+  return truncated + " …";
 }

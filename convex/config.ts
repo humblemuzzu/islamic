@@ -18,7 +18,7 @@ export const getSearchConfig = query({
       embeddingProvider: "gemini",
       embeddingModel: "gemini-embedding-001",
       embeddingDimensions: Number(process.env.CONVEX_EMBEDDING_DIM ?? "768") || 768,
-      answerModel: "gemini-2.0-flash",
+      answerModel: "gemini-2.5-flash",
       relevanceThreshold: 0.58,
       fallbackToTextSearch: true,
     };

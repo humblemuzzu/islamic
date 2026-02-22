@@ -87,7 +87,7 @@ export const askQuestion = action({
       : [];
 
     const mergedBase = mergeAndRank(vectorRows, textRows, 12);
-    const merged = rerankWithKeywordSignals(mergedBase, normalizedQuestion).slice(0, 5);
+    const merged = rerankWithKeywordSignals(mergedBase, normalizedQuestion).slice(0, 3);
     const bestScore = merged[0]?.score ?? 0;
     const baseThreshold = Math.max(
       0.52,
@@ -126,7 +126,8 @@ export const askQuestion = action({
     }));
 
     let formatted = await formatWithGemini(sanitized, passages, lang);
-    if (!formatted || !hasCitation(formatted)) {
+    // Only fallback if Gemini returned nothing at all
+    if (!formatted || formatted.length < 20) {
       formatted = formatPassagesRaw(passages, lang);
     }
 
@@ -192,10 +193,6 @@ async function runExpandedTextSearch(
   }
 
   return [...deduped.values()];
-}
-
-function hasCitation(text: string): boolean {
-  return /📖|\bpage\b|\bصفحہ\b/i.test(text);
 }
 
 function rerankWithKeywordSignals(rows: any[], normalizedQuestion: string): any[] {

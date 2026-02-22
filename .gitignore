@@ -19,6 +19,7 @@ pnpm-debug.log*
 .env.local
 scripts/ocr/.env
 scripts/ocr/.venv/
+scripts/chunking/.venv/
 
 # macOS-specific files
 .DS_Store
@@ -35,7 +36,14 @@ random.md
 pdf_chunks/
 ocr_artifacts/
 ocr_run.log
+phase2_run.log
 
 # python
 __pycache__/
 *.pyc
+
+# Large chunk/embedding files (will be uploaded to Convex, not needed in git)
+chunks/all-chunks.json
+chunks/all-chunks-embedded.json
+chunks/all-chunks-embedded.jsonl
+chunks/embedding-progress.jsonl

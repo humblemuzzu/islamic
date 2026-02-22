@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-02-22T11:32:43.662364+00:00",
+  "source": "/Users/muzammil/Documents/Code stuff/web apps claude code/mariam/extracted",
+  "chunk_count": 10490,
+  "quality": {
+    "min_words": 34,
+    "max_words": 540,
+    "avg_words": 316.52,
+    "too_short": 70,
+    "too_long": 17
+  },
+  "embedding": {
+    "provider": "mistral",
+    "embedding_model": "mistral-embed",
+    "chunk_count": 10490,
+    "embedding_dimensions": [
+      1024
+    ],
+    "progress_file": "/Users/muzammil/Documents/Code stuff/web apps claude code/mariam/chunks/embedding-progress.jsonl"
+  }
+}

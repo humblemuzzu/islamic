@@ -56,7 +56,7 @@ export const getIngestionRuns = query({
 export const getCoverage = query({
   args: { sampleSize: v.optional(v.number()) },
   handler: async (ctx, { sampleSize }) => {
-    // Keep sample small — each chunk doc has a 1024-dim embedding array
+    // Keep sample small — each chunk doc has a 768-dim embedding array
     // which makes every doc ~8KB+. Reading 500 docs = 4MB+ of bytes read.
     const size = Math.min(Math.max(sampleSize ?? 50, 10), 100);
     const sample = await ctx.db.query("chunks").take(size);

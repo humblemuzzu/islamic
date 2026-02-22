@@ -112,13 +112,15 @@ def gemini_embed_missing(
         batch = pending[start : start + config.embedding_batch_size]
         requests_payload = []
         for chunk in batch:
-            requests_payload.append(
-                {
-                    "model": f"models/{config.embedding_model}",
-                    "content": {"parts": [{"text": chunk["textOriginal"]}]},
-                    "taskType": config.embed_task_type,
-                }
-            )
+            req = {
+                "model": f"models/{config.embedding_model}",
+                "content": {"parts": [{"text": chunk["textOriginal"]}]},
+                "taskType": config.embed_task_type,
+            }
+            # gemini-embedding-001 defaults to 3072 dims; reduce to 768 for storage
+            if "gemini-embedding" in config.embedding_model:
+                req["outputDimensionality"] = 768
+            requests_payload.append(req)
 
         payload = {"requests": requests_payload}
 

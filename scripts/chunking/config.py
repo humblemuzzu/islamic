@@ -16,7 +16,7 @@ class ChunkingConfig:
     overlap_words: int = 50
 
     embedding_provider: str = "gemini"  # gemini | mistral
-    embedding_model: str = "text-embedding-004"
+    embedding_model: str = "gemini-embedding-001"
     embedding_batch_size: int = 20
     embedding_retries: int = 5
     embed_task_type: str = "RETRIEVAL_DOCUMENT"

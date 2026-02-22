@@ -1,7 +1,7 @@
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 
-const embeddingDimensions = 1024;
+const embeddingDimensions = 768; // gemini-embedding-001 with outputDimensionality=768
 
 export default defineSchema({
   searchConfig: defineTable({

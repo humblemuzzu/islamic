@@ -10,12 +10,12 @@
     "too_long": 17
   },
   "embedding": {
-    "provider": "mistral",
-    "embedding_model": "mistral-embed",
+    "provider": "gemini",
+    "embedding_model": "gemini-embedding-001",
     "chunk_count": 10490,
     "embedding_dimensions": [
-      1024
+      768
     ],
-    "progress_file": "/Users/muzammil/Documents/Code stuff/web apps claude code/mariam/chunks/embedding-progress.jsonl"
+    "progress_file": "chunks/embedding-progress.jsonl"
   }
 }

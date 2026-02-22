@@ -4,7 +4,7 @@ import { api, internal } from "./_generated/api";
 import { askLanguageValidator } from "./lib/validators";
 import { disclaimerMessage, notFoundMessage } from "./lib/messages";
 import { mergeAndRank, scoreToPercent } from "./lib/ranking";
-import { expandTextQueries } from "./lib/queryExpansion";
+import { enrichQueryForEmbedding, expandTextQueries } from "./lib/queryExpansion";
 import {
   detectQuestionLanguage,
   normalizeForSearch,
@@ -60,8 +60,11 @@ export const askQuestion = action({
     const languageFilter = lang === "ur" ? "ur" : undefined;
 
     try {
+      // Enrich the query with Urdu-script equivalents before embedding
+      // "wuzu ke faraiz" → "wuzu ke faraiz (وضو فرائض)"
+      const enrichedQuery = enrichQueryForEmbedding(sanitized);
       const embedding = await embedForConfiguredProvider(
-        sanitized,
+        enrichedQuery,
         searchConfig.embeddingProvider,
       );
 
@@ -87,10 +90,10 @@ export const askQuestion = action({
     const merged = rerankWithKeywordSignals(mergedBase, normalizedQuestion).slice(0, 5);
     const bestScore = merged[0]?.score ?? 0;
     const baseThreshold = Math.max(
-      0.45,
-      Math.min(searchConfig.relevanceThreshold, 0.55),
+      0.52,
+      Math.min(searchConfig.relevanceThreshold, 0.65),
     );
-    const threshold = vectorError ? Math.max(0.45, baseThreshold - 0.05) : baseThreshold;
+    const threshold = vectorError ? Math.max(0.50, baseThreshold - 0.03) : baseThreshold;
     const found = merged.length > 0 && bestScore >= threshold;
 
     if (!found) {
@@ -196,30 +199,63 @@ function hasCitation(text: string): boolean {
 }
 
 function rerankWithKeywordSignals(rows: any[], normalizedQuestion: string): any[] {
-  const terms = expandTextQueries(normalizedQuestion)
+  const expandedTerms = expandTextQueries(normalizedQuestion);
+  const terms = expandedTerms
     .map((term) => term.trim().toLowerCase())
-    .filter((term) => term.length >= 3)
-    .slice(0, 8);
+    .filter((term) => term.length >= 2)
+    .slice(0, 12);
 
   if (!terms.length) {
     return rows;
   }
 
+  // Split terms into "topic" terms (wuzu, haiz, etc.) and "qualifier" terms (faraiz, sunnat, etc.)
+  const qualifierTerms = [
+    "faraiz", "فرائض", "فرض", "sunnat", "سنت", "wajib", "واجب",
+    "mustahab", "مستحب", "makruh", "مکروہ", "haram", "حرام",
+    "fazail", "فضائل", "ثواب", "sawab", "tareeqa", "طریقہ",
+    "sharait", "شرائط", "shart", "شرط",
+  ];
+  const queryQualifiers = terms.filter((t) =>
+    qualifierTerms.some((q) => t.includes(q) || q.includes(t))
+  );
+
   return rows
     .map((row) => {
       const haystack = `${row.text ?? ""}\n${row.chapterHeader ?? ""}`.toLowerCase();
-      let matches = 0;
+      let topicMatches = 0;
+      let qualifierMatches = 0;
+
       for (const term of terms) {
         if (haystack.includes(term)) {
-          matches += 1;
+          if (qualifierTerms.some((q) => term.includes(q) || q.includes(term))) {
+            qualifierMatches += 1;
+          } else {
+            topicMatches += 1;
+          }
         }
       }
 
       let score = Number(row.score ?? 0);
-      if (matches > 0) {
-        score += Math.min(0.2, matches * 0.06);
-      } else {
-        score -= 0.08;
+
+      // Boost for topic matches
+      if (topicMatches > 0) {
+        score += Math.min(0.12, topicMatches * 0.04);
+      }
+
+      // Bigger boost for qualifier matches (faraiz vs fazail distinction)
+      if (qualifierMatches > 0) {
+        score += Math.min(0.15, qualifierMatches * 0.06);
+      }
+
+      // Penalty: if query has qualifier terms but chunk doesn't match any
+      if (queryQualifiers.length > 0 && qualifierMatches === 0) {
+        score -= 0.12;
+      }
+
+      // Penalty: no topic OR qualifier match at all
+      if (topicMatches === 0 && qualifierMatches === 0) {
+        score -= 0.10;
       }
 
       return {

@@ -166,12 +166,13 @@ export const clearChunks = mutation({
   handler: async (ctx, args) => {
     assertIngestKey(args.ingestKey);
 
-    const rows = await ctx.db.query("chunks").collect();
+    // Delete in batches to avoid read limits
+    const rows = await ctx.db.query("chunks").take(500);
     for (const row of rows) {
       await ctx.db.delete(row._id);
     }
 
-    return { deleted: rows.length };
+    return { deleted: rows.length, hasMore: rows.length === 500 };
   },
 });
 

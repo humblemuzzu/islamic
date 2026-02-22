@@ -1,0 +1,305 @@
+{
+  "generated_at": "2026-02-22T10:36:58.295895+00:00",
+  "model": "mistral-ocr-2512",
+  "source_root": "resources",
+  "books": [
+    {
+      "source_pdf": "resources/bahar-e-shariat/bahar-e-shariat-jild-1.pdf",
+      "output_markdown": "extracted/resources/bahar-e-shariat/bahar-e-shariat-jild-1_ocr.md",
+      "output_json": "extracted/resources/bahar-e-shariat/bahar-e-shariat-jild-1_ocr.json",
+      "total_chunks": 3,
+      "ocr_pages": 1423,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/bahar-e-shariat/bahar-e-shariat-jild-2.pdf",
+      "output_markdown": "extracted/resources/bahar-e-shariat/bahar-e-shariat-jild-2_ocr.md",
+      "output_json": "extracted/resources/bahar-e-shariat/bahar-e-shariat-jild-2_ocr.json",
+      "total_chunks": 4,
+      "ocr_pages": 1316,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/bahar-e-shariat/bahar-e-shariat-jild-3.pdf",
+      "output_markdown": "extracted/resources/bahar-e-shariat/bahar-e-shariat-jild-3_ocr.md",
+      "output_json": "extracted/resources/bahar-e-shariat/bahar-e-shariat-jild-3_ocr.json",
+      "total_chunks": 7,
+      "ocr_pages": 1346,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/p-mariam/Ashar For Durood Shareef.pdf",
+      "output_markdown": "extracted/resources/p-mariam/Ashar For Durood Shareef_ocr.md",
+      "output_json": "extracted/resources/p-mariam/Ashar For Durood Shareef_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 11,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/p-mariam/Hanafi Girl Ramadan Planner.pdf",
+      "output_markdown": "extracted/resources/p-mariam/Hanafi Girl Ramadan Planner_ocr.md",
+      "output_json": "extracted/resources/p-mariam/Hanafi Girl Ramadan Planner_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 20,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/p-mariam/Qaseeda Burdaa Sharif.pdf",
+      "output_markdown": "extracted/resources/p-mariam/Qaseeda Burdaa Sharif_ocr.md",
+      "output_json": "extracted/resources/p-mariam/Qaseeda Burdaa Sharif_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 10,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/p-mariam/Ramzan Wazaif 1 to 10 Roza.pdf",
+      "output_markdown": "extracted/resources/p-mariam/Ramzan Wazaif 1 to 10 Roza_ocr.md",
+      "output_json": "extracted/resources/p-mariam/Ramzan Wazaif 1 to 10 Roza_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 18,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/p-mariam/Ramzan_Wazaif_11_to_20_Roza.pdf",
+      "output_markdown": "extracted/resources/p-mariam/Ramzan_Wazaif_11_to_20_Roza_ocr.md",
+      "output_json": "extracted/resources/p-mariam/Ramzan_Wazaif_11_to_20_Roza_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 21,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/0537_garmi_aur_paseeni_ki_badboo_dur_karne_ke_liye_fina_e_masjid.pdf",
+      "output_markdown": "extracted/resources/quality-ones/0537_garmi_aur_paseeni_ki_badboo_dur_karne_ke_liye_fina_e_masjid_ocr.md",
+      "output_json": "extracted/resources/quality-ones/0537_garmi_aur_paseeni_ki_badboo_dur_karne_ke_liye_fina_e_masjid_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 8,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/157 عورتوں کےایام خاص اورنمازروزہ.pdf",
+      "output_markdown": "extracted/resources/quality-ones/157 عورتوں کےایام خاص اورنمازروزہ_ocr.md",
+      "output_json": "extracted/resources/quality-ones/157 عورتوں کےایام خاص اورنمازروزہ_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 32,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/Aurat Ke Haiz(Periods) Ke Masail.pdf",
+      "output_markdown": "extracted/resources/quality-ones/Aurat Ke Haiz(Periods) Ke Masail_ocr.md",
+      "output_json": "extracted/resources/quality-ones/Aurat Ke Haiz(Periods) Ke Masail_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 33,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/Haiz, Nifaas Aur Istehaza (Hindi).pdf",
+      "output_markdown": "extracted/resources/quality-ones/Haiz, Nifaas Aur Istehaza (Hindi)_ocr.md",
+      "output_json": "extracted/resources/quality-ones/Haiz, Nifaas Aur Istehaza (Hindi)_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 21,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/Khawateen_Kay_Liy_Jadeed_Masail.pdf",
+      "output_markdown": "extracted/resources/quality-ones/Khawateen_Kay_Liy_Jadeed_Masail_ocr.md",
+      "output_json": "extracted/resources/quality-ones/Khawateen_Kay_Liy_Jadeed_Masail_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 241,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/babul haiz final.pdf",
+      "output_markdown": "extracted/resources/quality-ones/babul haiz final_ocr.md",
+      "output_json": "extracted/resources/quality-ones/babul haiz final_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 19,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/qanoon-e-shariat.pdf",
+      "output_markdown": "extracted/resources/quality-ones/qanoon-e-shariat_ocr.md",
+      "output_json": "extracted/resources/quality-ones/qanoon-e-shariat_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 278,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/امیرِ_اہلِ_سنّت_سے_عورتوں_کے_بارے_میں_سوالات_.pdf",
+      "output_markdown": "extracted/resources/quality-ones/امیرِ_اہلِ_سنّت_سے_عورتوں_کے_بارے_میں_سوالات__ocr.md",
+      "output_json": "extracted/resources/quality-ones/امیرِ_اہلِ_سنّت_سے_عورتوں_کے_بارے_میں_سوالات__ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 19,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/انوار شریعت.pdf",
+      "output_markdown": "extracted/resources/quality-ones/انوار شریعت_ocr.md",
+      "output_json": "extracted/resources/quality-ones/انوار شریعت_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 130,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/آئیے وضو کریں.pdf",
+      "output_markdown": "extracted/resources/quality-ones/آئیے وضو کریں_ocr.md",
+      "output_json": "extracted/resources/quality-ones/آئیے وضو کریں_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 26,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/برکات شریعت برائے خواتین.pdf",
+      "output_markdown": "extracted/resources/quality-ones/برکات شریعت برائے خواتین_ocr.md",
+      "output_json": "extracted/resources/quality-ones/برکات شریعت برائے خواتین_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 574,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/بسم_اللہ_کرکے_وضو_کرنے_سے_پورا_جسم_پاک_ہونے_کا_مطلب1.pdf",
+      "output_markdown": "extracted/resources/quality-ones/بسم_اللہ_کرکے_وضو_کرنے_سے_پورا_جسم_پاک_ہونے_کا_مطلب1_ocr.md",
+      "output_json": "extracted/resources/quality-ones/بسم_اللہ_کرکے_وضو_کرنے_سے_پورا_جسم_پاک_ہونے_کا_مطلب1_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 1,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/بچوں کے اسلامی احکام.pdf",
+      "output_markdown": "extracted/resources/quality-ones/بچوں کے اسلامی احکام_ocr.md",
+      "output_json": "extracted/resources/quality-ones/بچوں کے اسلامی احکام_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 624,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/جنتی زیور .pdf",
+      "output_markdown": "extracted/resources/quality-ones/جنتی زیور _ocr.md",
+      "output_json": "extracted/resources/quality-ones/جنتی زیور _ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 678,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/سخت_سردی_کی_وجہ_سے_وضو_و_غسل_کی_جگہ_تیمم_کا_حکم.pdf",
+      "output_markdown": "extracted/resources/quality-ones/سخت_سردی_کی_وجہ_سے_وضو_و_غسل_کی_جگہ_تیمم_کا_حکم_ocr.md",
+      "output_json": "extracted/resources/quality-ones/سخت_سردی_کی_وجہ_سے_وضو_و_غسل_کی_جگہ_تیمم_کا_حکم_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 7,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/عورتوں کی نماز _.pdf",
+      "output_markdown": "extracted/resources/quality-ones/عورتوں کی نماز __ocr.md",
+      "output_json": "extracted/resources/quality-ones/عورتوں کی نماز __ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 72,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/قانون شریعت کامل.pdf",
+      "output_markdown": "extracted/resources/quality-ones/قانون شریعت کامل_ocr.md",
+      "output_json": "extracted/resources/quality-ones/قانون شریعت کامل_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 528,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/مفیدالنساء_عورتوں_کے_خصوصی_مسائل.pdf",
+      "output_markdown": "extracted/resources/quality-ones/مفیدالنساء_عورتوں_کے_خصوصی_مسائل_ocr.md",
+      "output_json": "extracted/resources/quality-ones/مفیدالنساء_عورتوں_کے_خصوصی_مسائل_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 54,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/نقوش وضو.pdf",
+      "output_markdown": "extracted/resources/quality-ones/نقوش وضو_ocr.md",
+      "output_json": "extracted/resources/quality-ones/نقوش وضو_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 51,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/نماز_اور_وضو_کے_مسائل_از_علامه_فیض.pdf",
+      "output_markdown": "extracted/resources/quality-ones/نماز_اور_وضو_کے_مسائل_از_علامه_فیض_ocr.md",
+      "output_json": "extracted/resources/quality-ones/نماز_اور_وضو_کے_مسائل_از_علامه_فیض_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 18,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/نماز،وضو،غُسل،نمازِجنازہ,تیمم.pdf",
+      "output_markdown": "extracted/resources/quality-ones/نماز،وضو،غُسل،نمازِجنازہ,تیمم_ocr.md",
+      "output_json": "extracted/resources/quality-ones/نماز،وضو،غُسل،نمازِجنازہ,تیمم_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 52,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/وضو اور سائنس.pdf",
+      "output_markdown": "extracted/resources/quality-ones/وضو اور سائنس_ocr.md",
+      "output_json": "extracted/resources/quality-ones/وضو اور سائنس_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 26,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/وضو کا ثواب رومن اردو.pdf",
+      "output_markdown": "extracted/resources/quality-ones/وضو کا ثواب رومن اردو_ocr.md",
+      "output_json": "extracted/resources/quality-ones/وضو کا ثواب رومن اردو_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 21,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/وضو کا ظریقہ.pdf",
+      "output_markdown": "extracted/resources/quality-ones/وضو کا ظریقہ_ocr.md",
+      "output_json": "extracted/resources/quality-ones/وضو کا ظریقہ_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 58,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    },
+    {
+      "source_pdf": "resources/quality-ones/کیا_یہ_درست_ہے_کہ_بعض_بزرگ_عشاء_کے_وضو_سے_فجر_کی_نماز_ادا_کرتے_تھے.pdf",
+      "output_markdown": "extracted/resources/quality-ones/کیا_یہ_درست_ہے_کہ_بعض_بزرگ_عشاء_کے_وضو_سے_فجر_کی_نماز_ادا_کرتے_تھے_ocr.md",
+      "output_json": "extracted/resources/quality-ones/کیا_یہ_درست_ہے_کہ_بعض_بزرگ_عشاء_کے_وضو_سے_فجر_کی_نماز_ادا_کرتے_تھے_ocr.json",
+      "total_chunks": 1,
+      "ocr_pages": 2,
+      "missing_chunks": [],
+      "failed_chunk_count": 0
+    }
+  ],
+  "failed_custom_ids": []
+}

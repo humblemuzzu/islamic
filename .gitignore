@@ -16,11 +16,26 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.env.local
+scripts/ocr/.env
+scripts/ocr/.venv/
 
 # macOS-specific files
 .DS_Store
 
 # jetbrains setting folder
 .idea/
-resources/
+# Original PDFs (too large for git, 560MB+)
+/resources/
+pdf_chunks/
+
 random.md
+
+# OCR pipeline artifacts
+pdf_chunks/
+ocr_artifacts/
+ocr_run.log
+
+# python
+__pycache__/
+*.pyc

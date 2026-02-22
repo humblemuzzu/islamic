@@ -36,6 +36,25 @@ const FIQH_TERM_MAP: Record<string, string[]> = {
   shart: ["شرط", "شرائط", "condition"],
   sharait: ["شرائط", "شرط", "conditions"],
 
+  // Modern / daily life terms → classical Urdu equivalents
+  injection: ["سوئی", "ٹیکا", "انجکشن", "پچکاری"],
+  drip: ["ڈرپ", "نلکی", "سلائن"],
+  medicine: ["دوائی", "دوا", "گولی"],
+  toothpaste: ["منجن", "ٹوتھ پیسٹ"],
+  smoking: ["سگریٹ", "تمباکو", "حقہ"],
+  perfume: ["عطر", "خوشبو"],
+  makeup: ["سنگھار", "بناؤ"],
+  travel: ["سفر", "مسافر"],
+  pregnant: ["حاملہ", "حمل"],
+  breastfeeding: ["دودھ پلانا", "رضاعت"],
+  eyedrops: ["آنکھ", "قطرے"],
+  inhaler: ["دمہ", "سانس"],
+  blood: ["خون", "خون نکلنا"],
+  vomit: ["قے", "الٹی"],
+  sleep: ["نیند", "سونا", "اونگھ"],
+  eating: ["کھانا", "اکل"],
+  forgetting: ["بھول", "بھولنا", "نسیان"],
+
   // Commonly confused terms - include ONLY exact matches, not near-misses
   fazail: ["فضائل", "فضیلت", "ثواب", "virtues", "rewards"],
   sawab: ["ثواب", "اجر", "reward"],

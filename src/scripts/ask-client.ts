@@ -1,5 +1,5 @@
 /**
- * ask-client.ts — Client-side logic for the /ask page.
+ * ask-client.ts — Client-side logic for the /ask (Kitab Se Poochein) page.
  * Talks to Convex via plain fetch (no SDK needed in browser).
  */
 
@@ -95,7 +95,7 @@ form?.addEventListener("submit", async (e) => {
     }
 
     if (!result.found) {
-      showNotFound(result.message, result.passages);
+      showNotFound(result.message);
       return;
     }
 
@@ -128,7 +128,6 @@ function setState(state: "loading" | "results" | "not-found" | "error" | "idle")
 function showResults(result: any) {
   setState("results");
 
-  const passagesHtml = (result.passages ?? []).map(renderPassage).join("");
   const disclaimerHtml = result.disclaimer
     ? `<div class="inline-disclaimer">${escapeHtml(result.disclaimer)}</div>`
     : "";
@@ -137,48 +136,24 @@ function showResults(result: any) {
     <div class="answer-card">
       <div class="answer-body">${markdownToHtml(result.answer)}</div>
     </div>
-    ${passagesHtml ? `
-    <div class="passages-block">
-      <h3 class="passages-heading">
-        <span data-lang-text="en" style="display:none">Source Passages</span>
-        <span data-lang-text="ru" style="display:none">Asal Ibaarat</span>
-        <span data-lang-text="ur" style="display:none">اصل عبارات</span>
-      </h3>
-      ${passagesHtml}
-    </div>` : ""}
     ${disclaimerHtml}
   `;
 
-  applyLangVisibility();
   resultsDiv.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 // ── Render: Not found ─────────────────────────────────────
 
-function showNotFound(message: string, passages?: any[]) {
+function showNotFound(message: string) {
   setState("not-found");
-
-  const low = (passages ?? []).filter((p: any) => p.score > 20);
-  const maybeHtml = low.length
-    ? `<div class="maybe-related">
-        <h4 class="maybe-heading">
-          <span data-lang-text="en" style="display:none">Possibly related:</span>
-          <span data-lang-text="ru" style="display:none">Shayad yeh madadgar ho:</span>
-          <span data-lang-text="ur" style="display:none">شاید یہ مددگار ہو:</span>
-        </h4>
-        ${low.map(renderPassage).join("")}
-      </div>`
-    : "";
 
   notFoundDiv.innerHTML = `
     <div class="not-found-card">
       <div class="not-found-icon">📚</div>
       <p class="not-found-text">${escapeHtml(message)}</p>
     </div>
-    ${maybeHtml}
   `;
 
-  applyLangVisibility();
   notFoundDiv.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -192,38 +167,9 @@ function showError(message: string) {
       <p>${escapeHtml(message)}</p>
     </div>
   `;
-  setTimeout(() => { if (errorDiv.style.display !== "none") setState("idle"); }, 6000);
-}
-
-// ── Render: Single passage card ───────────────────────────
-
-function renderPassage(p: any): string {
-  const pageLabel = p.pageStart === p.pageEnd
-    ? `${p.pageStart}`
-    : `${p.pageStart}–${p.pageEnd}`;
-
-  const chapter = p.chapterHeader
-    ? `<span class="passage-chapter">${escapeHtml(p.chapterHeader)}</span>`
-    : "";
-
-  const tags = (p.topicTags ?? [])
-    .slice(0, 4)
-    .map((t: string) => `<span class="topic-chip">${escapeHtml(t)}</span>`)
-    .join("");
-
-  return `
-    <div class="passage-card">
-      <div class="passage-header">
-        <span class="passage-source">📖 ${escapeHtml(p.sourceBook)}, Page ${pageLabel}</span>
-        ${chapter}
-      </div>
-      <div class="passage-text" dir="auto">${escapeHtml(p.text)}</div>
-      <div class="passage-footer">
-        ${tags ? `<div class="passage-tags">${tags}</div>` : ""}
-        <span class="passage-score">${p.score}%</span>
-      </div>
-    </div>
-  `;
+  setTimeout(() => {
+    if (errorDiv.style.display !== "none") setState("idle");
+  }, 6000);
 }
 
 // ── Utilities ─────────────────────────────────────────────
@@ -243,16 +189,8 @@ function markdownToHtml(md: string): string {
     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.*?)\*/g, "<em>$1</em>")
     .replace(/^> (.*)$/gm, '<blockquote dir="auto">$1</blockquote>')
-    .replace(/^---$/gm, '<hr class="passage-divider">')
+    .replace(/^---$/gm, '<hr class="answer-divider">')
     .replace(/📖/g, '<span class="book-icon">📖</span>')
     .replace(/\n\n/g, "</p><p>")
     .replace(/\n/g, "<br>");
-}
-
-function applyLangVisibility() {
-  const lang = getCurrentLang();
-  document.querySelectorAll<HTMLElement>("[data-lang-text]").forEach((el) => {
-    const elLang = el.getAttribute("data-lang-text");
-    el.style.display = elLang === lang ? "inline" : "none";
-  });
 }

@@ -68,7 +68,7 @@ export async function embedWithMistral(text: string): Promise<number[]> {
   return vector;
 }
 
-// ── Answer formatting ─────────────────────────────────────
+// ── Answer formatting with Gemini ─────────────────────────
 
 export async function formatWithGemini(
   question: string,
@@ -76,12 +76,12 @@ export async function formatWithGemini(
   lang: AskLang,
 ): Promise<string> {
   const key = process.env.GEMINI_API_KEY ?? process.env.GOOGLE_API_KEY;
-  if (!key) return formatPassagesRaw(passages, lang);
+  if (!key) return buildFallbackAnswer(passages, lang);
 
-  // Only send top 3 passages, truncated to keep context focused
-  const trimmedPassages = passages.slice(0, 3).map((p) => ({
+  // Only send top 3 passages, truncated
+  const trimmed = passages.slice(0, 3).map((p) => ({
     ...p,
-    text: truncateText(p.text, 800),
+    text: truncateText(p.text, 600),
   }));
 
   const response = await fetch(`${GEMINI_GENERATE_URL}?key=${key}`, {
@@ -90,22 +90,18 @@ export async function formatWithGemini(
     body: JSON.stringify({
       systemInstruction: { parts: [{ text: buildSystemPrompt(lang) }] },
       contents: [
-        {
-          role: "user",
-          parts: [{ text: buildUserPrompt(question, trimmedPassages) }],
-        },
+        { role: "user", parts: [{ text: buildUserPrompt(question, trimmed) }] },
       ],
       generationConfig: {
         temperature: 0.15,
-        topP: 0.85,
-        maxOutputTokens: 800,
-        // Disable thinking for formatting (faster + no token budget conflict)
+        topP: 0.9,
+        maxOutputTokens: 1200,
         thinkingConfig: { thinkingBudget: 0 },
       },
     }),
   });
 
-  if (!response.ok) return formatPassagesRaw(passages, lang);
+  if (!response.ok) return buildFallbackAnswer(passages, lang);
 
   const data = (await response.json()) as {
     candidates?: Array<{
@@ -115,8 +111,7 @@ export async function formatWithGemini(
     }>;
   };
 
-  // Gemini 2.5 Flash may return multiple parts (thinking + answer).
-  // Collect all non-thought text parts.
+  // Gemini 3 Pro may have thinking parts — collect only text parts
   const parts = data.candidates?.[0]?.content?.parts ?? [];
   const textParts = parts
     .filter((p) => p.text && !p.thought)
@@ -124,98 +119,89 @@ export async function formatWithGemini(
     .filter(Boolean);
 
   const text = textParts.join("\n\n");
-  return text || formatPassagesRaw(passages, lang);
+  return text.length > 30 ? text : buildFallbackAnswer(passages, lang);
 }
 
-export function formatPassagesRaw(passages: RenderPassage[], lang: AskLang): string {
-  // Fallback: show truncated passages with citations
-  return passages
-    .slice(0, 3)
-    .map((p) => {
-      const pageLabel =
-        p.pageStart === p.pageEnd ? `${p.pageStart}` : `${p.pageStart}-${p.pageEnd}`;
-      const prefix = lang === "ur" ? "صفحہ" : "Page";
-      const truncated = truncateText(p.text, 400);
-      return `📖 ${p.sourceBook}, ${prefix} ${pageLabel}\n\n${truncated}`;
-    })
-    .join("\n\n---\n\n");
+// Fallback if Gemini fails — simple citation-only format
+export function buildFallbackAnswer(
+  passages: RenderPassage[],
+  lang: AskLang,
+): string {
+  const p = passages[0];
+  if (!p) return "";
+  const text = truncateText(p.text, 200);
+  return `${text}\n\n📖 ${p.sourceBook}`;
 }
 
-// ── Prompt builders ───────────────────────────────────────
+// ── System prompt — THE critical safety + quality layer ───
 
 function buildSystemPrompt(lang: AskLang): string {
-  const langInstruction =
+  const langRule =
     lang === "ur"
       ? "اردو رسم الخط میں جواب دو۔"
       : lang === "en"
-        ? "Reply in simple English."
-        : "Roman Urdu mein jawab do (jaise: 'Ghusl ke 3 farz hain...').";
+        ? "Reply in simple, clear English."
+        : "Roman Urdu mein jawab do (jaise daily baat karte hain).";
 
-  return `You are "Kitab Search" — a librarian for Hanafi fiqh books.
+  return `You are "Kitab Search" — a librarian who finds answers from Hanafi fiqh books.
 
-YOUR JOB: Read the retrieved passages and give a SHORT, CLEAR answer to the user's question.
+LANGUAGE: ${langRule}
 
-CRITICAL RULES:
-1. ${langInstruction}
-2. Be CONCISE. Maximum 5-8 sentences for the main answer. No walls of text.
-3. Extract ONLY the specific ruling that answers the question. Do NOT dump the entire passage.
-4. Format as a direct answer, like a knowledgeable person explaining simply.
-5. After your answer, cite the source: 📖 Book Name, Page X
-6. ONLY use information from the given passages. Never add your own fiqh knowledge.
-7. If passages don't clearly answer the question, say so honestly.
-8. Preserve Arabic text (Quran, Hadith) exactly — do NOT translate Arabic.
-9. If the answer involves a numbered list (like "3 farz"), list them clearly.
+YOUR JOB:
+Read the retrieved book passages and present a CLEAR, HELPFUL answer. Your answer must have TWO sections:
 
-EXAMPLE FORMAT (Roman Urdu):
-"Ghusl ke 3 farz hain:
-1. Kuli karna (munh mein paani daalna)
-2. Naak mein paani daalna
-3. Poore badan par paani bahana — koi bhi jagah khushk na rahe
+**SECTION 1 — MUKHTASAR JAWAB (Short Answer)**
+A direct, concise answer in 2-4 sentences. Like a knowledgeable person explaining simply.
 
-📖 Bahar-e-Shariat Jild 1, Page 316"
+**SECTION 2 — TAFSEEL (Details)**
+A more detailed explanation (5-10 sentences) covering nuances, conditions, and exceptions mentioned in the passages.
 
-EXAMPLE FORMAT (English):
-"There are 3 obligatory acts (farz) of ghusl:
-1. Rinsing the mouth (gargling)
-2. Sniffing water into the nose
-3. Washing the entire body — no spot should remain dry
+FORMAT your answer exactly like this:
+---
+[2-4 sentence direct answer]
 
-📖 Bahar-e-Shariat Vol 1, Page 316"
+📖 [Book Name]
 
-DO NOT write long paragraphs. DO NOT paste raw Urdu text. EXTRACT the ruling and present it simply.`;
+**Tafseel:**
+[Detailed explanation with all relevant points from passages]
+---
+
+CRITICAL SAFETY RULES:
+1. ONLY use information from the provided passages. NEVER add your own knowledge.
+2. ⚠️ NEVER present rulings about punishment (qatl, hadd, ta'zeer, jail, death penalty) as simple answers. If a passage mentions punishment, you MUST add: "Yeh hukm sirf Islamic court (qazi) ke zariye nafiz hota hai. Aam logon ko khud se koi saza dene ka haq nahi."
+3. For sensitive topics (kafir hona, talaq, murtad), always end with: "Is masle mein apne maqami mufti sahab se zaroor mashwara karein."
+4. If passages don't clearly answer the question, say: "Is sawal ka wazeh jawab in passages mein nahi mila."
+5. Do NOT show page numbers (they may be inaccurate). Only show book names.
+6. NEVER translate Quranic ayaat or Hadith text — keep Arabic as-is.
+7. Use bullet points or numbered lists when listing farz, sunnat, wajib etc.
+8. Keep the tone respectful, gentle, and helpful — this is a religious resource.`;
 }
 
 function buildUserPrompt(question: string, passages: RenderPassage[]): string {
   const passageText = passages
     .map((p, idx) => {
-      const chapter = p.chapterHeader ? ` | Chapter: ${p.chapterHeader}` : "";
-      return `--- Passage ${idx + 1} (${p.sourceBook}, p.${p.pageStart}${chapter}) ---\n${p.text}`;
+      return `[Passage ${idx + 1} — ${p.sourceBook}]\n${p.text}`;
     })
     .join("\n\n");
 
-  return `Question: ${question}\n\nPassages from books:\n${passageText}`;
+  return `Sawal: ${question}\n\nKutub se mil gayi ibaaraat:\n${passageText}`;
 }
 
 // ── Utilities ─────────────────────────────────────────────
 
-/** Truncate text to roughly `maxWords` words, cutting at a sentence boundary if possible. */
 function truncateText(text: string, maxWords: number): string {
   const words = text.split(/\s+/);
   if (words.length <= maxWords) return text;
 
   const truncated = words.slice(0, maxWords).join(" ");
-
-  // Try to cut at a sentence boundary
-  const lastSentenceEnd = Math.max(
+  const lastBreak = Math.max(
     truncated.lastIndexOf("۔"),
     truncated.lastIndexOf("."),
-    truncated.lastIndexOf("—"),
     truncated.lastIndexOf("\n"),
   );
 
-  if (lastSentenceEnd > truncated.length * 0.5) {
-    return truncated.slice(0, lastSentenceEnd + 1) + " …";
+  if (lastBreak > truncated.length * 0.5) {
+    return truncated.slice(0, lastBreak + 1);
   }
-
   return truncated + " …";
 }

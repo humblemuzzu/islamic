@@ -11,9 +11,9 @@ import {
   sanitizeQuestion,
 } from "./lib/sanitize";
 import {
+  buildFallbackAnswer,
   embedWithGemini,
   embedWithMistral,
-  formatPassagesRaw,
   formatWithGemini,
 } from "./gemini";
 
@@ -112,7 +112,6 @@ export const askQuestion = action({
       return {
         found: false,
         message: notFoundMessage(lang),
-        passages: merged.map(toClientPassage),
         disclaimer: disclaimerMessage(lang),
       };
     }
@@ -126,10 +125,12 @@ export const askQuestion = action({
     }));
 
     let formatted = await formatWithGemini(sanitized, passages, lang);
-    // Only fallback if Gemini returned nothing at all
     if (!formatted || formatted.length < 20) {
-      formatted = formatPassagesRaw(passages, lang);
+      formatted = buildFallbackAnswer(passages, lang);
     }
+
+    // Only return book names (no page numbers — they're inaccurate OCR indices)
+    const sourceBooks = [...new Set(merged.map((m) => m.sourceBook))].slice(0, 3);
 
     await ctx.runMutation(internal.questions.logQuestion, {
       question: sanitized,
@@ -146,11 +147,9 @@ export const askQuestion = action({
     return {
       found: true,
       answer: formatted,
-      passages: merged.map(toClientPassage),
+      sourceBooks,
       disclaimer: disclaimerMessage(lang),
       processingTimeMs: Date.now() - startedAt,
-      vectorFallbackUsed: Boolean(vectorError),
-      vectorFallbackReason: vectorError,
     };
   },
 });

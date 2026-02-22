@@ -6,9 +6,31 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "convex:dev": "tsx scripts/convex/run-convex.ts dev",
+    "convex:dev:once": "tsx scripts/convex/run-convex.ts dev --once",
+    "convex:deploy": "tsx scripts/convex/run-convex.ts deploy",
+    "convex:deploy:dev": "tsx scripts/convex/run-convex.ts deploy --env-file .env.convex.dev.local",
+    "convex:deploy:prod": "tsx scripts/convex/run-convex.ts deploy --env-file .env.convex.prod.local",
+    "convex:validate-chunks": "tsx scripts/convex/validate-chunks.ts",
+    "convex:upload": "tsx scripts/convex/upload-chunks.ts",
+    "convex:upload:dev": "tsx scripts/convex/upload-chunks.ts --env-file .env.convex.dev.local",
+    "convex:upload:prod": "tsx scripts/convex/upload-chunks.ts --env-file .env.convex.prod.local",
+    "convex:check-stats": "tsx scripts/convex/check-stats.ts",
+    "convex:check-stats:dev": "tsx scripts/convex/check-stats.ts --env-file .env.convex.dev.local",
+    "convex:check-stats:prod": "tsx scripts/convex/check-stats.ts --env-file .env.convex.prod.local",
+    "convex:smoke-ask": "tsx scripts/convex/smoke-ask.ts",
+    "convex:smoke-ask:prod": "tsx scripts/convex/smoke-ask.ts --env-file .env.convex.prod.local",
+    "convex:smoke-ask:dev": "tsx scripts/convex/smoke-ask.ts --env-file .env.convex.dev.local",
+    "convex:set-env": "tsx scripts/convex/set-local-convex-env.ts",
+    "convex:sync:prod": "npm run convex:deploy:prod && npm run convex:upload:prod && npm run convex:check-stats:prod && npm run convex:smoke-ask:prod"
   },
   "dependencies": {
-    "astro": "^5.17.1"
+    "astro": "^5.17.1",
+    "convex": "^1.32.0",
+    "dotenv": "^17.3.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0"
   }
 }

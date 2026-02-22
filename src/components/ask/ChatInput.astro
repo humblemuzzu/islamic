@@ -1,0 +1,47 @@
+---
+import T from '../T.astro';
+---
+
+<div class="ask-input-wrapper">
+  <form id="ask-form" class="ask-form" autocomplete="off">
+    <div class="ask-input-row">
+      <input
+        type="text"
+        id="ask-input"
+        class="ask-input"
+        maxlength="500"
+        required
+        autocomplete="off"
+        aria-label="Ask a fiqh question"
+      />
+      <label for="ask-input" class="ask-input-label">
+        <T en="Type your question..." ru="Apna sawal likhein..." ur="اپنا سوال لکھیں..." />
+      </label>
+      <button type="submit" id="ask-submit" class="ask-submit">
+        <svg viewBox="0 0 24 24" fill="none" class="ask-submit-icon" aria-hidden="true">
+          <path d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="ask-submit-text">
+          <T en="Search" ru="Talaash" ur="تلاش" />
+        </span>
+      </button>
+    </div>
+  </form>
+
+  <div class="ask-examples">
+    <span class="ask-examples-label">
+      <T en="Try asking:" ru="Yeh pooch kar dekhein:" ur="یہ پوچھ کر دیکھیں:" />
+    </span>
+    <div class="ask-example-chips">
+      <button class="ask-example-chip" data-question="haiz ki muddat kitni hoti hai?">
+        <T en="Duration of haiz?" ru="Haiz ki muddat kitni hoti hai?" ur="حیض کی مدت کتنی ہوتی ہے؟" />
+      </button>
+      <button class="ask-example-chip" data-question="wuzu mein farz kitne hain?">
+        <T en="Farz of wuzu?" ru="Wuzu mein farz kitne hain?" ur="وضو میں فرض کتنے ہیں؟" />
+      </button>
+      <button class="ask-example-chip" data-question="roze mein kya cheezein makruh hain?">
+        <T en="Makruh in fasting?" ru="Roze mein kya makruh hai?" ur="روزے میں کیا مکروہ ہے؟" />
+      </button>
+    </div>
+  </div>
+</div>

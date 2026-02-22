@@ -1,0 +1,55 @@
+---
+import T from '../T.astro';
+---
+
+<section class="ask-hero">
+  <div class="pattern-overlay"></div>
+  <div class="pattern-star"></div>
+
+  <div class="ask-hero-content container">
+    <div class="ask-title-block reveal">
+      <span class="section-label">KITAB SEARCH</span>
+      <h1 class="ask-title-ar">كِتابْ سے پوچھیں</h1>
+      <h2 class="ask-title-en">
+        <T en="Ask the Books" ru="Kitab Se Poochein" ur="کتاب سے پوچھیں" />
+      </h2>
+    </div>
+
+    <div class="ask-desc reveal reveal-delay-1">
+      <p data-lang-block="en">Get answers directly from Hanafi fiqh books — Bahar-e-Shariat, Jannati Zewar, and 30+ classical texts. The books answer, not AI.</p>
+      <p data-lang-block="ru">Apne sawal ka jawab seedha Hanafi fiqh ki kutub se paayein — Bahar-e-Shariat, Jannati Zewar, aur 30+ mazeed kutub se.</p>
+      <p data-lang-block="ur">اپنے سوال کا جواب سیدھا حنفی فقہ کی کتب سے پائیں — بحارِ شریعت، جنتی زیور، اور 30+ مزید کتب سے۔</p>
+    </div>
+
+    <div class="ask-stats reveal reveal-delay-2">
+      <span class="ask-stat">
+        <span class="stat-num">33</span>
+        <T en="Books" ru="Kutub" ur="کتب" />
+      </span>
+      <span class="stat-dot">✦</span>
+      <span class="ask-stat">
+        <span class="stat-num">10,000+</span>
+        <T en="Passages" ru="Ibaarat" ur="عبارات" />
+      </span>
+      <span class="stat-dot">✦</span>
+      <span class="ask-stat">
+        <span class="stat-num">7,700+</span>
+        <T en="Pages" ru="Safhat" ur="صفحات" />
+      </span>
+    </div>
+  </div>
+
+  <div class="ask-hero-border">
+    <svg viewBox="0 0 1200 2" preserveAspectRatio="none">
+      <line x1="0" y1="1" x2="1200" y2="1" stroke="url(#goldLineAsk)" stroke-width="1" stroke-dasharray="8 12 3 12" />
+      <defs>
+        <linearGradient id="goldLineAsk">
+          <stop offset="0%" stop-color="transparent" />
+          <stop offset="30%" stop-color="#C4A265" />
+          <stop offset="70%" stop-color="#C4A265" />
+          <stop offset="100%" stop-color="transparent" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+</section>

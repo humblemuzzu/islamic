@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import AskHero from '../components/ask/AskHero.astro';
+import ChatInput from '../components/ask/ChatInput.astro';
+import LoadingState from '../components/ask/LoadingState.astro';
+import Disclaimer from '../components/ask/Disclaimer.astro';
+import '../styles/global.css';
+import '../styles/ask.css';
+---
+
+<Layout title="Kitab Se Poochein — Ask the Books | Al-Masail">
+  <Navbar />
+  <main class="ask-page">
+    <AskHero />
+
+    <section class="ask-section">
+      <div class="container ask-container">
+        <ChatInput />
+
+        <div id="ask-loading" class="ask-state" style="display: none;">
+          <LoadingState />
+        </div>
+
+        <div id="ask-error" class="ask-state" style="display: none;"></div>
+
+        <div id="ask-results" class="ask-state" style="display: none;"></div>
+
+        <div id="ask-not-found" class="ask-state" style="display: none;"></div>
+
+        <Disclaimer />
+      </div>
+    </section>
+  </main>
+  <Footer />
+
+  <script src="../scripts/ask-client.ts"></script>
+</Layout>

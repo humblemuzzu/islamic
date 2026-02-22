@@ -2,9 +2,11 @@
 dist/
 # generated types
 .astro/
+convex/_generated/
 
 # dependencies
 node_modules/
+.convex/
 
 # logs
 npm-debug.log*
@@ -20,6 +22,8 @@ pnpm-debug.log*
 scripts/ocr/.env
 scripts/ocr/.venv/
 scripts/chunking/.venv/
+.env.convex.local
+.env.convex.*.local
 
 # macOS-specific files
 .DS_Store
